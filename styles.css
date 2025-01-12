@@ -96,6 +96,22 @@ body {
         justify-content: center;
     }
 
+    .navbar-items {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar-items.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        font-size: 1.5rem;
+    }
+
     main {
         margin-left: 0;
         margin-top: 80px;
