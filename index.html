@@ -6,7 +6,7 @@
     <title>Faculty of Agriculture CSI Microscopy</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* General Styles */
+        /* Theme Colors */
         :root {
             --light-bg: #f4f4f9;
             --light-text: #333;
@@ -14,6 +14,10 @@
             --dark-text: #f4f4f9;
             --primary-color: #6200ea;
             --secondary-color: #03dac6;
+        }
+
+        /* Navbar Colors */
+        :root {
             --navbar-bg-light: #6200ea;
             --navbar-text-light: #ffffff;
             --navbar-bg-dark: #1e1e1e;
@@ -34,6 +38,7 @@
             --navbar-text: var(--navbar-text-dark);
         }
 
+        /* Body Styles */
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
@@ -43,6 +48,7 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
+        /* Navbar Styles */
         .navbar {
             position: fixed;
             top: 0;
@@ -55,12 +61,13 @@
             padding: 1rem 2rem;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             z-index: 1000;
+            flex-wrap: wrap;
         }
 
         .navbar a {
             color: var(--navbar-text);
             text-decoration: none;
-            margin: 0 1rem;
+            margin: 0 10px;
         }
 
         .navbar a:hover {
@@ -70,6 +77,7 @@
         .navbar .links {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .navbar button {
@@ -78,9 +86,10 @@
             color: var(--navbar-text);
             font-size: 1.5rem;
             cursor: pointer;
-            margin-left: 1rem;
+            margin-left: 10px;
         }
 
+        /* Main Content Styles */
         main {
             margin-top: 80px;
             padding: 2rem;
@@ -124,12 +133,18 @@
             background-color: var(--secondary-color);
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
+                justify-content: center;
             }
 
             .navbar a {
+                margin: 0.5rem 0;
+            }
+
+            .navbar button {
                 margin: 0.5rem 0;
             }
         }
@@ -163,12 +178,13 @@
 
     <script>
         const themeToggle = document.getElementById('theme-toggle');
-        document.documentElement.setAttribute('data-theme', 'light');
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
 
         themeToggle.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
             document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
         });
     </script>
 </body>
