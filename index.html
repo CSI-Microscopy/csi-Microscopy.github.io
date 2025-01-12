@@ -1,42 +1,97 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tools - CSI Microscopy</title>
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <title>Faculty of Agriculture CSI Microscopy</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav class="navbar">
-        <a href="../index.html">Home</a>
-        <a href="learning.html">Learning</a>
-        <a href="software.html">Software</a>
-        <a href="community.html">Community</a>
-        <a href="guides.html">Guides</a>
-        <a href="tools.html">Tools</a>
-        <a href="contact.html">Contact</a>
-        <button id="theme-toggle">🌓</button>
+        <div>
+            <a href="#useful-links">Useful Links</a>
+            <a href="#startup-guides">Startup Guides</a>
+            <a href="#tools">Tools</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <button id="theme-toggle" aria-label="Toggle theme">🌓</button>
     </nav>
 
-    <aside class="sidebar">
-        <h2>Useful Links</h2>
-        <ul class="link-list">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="https://forms.gle/igPJLiemJrT7ZCL56" target="_blank" rel="noopener">Project Form</a></li>
-        </ul>
-    </aside>
+    <main>
+        <header>
+            <h1>Welcome to Faculty of Agriculture CSI Microscopy</h1>
+            <p>Your hub for microscopy and image analysis resources.</p>
+        </header>
 
-    <main class="content">
+        <section id="useful-links">
+            <h2>Useful Links</h2>
+            <ul>
+                <li><a href="https://forms.gle/igPJLiemJrT7ZCL56">Project Initiation Form</a></li>
+                <li><a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/image-analysis-server/tree/main">Image Data Management and Remote Access</a></li>
+                <li><a href="https://drive.google.com/file/d/118CQXZPBCW-mHCuB_DfPmw-stnbfy4up/view?usp=sharing">Image Analysis Server Access Manual</a></li>
+            </ul>
+
+            <h3>Learning</h3>
+            <ul>
+                <li><a href="https://bitesizebio.com/13450/that-other-number-the-meaning-of-numerical-aperture-in-microscopy/">Understanding Numerical Aperture in Microscopy</a></li>
+                <li><a href="https://bitesizebio.com/22851/resolution-and-refractive-index-set-up-your-confocal-wisely/">Resolution and Refractive Index</a></li>
+                <li><a href="https://bitesizebio.com/30265/choosing-fluorophore-palette/">Choosing a Fluorophore Palette</a></li>
+                <li><a href="https://bitesizebio.com/30308/quantify-images-unbiased-way/">Quantify Images in an Unbiased Way</a></li>
+            </ul>
+
+            <h3>Books</h3>
+            <ul>
+                <li><a href="https://bioimagebook.github.io/README.html">BioImage Book</a></li>
+            </ul>
+
+            <h3>Tutorials</h3>
+            <ul>
+                <li><a href="https://www.youtube.com/@johanna.m.dela-cruz/playlists">Johanna M. Dela Cruz</a></li>
+                <li><a href="https://www.youtube.com/@haesleinhuepf/playlists">Robert Haase</a></li>
+                <li><a href="https://myscope.training/">MyScope Training</a></li>
+                <li><a href="https://myscope.training/LFM_simulator.html">Light Field Microscopy Simulator</a></li>
+                <li><a href="https://petebankhead.gitbooks.io/imagej-intro/content/">Introduction to ImageJ</a></li>
+            </ul>
+        </section>
+
+        <section id="startup-guides">
+            <h2>Startup/Shutdown Guides</h2>
+            <ul>
+                <li><a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/EVOS-M7000-widefiled">EVOS M7000 Widefield</a></li>
+                <li><a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/Stellaris-STED-Confocal">Stellaris STED Confocal</a></li>
+                <li><a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/Skyscan-1272-MicroCT">Skyscan 1272 MicroCT</a></li>
+            </ul>
+        </section>
+
         <section id="tools">
             <h2>Data Handling Tools</h2>
-            <ul class="link-list">
-                <li><a href="#" target="_blank" rel="noopener noreferrer">LIF to OME-TIFF Converter</a></li>
-                <li><a href="#" target="_blank" rel="noopener noreferrer">Batch Processing Scripts</a></li>
-                <li><a href="#" target="_blank" rel="noopener noreferrer">Analysis Pipeline</a></li>
+            <ul>
+                <li><a href="https://example.com/lif-to-ome-tiff">LIF to OME-TIFF Conversion Script</a></li>
+                <li><a href="https://example.com/batch-processing-fiji">Batch Processing with Fiji</a></li>
+                <li><a href="https://example.com/automated-pipeline">Automated Analysis Pipeline</a></li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <ul>
+                <li><a href="mailto:core.csi@mail.huji.ac.il">CSI Email</a></li>
+                <li><a href="mailto:einat.zelinger@mail.huji.ac.il">Einat Zelinger - Head of Unit</a></li>
+                <li><a href="mailto:tally.kossovsky@mail.huji.ac.il">Tally Kossovsky - Electron Microscopy</a></li>
+                <li><a href="mailto:danielw@savion.huji.ac.il">Daniel Waiger - Light Microscopy</a></li>
             </ul>
         </section>
     </main>
 
-    <script src="../assets/js/theme.js"></script>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        document.documentElement.setAttribute('data-theme', 'light');
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+        });
+    </script>
 </body>
 </html>
