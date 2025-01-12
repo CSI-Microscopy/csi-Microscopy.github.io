@@ -134,17 +134,54 @@
             --navbar-hover-bg: #444465;
             --navbar-hover-text: #ffffff;
             --button-bg: #3a3a57;
-            --button-text: #a18aff;
+            --button-text: #d4cbff;  /* Brighter text color */
             --button-hover-bg: #5a5a7e;
             --footer-bg: #1a1a28;
             --footer-text: #a18aff;
             --section-border-color: #3a3a57;
+            --link-color: #d4cbff;   /* Brighter link color */
         }
+
+        /* Add new button styles */
+        section li a {
+            display: flex;
+            align-items: center;
+            width: 250px;
+            height: 250px;
+            padding: 20px;
+            margin: 10px;
+            background: var(--button-bg);
+            color: var(--button-text);
+            text-decoration: none;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        section li a:hover {
+            background: var(--button-hover-bg);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
         .thumbnail {
-            width: 16px;
-            height: 16px;
-            margin-right: 10px;
-            vertical-align: middle;
+            width: 32px;
+            height: 32px;
+            margin-bottom: 15px;
+        }
+
+        section ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 0;
+            list-style: none;
+        }
+
+        section li {
+            margin: 0;
         }
     </style>
 </head>
