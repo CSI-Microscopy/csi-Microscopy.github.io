@@ -8,7 +8,6 @@
     <meta name="keywords" content="Microscopy, Image Analysis, Learning, Software, Tools, Guides, Community">
     <meta name="author" content="Faculty of Agriculture CSI Microscopy">
     <title>Faculty of Agriculture CSI Microscopy</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,6 +16,8 @@
             flex-direction: row;
             background: var(--background-color);
             color: var(--text-color);
+            font-size: 1rem; /* Larger base font size for better readability */
+            line-height: 1.6; /* Adjust line height for improved readability */
         }
         .navbar {
             position: fixed;
@@ -72,6 +73,7 @@
             display: flex;
             flex-direction: column;
             border-bottom: 1px solid var(--section-border-color);
+            overflow-y: auto; /* Allow scrolling for large sections */
         }
         footer {
             background: var(--footer-bg);
@@ -97,7 +99,7 @@
             --section-border-color: #ddd;
         }
         [data-theme="dark"] {
-            --background-color: #1e1e2f;
+            --background-color: #1c1c2b; /* Slightly lighter than navbar for contrast */
             --text-color: #a18aff;
             --navbar-bg: #1e1e2f;
             --navbar-text: #a18aff;
@@ -119,6 +121,7 @@
     <nav class="navbar">
         <a href="#home">Home</a>
         <a href="#useful-links">Useful Links</a>
+        <a href="#learning">Learning</a>
         <a href="#startup-shutdown-guides">Startup/Shutdown Guides</a>
         <a href="#data-handling-tools">Data Handling Tools</a>
         <a href="#contributing">Contributing</a>
@@ -141,35 +144,20 @@
             </ul>
         </section>
 
+        <section id="learning">
+            <h2>Learning</h2>
+            <p>Explore articles, books, and tutorials to enhance your microscopy knowledge.</p>
+            <ul>
+                <li><a href="https://bitesizebio.com/13450/that-other-number-the-meaning-of-numerical-aperture-in-microscopy/" target="_blank">Understanding Numerical Aperture in Microscopy</a></li>
+                <li><a href="https://bitesizebio.com/22851/resolution-and-refractive-index-set-up-your-confocal-wisely/" target="_blank">Resolution and Refractive Index</a></li>
+            </ul>
+        </section>
+
         <section id="startup-shutdown-guides">
             <h2>Startup/Shutdown Guides</h2>
             <p>Quick reference guides to help you efficiently start up and shut down your microscopy equipment:</p>
             <ul>
                 <li><a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/EVOS-M7000-widefiled" target="_blank">EVOS M7000</a></li>
-                <li><a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/Stellaris-STED-Confocal" target="_blank">Stellaris STED Confocal</a></li>
-                <li><a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/Skyscan-1272-MicroCT" target="_blank">Skyscan 1272 MicroCT</a></li>
-            </ul>
-        </section>
-
-        <section id="data-handling-tools">
-            <h2>Data Handling Tools</h2>
-            <p>Explore our collection of scripts and tools for handling data from various microscopes:</p>
-            <ul>
-                <li><a href="https://example.com/lif-to-ome-tiff">LIF to OME-TIFF Conversion Script</a></li>
-                <li><a href="https://example.com/batch-processing-fiji">Batch Processing with Fiji</a></li>
-            </ul>
-        </section>
-
-        <section id="contributing">
-            <h2>Contributing</h2>
-            <p>We welcome contributions from the community! If you have a tutorial, guide, or tool that you think would be beneficial, please follow our <a href="https://example.com/contributing" target="_blank">contribution guidelines</a>.</p>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>For any questions or support, please reach out to us:</p>
-            <ul>
-                <li>Email: <a href="mailto:core.csi@mail.huji.ac.il">core.csi@mail.huji.ac.il</a></li>
             </ul>
         </section>
 
@@ -189,29 +177,10 @@
             });
         });
 
-        // Highlight active section in the navbar
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.navbar a');
-
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href').substring(1) === entry.target.id) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        }, { threshold: 0.3 });
-
-        sections.forEach(section => observer.observe(section));
-
         // Theme toggle functionality
         const themeToggle = document.getElementById('theme-toggle');
         themeToggle.addEventListener('click', () => {
-            document.documentElement.dataset.theme = 
+            document.documentElement.dataset.theme =
                 document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
         });
     </script>
