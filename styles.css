@@ -60,12 +60,12 @@ body {
     flex-direction: column;
     z-index: 1000;
     overflow-y: auto;
-    width: 200px; /* Reduced from 240px */
+    width: 150px; /* Reduced from 240px */
     transition: all 0.3s ease;
 }
 
 .navbar.collapsed {
-    width: 80px;
+    width: 60px;
 }
 
 .navbar a {
@@ -132,7 +132,7 @@ main {
     }
 
     main {
-        margin-left: 0;
+        margin-left: 20;
         margin-top: 60px;
         padding: 20px;
     }
