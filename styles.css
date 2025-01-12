@@ -58,7 +58,7 @@ body {
     overflow-y: auto;
     width: 20vw; /* Use viewport width */
     transition: all 0.3s ease;
-    position: sticky; /* Ensure navbar is always visible */
+    position: fixed; /* Ensure navbar is always visible */
     height: 100vh; /* Full height of the viewport */
 }
 
