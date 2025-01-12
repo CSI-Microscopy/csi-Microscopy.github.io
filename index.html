@@ -1,2 +1,219 @@
+
 <!DOCTYPE html>
-    <html lang="en">...</html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Faculty of Agriculture CSI Microscopy - Resource hub for microscopy tools, guides, and tutorials.">
+    <meta name="keywords" content="Microscopy, Image Analysis, Learning, Software, Tools, Guides, Community">
+    <meta name="author" content="Faculty of Agriculture CSI Microscopy">
+    <title>Faculty of Agriculture CSI Microscopy</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: row;
+            background: var(--background-color);
+            color: var(--text-color);
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 240px;
+            height: 100%;
+            background: var(--navbar-bg);
+            color: var(--navbar-text);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        .navbar a {
+            color: var(--navbar-link);
+            text-decoration: none;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+        }
+        .navbar a.active {
+            background: var(--navbar-active-bg);
+            color: var(--navbar-active-text);
+        }
+        .navbar a:hover {
+            background: var(--navbar-hover-bg);
+            color: var(--navbar-hover-text);
+        }
+        .navbar button {
+            margin-top: 20px;
+            padding: 10px;
+            background: var(--button-bg);
+            color: var(--button-text);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .navbar button:hover {
+            background: var(--button-hover-bg);
+        }
+        main {
+            margin-left: 240px;
+            padding: 20px;
+            flex: 1;
+        }
+        section {
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            border-bottom: 1px solid var(--section-border-color);
+        }
+        footer {
+            background: var(--footer-bg);
+            color: var(--footer-text);
+            text-align: center;
+            padding: 20px;
+        }
+        [data-theme="light"] {
+            --background-color: #fdfcf6;
+            --text-color: #5c4033;
+            --navbar-bg: #f5f5f0;
+            --navbar-text: #5c4033;
+            --navbar-link: #5c4033;
+            --navbar-active-bg: #d9c3b1;
+            --navbar-active-text: #3b261b;
+            --navbar-hover-bg: #ebdfd1;
+            --navbar-hover-text: #3b261b;
+            --button-bg: #d9c3b1;
+            --button-text: #3b261b;
+            --button-hover-bg: #c4a995;
+            --footer-bg: #f5f5f0;
+            --footer-text: #5c4033;
+            --section-border-color: #ddd;
+        }
+        [data-theme="dark"] {
+            --background-color: #1e1e2f;
+            --text-color: #a18aff;
+            --navbar-bg: #1e1e2f;
+            --navbar-text: #a18aff;
+            --navbar-link: #a18aff;
+            --navbar-active-bg: #2b2b40;
+            --navbar-active-text: #ffffff;
+            --navbar-hover-bg: #3a3a57;
+            --navbar-hover-text: #ffffff;
+            --button-bg: #3a3a57;
+            --button-text: #a18aff;
+            --button-hover-bg: #5a5a7e;
+            --footer-bg: #1e1e2f;
+            --footer-text: #a18aff;
+            --section-border-color: #3a3a57;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#useful-links">Useful Links</a>
+        <a href="#startup-shutdown-guides">Startup/Shutdown Guides</a>
+        <a href="#data-handling-tools">Data Handling Tools</a>
+        <a href="#contributing">Contributing</a>
+        <a href="#contact">Contact</a>
+        <button id="theme-toggle">Toggle Theme</button>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h1>Faculty of Agriculture CSI Microscopy</h1>
+            <p>Welcome to the <strong>Faculty of Agriculture CSI Microscopy</strong> GitHub organization! This repository serves as a resource hub for our users, providing essential tools, guides, and tutorials related to microscopy and image analysis.</p>
+        </section>
+
+        <section id="useful-links">
+            <h2>Useful Links</h2>
+            <ul>
+                <li><a href="https://forms.gle/igPJLiemJrT7ZCL56" target="_blank">Project Initiation Form</a></li>
+                <li><a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/image-analysis-server/tree/main" target="_blank">Image Data Management</a></li>
+                <li><a href="https://drive.google.com/file/d/118CQXZPBCW-mHCuB_DfPmw-stnbfy4up/view" target="_blank">Server Access Manual</a></li>
+            </ul>
+        </section>
+
+        <section id="startup-shutdown-guides">
+            <h2>Startup/Shutdown Guides</h2>
+            <p>Quick reference guides to help you efficiently start up and shut down your microscopy equipment:</p>
+            <ul>
+                <li><a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/EVOS-M7000-widefiled" target="_blank">EVOS M7000</a></li>
+                <li><a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/Stellaris-STED-Confocal" target="_blank">Stellaris STED Confocal</a></li>
+                <li><a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/Skyscan-1272-MicroCT" target="_blank">Skyscan 1272 MicroCT</a></li>
+            </ul>
+        </section>
+
+        <section id="data-handling-tools">
+            <h2>Data Handling Tools</h2>
+            <p>Explore our collection of scripts and tools for handling data from various microscopes:</p>
+            <ul>
+                <li><a href="https://example.com/lif-to-ome-tiff">LIF to OME-TIFF Conversion Script</a></li>
+                <li><a href="https://example.com/batch-processing-fiji">Batch Processing with Fiji</a></li>
+            </ul>
+        </section>
+
+        <section id="contributing">
+            <h2>Contributing</h2>
+            <p>We welcome contributions from the community! If you have a tutorial, guide, or tool that you think would be beneficial, please follow our <a href="https://example.com/contributing" target="_blank">contribution guidelines</a>.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>For any questions or support, please reach out to us:</p>
+            <ul>
+                <li>Email: <a href="mailto:core.csi@mail.huji.ac.il">core.csi@mail.huji.ac.il</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Faculty of Agriculture CSI Microscopy</p>
+        </footer>
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.navbar a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Highlight active section in the navbar
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.navbar a');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').substring(1) === entry.target.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sections.forEach(section => observer.observe(section));
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.dataset.theme = 
+                document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+        });
+    </script>
+</body>
+</html>
