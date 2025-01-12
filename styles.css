@@ -48,87 +48,73 @@ body {
     --link-color: #d4cbff;
 }
 
-/* Desktop Navigation */
+/* Base Layout */
 .navbar {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 200px;
-    height: 100vh;
+    display: flex;
     background: var(--navbar-bg);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 20px 0;
     z-index: 1000;
+    transition: all 0.3s ease;
 }
 
-/* Navigation Items */
-.navbar a {
-    color: var(--navbar-link);
-    text-decoration: none;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border-radius: 5px;
-    transition: background 0.3s, color 0.3s;
+/* Desktop Navigation */
+@media (min-width: 769px) and (orientation: landscape) {
+    .navbar {
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 100vh;
+        flex-direction: column;
+        padding: 20px 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .navbar a {
+        margin: 5px 10px;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    main {
+        margin-left: 200px;
+        padding: 20px 40px;
+    }
 }
 
-.navbar a .icon {
-    margin-right: 10px;
-}
-
-.navbar.collapsed a .text {
-    display: none;
-}
-
-.navbar a.active {
-    background: var(--navbar-active-bg);
-    color: var(--navbar-active-text);
-}
-
-.navbar a:hover {
-    background: var(--navbar-hover-bg);
-    color: var(--navbar-hover-text);
-}
-
-/* Layout */
-main {
-    margin-left: 200px; /* Match navbar width */
-    padding: 20px 40px;
-    flex: 1;
-    transition: margin-left 0.3s ease;
-}
-
-.navbar.collapsed + main {
-    margin-left: 80px;
-}
-
-/* Mobile & Portrait Layout */
+/* Mobile/Portrait Navigation */
 @media (max-width: 768px), (orientation: portrait) {
     body {
         flex-direction: column;
     }
 
     .navbar {
-        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
         height: auto;
-        max-height: 60px;
         flex-direction: row;
         overflow-x: auto;
         padding: 10px;
-        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+
+    .navbar::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Edge */
     }
 
     .navbar a {
-        padding: 8px 15px;
+        flex: 0 0 auto;
+        margin: 0 5px;
+        padding: 10px 15px;
+        white-space: nowrap;
+        border-radius: 8px;
     }
 
     main {
         margin-left: 0;
-        margin-top: 80px;
+        margin-top: 70px;
         padding: 20px;
     }
 
@@ -146,6 +132,50 @@ main {
     .navbar a {
         padding: 12px 20px;
     }
+}
+
+/* Navigation Items */
+.navbar a {
+    color: var(--navbar-link);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.navbar a:hover {
+    background: var(--navbar-hover-bg);
+    color: var(--navbar-hover-text);
+}
+
+.navbar .icon {
+    font-size: 1.2em;
+}
+
+.navbar a .icon {
+    margin-right: 10px;
+}
+
+.navbar.collapsed a .text {
+    display: none;
+}
+
+.navbar a.active {
+    background: var(--navbar-active-bg);
+    color: var(--navbar-active-text);
+}
+
+/* Layout */
+main {
+    margin-left: 200px; /* Match navbar width */
+    padding: 20px 40px;
+    flex: 1;
+    transition: margin-left 0.3s ease;
+}
+
+.navbar.collapsed + main {
+    margin-left: 80px;
 }
 
 /* Sections */
@@ -219,4 +249,8 @@ footer {
 
 .theme-toggle i {
     font-size: 1.5rem;
+}
+
+#collapse-toggle {
+    display: none;
 }
