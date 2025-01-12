@@ -48,39 +48,35 @@ body {
     --link-color: #d4cbff;
 }
 
-/* Navigation */
+/* Navbar */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
     background: var(--navbar-bg);
     color: var(--navbar-text);
     display: flex;
     flex-direction: column;
     z-index: 1000;
     overflow-y: auto;
-    width: 200px; /* Reduced from 240px */
+    width: 20vw; /* Use viewport width */
     transition: all 0.3s ease;
 }
 
 .navbar.collapsed {
-    width: 80px;
+    width: 8vw; /* Use viewport width */
 }
 
 .navbar a {
     color: var(--navbar-link);
     text-decoration: none;
-    margin: 10px 0;
-    padding: 4px 4px 4px 26px;
-    border-radius: 5px;
+    margin: 1vh 0; /* Use viewport height */
+    padding: 0.4vh 0.4vw 0.4vh 2.6vw; /* Use viewport units */
+    border-radius: 0.5vh; /* Use viewport height */
     display: flex;
     align-items: center;
     transition: background 0.3s, color 0.3s;
 }
 
 .navbar a .icon {
-    margin-right: 10px;
+    margin-right: 1vw; /* Use viewport width */
 }
 
 .navbar.collapsed a .text {
@@ -143,6 +139,30 @@ main {
 
     section ul {
         justify-content: center;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        font-size: 4vw; /* Adjust font size for mobile devices */
+    }
+
+    .navbar {
+        width: 40vw; /* Adjust navbar width for mobile devices */
+    }
+
+    .navbar.collapsed {
+        width: 20vw; /* Adjust collapsed navbar width for mobile devices */
+    }
+
+    .navbar a {
+        margin: 2vh 0; /* Adjust margin for mobile devices */
+        padding: 1vh 1vw 1vh 3vw; /* Adjust padding for mobile devices */
+    }
+
+    .navbar a .icon {
+        margin-right: 2vw; /* Adjust icon margin for mobile devices */
     }
 }
 
