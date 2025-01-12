@@ -58,6 +58,8 @@ body {
     overflow-y: auto;
     width: 20vw; /* Use viewport width */
     transition: all 0.3s ease;
+    position: sticky; /* Ensure navbar is always visible */
+    height: 100vh; /* Full height of the viewport */
 }
 
 .navbar.collapsed {
@@ -146,14 +148,17 @@ main {
 @media (max-width: 600px) {
     body {
         font-size: 4vw; /* Adjust font size for mobile devices */
+        flex-direction: column; /* Stack elements vertically */
     }
 
     .navbar {
-        width: 40vw; /* Adjust navbar width for mobile devices */
+        width: 100vw; /* Full width of the viewport */
+        height: auto; /* Adjust height to content */
+        position: sticky; /* Remove fixed positioning */
     }
 
     .navbar.collapsed {
-        width: 20vw; /* Adjust collapsed navbar width for mobile devices */
+        width: 100vw; /* Full width of the viewport */
     }
 
     .navbar a {
@@ -204,7 +209,7 @@ section li a:hover {
 section ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 2vw; /* Use viewport width */
     padding: 0;
     list-style: none;
 }
@@ -215,9 +220,9 @@ section li {
 
 /* Images */
 .thumbnail {
-    width: 32px;
-    height: 32px;
-    margin-bottom: 15px;
+    width: 8vw; /* Use viewport width */
+    height: 8vw; /* Use viewport width */
+    margin-bottom: 2vh; /* Use viewport height */
 }
 
 /* Footer */
