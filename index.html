@@ -50,7 +50,7 @@
             background-color: var(--navbar-bg);
             color: var(--navbar-text);
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
             padding: 1rem 2rem;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -67,13 +67,18 @@
             text-decoration: underline;
         }
 
+        .navbar .links {
+            display: flex;
+            align-items: center;
+        }
+
         .navbar button {
             background: none;
             border: none;
             color: var(--navbar-text);
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             cursor: pointer;
-            padding: 0.5rem;
+            margin-left: 1rem;
         }
 
         main {
@@ -132,15 +137,15 @@
 </head>
 <body>
     <nav class="navbar">
-        <div>
+        <div class="links">
             <a href="index.html">Home</a>
             <a href="learning.html">Learning</a>
             <a href="software.html">Software</a>
             <a href="community.html">Community</a>
             <a href="guides.html">Guides</a>
             <a href="tools.html">Tools</a>
+            <button id="theme-toggle" aria-label="Toggle theme">🌓</button>
         </div>
-        <button id="theme-toggle" aria-label="Toggle theme">🌓</button>
     </nav>
 
     <main>

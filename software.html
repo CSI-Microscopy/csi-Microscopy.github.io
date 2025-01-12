@@ -51,7 +51,7 @@
             background-color: var(--navbar-bg);
             color: var(--navbar-text);
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
             padding: 1rem 2rem;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -70,6 +70,7 @@
 
         .navbar .links {
             display: flex;
+            align-items: center;
         }
 
         .navbar button {
@@ -78,27 +79,62 @@
             color: var(--navbar-text);
             font-size: 1.5rem;
             cursor: pointer;
+            margin-left: 1rem;
         }
 
         main {
             margin-top: 80px;
             padding: 2rem;
+            text-align: center;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             margin-bottom: 1.5rem;
             color: var(--primary-color);
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             line-height: 1.8;
             max-width: 800px;
             margin: 0 auto;
         }
-    </style>
-</head>
+
+        .content-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .content-links a {
+            display: block;
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: var(--navbar-text-light);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .content-links a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+            }
+
+            .navbar a {
+                margin: 0.5rem 0;
+            }
+        }
+    </style></head>
 <body>
     <nav class="navbar">
         <div class="links">
