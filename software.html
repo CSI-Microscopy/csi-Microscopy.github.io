@@ -1,5 +1,120 @@
 
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+        :root {
+            --light-bg: #f4f4f9;
+            --light-text: #333;
+            --dark-bg: #121212;
+            --dark-text: #f4f4f9;
+            --primary-color: #6200ea;
+            --secondary-color: #03dac6;
+            --navbar-bg-light: #6200ea;
+            --navbar-text-light: #ffffff;
+            --navbar-bg-dark: #1e1e1e;
+            --navbar-text-dark: #e0e0e0;
+        }
+
+        [data-theme="light"] {
+            --bg: var(--light-bg);
+            --text: var(--light-text);
+            --navbar-bg: var(--navbar-bg-light);
+            --navbar-text: var(--navbar-text-light);
+        }
+
+        [data-theme="dark"] {
+            --bg: var(--dark-bg);
+            --text: var(--dark-text);
+            --navbar-bg: var(--navbar-bg-dark);
+            --navbar-text: var(--navbar-text-dark);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            font-size: 1.2rem;
+            background-color: var(--bg);
+            color: var(--text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--navbar-bg);
+            color: var(--navbar-text);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: var(--navbar-text);
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .navbar .links {
+            display: flex;
+        }
+
+        .navbar button {
+            background: none;
+            border: none;
+            color: var(--navbar-text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        main {
+            margin-top: 80px;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="learning.html">Learning</a>
+            <a href="software.html">Software</a>
+            <a href="community.html">Community</a>
+            <a href="guides.html">Guides</a>
+            <a href="tools.html">Tools</a>
+        </div>
+        <button id="theme-toggle" aria-label="Toggle theme">🌓</button>
+    </nav>
+
+    <main>
+        
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
@@ -72,5 +187,20 @@
 </html>
     </main>
     <script src="../assets/js/theme.js"></script>
+</body>
+</html>
+
+    </main>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        document.documentElement.setAttribute('data-theme', 'light');
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+        });
+    </script>
 </body>
 </html>
