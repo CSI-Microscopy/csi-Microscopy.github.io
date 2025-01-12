@@ -48,7 +48,7 @@ body {
     --link-color: #d4cbff;
 }
 
-/* Navigation */
+/* Navigation - Desktop */
 .navbar {
     position: fixed;
     top: 0;
@@ -59,19 +59,15 @@ body {
     display: flex;
     flex-direction: column;
     z-index: 1000;
-    overflow-y: auto;
-    width: 150px; /* Reduced from 240px */
+    width: 200px;
     transition: all 0.3s ease;
 }
 
-.navbar.collapsed {
-    width: 60px;
-}
-
+/* Navigation Items */
 .navbar a {
     color: var(--navbar-link);
     text-decoration: none;
-    margin: 10px 0;
+    margin: 5px 0;
     padding: 10px;
     border-radius: 5px;
     display: flex;
@@ -109,32 +105,48 @@ main {
     margin-left: 80px;
 }
 
-/* Media Query for Portrait/Mobile */
+/* Mobile Navigation */
 @media (max-width: 768px), (orientation: portrait) {
     .navbar {
-        position: sticky;
+        position: fixed;
         top: 0;
+        left: 0;
         width: 100%;
         height: auto;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
+        flex-direction: column;
+        padding: 10px;
+        overflow-x: auto;
     }
 
     .navbar a {
-        font-size: 0.9rem;
-        padding: 8px;
+        width: 100%;
+        padding: 12px;
+        margin: 2px 0;
     }
 
-    .navbar.collapsed {
-        width: 100%;
+    .navbar a .icon {
+        margin-right: 15px;
+        font-size: 1.2em;
     }
 
     main {
-        margin-left: 20;
-        margin-top: 60px;
+        margin-left: 0;
+        margin-top: 400px; /* Adjust based on navbar height */
         padding: 20px;
+    }
+
+    /* Container for nav items */
+    .navbar-items {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Theme toggle positioning */
+    .theme-toggle {
+        position: absolute;
+        top: 10px;
+        right: 10px;
     }
 
     #collapse-toggle {
@@ -143,6 +155,13 @@ main {
 
     section ul {
         justify-content: center;
+    }
+}
+
+/* Ensure touch targets are large enough */
+@media (hover: none) and (pointer: coarse) {
+    .navbar a {
+        min-height: 44px;
     }
 }
 
