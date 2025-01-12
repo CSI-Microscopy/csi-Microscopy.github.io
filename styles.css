@@ -58,7 +58,7 @@ body {
 }
 
 /* Desktop/Landscape Navigation */
-@media (orientation: landscape) {
+@media (min-width: 769px) {
     .navbar {
         top: 0;
         left: 0;
@@ -76,12 +76,12 @@ body {
 }
 
 /* Portrait/Mobile Navigation */
-@media (orientation: portrait) {
+@media (max-width: 768px), (orientation: portrait) {
     .navbar {
         top: 0;
         left: 0;
         width: 100%;
-        height: 80px;
+        height: auto;
         flex-direction: row;
         justify-content: space-between;
         padding: 10px;
@@ -98,7 +98,7 @@ body {
 
     main {
         margin-left: 0;
-        margin-top: 100px;
+        margin-top: 80px;
         padding: 20px;
     }
 }
