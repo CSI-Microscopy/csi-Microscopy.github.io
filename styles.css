@@ -56,13 +56,12 @@ body {
     height: 100%;
     background: var(--navbar-bg);
     color: var(--navbar-text);
-    padding: 20px;
     display: flex;
     flex-direction: column;
     z-index: 1000;
     overflow-y: auto;
-    width: 240px;
-    transition: width 0.3s ease;
+    width: 200px; /* Reduced from 240px */
+    transition: all 0.3s ease;
 }
 
 .navbar.collapsed {
@@ -100,14 +99,51 @@ body {
 
 /* Layout */
 main {
-    margin-left: 240px;
-    padding: 40px 20px 20px 20px;
+    margin-left: 200px; /* Match navbar width */
+    padding: 40px 20px 20px 40px; /* Added left padding */
     flex: 1;
     transition: margin-left 0.3s ease;
 }
 
 .navbar.collapsed + main {
     margin-left: 80px;
+}
+
+/* Media Query for Portrait/Mobile */
+@media (max-width: 768px), (orientation: portrait) {
+    .navbar {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .navbar a {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .navbar.collapsed {
+        width: 100%;
+    }
+
+    main {
+        margin-left: 0;
+        margin-top: 60px;
+        padding: 20px;
+    }
+
+    #collapse-toggle {
+        display: none; /* Hide collapse button on mobile */
+    }
+
+    section ul {
+        justify-content: center;
+    }
 }
 
 /* Sections */
