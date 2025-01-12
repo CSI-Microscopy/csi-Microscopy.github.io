@@ -1,32 +1,42 @@
 :root {
-    --bg-primary: #ffffff;
-    --text-primary: #333333;
-    --accent-color: #2563eb;
-    --nav-bg: #f8f9fa;
-}
-
-[data-theme="dark"] {
-    --bg-primary: #1a1a1a;
-    --text-primary: #ffffff;
-    --accent-color: #3b82f6;
-    --nav-bg: #2d2d2d;
-}
-
-body {
+    --bg: #f0f0f0;
+    --text: #333;
+    --navbar-bg: #eee;
+  }
+  
+  [data-theme="dark"] {
+    --bg: #1a1a1a;
+    --text: #fff;
+    --navbar-bg: #333;
+  }
+  
+  body {
     margin: 0;
-    font-family: system-ui, -apple-system, sans-serif;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
+    background: var(--bg);
+    color: var(--text);
+    font-family: sans-serif;
+  }
+  
+  .navbar {
+    display: flex;
+    gap: 1rem;
+    background: var(--navbar-bg);
     padding: 1rem;
-}
-
-@media (max-width: 768px) {
-    .container { padding: 0.5rem; }
-    h1 { font-size: 1.5rem; }
-}
+  }
+  
+  .layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 1rem;
+    margin: 1rem;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+  
+  .sidebar {
+    background: #fafafa;
+    padding: 1rem;
+    border: 1px solid #ccc;
+  }

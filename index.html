@@ -1,218 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faculty of Agriculture CSI Microscopy</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <style>
-        :root {
-            --bg-primary: #f8fafc;
-            --text-primary: #1e293b;
-            --accent-color: #3b82f6;
-            --nav-bg: rgba(248, 250, 252, 0.8);
-            --hover-color: #2563eb;
-            --card-bg: #ffffff;
-            --border-color: #e2e8f0;
-            --link-color: #2563eb;
-        }
-
-        [data-theme="dark"] {
-            --bg-primary: #0f172a;
-            --text-primary: #e2e8f0;
-            --accent-color: #60a5fa;
-            --nav-bg: rgba(15, 23, 42, 0.8);
-            --hover-color: #93c5fd;
-            --card-bg: #1e293b;
-            --border-color: #334155;
-            --link-color: #93c5fd;
-        }
-
-        .navbar {
-            position: sticky;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            backdrop-filter: blur(4px);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        #theme-toggle {
-            font-size: 2.5rem;
-            padding: 1.2rem;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-            color: var(--text-primary);
-            transition: all 0.3s ease;
-        }
-
-        #theme-toggle:hover {
-            transform: rotate(45deg);
-        }
-
-        .link-list a {
-            color: var(--link-color);
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .link-list a:hover {
-            color: var(--hover-color);
-            text-decoration: underline;
-        }
-
-        main.container {
-            margin-top: 5rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>CSI Microscopy - Home</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-brand">CSI Microscopy</div>
-        <button id="theme-toggle" aria-label="Toggle theme">🌓</button>
-    </nav>
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="pages/learning.html">Learning</a>
+    <a href="pages/software.html">Software</a>
+    <a href="pages/community.html">Community</a>
+    <a href="pages/guides.html">Guides</a>
+    <a href="pages/tools.html">Tools</a>
+    <a href="pages/contact.html">Contact</a>
+    <button id="theme-toggle">🌓</button>
+  </nav>
 
-    <main class="container">
-        <section class="hero">
-            <h1>Faculty of Agriculture CSI Microscopy</h1>
-            <p>Welcome to the Faculty of Agriculture CSI Microscopy GitHub organization! This repository serves as a resource hub for our users, providing essential tools, guides, and tutorials related to microscopy and image analysis.</p>
-        </section>
+  <main>
+    <h1>Welcome to CSI Microscopy</h1>
+    <p>Introduction or hero section text goes here.</p>
+  </main>
 
-        <nav class="content" id="table-of-contents">
-            <h2>Contents</h2>
-            <ul class="nav-list">
-                <li><a href="#useful-links">Useful Links</a></li>
-                <li><a href="#learning">Learning</a></li>
-                <li><a href="#software">Software</a></li>
-                <li><a href="#community">Community</a></li>
-                <li><a href="#guides">Startup/Shutdown Guides</a></li>
-                <li><a href="#tools">Data Handling Tools</a></li>
-                <li><a href="#contributing">Contributing</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-
-        <section class="content" id="useful-links">
-            <h2>Useful Links</h2>
-            <ul class="link-list">
-                <li><a href="https://forms.gle/igPJLiemJrT7ZCL56">Project Initiation Form</a></li>
-                <li><a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/image-analysis-server/tree/main">Image Data Management and Remote Access</a></li>
-                <li><a href="https://drive.google.com/file/d/118CQXZPBCW-mHCuB_DfPmw-stnbfy4up/view?usp=sharing">Image Analysis Server Access Manual - For HUJI Users</a></li>
-            </ul>
-        </section>
-
-        <section class="content" id="learning">
-            <h2>Learning</h2>
-            <div class="subsection">
-                <h3>Articles</h3>
-                <ul class="link-list">
-                    <li><a href="https://bitesizebio.com/13450/that-other-number-the-meaning-of-numerical-aperture-in-microscopy/">Understanding Numerical Aperture in Microscopy</a></li>
-                    <li><a href="https://bitesizebio.com/22851/resolution-and-refractive-index-set-up-your-confocal-wisely/">Resolution and Refractive Index: Setting Up Your Confocal Microscope</a></li>
-                    <li><a href="https://bitesizebio.com/30265/choosing-fluorophore-palette/">Choosing a Fluorophore Palette</a></li>
-                    <li><a href="https://bitesizebio.com/30308/quantify-images-unbiased-way/">Quantify Images in an Unbiased Way</a></li>
-                </ul>
-            </div>
-
-            <div class="subsection">
-                <h3>Books</h3>
-                <ul class="link-list">
-                    <li><a href="https://bioimagebook.github.io/README.html">BioImage Book: An introduction to bioimage analysis using open-source tools</a></li>
-                </ul>
-            </div>
-
-            <div class="subsection">
-                <h3>Tutorials</h3>
-                <ul class="link-list">
-                    <li><a href="https://www.youtube.com/@johanna.m.dela-cruz/playlists">Johanna M. Dela Cruz: Optical microscopy and image processing tutorials</a></li>
-                    <li><a href="https://www.youtube.com/@haesleinhuepf/playlists">Robert Haase (haesleinhuepf): Fiji, CLIJ, Clesperanto tutorials</a></li>
-                    <li><a href="https://myscope.training/">MyScope Training: Comprehensive microscopy techniques</a></li>
-                    <li><a href="https://myscope.training/LFM_simulator.html">Light Field Microscopy Simulator</a></li>
-                    <li><a href="https://petebankhead.gitbooks.io/imagej-intro/content/">Introduction to ImageJ</a></li>
-                    <li><a href="https://focalplane.biologists.com/2023/03/02/rescaling-images-and-pixel-anisotropy/">Rescaling Images and Pixel Anisotropy</a></li>
-                    <li><a href="https://microscopy.unimelb.edu.au/om/capabilities/fiji-workshop-resources">Fiji Workshop Resources</a></li>
-                    <li><a href="https://cellobservatory.atlassian.net/wiki/spaces/BIMGP/pages/2427645/Image+Analysis+Training+Material">Image Analysis Training Material</a></li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="content" id="software">
-            <h2>Software</h2>
-            <div class="subsection">
-                <h3>Image Analysis and Processing</h3>
-                <ul class="link-list">
-                    <li><a href="https://fiji.sc/">Fiji: Open-source platform for biological-image analysis</a></li>
-                    <li><a href="https://www.ilastik.org/">Ilastik: Image classification and segmentation</a></li>
-                    <li><a href="https://icy.bioimageanalysis.org/">Icy: Bioimage analysis software</a></li>
-                    <li><a href="https://qupath.github.io/">QuPath: Digital pathology and bioimage analysis</a></li>
-                    <li><a href="https://napari.org/stable/">Napari: Multi-dimensional image viewer for Python</a></li>
-                    <li><a href="https://clij.github.io/">CLIJ: GPU-accelerated image processing</a></li>
-                    <li><a href="https://clesperanto.github.io/">clEsperanto: GPU-accelerated image processing platform</a></li>
-                    <li><a href="https://www.apeer.com/home/">APEER: Web-based annotation tool</a></li>
-                    <li><a href="https://imaris.oxinst.com/">Imaris: 3D/4D microscopy visualization</a></li>
-                    <li><a href="https://www.arivis.com/">Arivis: 3D/4D image visualization</a></li>
-                    <li><a href="https://www.aivia-software.com/news">Aivia: Scientific image analysis software</a></li>
-                </ul>
-            </div>
-
-            <div class="subsection">
-                <h3>Tools and Calculators</h3>
-                <ul class="link-list">
-                    <li><a href="https://svi.nl/Nyquist-Calculator">Nyquist Calculator: Calculate sampling rate for microscopy</a></li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="content" id="community">
-            <h2>Community</h2>
-            <div class="subsection">
-                <h3>Forums and Support</h3>
-                <ul class="link-list">
-                    <li><a href="https://forum.image.sc/">Image.sc Forum: Community discussion and support</a></li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="content" id="guides">
-            <h2>Startup/Shutdown Guides</h2>
-            <ul class="link-list">
-                <li><a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/EVOS-M7000-widefiled">EVOS M7000 widefiled</a></li>
-                <li><a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/Stellaris-STED-Confocal">Stellaris STED Confocal</a></li>
-                <li><a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/Skyscan-1272-MicroCT">Skyscan 1272 MicroCT</a></li>
-                <li>SP8 Confocal (Work In Progress)</li>
-                <li>Luxendo MuVi SPIM Light Sheet (Work In Progress)</li>
-                <li>IT-100 SEM (Work In Progress)</li>
-                <li>JSM-7800 SEM (Work In Progress)</li>
-                <li>Liquid Nitrogen (Work In Progress)</li>
-            </ul>
-        </section>
-
-        <section class="content" id="tools">
-            <h2>Data Handling Tools</h2>
-            <ul class="link-list">
-                <li><a href="#">LIF to OME-TIFF Conversion Script</a></li>
-                <li><a href="#">Batch Processing with Fiji</a></li>
-                <li><a href="#">Automated Analysis Pipeline</a></li>
-            </ul>
-        </section>
-
-        <section class="content" id="contributing">
-            <h2>Contributing</h2>
-            <p>We welcome contributions from the community! If you have a tutorial, guide, or tool that you think would be beneficial, please follow our contribution guidelines.</p>
-        </section>
-
-        <section class="content" id="contact">
-            <h2>Contact</h2>
-            <ul class="contact-list">
-                <li><a href="mailto:core.csi@mail.huji.ac.il">CSI Email</a></li>
-                <li><a href="mailto:einat.zelinger@mail.huji.ac.il">Einat Zelinger - Head of Unit</a></li>
-                <li><a href="mailto:tally.kossovsky@mail.huji.ac.il">Tally Kossovsky - Electron Microscopy and MicroCT</a></li>
-                <li><a href="mailto:danielw@savion.huji.ac.il">Daniel Waiger - Light Microscopy, Image Analysis, 3D CAD modeling, and 3D printing</a></li>
-            </ul>
-        </section>
-    </main>
-
-    <script src="assets/js/theme.js"></script>
+  <script src="assets/js/theme.js"></script>
 </body>
 </html>
