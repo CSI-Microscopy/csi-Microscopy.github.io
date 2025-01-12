@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
@@ -16,14 +15,13 @@
             flex-direction: row;
             background: var(--background-color);
             color: var(--text-color);
-            font-size: 1rem; /* Larger base font size for better readability */
-            line-height: 1.6; /* Adjust line height for improved readability */
+            font-size: 1rem;
+            line-height: 1.6;
         }
         .navbar {
             position: fixed;
             top: 0;
             left: 0;
-            width: 240px;
             height: 100%;
             background: var(--navbar-bg);
             color: var(--navbar-text);
@@ -32,6 +30,11 @@
             flex-direction: column;
             z-index: 1000;
             overflow-y: auto;
+            width: 240px;
+            transition: width 0.3s ease;
+        }
+        .navbar.collapsed {
+            width: 80px;
         }
         .navbar a {
             color: var(--navbar-link);
@@ -39,7 +42,15 @@
             margin: 10px 0;
             padding: 10px;
             border-radius: 5px;
+            display: flex;
+            align-items: center;
             transition: background 0.3s, color 0.3s;
+        }
+        .navbar a .icon {
+            margin-right: 10px;
+        }
+        .navbar.collapsed a .text {
+            display: none;
         }
         .navbar a.active {
             background: var(--navbar-active-bg);
@@ -62,10 +73,25 @@
         .navbar button:hover {
             background: var(--button-hover-bg);
         }
+        .navbar .toggle-icon {
+            margin-right: 10px;
+        }
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .theme-toggle i {
+            font-size: 1.5rem;
+        }
         main {
             margin-left: 240px;
             padding: 20px;
             flex: 1;
+            transition: margin-left 0.3s ease;
+        }
+        .navbar.collapsed + main {
+            margin-left: 80px;
         }
         section {
             min-height: 100vh;
@@ -73,7 +99,6 @@
             display: flex;
             flex-direction: column;
             border-bottom: 1px solid var(--section-border-color);
-            overflow-y: auto; /* Allow scrolling for large sections */
         }
         footer {
             background: var(--footer-bg);
@@ -99,34 +124,42 @@
             --section-border-color: #ddd;
         }
         [data-theme="dark"] {
-            --background-color: #1c1c2b; /* Slightly lighter than navbar for contrast */
+            --background-color: #1a1a28;
             --text-color: #a18aff;
-            --navbar-bg: #1e1e2f;
+            --navbar-bg: #2c2c3a;
             --navbar-text: #a18aff;
             --navbar-link: #a18aff;
-            --navbar-active-bg: #2b2b40;
+            --navbar-active-bg: #383850;
             --navbar-active-text: #ffffff;
-            --navbar-hover-bg: #3a3a57;
+            --navbar-hover-bg: #444465;
             --navbar-hover-text: #ffffff;
             --button-bg: #3a3a57;
             --button-text: #a18aff;
             --button-hover-bg: #5a5a7e;
-            --footer-bg: #1e1e2f;
+            --footer-bg: #1a1a28;
             --footer-text: #a18aff;
             --section-border-color: #3a3a57;
+        }
+        .thumbnail {
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+            vertical-align: middle;
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <a href="#home">Home</a>
-        <a href="#useful-links">Useful Links</a>
-        <a href="#learning">Learning</a>
-        <a href="#startup-shutdown-guides">Startup/Shutdown Guides</a>
-        <a href="#data-handling-tools">Data Handling Tools</a>
-        <a href="#contributing">Contributing</a>
-        <a href="#contact">Contact</a>
-        <button id="theme-toggle">Toggle Theme</button>
+        <button class="theme-toggle" id="theme-toggle"><i class="icon">☀️</i></button>
+        <a href="#home"><i class="icon">🏠</i> <span class="text">Home</span></a>
+        <a href="#useful-links"><i class="icon">🔗</i> <span class="text">Useful Links</span></a>
+        <a href="#learning"><i class="icon">📘</i> <span class="text">Learning</span></a>
+        <a href="#software"><i class="icon">💻</i> <span class="text">Software</span></a>
+        <a href="#startup-shutdown-guides"><i class="icon">⚙️</i> <span class="text">Guides</span></a>
+        <a href="#data-handling-tools"><i class="icon">📂</i> <span class="text">Data Tools</span></a>
+        <a href="#contributing"><i class="icon">🤝</i> <span class="text">Contributing</span></a>
+        <a href="#contact"><i class="icon">✉️</i> <span class="text">Contact</span></a>
+        <button id="collapse-toggle"><i class="toggle-icon">⇔</i></button>
     </nav>
 
     <main>
@@ -138,26 +171,332 @@
         <section id="useful-links">
             <h2>Useful Links</h2>
             <ul>
-                <li><a href="https://forms.gle/igPJLiemJrT7ZCL56" target="_blank">Project Initiation Form</a></li>
-                <li><a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/image-analysis-server/tree/main" target="_blank">Image Data Management</a></li>
-                <li><a href="https://drive.google.com/file/d/118CQXZPBCW-mHCuB_DfPmw-stnbfy4up/view" target="_blank">Server Access Manual</a></li>
+                <li>
+                    <a href="https://forms.gle/igPJLiemJrT7ZCL56" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=forms.gle" alt="Project Initiation Form Logo" class="thumbnail">
+                        Project Initiation Form
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/image-analysis-server/tree/main" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=github.com" alt="Image Data Management Logo" class="thumbnail">
+                        Image Data Management
+                    </a>
+                </li>
+                <li>
+                    <a href="https://drive.google.com/file/d/118CQXZPBCW-mHCuB_DfPmw-stnbfy4up/view" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=drive.google.com" alt="Server Access Manual Logo" class="thumbnail">
+                        Server Access Manual
+                    </a>
+                </li>
             </ul>
         </section>
 
         <section id="learning">
             <h2>Learning</h2>
-            <p>Explore articles, books, and tutorials to enhance your microscopy knowledge.</p>
+            <h3>Articles</h3>
             <ul>
-                <li><a href="https://bitesizebio.com/13450/that-other-number-the-meaning-of-numerical-aperture-in-microscopy/" target="_blank">Understanding Numerical Aperture in Microscopy</a></li>
-                <li><a href="https://bitesizebio.com/22851/resolution-and-refractive-index-set-up-your-confocal-wisely/" target="_blank">Resolution and Refractive Index</a></li>
+                <li>
+                    <a href="https://bitesizebio.com/13450/that-other-number-the-meaning-of-numerical-aperture-in-microscopy/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=bitesizebio.com" alt="Numerical Aperture Logo" class="thumbnail">
+                        Understanding Numerical Aperture in Microscopy
+                    </a>
+                </li>
+                <li>
+                    <a href="https://bitesizebio.com/22851/resolution-and-refractive-index-set-up-your-confocal-wisely/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=bitesizebio.com" alt="Resolution and Refractive Index Logo" class="thumbnail">
+                        Resolution and Refractive Index
+                    </a>
+                </li>
+                <li>
+                    <a href="https://bitesizebio.com/30265/choosing-fluorophore-palette/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=bitesizebio.com" alt="Fluorophore Palette Logo" class="thumbnail">
+                        Choosing a Fluorophore Palette
+                    </a>
+                </li>
+                <li>
+                    <a href="https://bitesizebio.com/30308/quantify-images-unbiased-way/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=bitesizebio.com" alt="Quantify Images Logo" class="thumbnail">
+                        Quantify Images in an Unbiased Way
+                    </a>
+                </li>
+            </ul>
+            <h3>Books</h3>
+            <ul>
+                <li>
+                    <a href="https://bioimagebook.github.io/README.html" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=bioimagebook.github.io" alt="BioImage Book Logo" class="thumbnail">
+                        BioImage Book: An introduction to bioimage analysis using open-source tools.
+                    </a>
+                </li>
+            </ul>
+            <h3>Tutorials</h3>
+            <ul>
+                <li>
+                    <a href="https://www.youtube.com/@johanna.m.dela-cruz/playlists" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=youtube.com" alt="Johanna M. Dela Cruz Logo" class="thumbnail">
+                        Johanna M. Dela Cruz: Listen, watch and learn optical microscopy and image processing & analysis with FIJI (ImageJ), and a tutorial series on multiplex or multispectral fluorescence analysis of whole slide images with QuPath.
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/@haesleinhuepf/playlists" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=youtube.com" alt="Robert Haase Logo" class="thumbnail">
+                        Robert Haase (haesleinhuepf): Fiji, CLIJ, Clesperanto, and more. From basics to Deep-Learning.
+                    </a>
+                </li>
+                <li>
+                    <a href="https://myscope.training/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=myscope.training" alt="MyScope Training Logo" class="thumbnail">
+                        MyScope Training: Comprehensive online training for various microscopy techniques.
+                    </a>
+                </li>
+                <li>
+                    <a href="https://myscope.training/LFM_simulator.html" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=myscope.training" alt="Light Field Microscopy Simulator Logo" class="thumbnail">
+                        Light Field Microscopy Simulator: Interactive simulator to understand light field microscopy.
+                    </a>
+                </li>
+                <li>
+                    <a href="https://petebankhead.gitbooks.io/imagej-intro/content/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=gitbooks.io" alt="Introduction to ImageJ Logo" class="thumbnail">
+                        Introduction to ImageJ: A comprehensive guide to getting started with ImageJ.
+                    </a>
+                </li>
+                <li>
+                    <a href="https://focalplane.biologists.com/2023/03/02/rescaling-images-and-pixel-anisotropy/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=biologists.com" alt="Rescaling Images Logo" class="thumbnail">
+                        Rescaling Images and Pixel Anisotropy: Insights on image rescaling and handling pixel anisotropy.
+                    </a>
+                </li>
+                <li>
+                    <a href="https://microscopy.unimelb.edu.au/om/capabilities/fiji-workshop-resources" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=unimelb.edu.au" alt="Fiji Workshop Resources Logo" class="thumbnail">
+                        Fiji Workshop Resources: Workshop resources for learning Fiji.
+                    </a>
+                </li>
+                <li>
+                    <a href="https://cellobservatory.atlassian.net/wiki/spaces/BIMGP/pages/2427645/Image+Analysis+Training+Material" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=atlassian.net" alt="Image Analysis Training Material Logo" class="thumbnail">
+                        Image Analysis Training Material: Training materials for image analysis provided by the Weizmann Institute Cell Observatory.
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section id="software">
+            <h2>Software</h2>
+            <h3>Image Analysis and Processing</h3>
+            <ul>
+                <li>
+                    <a href="https://fiji.sc/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=fiji.sc" alt="Fiji Logo" class="thumbnail">
+                        Fiji
+                    </a>
+                </li>
+                <li>
+                    <a href="https://imagej.net/software/fiji/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=imagej.net" alt="ImageJ Logo" class="thumbnail">
+                        Fiji Software
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.ilastik.org/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=ilastik.org" alt="Ilastik Logo" class="thumbnail">
+                        Ilastik
+                    </a>
+                </li>
+                <li>
+                    <a href="https://icy.bioimageanalysis.org/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=bioimageanalysis.org" alt="Icy Logo" class="thumbnail">
+                        Icy
+                    </a>
+                </li>
+                <li>
+                    <a href="https://qupath.github.io/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=qupath.github.io" alt="QuPath Logo" class="thumbnail">
+                        QuPath
+                    </a>
+                </li>
+                <li>
+                    <a href="https://qupath.readthedocs.io/en/stable/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=readthedocs.io" alt="QuPath Docs Logo" class="thumbnail">
+                        QuPath Documentation
+                    </a>
+                </li>
+                <li>
+                    <a href="https://napari.org/stable/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=napari.org" alt="Napari Logo" class="thumbnail">
+                        Napari
+                    </a>
+                </li>
+                <li>
+                    <a href="https://napari.org/stable/usage.html" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=napari.org" alt="Napari Usage Logo" class="thumbnail">
+                        Napari Usage
+                    </a>
+                </li>
+                <li>
+                    <a href="https://clij.github.io/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=github.io" alt="CLIJ Logo" class="thumbnail">
+                        CLIJ
+                    </a>
+                </li>
+                <li>
+                    <a href="https://clesperanto.github.io/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=github.io" alt="clEsperanto Logo" class="thumbnail">
+                        clEsperanto
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/clEsperanto/pyclesperanto_prototype/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=github.com" alt="Pyclesperanto Logo" class="thumbnail">
+                        pyclesperanto Prototype
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.apeer.com/home/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=apeer.com" alt="APEER Logo" class="thumbnail">
+                        APEER
+                    </a>
+                </li>
+                <li>
+                    <a href="https://imaris.oxinst.com/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=oxinst.com" alt="Imaris Logo" class="thumbnail">
+                        Imaris
+                    </a>
+                </li>
+                <li>
+                    <a href="https://imaris.oxinst.com/learning/?businesses=bitplane&categories=24" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=oxinst.com" alt="Imaris Learning Logo" class="thumbnail">
+                        Imaris Learning Resources
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.arivis.com/" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=arivis.com" alt="Arivis Logo" class="thumbnail">
+                        Arivis
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.aivia-software.com/news" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=aivia-software.com" alt="Aivia Logo" class="thumbnail">
+                        Aivia
+                    </a>
+                </li>
             </ul>
         </section>
 
         <section id="startup-shutdown-guides">
             <h2>Startup/Shutdown Guides</h2>
-            <p>Quick reference guides to help you efficiently start up and shut down your microscopy equipment:</p>
             <ul>
-                <li><a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/EVOS-M7000-widefiled" target="_blank">EVOS M7000</a></li>
+                <li>
+                    <a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/EVOS-M7000-widefiled" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=github.com" alt="EVOS Guide Logo" class="thumbnail">
+                        EVOS M7000 widefiled
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/Stellaris-STED-Confocal" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=github.com" alt="Stellaris Guide Logo" class="thumbnail">
+                        Stellaris STED Confocal
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/Faculty-of-Agriculture-CSI-Microscopy/Skyscan-1272-MicroCT" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=github.com" alt="Skyscan Guide Logo" class="thumbnail">
+                        Skyscan 1272 MicroCT
+                    </a>
+                </li>
+                <li>
+                    <a href="https://example.com/laser-safety" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=example.com" alt="SP8 Guide Logo" class="thumbnail">
+                        SP8 Confocal - Work In Progress
+                    </a>
+                </li>
+                <li>
+                    <a href="https://example.com/laser-safety" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=example.com" alt="Luxendo Guide Logo" class="thumbnail">
+                        Luxendo MuVi SPIM Light Sheet - Work In Progress
+                    </a>
+                </li>
+                <li>
+                    <a href="https://example.com/laser-safety" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=example.com" alt="IT-100 Guide Logo" class="thumbnail">
+                        IT-100 SEM - Work In Progress
+                    </a>
+                </li>
+                <li>
+                    <a href="https://example.com/laser-safety" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=example.com" alt="JSM-7800 Guide Logo" class="thumbnail">
+                        JSM-7800 SEM - Work In Progress
+                    </a>
+                </li>
+                <li>
+                    <a href="https://example.com/laser-safety" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=example.com" alt="Liquid Nitrogen Guide Logo" class="thumbnail">
+                        Liquid Nitrogen - Work In Progress
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section id="data-handling-tools">
+            <h2>Data Handling Tools</h2>
+            <ul>
+                <li>
+                    <a href="https://example.com/lif-to-ome-tiff" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=example.com" alt="Conversion Tool Logo" class="thumbnail">
+                        LIF to OME-TIFF Conversion Script
+                    </a>
+                </li>
+                <li>
+                    <a href="https://example.com/batch-processing-fiji" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=example.com" alt="Batch Processing Logo" class="thumbnail">
+                        Batch Processing with Fiji
+                    </a>
+                </li>
+                <li>
+                    <a href="https://example.com/automated-pipeline" target="_blank">
+                        <img src="https://www.google.com/s2/favicons?domain=example.com" alt="Pipeline Logo" class="thumbnail">
+                        Automated Analysis Pipeline
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section id="contributing">
+            <h2>Contributing</h2>
+            <p>We welcome contributions from the community! If you have a tutorial, guide, or tool that you think would be beneficial, please follow our <a href="https://example.com/contributing" target="_blank">contribution guidelines</a>.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>For any questions or support, please reach out to us:</p>
+            <ul>
+                <li>
+                    <a href="mailto:core.csi@mail.huji.ac.il">
+                        <img src="https://www.google.com/s2/favicons?domain=huji.ac.il" alt="CSI Email Logo" class="thumbnail">
+                        CSI Email
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:einat.zelinger@mail.huji.ac.il">
+                        <img src="https://www.google.com/s2/favicons?domain=huji.ac.il" alt="Einat Email Logo" class="thumbnail">
+                        Einat Zelinger - Head of Unit
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:tally.kossovsky@mail.huji.ac.il">
+                        <img src="https://www.google.com/s2/favicons?domain=huji.ac.il" alt="Tally Email Logo" class="thumbnail">
+                        Tally Kossovsky - Electron Microscopy and MicroCT
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:danielw@savion.huji.ac.il">
+                        <img src="https://www.google.com/s2/favicons?domain=huji.ac.il" alt="Daniel Email Logo" class="thumbnail">
+                        Daniel Waiger - Light Microscopy, Image Analysis, 3D CAD modeling, and 3D printing
+                    </a>
+                </li>
             </ul>
         </section>
 
@@ -180,8 +519,16 @@
         // Theme toggle functionality
         const themeToggle = document.getElementById('theme-toggle');
         themeToggle.addEventListener('click', () => {
-            document.documentElement.dataset.theme =
-                document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+            const isLight = document.documentElement.dataset.theme === 'light';
+            document.documentElement.dataset.theme = isLight ? 'dark' : 'light';
+            themeToggle.innerHTML = isLight ? '<i class="icon">🌙</i>' : '<i class="icon">☀️</i>';
+        });
+
+        // Navbar collapse functionality
+        const navbar = document.querySelector('.navbar');
+        const collapseToggle = document.getElementById('collapse-toggle');
+        collapseToggle.addEventListener('click', () => {
+            navbar.classList.toggle('collapsed');
         });
     </script>
 </body>
