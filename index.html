@@ -67,6 +67,10 @@
             text-decoration: underline;
         }
 
+        .navbar .links {
+            display: flex;
+        }
+
         .navbar button {
             background: none;
             border: none;
@@ -94,6 +98,30 @@
             margin: 0 auto;
         }
 
+        .content-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .content-links a {
+            display: block;
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: var(--navbar-text-light);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+        .content-links a:hover {
+            background-color: var(--secondary-color);
+        }
+
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -107,7 +135,7 @@
 </head>
 <body>
     <nav class="navbar">
-        <div>
+        <div class="links">
             <a href="index.html">Home</a>
             <a href="learning.html">Learning</a>
             <a href="software.html">Software</a>
@@ -120,7 +148,15 @@
 
     <main>
         <h1>Welcome to CSI Microscopy</h1>
-        <p>Discover our comprehensive resources, tools, and guides designed to enhance your microscopy and image analysis expertise. Navigate through the sections above to explore everything we offer.</p>
+        <p>Discover our comprehensive resources, tools, and guides designed to enhance your microscopy and image analysis expertise. Navigate through the sections below to explore everything we offer.</p>
+
+        <div class="content-links">
+            <a href="learning.html">Learning Resources</a>
+            <a href="software.html">Software Tools</a>
+            <a href="community.html">Community Forums</a>
+            <a href="guides.html">Startup/Shutdown Guides</a>
+            <a href="tools.html">Data Handling Tools</a>
+        </div>
     </main>
 
     <script>
