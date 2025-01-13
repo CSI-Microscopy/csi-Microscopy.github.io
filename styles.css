@@ -56,29 +56,31 @@ body {
     flex-direction: column;
     z-index: 1000;
     overflow-y: auto;
-    width: 20vw; /* Use viewport width */
+    width: min(20vw, 300px); /* Set maximum width */
     transition: all 0.3s ease;
     position: fixed; /* Ensure navbar is always visible */
     height: 100vh; /* Full height of the viewport */
 }
 
 .navbar.collapsed {
-    width: 8vw; /* Use viewport width */
+    width: min(8vw, 80px); /* Set maximum width when collapsed */
 }
 
 .navbar a {
     color: var(--navbar-link);
     text-decoration: none;
-    margin: 1vh 0; /* Use viewport height */
-    padding: 0.4vh 0.4vw 0.4vh 2.6vw; /* Use viewport units */
-    border-radius: 0.5vh; /* Use viewport height */
+    margin: 8px 0; /* Use fixed units */
+    padding: 8px 12px 8px min(2.6vw, 32px); /* Mix of fixed and relative units */
+    border-radius: 4px; /* Use fixed units */
     display: flex;
     align-items: center;
     transition: background 0.3s, color 0.3s;
+    font-size: clamp(14px, 1vw, 16px); /* Responsive font size with limits */
 }
 
 .navbar a .icon {
-    margin-right: 1vw; /* Use viewport width */
+    margin-right: min(1vw, 12px);
+    font-size: clamp(16px, 1.2vw, 20px); /* Responsive icon size with limits */
 }
 
 .navbar.collapsed a .text {
@@ -97,14 +99,14 @@ body {
 
 /* Layout */
 main {
-    margin-left: 200px; /* Match navbar width */
+    margin-left: min(20vw, 300px); /* Match navbar width */
     padding: 40px 20px 20px 40px; /* Added left padding */
     flex: 1;
     transition: margin-left 0.3s ease;
 }
 
 .navbar.collapsed + main {
-    margin-left: 80px;
+    margin-left: min(8vw, 80px);
 }
 
 /* Media Query for Portrait/Mobile */
