@@ -8,19 +8,20 @@
     <meta name="author" content="Faculty of Agriculture CSI Microscopy">
     <title>Faculty of Agriculture CSI Microscopy</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
-        <button class="theme-toggle" id="theme-toggle"><i class="icon">☀️</i></button>
-        <a href="#home"><i class="icon">🏠</i> <span class="text">Home</span></a>
-        <a href="#useful-links"><i class="icon">🔗</i> <span class="text">Useful Links</span></a>
-        <a href="#learning"><i class="icon">📘</i> <span class="text">Learning</span></a>
-        <a href="#software"><i class="icon">💻</i> <span class="text">Software</span></a>
-        <a href="#startup-shutdown-guides"><i class="icon">⚙️</i> <span class="text">Guides</span></a>
-        <a href="#data-handling-tools"><i class="icon">📂</i> <span class="text">Data Tools</span></a>
-        <a href="#contributing"><i class="icon">🤝</i> <span class="text">Contributing</span></a>
-        <a href="#contact"><i class="icon">✉️</i> <span class="text">Contact</span></a>
-        <button id="collapse-toggle"><i class="toggle-icon">⇔</i></button>
+        <button class="theme-toggle" id="theme-toggle"><i class="fa-solid fa-circle-half-stroke"></i></button>
+        <a href="#home"><i class="fa-solid fa-house"></i> <span class="text">Home</span></a>
+        <a href="#useful-links"><i class="fa-solid fa-link"></i> <span class="text">Useful Links</span></a>
+        <a href="#learning"><i class="fa-solid fa-graduation-cap"></i> <span class="text">Learning</span></a>
+        <a href="#software"><i class="fa-solid fa-laptop-code"></i> <span class="text">Software</span></a>
+        <a href="#startup-shutdown-guides"><i class="fa-solid fa-book"></i> <span class="text">Guides</span></a>
+        <a href="#data-handling-tools"><i class="fa-solid fa-database"></i> <span class="text">Data Tools</span></a>
+        <a href="#contributing"><i class="fa-solid fa-code-branch"></i> <span class="text">Contributing</span></a>
+        <a href="#contact"><i class="fa-solid fa-envelope"></i> <span class="text">Contact</span></a>
+        <button id="collapse-toggle"><i class="fa-solid fa-angles-left toggle-icon"></i></button>
     </nav>
 
     <main>
@@ -386,10 +387,19 @@
         });
 
         // Navbar collapse functionality
-        const navbar = document.querySelector('.navbar');
-        const collapseToggle = document.getElementById('collapse-toggle');
-        collapseToggle.addEventListener('click', () => {
-            navbar.classList.toggle('collapsed');
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbar = document.querySelector('.navbar');
+            const collapseToggle = document.getElementById('collapse-toggle');
+            const toggleIcon = collapseToggle.querySelector('.toggle-icon');
+
+            collapseToggle.addEventListener('click', () => {
+                navbar.classList.toggle('collapsed');
+                if (navbar.classList.contains('collapsed')) {
+                    toggleIcon.classList.replace('fa-angles-left', 'fa-angles-right');
+                } else {
+                    toggleIcon.classList.replace('fa-angles-right', 'fa-angles-left');
+                }
+            });
         });
     </script>
 </body>
