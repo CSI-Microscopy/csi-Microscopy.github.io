@@ -87,7 +87,7 @@ body {
     color: var(--navbar-link);
     text-decoration: none;
     margin: 0;
-    padding: 0;
+    padding: 0 16px;
     border: none;
     display: flex;
     align-items: center;
