@@ -68,6 +68,19 @@ body {
     width: min(8vw, 80px); /* Set maximum width when collapsed */
 }
 
+.navbar.collapsed a {
+    padding: 8px;
+    justify-content: center;
+}
+
+.navbar.collapsed a .icon {
+    margin-right: 0;
+}
+
+.navbar.collapsed a i {
+    padding: 4px;
+}
+
 .navbar a {
     color: var(--navbar-link);
     text-decoration: none;
@@ -83,6 +96,13 @@ body {
 .navbar a .icon {
     margin-right: min(1vw, 12px);
     font-size: clamp(16px, 1.2vw, 20px); /* Responsive icon size with limits */
+}
+
+.navbar a i {
+    padding: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .navbar.collapsed a .text {
