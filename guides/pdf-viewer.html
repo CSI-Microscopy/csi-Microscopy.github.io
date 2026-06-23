@@ -134,19 +134,32 @@
         const pdfUrl  = params.get('url');
         const rawTitle = params.get('title');
 
+        // raw.githubusercontent.com serves PDFs as "application/octet-stream" with
+        // X-Content-Type-Options: nosniff, which forces a DOWNLOAD instead of an
+        // inline preview. jsDelivr serves the same file as "application/pdf", so the
+        // browser renders it inline. Convert raw GitHub URLs → jsDelivr for viewing.
+        function toInlinePdfUrl(u) {
+            const m = u.match(/^https?:\/\/raw\.githubusercontent\.com\/([^/]+)\/([^/]+)\/([^/]+)\/(.+)$/);
+            if (!m) return u; // already absolute / other host — embed as-is
+            const [, owner, repo, branch, path] = m;
+            const cleanPath = path.replace(/\/\.\//g, '/').replace(/^\.\//, '');
+            return `https://cdn.jsdelivr.net/gh/${owner}/${repo}@${branch}/${cleanPath}`;
+        }
+
         if (pdfUrl) {
+            const inlineUrl = toInlinePdfUrl(pdfUrl);
             // Derive a human-readable title from filename if none supplied
-            const filename    = pdfUrl.split('/').pop().replace(/\.pdf$/i, '').replace(/[-_]/g, ' ');
+            const filename    = decodeURIComponent(pdfUrl.split('/').pop().replace(/\.pdf$/i, '')).replace(/[-_]/g, ' ');
             const displayTitle = rawTitle ? decodeURIComponent(rawTitle) : filename;
 
             document.title                               = `CSI Microscopy — ${displayTitle}`;
             document.getElementById('pdf-title').textContent  = displayTitle;
-            document.getElementById('download-link').href     = pdfUrl;
-            document.getElementById('raw-link').href          = pdfUrl;
-            document.getElementById('fallback-link').href     = pdfUrl;
+            document.getElementById('download-link').href     = pdfUrl;     // raw URL → downloads the file
+            document.getElementById('raw-link').href          = inlineUrl;  // jsDelivr → opens a viewable PDF
+            document.getElementById('fallback-link').href     = inlineUrl;
 
             const frame = document.getElementById('pdf-frame');
-            frame.src   = pdfUrl;
+            frame.src   = inlineUrl;
 
             // If the iframe fails to load (e.g. browser blocks inline PDF), show fallback
             frame.addEventListener('error', () => {
