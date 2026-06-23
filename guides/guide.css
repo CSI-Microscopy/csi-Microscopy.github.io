@@ -1,0 +1,132 @@
+/*
+ * CSI Microscopy — guide page styles
+ * Shared by guides/viewer.html and every repo's own index.html guide page.
+ * Loaded after the site-wide styles.css. Maintained here only.
+ */
+
+#guide-content {
+    max-width: 860px;
+    padding: 1.5rem 2rem 3rem 2rem;
+}
+
+#guide-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-color);
+}
+
+.guide-meta {
+    font-size: 0.85rem;
+    opacity: 0.6;
+    margin-bottom: 1.5rem;
+}
+
+.guide-meta a {
+    opacity: 1;
+    font-size: 0.85rem;
+}
+
+#markdown-body {
+    line-height: 1.7;
+}
+
+#markdown-body h1 { font-size: 1.6rem; margin-top: 1.8rem; }
+#markdown-body h2 { font-size: 1.35rem; margin-top: 1.5rem; border-bottom: 1px solid var(--section-border-color); padding-bottom: 0.3rem; }
+#markdown-body h3 { font-size: 1.1rem; margin-top: 1.2rem; }
+#markdown-body h4 { font-size: 1rem; margin-top: 1rem; }
+
+#markdown-body ul,
+#markdown-body ol {
+    padding-left: 1.4rem;
+    margin: 0.5rem 0 0.75rem;
+}
+
+#markdown-body li { margin: 0.25rem 0; }
+
+#markdown-body pre {
+    background: var(--navbar-bg);
+    border: 1px solid var(--section-border-color);
+    border-radius: 6px;
+    padding: 0.9rem 1rem;
+    overflow-x: auto;
+    font-size: 0.88rem;
+    margin: 0.75rem 0;
+}
+
+#markdown-body code {
+    background: var(--navbar-bg);
+    border-radius: 4px;
+    padding: 0.15em 0.35em;
+    font-size: 0.88em;
+}
+
+#markdown-body pre code {
+    background: none;
+    padding: 0;
+}
+
+#markdown-body blockquote {
+    border-left: 4px solid var(--section-border-color);
+    margin: 0.75rem 0;
+    padding: 0.4rem 1rem;
+    opacity: 0.8;
+}
+
+#markdown-body table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0.75rem 0;
+    font-size: 0.9rem;
+}
+
+#markdown-body th,
+#markdown-body td {
+    border: 1px solid var(--section-border-color);
+    padding: 0.45rem 0.75rem;
+    text-align: left;
+}
+
+#markdown-body th {
+    background: var(--navbar-bg);
+    font-weight: 600;
+}
+
+#markdown-body img {
+    max-width: 100%;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+}
+
+/* Caution / Note / Important / Tip callout boxes */
+.callout {
+    border-radius: 6px;
+    padding: 0.6rem 1rem;
+    margin: 0.75rem 0;
+    font-size: 0.93rem;
+}
+.callout-caution  { border-left: 4px solid #e57c00; background: rgba(229,124,0,0.08); }
+.callout-note     { border-left: 4px solid #2d8cf0; background: rgba(45,140,240,0.08); }
+.callout-important{ border-left: 4px solid #c0392b; background: rgba(192,57,43,0.08); }
+.callout-tip      { border-left: 4px solid #27ae60; background: rgba(39,174,96,0.08); }
+
+/* Status indicators */
+#status-message {
+    padding: 2rem;
+    font-size: 1rem;
+    opacity: 0.7;
+}
+
+.image-note {
+    font-size: 0.8rem;
+    opacity: 0.55;
+    border: 1px dashed var(--section-border-color);
+    border-radius: 4px;
+    padding: 0.3rem 0.6rem;
+    display: inline-block;
+    margin: 0.3rem 0;
+}
+
+/* Back button in navbar */
+.navbar .back-btn {
+    font-weight: 600;
+}

@@ -1,3 +1,16 @@
+/* WIP (non-linked) list items */
+.wip-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    opacity: 0.6;
+    cursor: default;
+}
+
+.wip-item em {
+    font-size: 0.8rem;
+}
+
 /* Base & Reset */
 body {
     font-family: Arial, sans-serif;

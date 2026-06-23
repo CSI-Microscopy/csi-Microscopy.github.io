@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSI Microscopy — PDF Viewer</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        main {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        #pdf-toolbar {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.6rem 1.2rem;
+            background: var(--navbar-bg);
+            border-bottom: 1px solid var(--section-border-color);
+            flex-shrink: 0;
+        }
+
+        #pdf-title {
+            font-weight: 600;
+            font-size: 0.95rem;
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        #pdf-toolbar a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        #pdf-frame {
+            flex: 1;
+            width: 100%;
+            border: none;
+            background: #525659;
+        }
+
+        #fallback {
+            display: none;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        #fallback p { margin-bottom: 1rem; opacity: 0.7; }
+
+        #fallback .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: var(--button-bg);
+            color: var(--button-text);
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        #fallback .btn:hover { background: var(--button-hover-bg); }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <button class="theme-toggle" id="theme-toggle"><i class="fa-solid fa-circle-half-stroke"></i></button>
+        <a href="../index.html"><i class="fa-solid fa-house"></i> <span class="text">Home</span></a>
+        <a href="#" id="back-btn"><i class="fa-solid fa-arrow-left"></i> <span class="text">Back</span></a>
+        <button id="collapse-toggle"><i class="fa-solid fa-angles-left toggle-icon"></i></button>
+    </nav>
+
+    <main>
+        <div id="pdf-toolbar">
+            <span id="pdf-title"></span>
+            <a id="download-link" href="#" target="_blank" rel="noopener">
+                <i class="fa-solid fa-download"></i> Download PDF
+            </a>
+            <a id="raw-link" href="#" target="_blank" rel="noopener">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Open in new tab
+            </a>
+        </div>
+
+        <iframe id="pdf-frame" title="PDF viewer"></iframe>
+
+        <div id="fallback">
+            <p>Your browser could not display the PDF inline.</p>
+            <a id="fallback-link" href="#" class="btn">
+                <i class="fa-solid fa-file-pdf"></i> Open PDF
+            </a>
+        </div>
+    </main>
+
+    <script>
+        // ── Theme toggle ────────────────────────────────────────────────────────
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            const isLight = document.documentElement.dataset.theme === 'light';
+            document.documentElement.dataset.theme = isLight ? 'dark' : 'light';
+        });
+
+        // ── Navbar collapse ─────────────────────────────────────────────────────
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbar       = document.querySelector('.navbar');
+            const collapseBtn  = document.getElementById('collapse-toggle');
+            const toggleIcon   = collapseBtn.querySelector('.toggle-icon');
+
+            collapseBtn.addEventListener('click', () => {
+                navbar.classList.toggle('collapsed');
+                toggleIcon.classList.toggle('fa-angles-left');
+                toggleIcon.classList.toggle('fa-angles-right');
+            });
+        });
+
+        // ── Back button: go to previous viewer page if possible ─────────────────
+        const backBtn = document.getElementById('back-btn');
+        if (document.referrer && document.referrer.includes('viewer.html')) {
+            backBtn.href = document.referrer;
+        } else {
+            backBtn.href = '../index.html';
+        }
+
+        // ── PDF loading ─────────────────────────────────────────────────────────
+        const params  = new URLSearchParams(window.location.search);
+        const pdfUrl  = params.get('url');
+        const rawTitle = params.get('title');
+
+        if (pdfUrl) {
+            // Derive a human-readable title from filename if none supplied
+            const filename    = pdfUrl.split('/').pop().replace(/\.pdf$/i, '').replace(/[-_]/g, ' ');
+            const displayTitle = rawTitle ? decodeURIComponent(rawTitle) : filename;
+
+            document.title                               = `CSI Microscopy — ${displayTitle}`;
+            document.getElementById('pdf-title').textContent  = displayTitle;
+            document.getElementById('download-link').href     = pdfUrl;
+            document.getElementById('raw-link').href          = pdfUrl;
+            document.getElementById('fallback-link').href     = pdfUrl;
+
+            const frame = document.getElementById('pdf-frame');
+            frame.src   = pdfUrl;
+
+            // If the iframe fails to load (e.g. browser blocks inline PDF), show fallback
+            frame.addEventListener('error', () => {
+                frame.style.display = 'none';
+                document.getElementById('fallback').style.display = 'block';
+            });
+        } else {
+            document.getElementById('pdf-toolbar').style.display = 'none';
+            document.getElementById('pdf-frame').style.display   = 'none';
+            const fb = document.getElementById('fallback');
+            fb.style.display = 'block';
+            fb.querySelector('p').textContent = 'No PDF URL specified.';
+        }
+    </script>
+</body>
+</html>

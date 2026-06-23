@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Faculty of Agriculture CSI Microscopy - Guide viewer">
+    <title>CSI Microscopy — Guide</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="guide.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked@4/marked.min.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <button class="theme-toggle" id="theme-toggle"><i class="fa-solid fa-circle-half-stroke"></i></button>
+        <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> <span class="text">Home</span></a>
+        <button id="collapse-toggle"><i class="fa-solid fa-angles-left toggle-icon"></i></button>
+    </nav>
+
+    <main>
+        <section id="guide-content">
+            <div id="status-message"><i class="fa-solid fa-spinner fa-spin"></i> Loading guide…</div>
+            <h1 id="guide-title" style="display:none;"></h1>
+            <p class="guide-meta" id="guide-meta" style="display:none;"></p>
+            <div id="markdown-body"></div>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Daniel Waiger - Faculty of Agriculture CSI Microscopy</p>
+        </footer>
+    </main>
+
+    <!-- Shared renderer: reads ?repo=&branch=&path=&title= from the URL -->
+    <script src="render.js"></script>
+</body>
+</html>
