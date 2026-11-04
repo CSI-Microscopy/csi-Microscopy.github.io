@@ -9,8 +9,16 @@ The site is designed to present CSI Microscopy information in a clean, responsiv
 ## Project Structure
 
 - `index.html` – main website page
-- `styles.css` – site styling
+- `styles.css` – site-wide design tokens, header, cards and layout (also loaded by every per-repo guide page)
+- `site.js` – theme toggle (persisted, respects system preference), mobile menu, section highlighting
+- `guides/viewer.html`, `guides/render.js`, `guides/guide.css` – shared Markdown guide renderer used by the instrument repos
+- `guides/pdf-viewer.html` – inline PDF viewer for manuals
+- `assets/favicon.svg` – site icon
 - `readme.md` – project documentation
+
+## Design
+
+Typography is IBM Plex (Sans, Sans Condensed for headings, Mono for labels), matching the SkyScan phase-retrieval page. Colours are defined once as CSS custom properties in `styles.css`; dark mode follows the system preference and can be overridden with the header toggle, which is remembered in `localStorage` under `csi-theme`.
 
 ## Getting Started
 

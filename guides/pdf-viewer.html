@@ -1,34 +1,48 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#0A716E">
     <title>CSI Microscopy — PDF Viewer</title>
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <script>
+        try { var t = localStorage.getItem('csi-theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        body { height: 100vh; }
+
         main {
             display: flex;
             flex-direction: column;
-            height: 100vh;
-            overflow: hidden;
+            max-width: none;
             padding: 0;
+            min-height: 0;
+            overflow: hidden;
         }
 
         #pdf-toolbar {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding: 0.6rem 1.2rem;
-            background: var(--navbar-bg);
-            border-bottom: 1px solid var(--section-border-color);
+            gap: 0.5rem 1rem;
+            padding: 0.55rem var(--gutter);
+            background: var(--surface);
+            border-bottom: 1px solid var(--line);
             flex-shrink: 0;
         }
 
         #pdf-title {
+            font-family: var(--f-display);
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 1rem;
             flex: 1;
+            min-width: 0;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -38,9 +52,15 @@
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
+            padding: 0.35rem 0.7rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            color: var(--ink);
             font-size: 0.85rem;
+            font-weight: 500;
             white-space: nowrap;
         }
+        #pdf-toolbar a:hover { background: var(--surface-2); border-color: var(--line-strong); text-decoration: none; }
 
         #pdf-frame {
             flex: 1;
@@ -51,43 +71,31 @@
 
         #fallback {
             display: none;
-            padding: 3rem 2rem;
+            padding: 3rem var(--gutter);
             text-align: center;
         }
+        #fallback p { margin: 0 auto 1rem; color: var(--muted); }
 
-        #fallback p { margin-bottom: 1rem; opacity: 0.7; }
-
-        #fallback .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.2rem;
-            background: var(--button-bg);
-            color: var(--button-text);
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.9rem;
+        @media (max-width: 560px) {
+            #pdf-toolbar a .label { display: none; }
         }
-
-        #fallback .btn:hover { background: var(--button-hover-bg); }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <button class="theme-toggle" id="theme-toggle"><i class="fa-solid fa-circle-half-stroke"></i></button>
-        <a href="../index.html"><i class="fa-solid fa-house"></i> <span class="text">Home</span></a>
-        <a href="#" id="back-btn"><i class="fa-solid fa-arrow-left"></i> <span class="text">Back</span></a>
-        <button id="collapse-toggle"><i class="fa-solid fa-angles-left toggle-icon"></i></button>
+    <nav class="navbar" aria-label="Main navigation">
+        <a href="#" id="back-btn" class="back-btn"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> <span class="text">Back</span></a>
+        <a href="../index.html"><i class="fa-solid fa-house" aria-hidden="true"></i> <span class="text">Home</span></a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i></button>
     </nav>
 
     <main>
         <div id="pdf-toolbar">
             <span id="pdf-title"></span>
             <a id="download-link" href="#" target="_blank" rel="noopener">
-                <i class="fa-solid fa-download"></i> Download PDF
+                <i class="fa-solid fa-download" aria-hidden="true"></i> <span class="label">Download PDF</span>
             </a>
             <a id="raw-link" href="#" target="_blank" rel="noopener">
-                <i class="fa-solid fa-arrow-up-right-from-square"></i> Open in new tab
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> <span class="label">Open in new tab</span>
             </a>
         </div>
 
@@ -95,32 +103,14 @@
 
         <div id="fallback">
             <p>Your browser could not display the PDF inline.</p>
-            <a id="fallback-link" href="#" class="btn">
-                <i class="fa-solid fa-file-pdf"></i> Open PDF
+            <a id="fallback-link" href="#" class="btn btn-primary">
+                <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Open PDF
             </a>
         </div>
     </main>
 
+    <script src="../site.js"></script>
     <script>
-        // ── Theme toggle ────────────────────────────────────────────────────────
-        document.getElementById('theme-toggle').addEventListener('click', () => {
-            const isLight = document.documentElement.dataset.theme === 'light';
-            document.documentElement.dataset.theme = isLight ? 'dark' : 'light';
-        });
-
-        // ── Navbar collapse ─────────────────────────────────────────────────────
-        document.addEventListener('DOMContentLoaded', () => {
-            const navbar       = document.querySelector('.navbar');
-            const collapseBtn  = document.getElementById('collapse-toggle');
-            const toggleIcon   = collapseBtn.querySelector('.toggle-icon');
-
-            collapseBtn.addEventListener('click', () => {
-                navbar.classList.toggle('collapsed');
-                toggleIcon.classList.toggle('fa-angles-left');
-                toggleIcon.classList.toggle('fa-angles-right');
-            });
-        });
-
         // ── Back button: go to previous viewer page if possible ─────────────────
         const backBtn = document.getElementById('back-btn');
         if (document.referrer && document.referrer.includes('viewer.html')) {
