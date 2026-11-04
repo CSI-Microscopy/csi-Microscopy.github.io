@@ -190,3 +190,16 @@
 
 /* Back button in navbar */
 .navbar .back-btn { font-weight: 500; }
+
+/* Mermaid diagrams rendered from ```mermaid fences */
+.mermaid-block {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    overflow-x: auto;
+}
+.mermaid-block.is-rendered { display: flex; justify-content: center; }
+.mermaid-block svg { max-width: 100%; height: auto; }
+.mermaid-block pre { margin: 0; border: 0; background: none; padding: 0; }

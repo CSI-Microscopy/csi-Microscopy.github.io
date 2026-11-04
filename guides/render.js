@@ -67,6 +67,42 @@
         document.head.appendChild(l);
     }
 
+    // ── Mermaid diagrams (```mermaid fences in README files) ─────────────
+    // Loaded on demand from cdnjs; rendered with a theme that matches the
+    // site theme, and re-rendered when the user toggles the theme.
+    let mermaidReady = null;
+    function loadMermaid() {
+        if (mermaidReady) return mermaidReady;
+        mermaidReady = new Promise((resolve, reject) => {
+            if (window.mermaid) return resolve(window.mermaid);
+            const s = document.createElement('script');
+            s.src = 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js';
+            s.onload = () => resolve(window.mermaid);
+            s.onerror = () => reject(new Error('mermaid failed to load'));
+            document.head.appendChild(s);
+        });
+        return mermaidReady;
+    }
+    async function renderMermaid() {
+        const blocks = [...document.querySelectorAll('.mermaid-block')];
+        if (!blocks.length) return;
+        let mermaid;
+        try { mermaid = await loadMermaid(); } catch (_) { return; } // leave the source visible
+        const dark = (root.dataset.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')) === 'dark';
+        mermaid.initialize({ startOnLoad: false, theme: dark ? 'dark' : 'neutral', securityLevel: 'strict' });
+        for (const [i, block] of blocks.entries()) {
+            const src = block.dataset.src;
+            try {
+                const { svg } = await mermaid.render(`mmd-${Date.now()}-${i}`, src);
+                block.innerHTML = svg;
+                block.classList.add('is-rendered');
+            } catch (_) {
+                block.innerHTML = '<pre><code>' + src.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c])) + '</code></pre>';
+            }
+        }
+    }
+    if (themeToggle) themeToggle.addEventListener('click', () => { renderMermaid(); });
+
     // ── Resolve config: window.GUIDE (per-repo page) or URL params (viewer) ──
     function resolveConfig() {
         const params = new URLSearchParams(window.location.search);
@@ -129,6 +165,17 @@
                 }
                 const titleAttr = imgTitle ? ` title="${imgTitle}"` : '';
                 return `<img src="${href}" alt="${alt || ''}"${titleAttr} loading="lazy">`;
+            };
+
+            renderer.code = (code, infostring) => {
+                const lang = (infostring || '').trim().toLowerCase();
+                if (lang === 'mermaid') {
+                    const esc = code.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+                    return `<div class="mermaid-block" data-src="${esc}" role="img" aria-label="Diagram"><pre><code>${code.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]))}</code></pre></div>`;
+                }
+                const safe = code.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+                const cls  = lang ? ` class="language-${lang.replace(/[^a-z0-9_-]/g, '')}"` : '';
+                return `<pre><code${cls}>${safe}</code></pre>\n`;
             };
 
             renderer.link = (href, linkTitle, text) => {
@@ -204,7 +251,7 @@
                     + `github.com/${ORG}/${repo}</a> <span aria-hidden="true">·</span> branch <code>${branch}</code>`;
                 metaEl.style.display = '';
             }
-            if (bodyEl)   bodyEl.innerHTML = html;
+            if (bodyEl)   { bodyEl.innerHTML = html; renderMermaid(); }
 
         } catch (err) {
             if (statusEl) statusEl.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> `
