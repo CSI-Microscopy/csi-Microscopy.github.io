@@ -32,29 +32,40 @@
     const GUIDE_VIEWER = GUIDES_BASE + 'viewer.html';
     const HOME_URL     = GUIDES_BASE.replace(/guides\/?$/, '') + 'index.html';
 
-    // ── Theme toggle ────────────────────────────────────────────────────────
+    // ── Theme: persisted choice, else system preference ─────────────────
+    // Per-repo pages may still hard-code data-theme="light" in their markup;
+    // clearing it lets the prefers-color-scheme rules in styles.css apply.
+    const THEME_KEY = 'csi-theme';
+    const root = document.documentElement;
+    const applyTheme = t => { if (t) root.dataset.theme = t; else delete root.dataset.theme; };
+    let savedTheme = null;
+    try { savedTheme = localStorage.getItem(THEME_KEY); } catch (_) { /* storage blocked */ }
+    applyTheme(savedTheme === 'dark' || savedTheme === 'light' ? savedTheme : null);
+    const currentTheme = () => root.dataset.theme
+        || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
     const themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
+        const syncLabel = () => {
+            themeToggle.setAttribute('aria-label', currentTheme() === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+            themeToggle.title = themeToggle.getAttribute('aria-label');
+        };
+        syncLabel();
         themeToggle.addEventListener('click', () => {
-            const isLight = document.documentElement.dataset.theme === 'light';
-            document.documentElement.dataset.theme = isLight ? 'dark' : 'light';
+            const next = currentTheme() === 'dark' ? 'light' : 'dark';
+            applyTheme(next);
+            try { localStorage.setItem(THEME_KEY, next); } catch (_) { /* ignore */ }
+            syncLabel();
         });
     }
 
-    // ── Navbar collapse ─────────────────────────────────────────────────────
-    document.addEventListener('DOMContentLoaded', () => {
-        const navbar = document.querySelector('.navbar');
-        const collapseToggle = document.getElementById('collapse-toggle');
-        if (!navbar || !collapseToggle) return;
-        const toggleIcon = collapseToggle.querySelector('.toggle-icon');
-        collapseToggle.addEventListener('click', () => {
-            navbar.classList.toggle('collapsed');
-            if (toggleIcon) {
-                toggleIcon.classList.toggle('fa-angles-left');
-                toggleIcon.classList.toggle('fa-angles-right');
-            }
-        });
-    });
+    // Google Fonts for pages that only link styles.css (per-repo guide pages)
+    if (!document.querySelector('link[href*="fonts.googleapis.com/css2"]')) {
+        const l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = 'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap';
+        document.head.appendChild(l);
+    }
 
     // ── Resolve config: window.GUIDE (per-repo page) or URL params (viewer) ──
     function resolveConfig() {
@@ -190,7 +201,7 @@
             if (titleEl)  { titleEl.textContent = title; titleEl.style.display = ''; }
             if (metaEl)   {
                 metaEl.innerHTML = `Source: <a href="${repoUrl}" target="_blank" rel="noopener">`
-                    + `github.com/${ORG}/${repo}</a> &nbsp;·&nbsp; branch: <code>${branch}</code>`;
+                    + `github.com/${ORG}/${repo}</a> <span aria-hidden="true">·</span> branch <code>${branch}</code>`;
                 metaEl.style.display = '';
             }
             if (bodyEl)   bodyEl.innerHTML = html;

@@ -1,34 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Faculty of Agriculture CSI Microscopy - Guide viewer">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#0A716E">
     <title>CSI Microscopy — Guide</title>
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <script>
+        try { var t = localStorage.getItem('csi-theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="guide.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/marked@4/marked.min.js"></script>
 </head>
 <body>
-    <nav class="navbar">
-        <button class="theme-toggle" id="theme-toggle"><i class="fa-solid fa-circle-half-stroke"></i></button>
-        <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> <span class="text">Home</span></a>
-        <button id="collapse-toggle"><i class="fa-solid fa-angles-left toggle-icon"></i></button>
+    <nav class="navbar" aria-label="Main navigation">
+        <a href="../index.html" class="back-btn"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> <span class="text">Home</span></a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i></button>
     </nav>
 
     <main>
         <section id="guide-content">
-            <div id="status-message"><i class="fa-solid fa-spinner fa-spin"></i> Loading guide…</div>
+            <div id="status-message"><i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Loading guide…</div>
             <h1 id="guide-title" style="display:none;"></h1>
             <p class="guide-meta" id="guide-meta" style="display:none;"></p>
             <div id="markdown-body"></div>
         </section>
-
-        <footer>
-            <p>&copy; 2025 Daniel Waiger - Faculty of Agriculture CSI Microscopy</p>
-        </footer>
     </main>
+
+    <footer>
+        <p>&copy; 2025 Daniel Waiger · Faculty of Agriculture CSI Microscopy</p>
+    </footer>
 
     <!-- Shared renderer: reads ?repo=&branch=&path=&title= from the URL -->
     <script src="render.js"></script>
