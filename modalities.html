@@ -26,13 +26,13 @@
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i></button>
         <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
         <div class="nav-links" id="nav-links">
-            <a href="index.html#start-here"><i class="fa-solid fa-flag-checkered" aria-hidden="true"></i> <span class="text">Start here</span></a>
-            <a href="basics.html"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> <span class="text">Basics</span></a>
-            <a href="modalities.html" class="active" aria-current="page"><i class="fa-solid fa-signs-post" aria-hidden="true"></i> <span class="text">Choosing</span></a>
-            <a href="index.html#learning"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> <span class="text">Learning</span></a>
-            <a href="index.html#software"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i> <span class="text">Software</span></a>
-            <a href="index.html#startup-shutdown-guides"><i class="fa-solid fa-book" aria-hidden="true"></i> <span class="text">Guides</span></a>
-            <a href="index.html#contact"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span class="text">Contact</span></a>
+            <a title="Start here" href="index.html#start-here"><i class="fa-solid fa-flag-checkered" aria-hidden="true"></i> <span class="text">Start here</span></a>
+            <a title="Basics" href="basics.html"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> <span class="text">Basics</span></a>
+            <a title="Choosing" href="modalities.html" class="active" aria-current="page"><i class="fa-solid fa-signs-post" aria-hidden="true"></i> <span class="text">Choosing</span></a>
+            <a title="Learning" href="index.html#learning"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> <span class="text">Learning</span></a>
+            <a title="Software" href="index.html#software"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i> <span class="text">Software</span></a>
+            <a title="Guides" href="index.html#startup-shutdown-guides"><i class="fa-solid fa-book" aria-hidden="true"></i> <span class="text">Guides</span></a>
+            <a title="Contact" href="index.html#contact"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span class="text">Contact</span></a>
         </div>
     </nav>
 
@@ -59,7 +59,7 @@
                     <a href="#compare">12. Comparison table</a>
                     <a href="#glossary">Glossary</a>
                 </nav>
-                <p class="note"><strong>How to read this page.</strong> Numbers marked <span class="tag tag-mfr">Manufacturer figures</span> come from the makers' documentation and are best-case values on ideal test samples. Statements marked <span class="tag tag-confirm">To confirm with staff</span> concern how the unit's instruments are set up and have not been checked for this page. Times and ranges in the lists are rough guides from general practice. The staff will give you real numbers for your sample.</p>
+                <p class="mod-note"><strong>How to read this page.</strong> Numbers marked <span class="mod-tag mod-tag-mfr">Manufacturer figures</span> come from the makers' documentation and are best-case values on ideal test samples. Statements marked <span class="mod-tag mod-tag-confirm">To confirm with staff</span> concern how the unit's instruments are set up and have not been checked for this page. Times and ranges in the lists are rough guides from general practice. The staff will give you real numbers for your sample.</p>
             </div>
             <figure class="hero-figure" aria-hidden="true">
                 <svg viewBox="0 0 320 266" class="fig-svg">
@@ -87,7 +87,7 @@
                     <rect x="272" y="195" width="8" height="10" fill="var(--accent)" fill-opacity="0.55"/>
                     <text x="80" y="202" text-anchor="middle" class="svg-label">seed · mm · micro-CT</text>
                     <text x="220" y="22" text-anchor="middle" class="svg-label">cells · µm · confocal</text>
-                    <text x="316" y="257" text-anchor="end" class="svg-label">organelle · nm · SEM</text>
+                    <text x="316" y="257" text-anchor="end" class="svg-label">membrane · nm · EM</text>
                 </svg>
             </figure>
         </section>
@@ -106,10 +106,10 @@
                         <li><strong>What do you want to see?</strong> Surface shape and texture, internal structure in 3D, fluorescently labelled molecules or cells, elements and chemistry, or something that changes over time. The chart maps each answer to a technique to start with.</li>
                         <li><strong>What state is the sample in?</strong> Only light microscopes image living samples. Electron microscopes work in a vacuum, so samples must be dried, frozen or embedded in resin. Micro-CT needs no vacuum, but soft wet tissue shows little contrast unless it is stained. The second chart shows which states each technique accepts.</li>
                         <li><strong>How big is the sample, and how small is the detail?</strong> Each technique covers a band of sizes. A whole seed and a membrane inside one of its cells need different instruments. The <a href="#scale">scale ladder</a> shows the bands.</li>
-                        <li><strong>2D or 3D, how many samples, how fast?</strong> A yes-or-no answer on fifty slides is a widefield job. A 3D scan of one root takes hours on the micro-CT or light sheet. Volume EM takes weeks from fixation to a finished stack. Plan sample numbers with this in mind.</li>
+                        <li><strong>2D or 3D, how many samples, how fast?</strong> A yes-or-no answer on fifty slides is a widefield job. A 3D scan of one root takes minutes on the light sheet and up to hours on the micro-CT. Volume EM takes weeks from fixation to a finished stack. Plan sample numbers with this in mind.</li>
                     </ul>
                 </div>
-                <figure class="figure fig-narrow">
+                <figure class="figure mod-fig-narrow">
                     <svg viewBox="0 0 460 304" role="img" aria-labelledby="t-state" class="fig-svg"><title id="t-state">Which sample states each technique accepts</title>
 <text x="160" y="18" text-anchor="middle" class="svg-label svg-strong">Fresh or</text>
 <text x="160" y="32" text-anchor="middle" class="svg-label svg-strong">living</text>
@@ -147,7 +147,6 @@
 <circle cx="416" cy="158" r="6" fill="var(--accent)"/>
 <line x1="10" y1="194" x2="450" y2="194" stroke="currentColor" stroke-opacity="0.12"/>
 <text x="118" y="186" text-anchor="end" class="svg-label">SEM</text>
-<circle cx="224" cy="182" r="5" fill="none" stroke="var(--accent)" stroke-width="2"/>
 <circle cx="288" cy="182" r="6" fill="var(--accent)"/>
 <circle cx="416" cy="182" r="5" fill="none" stroke="var(--accent)" stroke-width="2"/>
 <line x1="10" y1="218" x2="450" y2="218" stroke="currentColor" stroke-opacity="0.12"/>
@@ -157,7 +156,7 @@
 <circle cx="352" cy="206" r="6" fill="var(--accent)"/>
 <line x1="10" y1="242" x2="450" y2="242" stroke="currentColor" stroke-opacity="0.12"/>
 <text x="118" y="234" text-anchor="end" class="svg-label">STEM in SEM</text>
-<circle cx="288" cy="230" r="5" fill="none" stroke="var(--accent)" stroke-width="2"/>
+<circle cx="288" cy="230" r="6" fill="var(--accent)"/>
 <circle cx="416" cy="230" r="6" fill="var(--accent)"/>
 <line x1="10" y1="266" x2="450" y2="266" stroke="currentColor" stroke-opacity="0.12"/>
 <text x="118" y="258" text-anchor="end" class="svg-label">Volume EM</text>
@@ -169,7 +168,7 @@
                     <figcaption>Which sample states each technique accepts. A filled dot means this is the usual way to use it. A ring means it can work but needs planning: ask the staff first. An empty cell means the technique is not used on that kind of sample.</figcaption>
                 </figure>
             </div>
-            <figure class="figure fig-scroll">
+            <figure class="figure mod-fig-scroll" tabindex="0">
                 <svg viewBox="0 0 660 448" role="img" aria-labelledby="t-decide" class="fig-svg"><title id="t-decide">Chart: what you want to see, mapped to the technique to start with</title>
 <defs><marker id="m0arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor" fill-opacity="0.6"/></marker></defs>
 <text x="10" y="18" class="svg-label svg-strong">You want to see…</text>
@@ -204,7 +203,7 @@
 <text x="470" y="202" text-anchor="middle" class="svg-label">STED below 200 nm</text>
 <rect x="10" y="226" width="290" height="40" rx="6" fill="var(--surface-2)"/>
 <text x="20" y="243" class="svg-label svg-strong">Whole organs, embryos, seedlings</text>
-<text x="20" y="258" class="svg-label">cleared or alive, mm to cm</text>
+<text x="20" y="258" class="svg-label">cleared or alive, mm scale</text>
 <line x1="304" y1="246" x2="330" y2="246" stroke="currentColor" stroke-opacity="0.6" marker-end="url(#m0arr)"/>
 <rect x="336" y="233" width="84" height="26" rx="13" fill="var(--accent)" fill-opacity="0.16" stroke="var(--accent)"/>
 <text x="378" y="250" text-anchor="middle" class="svg-label">Light sheet</text>
@@ -238,7 +237,7 @@
 <rect x="80" y="429" width="14" height="10" rx="5" fill="var(--warn)" fill-opacity="0.16" stroke="var(--warn)"/><text x="100" y="438" class="svg-label">X-rays</text>
 <rect x="160" y="429" width="14" height="10" rx="5" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.6"/><text x="180" y="438" class="svg-label">electrons</text>
 </svg>
-                <figcaption>What you want to see, mapped to the technique to start with. Colours show what does the imaging: light, X-rays or electrons. Click a chapter in the contents above for details. On a phone, scroll the chart sideways.</figcaption>
+                <figcaption>What you want to see, mapped to the technique to start with. Colours show what does the imaging: light, X-rays or electrons. Choose a chapter in the contents above for details. On a phone, scroll the chart sideways.</figcaption>
             </figure>
             <div class="two-col">
                 <div class="prose">
@@ -266,7 +265,7 @@
                 <h2>The scale ladder: which technique covers which size</h2>
                 <p>Every technique has a finest detail it can resolve and a largest sample or field it can take. Find your object on this ladder and the detail you care about. The candidates are the bars that span both.</p>
             </div>
-            <figure class="figure fig-scroll">
+            <figure class="figure mod-fig-scroll" tabindex="0">
                 <svg viewBox="0 0 760 358" role="img" aria-labelledby="t-scale" class="fig-svg"><title id="t-scale">Scale ladder from 1 centimetre to 1 nanometre with typical objects and the range each technique covers</title>
 <text x="150" y="16" class="svg-label svg-strong">bigger</text><text x="650" y="16" text-anchor="end" class="svg-label svg-strong">smaller</text>
 <line x1="150" y1="118" x2="650" y2="118" stroke="currentColor" stroke-opacity="0.6"/>
@@ -312,18 +311,18 @@
 <rect x="171.5" y="160" width="307.2" height="10" rx="3" fill="var(--accent)" fill-opacity="0.75"/>
 <text x="484.7" y="168" class="svg-label">≈250 nm</text>
 <text x="138" y="191" text-anchor="end" class="svg-label">Confocal</text>
-<rect x="199.9" y="183" width="289.0" height="10" rx="3" fill="var(--accent)" fill-opacity="0.75"/>
+<rect x="221.4" y="183" width="267.5" height="10" rx="3" fill="var(--accent)" fill-opacity="0.75"/>
 <text x="494.9" y="191" class="svg-label">≈180–200 nm</text>
 <text x="138" y="214" text-anchor="end" class="svg-label">STED</text>
 <rect x="314.4" y="206" width="199.7" height="10" rx="3" fill="var(--accent)" fill-opacity="0.75"/>
 <text x="520.1" y="214" class="svg-label">≈50–80 nm</text>
 <text x="138" y="237" text-anchor="end" class="svg-label">Light sheet</text>
-<rect x="150.0" y="229" width="285.7" height="10" rx="3" fill="var(--accent)" fill-opacity="0.75"/>
+<rect x="171.5" y="229" width="264.2" height="10" rx="3" fill="var(--accent)" fill-opacity="0.75"/>
 <text x="441.7" y="237" class="svg-label">≈1 µm</text>
 <text x="138" y="260" text-anchor="end" class="svg-label">Micro-CT</text>
-<rect x="150.0" y="252" width="264.2" height="10" rx="3" fill="var(--warn)" fill-opacity="0.75"/>
-<rect x="414.2" y="252" width="54.1" height="10" rx="3" fill="none" stroke="var(--warn)" stroke-dasharray="3 2"/>
-<text x="474.3" y="260" class="svg-label">2–20 µm voxels; 0.35 µm*</text>
+<rect x="150.0" y="252" width="235.8" height="10" rx="3" fill="var(--warn)" fill-opacity="0.75"/>
+<rect x="385.8" y="252" width="82.5" height="10" rx="3" fill="none" stroke="var(--warn)" stroke-dasharray="3 2"/>
+<text x="474.3" y="260" class="svg-label">details ≈5–50 µm; 0.35 µm*</text>
 <text x="138" y="283" text-anchor="end" class="svg-label">SEM</text>
 <rect x="150.0" y="275" width="500.0" height="10" rx="3" fill="currentColor" fill-opacity="0.55"/>
 <text x="656.0" y="283" class="svg-label">≈1 nm*</text>
@@ -332,17 +331,18 @@
 <text x="563.1" y="306" class="svg-label">20 nm slices*</text>
 <text x="138" y="350" text-anchor="end" class="svg-label">* manufacturer figure</text>
 </svg>
-                <figcaption>Object sizes are typical values: a cereal grain about 5 mm, a small insect 1–2 mm, a leaf epidermal cell 50 µm, a root hair 10–15 µm wide, a chloroplast 5 µm, a bacterium 1–2 µm, a virus about 100 nm, a nanoparticle 20 nm, a protein 5 nm. Each bar runs from roughly the largest sample or field (left) to the finest detail (right end). Bar ends are approximate. The dashed part of the micro-CT bar is the manufacturer figure; everyday scans sit at the solid end.</figcaption>
+                <figcaption>Object sizes are typical values: a cereal grain about 5 mm, a small insect 1–2 mm, a leaf epidermal cell 50 µm, a root hair 10–15 µm wide, a chloroplast 5 µm, a bacterium 1–2 µm, a virus about 100 nm, a nanoparticle 20 nm, a protein 5 nm. Each bar runs from roughly the largest sample or field (left) to the finest detail (right end). Bar ends are approximate. The solid micro-CT bar ends at the finest detail of everyday scans, about two to three voxels; the dashed part reaches the manufacturer figure. On a phone, scroll the chart sideways.</figcaption>
             </figure>
             <div class="two-col">
                 <div class="prose">
                     <h3>Reading the ladder</h3>
-                    <p>All light microscopes meet a wall near 200 nm. Light cannot be focused to a spot much smaller than half its wavelength; <a href="basics.html#magnification">Microscopy basics</a> explains why. STED gets past the wall with a trick described in chapter 4. X-rays and electrons have far shorter wavelengths, so micro-CT and SEM are limited by other things: the detector, the size of the sample and the beam.</p>
+                    <p>All light microscopes meet a wall near 200 nm. Even the best lenses cannot focus light to a spot much smaller than about 200 nm (wavelength ÷ (2 × NA)); <a href="basics.html#magnification">Microscopy basics</a> explains why. STED gets past the wall with a trick described in chapter 4. X-rays and electrons have far shorter wavelengths, so micro-CT and SEM are limited by other things: the detector, the size of the sample and the beam.</p>
                     <p>For any technique that records a whole field at once, finer detail means a smaller field. On the micro-CT this is a simple rule:</p>
                     <div class="formula">
                         <span class="formula-main">voxel size ≈ width of the field ÷ pixels across the detector</span>
                         <span class="formula-note">Illustrative numbers: a field 10 mm wide recorded across 2000 pixels gives voxels of 10 mm ÷ 2000 = 5 µm. To get 1 µm voxels, the field must shrink to 2 mm, so the sample (or the part you scan) must fit in 2 mm.</span>
                     </div>
+                    <p>Details smaller than about two voxels are lost (see <a href="basics.html#pixels">Nyquist sampling in Microscopy basics</a>).</p>
                     <p>The same trade-off holds on every microscope: a 10× objective sees a wide field with coarse detail, a 100× objective a small field with fine detail. Tiling many fields together helps, but costs time and storage.</p>
                 </div>
                 <div class="prose">
@@ -351,10 +351,10 @@
                         <li><strong>Widefield (EVOS M7000):</strong> about 250 nm at best, with a high-NA objective.</li>
                         <li><strong>Confocal (SP8, Stellaris):</strong> about 180–200 nm.</li>
                         <li><strong>STED (Stellaris):</strong> about 50–80 nm in practice.</li>
-                        <li><strong>Light sheet (MuVi SPIM):</strong> around 1 µm, over samples of millimetres to centimetres.</li>
-                        <li><strong>Micro-CT (SkyScan 1272):</strong> voxels of 2–20 µm in practice. Bruker quotes details down to 0.35 µm. <span class="tag tag-mfr">Manufacturer figures</span></li>
-                        <li><strong>SEM (JSM-IT710HR, JSM-IT800):</strong> about 1 nm on the IT710HR and below 1 nm at best on the IT800. <span class="tag tag-mfr">Manufacturer figures</span> Biological samples rarely reach these values; coating, beam damage and the sample itself set the limit.</li>
-                        <li><strong>Volume EM (Katana in the SEM):</strong> slices as thin as 20 nm. <span class="tag tag-mfr">Manufacturer figures</span></li>
+                        <li><strong>Light sheet (MuVi SPIM):</strong> around 1 µm across the image and several micrometres in depth, over fields of millimetres.</li>
+                        <li><strong>Micro-CT (SkyScan 1272):</strong> voxels of 2–20 µm in practice. The smallest details you can resolve are about two to three voxels wide. Bruker quotes details down to 0.35 µm. <span class="mod-tag mod-tag-mfr">Manufacturer figures</span></li>
+                        <li><strong>SEM (JSM-IT710HR, JSM-IT800):</strong> about 1 nm on the IT710HR; sub-nanometre on the IT800 in its best configuration. <span class="mod-tag mod-tag-mfr">Manufacturer figures</span> The unit's IT800 configuration has not been confirmed for this page. <span class="mod-tag mod-tag-confirm">To confirm with staff</span> Biological samples rarely reach these values; coating, beam damage and the sample itself set the limit.</li>
+                        <li><strong>Volume EM (Katana in the SEM):</strong> slices as thin as 20 nm. <span class="mod-tag mod-tag-mfr">Manufacturer figures</span></li>
                     </ul>
                 </div>
             </div>
@@ -374,7 +374,7 @@
                     <p>Because the whole field is lit, every depth of the sample glows, not only the plane in focus. Light from above and below the focal plane reaches the camera as a haze over the sharp image. In a thin sample, such as a layer of cells, a 10 µm section or bacteria on a slide, the haze is small and the image is sharp. In a whole leaf or a root tip, the haze swamps the detail, and a confocal or light sheet is the better tool.</p>
                     <p>The EVOS M7000 is where most projects start: check whether a staining or transformation worked, count cells, survey slides and plates. It takes seconds per image, so it is also the right tool when you have many samples and a simple question.</p>
                 </div>
-                <figure class="figure">
+                <figure class="figure mod-fig-narrow">
                     <svg viewBox="0 0 440 272" role="img" aria-labelledby="t-wf" class="fig-svg"><title id="t-wf">Widefield microscope: LED light passes a filter cube and objective and lights the whole sample; the camera records the focal plane plus haze from other depths</title>
                         <defs><marker id="m2arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor" fill-opacity="0.7"/></marker></defs>
                         <rect x="170" y="8" width="80" height="28" rx="4" fill="var(--surface-2)" stroke="currentColor" stroke-opacity="0.5"/>
@@ -406,10 +406,10 @@
                     <figcaption>The LED light (teal) reflects off a coloured mirror in the filter cube, passes through the objective and lights the whole sample. The dyes glow (orange), and the camera records the focal plane together with the haze from every other depth.</figcaption>
                 </figure>
             </div>
-            <div class="facts">
+            <div class="mod-facts">
                 <div><h3>Consider it when</h3><ul>
                     <li>You need a fast answer: did the staining work, how many cells, which wells.</li>
-                    <li>The sample is thin and flat: cell layers, smears, sections, spores, pollen.</li>
+                    <li>The sample is thin and flat: cell layers, smears, sections, spores.</li>
                     <li>You have many slides or whole plates to survey.</li>
                 </ul></div>
                 <div><h3>Not the right tool when</h3><ul>
@@ -434,10 +434,10 @@
                     <li>Soil and environment: stained bacteria and fungal hyphae on slides.</li>
                     <li>Veterinary science: stained smears, tissue sections, cultured cells.</li>
                 </ul></div>
-                <div class="unit"><h3>At the unit</h3><ul>
+                <div class="mod-unit"><h3>At the unit</h3><ul>
                     <li><strong>EVOS M7000</strong> widefield microscope.</li>
                     <li><a href="EVOS-M7000-widefiled/">Startup and shutdown guide</a>.</li>
-                    <li>Time-lapse of living cells over hours: ask whether an environmental chamber is available. <span class="tag tag-confirm">To confirm with staff</span></li>
+                    <li>Time-lapse of living cells over hours: ask whether an environmental chamber is available. <span class="mod-tag mod-tag-confirm">To confirm with staff</span></li>
                     <li>Contact: <a href="index.html#contact">Daniel Waiger</a>, light microscopy.</li>
                 </ul></div>
             </div>
@@ -451,7 +451,7 @@
                 <p>The workhorse for fluorescence in tissue. A confocal removes the out-of-focus haze, so a thick sample can be cut into sharp optical slices without a knife.</p>
             </div>
             <div class="two-col">
-                <figure class="figure fig-narrow">
+                <figure class="figure mod-fig-narrow">
                     <svg viewBox="0 0 460 290" role="img" aria-labelledby="t-conf" class="fig-svg"><title id="t-conf">Confocal microscope: a laser is focused to one spot in a thick sample; light from that spot passes a pinhole, light from other depths is blocked; the slices stack into a 3D volume</title>
                         <defs><marker id="m3arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor" fill-opacity="0.7"/></marker></defs>
                         <rect x="115" y="4" width="70" height="22" rx="4" fill="var(--surface-2)" stroke="currentColor" stroke-opacity="0.5"/>
@@ -462,7 +462,7 @@
                         <path d="M128 78 L150 40 L172 78 M150 40 V28" fill="none" stroke="var(--warn)" stroke-width="2"/>
                         <path d="M126 78 L174 38 M174 78 L126 38" fill="none" stroke="var(--warn)" stroke-width="1.5" stroke-dasharray="4 3"/>
                         <ellipse cx="150" cy="80" rx="26" ry="5" fill="var(--surface-2)" stroke="currentColor" stroke-opacity="0.5"/>
-                        <line x1="126" y1="124" x2="174" y2="100" stroke="currentColor" stroke-opacity="0.7" stroke-width="2"/>
+                        <line x1="126" y1="100" x2="174" y2="124" stroke="currentColor" stroke-opacity="0.7" stroke-width="2"/>
                         <text x="186" y="116" class="svg-label">dichroic mirror</text>
                         <rect x="10" y="102" width="62" height="22" rx="4" fill="var(--surface-2)" stroke="currentColor" stroke-opacity="0.5"/>
                         <text x="41" y="117" text-anchor="middle" class="svg-label">laser</text>
@@ -500,7 +500,7 @@
                     <p>The unit has two confocals: the Leica <strong>SP8</strong> and the Leica <strong>Stellaris</strong>. The Stellaris also does STED, the next chapter.</p>
                 </div>
             </div>
-            <div class="facts">
+            <div class="mod-facts">
                 <div><h3>Consider it when</h3><ul>
                     <li>The sample is fluorescent and thicker than a few cell layers: leaves, root tips, tissue sections, biofilms.</li>
                     <li>You need 3D z-stacks or optical sections.</li>
@@ -529,7 +529,7 @@
                     <li>Food science: fat and protein networks in cheese, emulsions and gels with fluorescent stains.</li>
                     <li>Veterinary science and entomology: immunostained tissue sections, insect tissues.</li>
                 </ul></div>
-                <div class="unit"><h3>At the unit</h3><ul>
+                <div class="mod-unit"><h3>At the unit</h3><ul>
                     <li><strong>Leica SP8</strong> and <strong>Leica Stellaris</strong> confocals.</li>
                     <li><a href="Stellaris-STED-Confocal/">Stellaris guide</a> and <a href="Stellaris-STED-Confocal/?title=Stellaris%20Confocal%20Data%20Tools">LIF data scripts</a>. SP8 guide in preparation.</li>
                     <li>Contact: <a href="index.html#contact">Daniel Waiger</a>, light microscopy.</li>
@@ -547,11 +547,11 @@
             <div class="two-col">
                 <div class="prose">
                     <h3>What it does</h3>
-                    <p>A confocal's laser spot cannot be focused smaller than about 200 nm, so anything smaller blurs together. STED adds a second laser shaped like a doughnut: bright in a ring, dark in the centre. Where the doughnut light hits, it forces dye molecules back to their dark state before they can give off light. Only the molecules in the doughnut's hole still glow. The hole can be made much smaller than the original spot, so the effective spot shrinks to about <strong>50–80 nm in practice</strong>.</p>
+                    <p>A confocal's laser spot cannot be focused smaller than about 200 nm, so details closer together than that blur together. STED adds a second laser shaped like a doughnut: bright in a ring, dark in the centre. Where the doughnut light hits, it forces dye molecules back to their resting state before they can glow. Only the molecules in the doughnut's hole still glow. The stronger the doughnut, the closer to the centre it switches molecules off, so the region that still glows shrinks to about <strong>50–80 nm in practice</strong>.</p>
                     <p>The gain has costs. STED needs dyes that survive the strong depletion light, and not every dye does. The sample must be mounted carefully, with no refractive-index mismatch, because the doughnut has to stay sharp. Images take longer and the field is small. Most STED work is on fixed samples in 2D or in thin stacks close to the coverslip. Living samples are possible with suitable labels, but harder.</p>
-                    <p>Thick or strongly scattering samples, including most intact plant tissue, distort the doughnut and lose the gain. Thin cells, sections, isolated organelles or protoplasts near the coverslip work best. If your structure is larger than 200 nm, a normal confocal image is faster and gentler and loses nothing.</p>
+                    <p>Thick or strongly scattering samples, including most intact plant tissue, distort the doughnut and lose the gain. Thin cells, sections, isolated organelles or protoplasts near the coverslip work best. If the details you need to tell apart are more than about 200 nm apart, a normal confocal image is faster and gentler and loses nothing.</p>
                 </div>
-                <figure class="figure">
+                <figure class="figure mod-fig-narrow">
                     <svg viewBox="0 0 450 172" role="img" aria-labelledby="t-sted" class="fig-svg"><title id="t-sted">STED: an excitation spot plus a doughnut-shaped depletion beam leaves a much smaller glowing spot</title>
                         <defs><radialGradient id="m4ex"><stop offset="0" stop-color="var(--accent)" stop-opacity="0.95"/><stop offset="0.5" stop-color="var(--accent)" stop-opacity="0.5"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></radialGradient></defs>
                         <circle cx="70" cy="70" r="50" fill="url(#m4ex)"/>
@@ -570,7 +570,7 @@
                     <figcaption>Left: the normal confocal spot. Middle: the doughnut-shaped STED beam, dark in the centre. Right: what is left glowing, a much smaller spot. The dashed circle is the original spot for comparison. The spot is scanned across the sample as in any confocal.</figcaption>
                 </figure>
             </div>
-            <div class="facts">
+            <div class="mod-facts">
                 <div><h3>Consider it when</h3><ul>
                     <li>The structure of interest is between about 50 and 200 nm: protein clusters, cytoskeleton, membrane domains, sub-organelle detail.</li>
                     <li>You need molecular labels at a resolution a confocal cannot give.</li>
@@ -597,7 +597,7 @@
                     <li>Microbiology: protein positions inside single bacteria.</li>
                     <li>Veterinary and biomedical research: organelle detail in cultured cells.</li>
                 </ul></div>
-                <div class="unit"><h3>At the unit</h3><ul>
+                <div class="mod-unit"><h3>At the unit</h3><ul>
                     <li><strong>Leica Stellaris</strong> with STED.</li>
                     <li><a href="Stellaris-STED-Confocal/">Stellaris guide</a>.</li>
                     <li>Contact: <a href="index.html#contact">Daniel Waiger</a>, light microscopy.</li>
@@ -613,7 +613,7 @@
                 <p>A light sheet microscope lights only the plane it is recording. That makes it fast and gentle, and suited to whole organs, embryos and seedlings, cleared or alive.</p>
             </div>
             <div class="two-col">
-                <figure class="figure">
+                <figure class="figure mod-fig-narrow">
                     <svg viewBox="0 0 470 266" role="img" aria-labelledby="t-ls" class="fig-svg"><title id="t-ls">Light sheet microscope: a thin sheet of light enters from the side, the lit plane is imaged from above by a camera, and the sample steps through the sheet</title>
                         <defs><marker id="m5arr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor" fill-opacity="0.7"/></marker></defs>
                         <rect x="180" y="6" width="80" height="24" rx="4" fill="var(--surface-2)" stroke="currentColor" stroke-opacity="0.5"/>
@@ -642,10 +642,10 @@
                     <h3>What it does</h3>
                     <p>A light sheet microscope sends a thin sheet of light into the sample from the side and records the lit plane with a camera placed at a right angle to the sheet. Only the plane being imaged is lit, so the rest of the sample is not bleached while it waits its turn. The camera records a whole plane at once instead of scanning point by point, so a large 3D volume takes minutes rather than hours.</p>
                     <p>The samples fall into two groups. <strong>Cleared samples</strong> are fixed tissue made transparent with chemicals that remove or match the substances that scatter light. Clearing takes days to weeks, but afterwards a whole organ, seed or insect can be imaged in 3D. <strong>Living samples</strong>, such as embryos, seedlings and small organisms, are held in gel or medium and followed for hours or days with little light damage.</p>
-                    <p>Detail is around 1 µm, coarser than a confocal, but over millimetres to centimetres. Files are large: tens to hundreds of gigabytes per experiment is common. The unit's <a href="Luxendo-MuVi-SPIM-Light-Sheet/?title=Luxendo%20h5%20to%20TIFF%20Converter">h5 to TIFF converter</a> turns them into stacks that Fiji opens.</p>
+                    <p>Detail is around 1 µm across the image and several micrometres in depth, coarser than a confocal, but over millimetres. Files are large: tens to hundreds of gigabytes per experiment is common. The unit's <a href="Luxendo-MuVi-SPIM-Light-Sheet/?title=Luxendo%20h5%20to%20TIFF%20Converter">h5 to TIFF converter</a> turns them into stacks that Fiji opens.</p>
                 </div>
             </div>
-            <div class="facts">
+            <div class="mod-facts">
                 <div><h3>Consider it when</h3><ul>
                     <li>The sample is large and transparent, or can be cleared: whole organs, seeds, embryos, roots, insects.</li>
                     <li>You want to follow development or growth over hours or days.</li>
@@ -663,8 +663,8 @@
                 </ul></div>
                 <div><h3>What you get</h3><ul>
                     <li>3D volumes, several channels, and time series for living samples.</li>
-                    <li>Detail around 1 µm.</li>
-                    <li>Fields of millimetres; samples up to centimetres.</li>
+                    <li>Detail around 1 µm across the image, several micrometres in depth.</li>
+                    <li>Fields of millimetres; ask the staff about the largest sample the chamber takes. <span class="mod-tag mod-tag-confirm">To confirm with staff</span></li>
                     <li>Minutes per volume; large files.</li>
                 </ul></div>
                 <div><h3>Typical uses in the faculty's fields</h3><ul>
@@ -672,7 +672,7 @@
                     <li>Entomology: cleared whole insects or insect organs.</li>
                     <li>Veterinary science: cleared organs and embryos.</li>
                 </ul></div>
-                <div class="unit"><h3>At the unit</h3><ul>
+                <div class="mod-unit"><h3>At the unit</h3><ul>
                     <li><strong>Luxendo MuVi SPIM</strong> light sheet microscope.</li>
                     <li><a href="Luxendo-MuVi-SPIM-Light-Sheet/">Startup and shutdown guide</a>.</li>
                     <li>Contact: <a href="index.html#contact">Daniel Waiger</a>, light microscopy.</li>
@@ -692,10 +692,10 @@
                     <h3>What it does</h3>
                     <p>X-rays pass through the sample onto a detector. Dense parts absorb more and cast darker shadows. The sample turns in small steps, and a shadow image, called a <strong>projection</strong>, is recorded at each angle. Software then <strong>reconstructs</strong> the 3D volume from the projections. You can slice the result in any direction, measure volumes and thicknesses, count pores, and render it in 3D.</p>
                     <p>Contrast comes from differences in density and composition: air against tissue, tissue against mineral, starch against protein. Dense or dry material such as seeds, wood, bone, insects and soil gives strong contrast with no preparation. Soft wet tissue absorbs almost like water and looks flat. It needs a contrast stain containing a heavy element such as iodine, or careful drying.</p>
-                    <p>At edges between materials you also see thin bright and dark fringes. They come from the way X-rays bend slightly at boundaries (phase contrast), not from the structure itself. The <a href="Skyscan-1272-MicroCT/phase-retrieval.html">phase retrieval explainer</a> shows what these fringes look like on real data from this unit and how filtering handles them.</p>
-                    <p>Detail depends on sample size (chapter 1): small samples allow small voxels. In practice voxels are 2–20 µm. Scans take from tens of minutes to many hours, plus reconstruction. The sample must not move or dry out during that time.</p>
+                    <p>At edges between materials you also see thin bright and dark fringes. They come from X-rays bending slightly at boundaries (phase contrast), not from absorption. Phase retrieval can turn them into extra contrast, which helps with soft tissue. The <a href="Skyscan-1272-MicroCT/phase-retrieval.html">phase retrieval explainer</a> shows this on real data from this unit.</p>
+                    <p>Detail depends on sample size (chapter 1): small samples allow small voxels. In practice voxels are 2–20 µm, and the smallest details you can resolve are about two to three voxels wide. Scans take from tens of minutes to many hours, plus reconstruction. The sample must not move or dry out during that time.</p>
                 </div>
-                <figure class="figure fig-narrow">
+                <figure class="figure mod-fig-narrow">
                     <svg viewBox="0 0 530 220" role="img" aria-labelledby="t-ct" class="fig-svg"><title id="t-ct">Micro-CT: an X-ray cone passes through a rotating sample onto a detector; projections at many angles are reconstructed into a 3D volume</title>
                         <defs><marker id="m6arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor" fill-opacity="0.7"/></marker></defs>
                         <rect x="10" y="84" width="56" height="44" rx="4" fill="var(--surface-2)" stroke="currentColor" stroke-opacity="0.5"/>
@@ -728,7 +728,7 @@
                     <figcaption>X-rays from a small source spread as a cone through the sample. The detector records its shadow. The sample turns in small steps, giving one shadow image per angle, and software reconstructs the full 3D volume from them.</figcaption>
                 </figure>
             </div>
-            <div class="facts">
+            <div class="mod-facts">
                 <div><h3>Consider it when</h3><ul>
                     <li>You need the internal structure in 3D and want to keep the sample whole.</li>
                     <li>The sample is dense or dry: seeds, grains, wood, roots in soil, insects, bone, soil aggregates, packaging, dry foods.</li>
@@ -748,7 +748,7 @@
                 </ul></div>
                 <div><h3>What you get</h3><ul>
                     <li>A 3D volume (a stack of slices). Grey values reflect X-ray absorption.</li>
-                    <li>Voxels of 2–20 µm in practice.</li>
+                    <li>Voxels of 2–20 µm in practice; details down to about two to three voxels.</li>
                     <li>Samples from millimetres to centimetres.</li>
                     <li>Tens of minutes to many hours per scan, plus reconstruction.</li>
                 </ul></div>
@@ -759,8 +759,8 @@
                     <li>Entomology: insect anatomy; see the fly scan in <a href="basics.html#crops">basics, section 6</a>.</li>
                     <li>Veterinary science: bone and teeth.</li>
                 </ul></div>
-                <div class="unit"><h3>At the unit</h3><ul>
-                    <li><strong>Bruker SkyScan 1272</strong>: X-ray source 20–100 kV, 10 W.</li>
+                <div class="mod-unit"><h3>At the unit</h3><ul>
+                    <li><strong>Bruker SkyScan 1272</strong>: X-ray source 20–100 kV, 10 W. <span class="mod-tag mod-tag-mfr">Manufacturer figures</span></li>
                     <li><a href="Skyscan-1272-MicroCT/">Guide</a>, <a href="Skyscan-1272-MicroCT/?path=manuals/readme.md&amp;title=Skyscan%201272%20Manuals">manuals</a>, <a href="Skyscan-1272-MicroCT/phase-retrieval.html">phase retrieval explainer</a>.</li>
                     <li>Contact: <a href="index.html#contact">Tally Kossovsky</a>, electron microscopy and micro-CT.</li>
                 </ul></div>
@@ -777,14 +777,14 @@
             <div class="two-col">
                 <div class="prose">
                     <h3>What it does</h3>
-                    <p>Electrons have a far shorter wavelength than light, so an electron beam can be focused to a spot nanometres wide. The SEM sweeps this spot across the sample. At each point the beam knocks electrons out of the sample, and detectors count them. The count becomes the brightness of that pixel. Two signals matter most:</p>
+                    <p>Electrons have a far shorter wavelength than light, so an electron beam can be focused to a spot nanometres wide. The SEM sweeps this spot across the sample. At each point the beam knocks electrons out of the sample or bounces back off it, and detectors count them. The count becomes the brightness of that pixel. Two signals matter most:</p>
                     <ul>
                         <li><strong>Secondary electrons (SE)</strong> are slow electrons from the top few nanometres. Edges and slopes release more of them, so the image looks like a lit 3D surface. SE images show <strong>topography</strong>: shape and texture.</li>
                         <li><strong>Backscattered electrons (BSE)</strong> are beam electrons that bounce back from deeper in. Heavy elements bounce more of them, so heavy regions look brighter. BSE images show <strong>composition</strong>: mineral grains in organic matter, metal particles, heavy-metal stains.</li>
                     </ul>
-                    <p>The beam also makes the sample emit X-rays with energies typical of each element. An <strong>EDS</strong> detector sorts them by energy and maps which elements are where. <span class="tag tag-confirm">To confirm with staff</span> Whether EDS is available on the unit's SEMs.</p>
+                    <p>The beam also makes the sample emit X-rays with energies typical of each element. An <strong>EDS</strong> detector sorts them by energy and maps which elements are where. Whether the unit's SEMs have EDS has not been confirmed for this page. <span class="mod-tag mod-tag-confirm">To confirm with staff</span></p>
                 </div>
-                <figure class="figure fig-narrow">
+                <figure class="figure mod-fig-narrow">
                     <svg viewBox="0 0 545 300" role="img" aria-labelledby="t-sem" class="fig-svg"><title id="t-sem">SEM column with gun, lenses, scan coils, BSE and SE detectors; and the interaction volume inside the sample where secondary electrons, backscattered electrons and X-rays come from</title>
                         <rect x="90" y="8" width="60" height="26" rx="4" fill="var(--surface-2)" stroke="currentColor" stroke-opacity="0.5"/>
                         <text x="160" y="25" class="svg-label">electron gun</text>
@@ -798,8 +798,8 @@
                         <text x="160" y="119" class="svg-label">sweep the beam</text>
                         <path d="M86 140 H154 L136 172 H104 Z" fill="var(--surface-2)" stroke="currentColor" stroke-opacity="0.5"/>
                         <text x="160" y="152" class="svg-label">final lens</text>
-                        <rect x="98" y="176" width="16" height="6" fill="var(--warn)" fill-opacity="0.85"/>
-                        <rect x="126" y="176" width="16" height="6" fill="var(--warn)" fill-opacity="0.85"/>
+                        <rect x="98" y="176" width="16" height="6" fill="var(--accent)" fill-opacity="0.85"/>
+                        <rect x="126" y="176" width="16" height="6" fill="var(--accent)" fill-opacity="0.85"/>
                         <text x="160" y="184" class="svg-label">BSE detector</text>
                         <rect x="20" y="178" width="34" height="20" rx="3" fill="var(--surface-2)" stroke="var(--warn)"/>
                         <text x="37" y="170" text-anchor="middle" class="svg-label">SE detector</text>
@@ -830,23 +830,23 @@
             <div class="two-col">
                 <div class="prose">
                     <h3>Preparing for the vacuum</h3>
-                    <p><strong>Vacuum, drying and coating.</strong> Electrons scatter in air, so the chamber is pumped to a high vacuum. Water would boil off and the tissue would collapse, so biological samples are usually fixed, dehydrated and <strong>critical-point dried</strong>, which removes water without the surface tension that crushes soft structures. Non-conducting samples collect charge from the beam (<strong>charging</strong>): bright glare, streaks and drift. A coating a few nanometres thick of gold, platinum or carbon, applied in a sputter or evaporation coater, conducts the charge away. Carbon is used when EDS will follow, because metal coatings add their own X-ray peaks.</p>
-                    <p><strong>Low vacuum</strong> lets a little gas into the chamber. The gas neutralises the charge, so uncoated and slightly moist samples can be imaged, at some cost in resolution. JEOL quotes a low-vacuum resolution for the JSM-IT710HR. <span class="tag tag-confirm">To confirm with staff</span> Which of the unit's SEMs has a low-vacuum mode.</p>
-                    <p><strong>Voltage.</strong> Low accelerating voltage (around 1 kV) keeps the beam near the surface: finer surface detail and less charging. Higher voltage (10–30 kV) reaches deeper, giving more BSE signal and the X-rays needed for EDS.</p>
+                    <p><strong>Vacuum, drying and coating.</strong> Electrons scatter in air, so the chamber is under high vacuum and samples must be dry. Biological samples are usually fixed, dehydrated and <strong>critical-point dried</strong>, so soft structures do not collapse. Non-conducting samples collect charge from the beam (<strong>charging</strong>), which causes glare and drift; a thin conductive <strong>coating</strong> carries it away.</p>
+                    <p><strong>Low vacuum</strong> lets a little gas into the chamber. The gas neutralises the charge, so uncoated samples can be imaged without a metal coat, at some cost in resolution. It does not keep wet samples wet: water still evaporates at these pressures. For wet or soft samples, use cryo-SEM. Which of the unit's SEMs has a low-vacuum mode has not been confirmed for this page. <span class="mod-tag mod-tag-confirm">To confirm with staff</span></p>
+                    <p><strong>Voltage.</strong> Low accelerating voltage (around 1 kV) keeps the signal close to the surface: it shows fine surface features and causes less charging, although the beam spot is somewhat larger. Higher voltage (10–30 kV) gives a finer spot and reaches deeper, giving more BSE signal and the X-rays needed for EDS.</p>
                 </div>
                 <div class="prose">
-                    <h3>The unit's SEMs <span class="tag tag-mfr">Manufacturer figures</span></h3>
-                    <p>Both are JEOL field-emission SEMs. A field-emission gun gives a small, bright electron source, which keeps the beam fine at low voltage.</p>
+                    <h3>The unit's SEMs <span class="mod-tag mod-tag-mfr">Manufacturer figures</span></h3>
+                    <p>Both are JEOL field-emission SEMs.</p>
                     <ul>
                         <li><strong>JEOL JSM-IT710HR:</strong> in-lens Schottky field-emission gun; 0.5–30 kV; resolution 1.0 nm at 20 kV and 3.0 nm at 1 kV in high vacuum, 1.8 nm at 15 kV in low vacuum; large chamber; SE and BSE detectors; EDS optional.</li>
-                        <li><strong>JEOL JSM-IT800:</strong> Schottky field-emission gun; 0.01–30 kV; sub-nanometre resolution at best (figures differ between configurations); an optional transmission (STEM) detector for 3 mm grids.</li>
+                        <li><strong>JEOL JSM-IT800:</strong> Schottky field-emission gun; 0.01–30 kV; sub-nanometre resolution at best (figures differ between configurations; which configuration the unit has is to be confirmed); an optional transmission (STEM) detector for 3 mm grids.</li>
                     </ul>
-                    <p>These numbers are measured on ideal test samples. A coated leaf or an insect will not reach them; the coating grain, the beam damage and the sample itself set the practical limit.</p>
-                    <h3>Accessories <span class="tag tag-confirm">To confirm with staff</span></h3>
-                    <p>The unit has a cryo preparation system (chapter 8), a STEM detector (chapter 9) and a Katana in-chamber microtome for volume EM (chapter 10). Which SEM carries which accessory has not been confirmed for this page. Ask Tally Kossovsky when you plan your project; it decides which instrument you book.</p>
+                    <p>These are best-case values on test samples; biological samples give coarser detail.</p>
+                    <h3>Accessories <span class="mod-tag mod-tag-confirm">To confirm with staff</span></h3>
+                    <p>The unit also has a cryo system (chapter 8), a STEM detector (chapter 9) and a Katana microtome (chapter 10). Which SEM carries each has not been confirmed for this page; ask Tally Kossovsky when you plan your project.</p>
                 </div>
             </div>
-            <div class="facts">
+            <div class="mod-facts">
                 <div><h3>Consider it when</h3><ul>
                     <li>You need surface structure from micrometres to nanometres: leaf surfaces, stomata, trichomes, wax crystals, pollen, seed coats, insect cuticle, fungal hyphae, biofilms, powders, fibres.</li>
                     <li>You want composition contrast (BSE) or element maps (EDS, if available).</li>
@@ -876,7 +876,7 @@
                     <li>Soil and environment: mineral particles, microplastics, microbes on surfaces.</li>
                     <li>Veterinary science: parasites, bacteria on tissue surfaces.</li>
                 </ul></div>
-                <div class="unit"><h3>At the unit</h3><ul>
+                <div class="mod-unit"><h3>At the unit</h3><ul>
                     <li><strong>JEOL JSM-IT710HR</strong> and <strong>JEOL JSM-IT800</strong>.</li>
                     <li>Startup and shutdown guides in preparation.</li>
                     <li>Contact: <a href="index.html#contact">Tally Kossovsky</a>, electron microscopy and micro-CT.</li>
@@ -891,7 +891,7 @@
                 <h2>Cryo-SEM: imaging samples with their water in</h2>
                 <p>Drying ruins many samples. Cryo-SEM freezes them instead, then images the frozen sample on a cold stage, so emulsions, gels and fresh tissue keep their shape.</p>
             </div>
-            <figure class="figure fig-scroll">
+            <figure class="figure mod-fig-scroll" tabindex="0">
                 <svg viewBox="0 0 610 194" role="img" aria-labelledby="t-cryo" class="fig-svg"><title id="t-cryo">Cryo-SEM workflow in six steps: freeze, transfer, fracture, etch, coat, image</title>
                     <defs><marker id="m8arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor" fill-opacity="0.7"/></marker></defs>
                     <rect x="6" y="8" width="92" height="118" rx="6" fill="var(--surface-2)"/>
@@ -950,15 +950,15 @@
                     <h3>What it does</h3>
                     <p>A small piece of fresh sample is mounted on a holder and plunged into liquid nitrogen slush, nitrogen cooled until it is partly solid. Slush freezes faster than boiling liquid nitrogen, so ice crystals stay small and do less damage to cells. The frozen sample is moved, cold and under vacuum, into a preparation chamber attached to the SEM.</p>
                     <p>There it can be <strong>fractured</strong> with a cold knife to expose the inside. The fracture tends to follow weak planes such as membranes, so it often reveals cell contents and interfaces. Next the sample is warmed briefly, typically to around −90 °C, so a thin layer of surface ice turns straight to vapour. This <strong>sublimation</strong>, also called etching, lifts structures out of the ice so they stand in relief. A thin metal coat is sputtered on, and the sample goes onto a cold stage in the SEM and is imaged at around −140 °C.</p>
-                    <p>The result shows the sample with its water in place, with no chemical fixation or drying. That matters for anything that shrinks, collapses or rearranges when dried: emulsions, gels, foams, hydrated plant tissue, biofilms, soil crusts, ice crystals in frozen food. Preparation and imaging fit in one day.</p>
+                    <p>The result shows the sample with its water in place, with no chemical fixation or drying. That matters for anything that shrinks, collapses or rearranges when dried: emulsions, gels, foams, hydrated plant tissue, biofilms, soil crusts, ice crystals in frozen food. Preparation and imaging can often be done in one day.</p>
                     <p>The limits: large or watery samples freeze slowly in the middle and form damaging ice crystals; the beam damages frozen samples at high magnification; detail is coarser than on a dry, well-coated sample; and you see one fracture face, partly chosen by chance.</p>
-                    <p><span class="tag tag-confirm">To confirm with staff</span> The unit has cryo-SEM capability. Which SEM the cryo system is mounted on, and its exact procedure, have not been confirmed for this page.</p>
+                    <p>The unit has cryo-SEM capability. Which SEM the cryo system is mounted on, and its exact procedure, have not been confirmed for this page. <span class="mod-tag mod-tag-confirm">To confirm with staff</span></p>
                 </div>
-                <div class="facts facts-stack">
+                <div class="mod-facts mod-facts-stack">
                     <div><h3>Consider it when</h3><ul>
                         <li>The sample changes when dried: fresh leaves and fruit, gels, emulsions, foams, ice cream, cheese, hydrogels, biofilms.</li>
                         <li>You want to see where water, ice or fat sits.</li>
-                        <li>You need a result the same day, without fixation.</li>
+                        <li>You want a quick result without fixation.</li>
                     </ul></div>
                     <div><h3>Not the right tool when</h3><ul>
                         <li>You need ultrastructure in 3D: use <a href="#volume-em">volume EM</a>.</li>
@@ -967,12 +967,12 @@
                     </ul></div>
                     <div><h3>What the sample needs</h3><ul>
                         <li>Fresh and small, typically a few millimetres; ask the staff about holder size.</li>
-                        <li>Usually no fixation; frozen at the unit just before imaging.</li>
+                        <li>Usually no fixation; the sample is frozen just before imaging.</li>
                     </ul></div>
                     <div><h3>What you get</h3><ul>
                         <li>2D images of the frozen surface or fracture face.</li>
                         <li>Detail from micrometres to tens of nanometres, depending on the sample.</li>
-                        <li>Hours from fresh sample to images.</li>
+                        <li>Often a few hours from fresh sample to images.</li>
                     </ul></div>
                     <div><h3>Typical uses in the faculty's fields</h3><ul>
                         <li>Food science: emulsions, gels, dough, ice cream, cheese.</li>
@@ -980,8 +980,8 @@
                         <li>Soil and environment: biological soil crusts, hydrated clays, biofilms.</li>
                         <li>Entomology: soft larvae that collapse when dried.</li>
                     </ul></div>
-                    <div class="unit"><h3>At the unit</h3><ul>
-                        <li>Cryo preparation for SEM. <span class="tag tag-confirm">To confirm with staff</span> which SEM.</li>
+                    <div class="mod-unit"><h3>At the unit</h3><ul>
+                        <li>Cryo preparation for SEM; which SEM carries it is not yet confirmed. <span class="mod-tag mod-tag-confirm">To confirm with staff</span></li>
                         <li>Contact: <a href="index.html#contact">Tally Kossovsky</a>.</li>
                     </ul></div>
                 </div>
@@ -996,7 +996,7 @@
                 <p>With a transmission detector under the sample, an SEM can record the electrons that pass through a thin section or a layer of particles, much like a transmission electron microscope.</p>
             </div>
             <div class="two-col">
-                <figure class="figure">
+                <figure class="figure mod-fig-narrow">
                     <svg viewBox="0 0 450 262" role="img" aria-labelledby="t-stem" class="fig-svg"><title id="t-stem">STEM in the SEM: the beam passes through a thin section on a grid; straight-through electrons reach the bright-field segment, scattered electrons reach the dark-field segments</title>
                         <path d="M150 8 H270 L236 40 H184 Z" fill="var(--surface-2)" stroke="currentColor" stroke-opacity="0.5"/>
                         <text x="282" y="26" class="svg-label">final lens</text>
@@ -1021,21 +1021,21 @@
                         <text x="300" y="188" class="svg-label">DF: scattered;</text>
                         <text x="300" y="201" class="svg-label">dense parts bright</text>
                     </svg>
-                    <figcaption>The beam is focused onto a thin section lying on a 3 mm grid. Electrons that pass straight through reach the central bright-field segment of the detector; dense, stained structures stop or scatter them and look dark. Scattered electrons reach the outer dark-field segments, where the same structures look bright.</figcaption>
+                    <figcaption>The beam is focused onto a thin section lying on a 3 mm grid. Electrons that pass straight through reach the central bright-field segment of the detector; dense, stained structures stop or scatter them and look dark. Scattered electrons reach the outer dark-field segments, where the same structures look bright. Generic layout of a segmented detector.</figcaption>
                 </figure>
                 <div class="prose">
                     <h3>What it does</h3>
                     <p>An SEM normally records electrons coming back from the surface. A <strong>STEM detector</strong> (scanning transmission electron microscopy) sits under the sample instead and records the electrons that pass through it. The sample must therefore be thin enough for electrons to cross: an <strong>ultrathin section</strong> of resin-embedded tissue, typically 50–100 nm thick, or particles spread on a thin support film. Both sit on the 3 mm metal grids used in transmission electron microscopes (TEM).</p>
-                    <p>SEM voltages (up to 30 kV) are low compared with a TEM. Slower electrons scatter more strongly in the sample, so thin biological sections show good contrast even with light staining. The scanned beam builds the image point by point, and the detector's segments give bright-field and dark-field images at the same time.</p>
+                    <p>SEM voltages (up to 30 kV) are low compared with a TEM. Slower electrons scatter more strongly in the sample, so thin biological sections show good contrast even with light staining. The scanned beam builds the image point by point. Many STEM-in-SEM detectors are split into segments that give bright-field and dark-field images at the same time; ask the staff what the unit's detector records.</p>
                     <h3>What it can and cannot replace in a TEM</h3>
                     <ul>
                         <li><strong>It can:</strong> survey sections for cell and organelle morphology, check sections before volume EM, measure size and shape of nanoparticles, bacteria and viruses on grids, and give quick answers without a separate instrument.</li>
                         <li><strong>It cannot:</strong> match a dedicated TEM's best resolution, image thick sections at full detail (low-voltage electrons do not get through), or do TEM-specific methods such as electron diffraction, high-resolution lattice imaging and cryo-TEM of frozen-hydrated particles. For those, ask the staff about access to a TEM.</li>
                     </ul>
-                    <p><span class="tag tag-confirm">To confirm with staff</span> The unit has a STEM detector. Which SEM it is fitted to has not been confirmed for this page. JEOL lists a STEM detector for 3 mm grids as an option for the JSM-IT800. <span class="tag tag-mfr">Manufacturer figures</span></p>
+                    <p>The unit has a STEM detector. Which SEM it is fitted to has not been confirmed for this page. <span class="mod-tag mod-tag-confirm">To confirm with staff</span> JEOL lists a STEM detector for 3 mm grids as an option for the JSM-IT800 (manufacturer information).</p>
                 </div>
             </div>
-            <div class="facts">
+            <div class="mod-facts">
                 <div><h3>Consider it when</h3><ul>
                     <li>You have, or can make, ultrathin sections and need cell or organelle morphology at nanometre detail.</li>
                     <li>You need size and shape of particles: nanoparticles, viruses, bacteria, emulsion droplets after negative staining.</li>
@@ -1048,11 +1048,12 @@
                 </ul></div>
                 <div><h3>What the sample needs</h3><ul>
                     <li>Ultrathin sections (typically 50–100 nm) on grids, cut with an ultramicrotome from resin-embedded tissue; or particles on support-film grids.</li>
-                    <li>Fixation, heavy-metal staining and resin embedding: one to two weeks.</li>
+                    <li>Sections: fixation, heavy-metal staining and resin embedding take one to two weeks.</li>
+                    <li>Particles: dried or negatively stained on a support-film grid, within a day.</li>
                 </ul></div>
                 <div><h3>What you get</h3><ul>
-                    <li>2D transmission images in bright field and dark field.</li>
-                    <li>Nanometre-scale detail, below a dedicated TEM's best.</li>
+                    <li>2D transmission images in bright field and/or dark field.</li>
+                    <li>Nanometre-scale detail, coarser than a dedicated TEM's best.</li>
                     <li>Fields up to the size of the section.</li>
                     <li>Minutes per image.</li>
                 </ul></div>
@@ -1061,8 +1062,8 @@
                     <li>Food science and environment: nanoparticles in food or soil extracts.</li>
                     <li>Veterinary science and microbiology: bacteria and viruses on grids.</li>
                 </ul></div>
-                <div class="unit"><h3>At the unit</h3><ul>
-                    <li>STEM detector for the SEM. <span class="tag tag-confirm">To confirm with staff</span> which SEM.</li>
+                <div class="mod-unit"><h3>At the unit</h3><ul>
+                    <li>STEM detector for the SEM; which SEM carries it is not yet confirmed. <span class="mod-tag mod-tag-confirm">To confirm with staff</span></li>
                     <li>Contact: <a href="index.html#contact">Tally Kossovsky</a>.</li>
                 </ul></div>
             </div>
@@ -1078,18 +1079,18 @@
             <div class="two-col">
                 <div class="prose">
                     <h3>What it does</h3>
-                    <p>The sample is fixed, stained with heavy metals such as osmium and uranium so that membranes scatter electrons strongly, and embedded in a hard resin block. The block is trimmed down to the region of interest, often well under a millimetre across, and mounted inside the SEM on a small <strong>in-chamber microtome</strong>. The SEM images the flat top of the block with backscattered electrons; the stained membranes appear as dark or bright lines. Then a diamond knife cuts a thin slice off the top, the SEM images the new face, and the cycle repeats. This is <strong>serial block-face SEM</strong>, one kind of <strong>volume EM</strong>.</p>
+                    <p>The sample is fixed, stained with heavy metals such as osmium and uranium so that membranes scatter electrons strongly, and embedded in a hard resin block. The block is trimmed to the region of interest, often well under a millimetre across, and mounted on a small <strong>in-chamber microtome</strong>. The SEM images the flat top of the block with backscattered electrons; the stained membranes appear as dark or bright lines. Then a diamond knife cuts a thin slice off the top, the SEM images the new face, and the cycle repeats. This is <strong>serial block-face SEM</strong>, one kind of <strong>volume EM</strong>.</p>
                     <p>The result is a stack of hundreds to thousands of aligned images: a 3D block in which every membrane, organelle and cell boundary is visible, without labels. The slices fall away as debris, so the sample is consumed.</p>
-                    <p><strong>The Katana</strong> from ConnectomX mounts on the SEM stage, cuts with a diamond knife, and makes slices as thin as 20 nm. Its knife oscillates ultrasonically to cut cleanly, and it works with JEOL's SEM Supporter software. <span class="tag tag-mfr">Manufacturer figures</span> <span class="tag tag-confirm">To confirm with staff</span> Which of the unit's SEMs the Katana is installed on.</p>
+                    <p><strong>The Katana</strong> from ConnectomX mounts on the SEM stage, cuts with a diamond knife, and makes slices as thin as 20 nm. Its knife oscillates ultrasonically to cut cleanly, and it works with JEOL's SEM Supporter software. <span class="mod-tag mod-tag-mfr">Manufacturer figures</span> In practice, slices of about 30–100 nm are common for biological tissue. Which of the unit's SEMs the Katana is installed on has not been confirmed for this page. <span class="mod-tag mod-tag-confirm">To confirm with staff</span></p>
                     <h3>The real cost: time and data</h3>
                     <p>Preparation takes <strong>weeks</strong>: fixation, several staining steps, dehydration, resin embedding and curing, then trimming and test sections. The imaging run takes from a night to several days. The data are large:</p>
                     <div class="formula">
                         <span class="formula-main">data size ≈ pixels per image × number of slices × bytes per pixel</span>
                         <span class="formula-note">Illustrative numbers: 4000 × 4000 pixel images (16 million pixels), 1000 slices, 1 byte per pixel: 16 million × 1000 × 1 byte = 16 GB. Higher detail or a bigger block quickly reaches hundreds of gigabytes.</span>
                     </div>
-                    <p>Analysis often takes longest. Tracing (segmenting) structures through thousands of slices can take weeks, even with machine-learning tools. Plan storage and analysis with the staff before the run.</p>
+                    <p>Analysis often takes longest: tracing (segmenting) structures through thousands of slices can take weeks. Plan storage and analysis with the staff before the run.</p>
                 </div>
-                <figure class="figure fig-narrow">
+                <figure class="figure mod-fig-narrow">
                     <svg viewBox="0 0 540 260" role="img" aria-labelledby="t-vem" class="fig-svg"><title id="t-vem">Serial block-face SEM: the beam images the top of a resin block, a diamond knife cuts a thin slice, and the cycle repeats to build a 3D stack</title>
                         <defs><marker id="m10arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor" fill-opacity="0.7"/></marker></defs>
                         <rect x="96" y="170" width="28" height="56" fill="currentColor" fill-opacity="0.2"/>
@@ -1126,7 +1127,7 @@
                     <figcaption>Left: the stained, resin-embedded block on its pin. The beam images the top face; the diamond knife then cuts a thin slice off and the beam images the new face. Right: the images stack into a 3D volume in which membranes and organelles (orange outlines) can be traced from slice to slice.</figcaption>
                 </figure>
             </div>
-            <div class="facts">
+            <div class="mod-facts">
                 <div><h3>Consider it when</h3><ul>
                     <li>You need membranes, organelles and cell contacts in 3D, over tens to hundreds of micrometres.</li>
                     <li>A few thin sections are not enough to answer the question: shapes, connections, counts or volumes in 3D.</li>
@@ -1140,13 +1141,13 @@
                     <li>You need many samples quickly.</li>
                 </ul></div>
                 <div><h3>What the sample needs</h3><ul>
-                    <li>Excellent fixation, en-bloc heavy-metal staining and resin embedding, so the block conducts and gives strong contrast.</li>
+                    <li>Excellent fixation, en-bloc heavy-metal staining and resin embedding. The stain gives contrast and reduces charging; the resin still charges under the beam, and the staff will choose how to manage this.</li>
                     <li>A block trimmed to the region of interest. Micro-CT of the block helps to find it.</li>
                     <li>Weeks of preparation, planned with the staff from the start.</li>
                 </ul></div>
                 <div><h3>What you get</h3><ul>
                     <li>A 3D image stack of ultrastructure.</li>
-                    <li>Nanometre-scale pixels in the block face; slices from 20 nm thick (manufacturer figure).</li>
+                    <li>Nanometre-scale pixels in the block face; slices from 20 nm thick (manufacturer figure), in practice often about 30–100 nm for biological tissue.</li>
                     <li>Volumes of tens to hundreds of micrometres on a side.</li>
                     <li>One night to several days of imaging; tens to hundreds of gigabytes.</li>
                 </ul></div>
@@ -1155,8 +1156,8 @@
                     <li>Plant–microbe biology: symbionts and pathogens inside host cells.</li>
                     <li>Entomology and veterinary science: tissue ultrastructure, parasites inside host tissue.</li>
                 </ul></div>
-                <div class="unit"><h3>At the unit</h3><ul>
-                    <li>ConnectomX <strong>Katana</strong> in-chamber microtome. <span class="tag tag-confirm">To confirm with staff</span> which SEM.</li>
+                <div class="mod-unit"><h3>At the unit</h3><ul>
+                    <li>ConnectomX <strong>Katana</strong> in-chamber microtome; which SEM carries it is not yet confirmed. <span class="mod-tag mod-tag-confirm">To confirm with staff</span></li>
                     <li>Contact: <a href="index.html#contact">Tally Kossovsky</a>.</li>
                 </ul></div>
             </div>
@@ -1169,8 +1170,8 @@
                 <h2>Correlative workflows: one sample, two techniques</h2>
                 <p>Many questions span two scales or need two kinds of information. Correlative imaging uses one technique to find the target and a second to see it in detail, on the same sample.</p>
             </div>
-            <figure class="figure fig-scroll">
-                <svg viewBox="0 0 640 286" role="img" aria-labelledby="t-corr" class="fig-svg"><title id="t-corr">Three correlative workflows: micro-CT to SEM or volume EM, fluorescence to electron microscopy (CLEM), light sheet to confocal or STED</title>
+            <figure class="figure mod-fig-scroll" tabindex="0">
+                <svg viewBox="0 0 640 286" role="img" aria-labelledby="t-corr" class="fig-svg"><title id="t-corr">Three correlative workflows: micro-CT to SEM or volume EM, fluorescence to electron microscopy (CLEM), light sheet to confocal, or STED on a section</title>
                     <defs><marker id="m11arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor" fill-opacity="0.7"/></marker></defs>
                     <text x="95" y="18" text-anchor="middle" class="svg-label svg-strong">1 · Overview: find it</text>
                     <text x="315" y="18" text-anchor="middle" class="svg-label svg-strong">2 · Hand-off</text>
@@ -1209,9 +1210,9 @@
                     <text x="240" y="234" class="svg-label">pick a region,</text>
                     <text x="240" y="250" class="svg-label">re-mount or section it</text>
                     <rect x="450" y="210" width="180" height="62" rx="6" fill="var(--accent)" fill-opacity="0.14" stroke="var(--accent)"/>
-                    <text x="460" y="230" class="svg-label svg-strong">Confocal or STED</text>
-                    <text x="460" y="246" class="svg-label">zoom in at higher</text>
-                    <text x="460" y="260" class="svg-label">resolution</text>
+                    <text x="460" y="230" class="svg-label svg-strong">Confocal, or STED</text>
+                    <text x="460" y="246" class="svg-label">on a section: zoom in</text>
+                    <text x="460" y="260" class="svg-label">at higher resolution</text>
                     <line x1="182" y1="241" x2="226" y2="241" stroke="currentColor" stroke-opacity="0.7" marker-end="url(#m11arr)"/>
                     <line x1="402" y1="241" x2="446" y2="241" stroke="currentColor" stroke-opacity="0.7" marker-end="url(#m11arr)"/>
                 </svg>
@@ -1222,13 +1223,13 @@
                     <h3>Micro-CT, then SEM or volume EM</h3>
                     <p>Micro-CT shows where things are inside an intact sample but not their fine structure. Scanning a seed, an insect or a resin block first tells you exactly where to cut, fracture or trim, so the electron microscope looks at the right few hundred micrometres. For volume EM, a micro-CT scan of the embedded block is a common way to check staining and find the target before a multi-day run.</p>
                     <h3>Light sheet, then confocal</h3>
-                    <p>The light sheet maps a whole cleared organ quickly at around 1 µm. Once you know which region matters, a confocal or STED image of that region gives finer detail on the same sample or on a section from it. Clearing media and mounting must suit both instruments; agree this before you clear.</p>
+                    <p>The light sheet maps a whole cleared organ quickly at around 1 µm. Once you know which region matters, a confocal image of that region, or STED on a thin section from it, gives finer detail. Clearing media and mounting must suit both instruments; agree this before you clear.</p>
                 </div>
                 <div class="prose">
                     <h3>Fluorescence, then EM (CLEM)</h3>
                     <p>Correlative light and electron microscopy (CLEM) combines what fluorescence is good at, telling which cells or molecules carry a label, with what EM is good at, showing all the structure around them. Typically you image a section or a sample on a marked grid or dish with fluorescence, record where the labelled cells are, then prepare the same sample for EM and find them again.</p>
                     <p>The difficulties are practical. EM preparation (heavy metals, resin, dehydration) usually destroys fluorescence, so the light images are taken first. The sample shrinks or distorts during preparation, so you need landmarks visible in both: grid markings, the outline of the tissue, or added marks. And the two images must be overlaid in software afterwards.</p>
-                    <p>Correlative projects need both staff members: <a href="index.html#contact">Daniel Waiger</a> for the light side and <a href="index.html#contact">Tally Kossovsky</a> for the electron and X-ray side. Mention it in the <a href="https://forms.gle/igPJLiemJrT7ZCL56" target="_blank" rel="noopener">Project Initiation Form</a>.</p>
+                    <p>Correlative projects usually involve both staff members: <a href="index.html#contact">Daniel Waiger</a> for the light side and <a href="index.html#contact">Tally Kossovsky</a> for the electron and X-ray side. Mention it in the <a href="https://forms.gle/igPJLiemJrT7ZCL56" target="_blank" rel="noopener">Project Initiation Form</a>.</p>
                 </div>
             </div>
         </section>
@@ -1240,8 +1241,8 @@
                 <h2>Comparison table</h2>
                 <p>All techniques side by side. Resolution and times are rough guides; the chapters above give the details and the status of each figure. On a phone, scroll the table sideways.</p>
             </div>
-            <div class="table-wrap" tabindex="0" role="region" aria-label="Comparison table of imaging techniques">
-                <table class="compare">
+            <div class="mod-table-wrap" tabindex="0" role="region" aria-label="Comparison table of imaging techniques">
+                <table class="mod-compare">
                     <thead>
                         <tr><th scope="col">Technique</th><th scope="col">Contrast from</th><th scope="col">Sample state</th><th scope="col">Lateral resolution</th><th scope="col">Depth / 3D</th><th scope="col">Field of view</th><th scope="col">Prep time</th><th scope="col">Live</th><th scope="col">Instrument</th><th scope="col">Contact</th></tr>
                     </thead>
@@ -1249,11 +1250,11 @@
                         <tr><th scope="row"><a href="#widefield">Widefield</a></th><td>Fluorescence; absorbed light (brightfield)</td><td>Living or fixed; slides, dishes, plates</td><td>≈250 nm</td><td>2D; best on thin samples</td><td>0.1 mm to a few mm per image</td><td>Minutes to hours</td><td>Yes</td><td>EVOS M7000</td><td>Daniel Waiger</td></tr>
                         <tr><th scope="row"><a href="#confocal">Confocal</a></th><td>Fluorescence</td><td>Living or fixed, under a coverslip</td><td>≈180–200 nm</td><td>Optical sections, z-stacks; tens to hundreds of µm deep</td><td>Tens of µm to ≈1 mm; tiles beyond</td><td>Hours to days (staining)</td><td>Yes</td><td>Leica SP8, Leica Stellaris</td><td>Daniel Waiger</td></tr>
                         <tr><th scope="row"><a href="#sted">STED</a></th><td>Fluorescence, with depletion beam</td><td>Mostly fixed; STED-compatible dyes; thin</td><td>≈50–80 nm in practice</td><td>2D or thin stacks near the coverslip</td><td>Tens of µm</td><td>Days (staining, mounting)</td><td>Limited</td><td>Leica Stellaris STED</td><td>Daniel Waiger</td></tr>
-                        <tr><th scope="row"><a href="#lightsheet">Light sheet</a></th><td>Fluorescence</td><td>Cleared, or living in gel or medium</td><td>≈1 µm</td><td>Full 3D through mm–cm samples</td><td>mm; samples to cm</td><td>Days to weeks (clearing); short for live</td><td>Yes</td><td>Luxendo MuVi SPIM</td><td>Daniel Waiger</td></tr>
-                        <tr><th scope="row"><a href="#microct">Micro-CT</a></th><td>X-ray absorption; phase fringes at edges</td><td>Dry, dense, or stained; held still</td><td>Voxels 2–20 µm in practice; 0.35 µm manufacturer figure</td><td>Full 3D, no cutting</td><td>mm to cm</td><td>None to days (staining)</td><td>Rarely</td><td>Bruker SkyScan 1272</td><td>Tally Kossovsky</td></tr>
-                        <tr><th scope="row"><a href="#sem">SEM</a></th><td>SE (topography), BSE (composition), X-rays (EDS, to confirm)</td><td>Dry, usually coated; low vacuum for some (to confirm)</td><td>Nanometre scale; ≈1 nm and below at best (manufacturer figures)</td><td>Surface only</td><td>mm down to sub-µm</td><td>Hours to days</td><td>No</td><td>JEOL JSM-IT710HR, JSM-IT800</td><td>Tally Kossovsky</td></tr>
-                        <tr><th scope="row"><a href="#cryo-sem">Cryo-SEM</a></th><td>As SEM, on a frozen sample</td><td>Fresh, frozen-hydrated</td><td>Coarser than SEM on dry, coated samples</td><td>Surface or fracture face</td><td>mm down to µm</td><td>Hours, same day</td><td>No</td><td>Cryo system on an SEM (which one to confirm)</td><td>Tally Kossovsky</td></tr>
-                        <tr><th scope="row"><a href="#stem">STEM in SEM</a></th><td>Transmitted electrons (bright and dark field)</td><td>Ultrathin sections or particles on 3 mm grids</td><td>Nanometre scale, below a dedicated TEM</td><td>2D projection of a thin section</td><td>Up to the section size</td><td>1–2 weeks (embedding, sectioning)</td><td>No</td><td>STEM detector on an SEM (which one to confirm)</td><td>Tally Kossovsky</td></tr>
+                        <tr><th scope="row"><a href="#lightsheet">Light sheet</a></th><td>Fluorescence</td><td>Cleared, or living in gel or medium</td><td>≈1 µm</td><td>Full 3D through mm-scale samples; depth detail several µm</td><td>mm (largest sample: ask staff)</td><td>Days to weeks (clearing); short for live</td><td>Yes</td><td>Luxendo MuVi SPIM</td><td>Daniel Waiger</td></tr>
+                        <tr><th scope="row"><a href="#microct">Micro-CT</a></th><td>X-ray absorption; phase contrast at edges</td><td>Dry, dense, or stained; held still</td><td>Voxels 2–20 µm in practice (details ≈2–3 voxels); details down to 0.35 µm (manufacturer figure)</td><td>Full 3D, no cutting</td><td>mm to cm</td><td>None to days (staining)</td><td>Rarely</td><td>Bruker SkyScan 1272</td><td>Tally Kossovsky</td></tr>
+                        <tr><th scope="row"><a href="#sem">SEM</a></th><td>SE (topography), BSE (composition), X-rays (EDS, to confirm)</td><td>Dry; coated, or uncoated in low vacuum (to confirm)</td><td>Nanometre scale; ≈1 nm (IT710HR), sub-nm in the IT800's best configuration (manufacturer figures; configuration to confirm)</td><td>Surface only</td><td>mm down to sub-µm</td><td>Hours to days</td><td>No</td><td>JEOL JSM-IT710HR, JSM-IT800</td><td>Tally Kossovsky</td></tr>
+                        <tr><th scope="row"><a href="#cryo-sem">Cryo-SEM</a></th><td>As SEM, on a frozen sample</td><td>Fresh, frozen-hydrated</td><td>Coarser than SEM on dry, coated samples</td><td>Surface or fracture face</td><td>mm down to µm</td><td>Hours; often the same day</td><td>No</td><td>Cryo system on an SEM (which one to confirm)</td><td>Tally Kossovsky</td></tr>
+                        <tr><th scope="row"><a href="#stem">STEM in SEM</a></th><td>Transmitted electrons (bright field and/or dark field)</td><td>Ultrathin sections or particles on 3 mm grids</td><td>Nanometre scale, coarser than a dedicated TEM's best</td><td>2D projection of a thin section</td><td>Up to the section size</td><td>1–2 weeks for sections; hours for particles on grids</td><td>No</td><td>STEM detector on an SEM (which one to confirm)</td><td>Tally Kossovsky</td></tr>
                         <tr><th scope="row"><a href="#volume-em">Volume EM</a></th><td>BSE from a heavy-metal-stained block face</td><td>Resin-embedded block</td><td>nm pixels; slices from 20 nm (manufacturer figure)</td><td>Full 3D ultrastructure</td><td>Tens to hundreds of µm</td><td>Weeks</td><td>No</td><td>Katana in an SEM (which one to confirm)</td><td>Tally Kossovsky</td></tr>
                     </tbody>
                 </table>
@@ -1280,10 +1281,10 @@
                 <div><dt>BSE (backscattered electrons)</dt><dd>Beam electrons bounced back from the sample. Heavier elements look brighter.</dd></div>
                 <div><dt>EDS</dt><dd>Energy-dispersive X-ray spectroscopy: identifies and maps elements from the X-rays the beam produces.</dd></div>
                 <div><dt>Field-emission gun (FEG)</dt><dd>A sharp, bright electron source that keeps the beam fine, especially at low voltage.</dd></div>
-                <div><dt>Accelerating voltage (kV)</dt><dd>The energy of the beam electrons. Low kV: surface detail, less charging. High kV: deeper signal, EDS.</dd></div>
+                <div><dt>Accelerating voltage (kV)</dt><dd>The energy of the beam electrons. Low kV: signal from the surface, less charging. High kV: finer spot, deeper signal, EDS.</dd></div>
                 <div><dt>Charging</dt><dd>Build-up of charge on a non-conducting sample, causing glare, streaks and drift.</dd></div>
-                <div><dt>Coating</dt><dd>A few-nanometre layer of metal or carbon that makes the surface conduct.</dd></div>
-                <div><dt>Low vacuum</dt><dd>An SEM mode with a little gas in the chamber that neutralises charge, for uncoated or moist samples.</dd></div>
+                <div><dt>Coating</dt><dd>A few-nanometre layer of gold, platinum or carbon, applied in a sputter or evaporation coater, that makes the surface conduct. Carbon is used before EDS, because metal coatings add their own X-ray peaks.</dd></div>
+                <div><dt>Low vacuum</dt><dd>An SEM mode with a little gas in the chamber that neutralises charge, so uncoated samples can be imaged. Wet samples still dry out.</dd></div>
                 <div><dt>Critical-point drying</dt><dd>Drying through a state with no surface tension, so soft structures do not collapse.</dd></div>
                 <div><dt>Sublimation (etching)</dt><dd>In cryo-SEM: turning a thin layer of surface ice straight to vapour to reveal structure.</dd></div>
                 <div><dt>STEM</dt><dd>Scanning transmission electron microscopy: recording electrons that pass through a thin sample.</dd></div>
@@ -1293,7 +1294,7 @@
                 <div><dt>Segmentation</dt><dd>Tracing structures in an image or volume so they can be measured or rendered.</dd></div>
                 <div><dt>CLEM</dt><dd>Correlative light and electron microscopy: fluorescence and EM on the same sample.</dd></div>
             </dl>
-            <p class="prose">Not sure which technique fits? Fill in the <a href="https://forms.gle/igPJLiemJrT7ZCL56" target="_blank" rel="noopener">Project Initiation Form</a> and <a href="index.html#contact">ask the staff</a>. A short conversation before you prepare samples saves weeks.</p>
+            <p class="prose">Not sure which technique fits? Fill in the <a href="https://forms.gle/igPJLiemJrT7ZCL56" target="_blank" rel="noopener">Project Initiation Form</a> and <a href="index.html#contact">ask the staff</a>. A short conversation before you prepare samples can save weeks.</p>
         </section>
     </main>
 
