@@ -17,7 +17,7 @@
  * Query parameters: ?path= (any page), ?title= (any page), ?repo= and ?branch=
  * (viewer.html only; a per-repo page's own repo/branch always win).
  *
- * Version 2.1.0 (2026-11-06), routing phase 0 plus review fixes:
+ * Version 2.1.1 (2026-11-06), routing phase 0 plus review fixes:
  *   - repo/branch/path are validated; viewer.html only shows the five
  *     instrument repos and named branches (no PR refs or SHAs); a rejected
  *     value shows an error instead of fetching; raw HTML is shown as text
@@ -147,10 +147,11 @@
     // Branch: one or more valid names separated by "/" (PR branches such as
     // "feature/x" stay previewable); no "." or "..", no empty segments.
     // raw.githubusercontent.com also serves pull-request refs and commits by
-    // SHA, including commits from forks, which anyone can create: refuse
-    // those, so only named branches (created by org members) are shown.
+    // SHA (abbreviated to as few as 4 hex digits, and "<sha>/..."),
+    // including commits from forks, which anyone can create: refuse those,
+    // so only named branches (created by org members) are shown.
     const validBranch = s => typeof s === 'string' && s.length <= 200
-        && !/^(refs|pull)(\/|$)/i.test(s) && !/^[0-9a-f]{7,40}$/i.test(s)
+        && !/^(refs|pull)(\/|$)/i.test(s) && !/^[0-9a-f]{4,40}(\/|$)/i.test(s)
         && s.split('/').every(validName);
     // Case-insensitive match of a known repo name → canonical spelling, else null
     const canonicalRepo = s => {
@@ -293,9 +294,10 @@
 
         // Returns { href, newTab }
         function rewriteLink(href, text) {
-            // Browsers ignore control characters and spaces in a URL scheme
-            // ("java\tscript:"), so drop them before looking at the scheme.
-            href = fixOldOrg(String(href || '').replace(/[\u0000- \u007f]/g, ''));
+            // Browsers drop tabs and newlines anywhere in a URL and control
+            // characters and spaces at either end ("java\tscript:",
+            // "\u0001javascript:"), so do the same before the scheme check.
+            href = fixOldOrg(String(href || '').replace(/[\t\n\r]/g, '').replace(/^[\u0000- ]+|[\u0000- ]+$/g, ''));
             if (!href || href.startsWith('#')) return { href, newTab: false };
             if (href.startsWith('//')) href = 'https:' + href;
             const scheme = (href.match(/^([a-z][a-z0-9+.-]*):/i) || [])[1];
@@ -354,9 +356,11 @@
         }
 
         function resolveAsset(src) {
-            src = String(src || '').replace(/[\u0000- \u007f]/g, '');
-            if (!src || /^([a-z][a-z0-9+.-]*:|\/\/|#)/i.test(src)) return src;
-            try { return new URL(src, assetBase).href; } catch (_) { return src; }
+            src = String(src || '').replace(/[\t\n\r]/g, '').replace(/^[\u0000- ]+|[\u0000- ]+$/g, '');
+            if (!src || /^(\/\/|#)/.test(src)) return src;
+            // Absolute: only http(s) and data:image/ sources
+            if (/^[a-z][a-z0-9+.-]*:/i.test(src)) return /^(https?:|data:image\/)/i.test(src) ? src : '';
+            try { return new URL(src, assetBase).href; } catch (_) { return ''; }
         }
 
         try {
@@ -379,8 +383,8 @@
                     return `<span class="image-note"><i class="fa-solid fa-image"></i> `
                         + `Screenshot — <a href="${repoUrl}#readme" target="_blank" rel="noopener">view on GitHub</a></span>`;
                 }
-                const titleAttr = imgTitle ? ` title="${escHtml(imgTitle)}"` : '';
-                return `<img src="${escHtml(resolveAsset(href))}" alt="${escHtml(alt || '')}"${titleAttr} loading="lazy">`;
+                const titleAttr = imgTitle ? ` title="${escHtml(decodeEntities(imgTitle))}"` : '';
+                return `<img src="${escHtml(resolveAsset(href))}" alt="${escHtml(decodeEntities(alt || ''))}"${titleAttr} loading="lazy">`;
             };
 
             // Raw HTML in the Markdown. On a published branch (the repo's own
@@ -413,7 +417,7 @@
 
             renderer.link = (href, linkTitle, text) => {
                 const r = rewriteLink(href, text);
-                const titleAttr = linkTitle ? ` title="${escHtml(linkTitle)}"` : '';
+                const titleAttr = linkTitle ? ` title="${escHtml(decodeEntities(linkTitle))}"` : '';
                 const newTab    = r.newTab ? ' target="_blank" rel="noopener"' : '';
                 return `<a href="${escHtml(r.href)}"${titleAttr}${newTab}>${text}</a>`;
             };

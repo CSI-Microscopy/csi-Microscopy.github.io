@@ -130,7 +130,7 @@
         const NAME_RE   = /^[A-Za-z0-9._-]+$/;
         const validName = s => typeof s === 'string' && s.length <= 100 && NAME_RE.test(s) && s !== '.' && !s.includes('..');
         const validBranch = s => typeof s === 'string' && s.length <= 200
-            && !/^(refs|pull)(\/|$)/i.test(s) && !/^[0-9a-f]{7,40}$/i.test(s)
+            && !/^(refs|pull)(\/|$)/i.test(s) && !/^[0-9a-f]{4,40}(\/|$)/i.test(s)
             && s.split('/').every(validName);
         const knownRepo = s => Object.keys(KNOWN_REPOS).find(r => r.toLowerCase() === String(s).toLowerCase()) || null;
 
