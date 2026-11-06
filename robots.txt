@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://csi-microscopy.github.io/sitemap.xml
