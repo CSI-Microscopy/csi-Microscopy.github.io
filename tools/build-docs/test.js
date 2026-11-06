@@ -39,10 +39,13 @@ eq(core.relFrom('manuals/', ''), '../', 'relFrom manuals→root');
 eq(core.relFrom('manuals/', 'manuals/x.pdf'), 'x.pdf', 'relFrom same dir');
 eq(core.relFrom('a/b/', 'a/c/d.png'), '../c/d.png', 'relFrom sibling dir');
 eq(core.relFrom('', 'docs/sub/'), 'docs/sub/', 'relFrom folder');
-eq(JSON.stringify(core.BUILT_REPOS), JSON.stringify(['Skyscan-1272-MicroCT']), 'BUILT_REPOS: Skyscan only (roll-out status)');
-for (const r of ['EVOS-M7000-widefiled', 'Stellaris-STED-Confocal', 'Luxendo-MuVi-SPIM-Light-Sheet', 'image-analysis-server']) {
-    eq(core.builtUrl(r, core.KNOWN_REPOS[r], 'README.md'), null, `builtUrl: ${r} not built yet`);
+eq(JSON.stringify([...core.BUILT_REPOS].sort()), JSON.stringify(Object.keys(core.KNOWN_REPOS).sort()), 'BUILT_REPOS: all five instrument repos (roll-out complete)');
+for (const r of Object.keys(core.KNOWN_REPOS)) {
+    eq(core.builtUrl(r, core.KNOWN_REPOS[r], 'README.md'), S + r + '/', `builtUrl: ${r} README → its built site`);
 }
+eq(core.builtUrl('EVOS-M7000-widefiled', 'master', 'readme.md'), S + 'EVOS-M7000-widefiled/', 'builtUrl: lower-case readme.md');
+eq(core.builtUrl('Luxendo-MuVi-SPIM-Light-Sheet', 'master', 'Image_Processor-v4.15.1-beta-01/readme.md'), S + 'Luxendo-MuVi-SPIM-Light-Sheet/Image_Processor-v4.15.1-beta-01/', 'builtUrl: sub-folder readme → folder');
+eq(core.builtUrl('EVOS-M7000-widefiled', 'main', 'readme.md'), null, 'builtUrl: EVOS main is not its published branch (master)');
 eq(core.builtUrl('skyscan-1272-microct', 'main', 'manuals/readme.md'), S + 'Skyscan-1272-MicroCT/manuals/', 'builtUrl: built repo, published branch');
 eq(core.builtUrl('Skyscan-1272-MicroCT', 'main', 'docs/a b.md'), S + 'Skyscan-1272-MicroCT/docs/a%20b.html', 'builtUrl: .md → .html, encoded');
 eq(core.builtUrl('Skyscan-1272-MicroCT', 'feature-x', 'README.md'), null, 'builtUrl: other branch → preview');
@@ -56,8 +59,12 @@ eq(core.findOldOrg('see ![x](https://github.com/Faculty-of-Agriculture-CSI-Micro
     // browser mode (render.js): the Phase 0 rules
     const l = core.makeLinker({ repo: 'Skyscan-1272-MicroCT', branch: 'main', mdPath: 'docs/test.md', defaultPath: 'README.md', onRepoPage: true });
     eq(l.rewriteLink('b.md#sec', 'b').href, S + 'Skyscan-1272-MicroCT/docs/b.html#sec', 'browser: md in a built repo → clean URL');
+    // a repo not (or no longer) on the static build keeps the ?path= form
+    const i = core.BUILT_REPOS.indexOf('Stellaris-STED-Confocal');
+    core.BUILT_REPOS.splice(i, 1);
     const ls = core.makeLinker({ repo: 'Stellaris-STED-Confocal', branch: 'main', mdPath: 'docs/test.md', defaultPath: 'README.md', onRepoPage: true });
-    eq(ls.rewriteLink('b.md#sec', 'b').href, S + 'Stellaris-STED-Confocal/?path=docs/b.md#sec', 'browser: md in a repo not yet built → ?path=');
+    eq(ls.rewriteLink('b.md#sec', 'b').href, S + 'Stellaris-STED-Confocal/?path=docs/b.md#sec', 'browser: md in a repo not on the build → ?path=');
+    core.BUILT_REPOS.splice(i, 0, 'Stellaris-STED-Confocal');
     eq(l.rewriteLink('sub/x%20y.pdf#page=3', 'x').href, S + 'Skyscan-1272-MicroCT/docs/sub/x%20y.pdf#page=3', 'browser: pdf → Pages URL');
     eq(l.resolveAsset('img/d.png'), 'https://raw.githubusercontent.com/CSI-Microscopy/Skyscan-1272-MicroCT/main/docs/img/d.png', 'browser: image → raw');
     eq(l.rewriteLink('java\tscript:alert(1)', 'x').href, '#', 'browser: javascript: → #');

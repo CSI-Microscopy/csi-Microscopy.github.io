@@ -20,7 +20,7 @@ The site is designed to present CSI Microscopy information in a clean, responsiv
 - `guides/viewer.html` – preview page for the five instrument repos (`?repo=&branch=&path=`), e.g. a branch before merging; not indexed. For a repo in `BUILT_REPOS` on its published branch it redirects to the built page instead
 - `guides/pdf-viewer.html` – PDF viewer kept for older links; accepts only CSI-Microscopy files and shows the same-site copy (for a repo in `BUILT_REPOS` it redirects to the PDF itself)
 - `tools/build-docs/` – the static build for the instrument sites (see below); `.github/workflows/build-instrument-site.yml` is the shared workflow that runs it, `.github/workflows/check-render-bundle.yml` the CI for this repo
-- `404.html` – branded not-found page; before showing it, redirects wrong-case instrument names, `/EVOS-M7000-widefield/`, `/Stellaris-STED/`, the short aliases `/microct/`, `/evos/`, `/stellaris/`, `/lightsheet/`, `/data/`, `/manuals/`, and `README.md`/`readme.md` paths. GitHub Pages serves it only for paths outside the instrument repos' own sites; each instrument repo needs its own `404.html` for wrong paths inside it
+- `404.html` – branded not-found page; before showing it, redirects wrong-case instrument names, `/EVOS-M7000-widefield/`, `/Stellaris-STED/`, the short aliases `/microct/`, `/evos/`, `/stellaris/`, `/lightsheet/`, `/data/`, `/manuals/`, and `README.md`/`readme.md` paths. GitHub Pages serves it only for paths outside the instrument repos' own sites; each instrument site has its own generated `404.html` for wrong paths inside it (tools/build-docs)
 - `sitemap.xml`, `robots.txt` – home pages and the five instrument entry pages, for search engines
 - `assets/favicon.svg` – site icon
 - `readme.md` – project documentation
@@ -59,12 +59,12 @@ Without it the name comes from the old shim's title and the menu lists the guide
 | Repo | Published branch | Built |
 |---|---|---|
 | Skyscan-1272-MicroCT | main | yes |
-| EVOS-M7000-widefiled | master | no (`pages.yml` ready, awaiting merge and Pages source switch) |
-| Stellaris-STED-Confocal | main | no (`pages.yml` ready, awaiting merge and Pages source switch) |
-| Luxendo-MuVi-SPIM-Light-Sheet | master | no (`pages.yml` ready, awaiting merge and Pages source switch) |
-| image-analysis-server | main | no (`pages.yml` ready, awaiting merge and Pages source switch) |
+| EVOS-M7000-widefiled | master | yes |
+| Stellaris-STED-Confocal | main | yes |
+| Luxendo-MuVi-SPIM-Light-Sheet | master | yes |
+| image-analysis-server | main | yes |
 
-Each repo owner must switch Settings → Pages → Source to "GitHub Actions" after merging its `pages.yml`; update this table and `BUILT_REPOS` when a repo goes live.
+All five instrument sites are served from the static build. The shim `index.html` in each repo is no longer served (the build replaces it); it stays in the repos as the fallback for "Deploy from a branch". A new instrument repo follows the steps below, then gets a row here and an entry in `BUILT_REPOS`.
 
 **Adding an instrument repo (merge order)**
 

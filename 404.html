@@ -18,9 +18,9 @@
         (/skyscan-1272-microct/x), the old or corrected spellings
         (/EVOS-M7000-widefield/, /Stellaris-STED/), short aliases (/microct/,
         /evos/, /stellaris/, /lightsheet/, /data/), /manuals/, and README.md /
-        readme.md in any case (to the folder, or to ?path= for a sub-folder,
-        which has no page of its own yet). Redirects keep the rest of the
-        path, the query and the #hash, and never leave this site.
+        readme.md in any case (to the folder, which is a built page on every
+        instrument site). Redirects keep the rest of the path, the query and
+        the #hash, and never leave this site.
     -->
     <script id="csi-alias">
         (function () {
@@ -36,8 +36,8 @@
                 'data':       'image-analysis-server'
             };
             var PAGES = ['index.html', 'basics.html', 'modalities.html'];
-            // The SkyScan manuals have no page of their own yet
-            var MANUALS = '/Skyscan-1272-MicroCT/?path=manuals/readme.md&title=Skyscan%201272%20Manuals';
+            // The SkyScan manuals page (built from manuals/readme.md)
+            var MANUALS = '/Skyscan-1272-MicroCT/manuals/';
 
             function dec(s) { try { return decodeURIComponent(s); } catch (e) { return s; } }
             // "manuals", "manuals/", "manuals/readme.md", "manuals/index.html"
@@ -64,7 +64,7 @@
                     var last = rest.length ? rest[rest.length - 1] : '';
                     if (/^readme\.md$/i.test(dec(last))) {
                         if (rest.length === 1) return '/' + repo + '/';
-                        return '/' + repo + '/?path=' + rest.map(function (x) { return encodeURIComponent(dec(x)); }).join('/');
+                        return '/' + repo + '/' + rest.slice(0, -1).join('/') + '/';
                     }
                     return '/' + repo + '/' + rest.join('/');
                 }
@@ -154,7 +154,7 @@
                     <span class="card-icon"><i class="fa-solid fa-cube" aria-hidden="true"></i></span>
                     <span><span class="card-title">Skyscan 1272 MicroCT</span><span class="card-desc">Startup and shutdown procedure.</span></span>
                     <i class="fa-solid fa-arrow-right card-ext" aria-hidden="true"></i></a></li>
-                <li><a class="card" href="/Skyscan-1272-MicroCT/?path=manuals/readme.md&amp;title=Skyscan%201272%20Manuals">
+                <li><a class="card" href="/Skyscan-1272-MicroCT/manuals/">
                     <span class="card-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
                     <span><span class="card-title">Skyscan 1272 MicroCT · Manuals</span><span class="card-desc">Manufacturer manuals and reference PDFs.</span></span>
                     <i class="fa-solid fa-arrow-right card-ext" aria-hidden="true"></i></a></li>
