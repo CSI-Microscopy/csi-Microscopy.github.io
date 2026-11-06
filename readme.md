@@ -15,9 +15,13 @@ The site is designed to present CSI Microscopy information in a clean, responsiv
 - `assets/examples/` – example images from the unit's own data (fly microCT slice from the SkyScan 1272 repo)
 - `assets/modalities/` – example images for `modalities.html`, re-encoded from Wikimedia Commons; each is credited on the page (author, source page, licence) and listed in its Image credits section
 - `site.js` – theme toggle (persisted, respects system preference), mobile menu, section highlighting
-- `guides/viewer.html`, `guides/render.js`, `guides/guide.css` – shared Markdown guide renderer used by the instrument repos
-- `guides/pdf-viewer.html` – inline PDF viewer for manuals
+- `guides/render.js`, `guides/guide.css` – shared Markdown guide renderer and styles, loaded by every instrument repo's `index.html` (`window.GUIDE = { repo, branch, title, path }`; `?path=` and `?title=` in the address override path and title). It accepts only plain repo/branch names and paths inside the repo, scrolls to `#hash` after rendering, uses the document's first `# H1` as the title, and links PDFs and other files to the instrument's own Pages URL
+- `guides/viewer.html` – preview page for the five instrument repos (`?repo=&branch=&path=`), e.g. a branch before merging; not indexed
+- `guides/pdf-viewer.html` – PDF viewer kept for older links; accepts only CSI-Microscopy files and shows the same-site copy
+- `404.html` – branded not-found page; before showing it, redirects wrong-case instrument names, `/EVOS-M7000-widefield/`, `/Stellaris-STED/`, the short aliases `/microct/`, `/evos/`, `/stellaris/`, `/lightsheet/`, `/data/`, and `/manuals/`
+- `sitemap.xml`, `robots.txt` – home pages and the five instrument entry pages, for search engines
 - `assets/favicon.svg` – site icon
+- `assets/logos/` – third-party logo source files (not used by the pages)
 - `readme.md` – project documentation
 
 ## Design

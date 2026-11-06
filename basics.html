@@ -7,6 +7,7 @@
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#0A716E">
     <title>Microscopy basics — CSI Microscopy</title>
+    <link rel="canonical" href="https://csi-microscopy.github.io/basics.html">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <script>
         try { var t = localStorage.getItem('csi-theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}
@@ -349,7 +350,7 @@
                     <h3>Keep the native file</h3>
                     <ul>
                         <li>Save in the instrument's own format: <code>.lif</code> on the Leica systems, <code>.h5</code> on the Luxendo light sheet, the reconstruction output on the microCT. These keep all metadata.</li>
-                        <li>If you need another format, export to <strong>TIFF</strong> (or OME-TIFF). It keeps the full brightness range and most metadata. The unit's <a href="Luxendo-MuVi-SPIM-Light-Sheet/?title=Luxendo%20h5%20to%20TIFF%20Converter">h5 to TIFF converter</a> and <a href="Stellaris-STED-Confocal/?title=Stellaris%20Confocal%20Data%20Tools">LIF scripts</a> do this.</li>
+                        <li>If you need another format, export to <strong>TIFF</strong> (or OME-TIFF). It keeps the full brightness range and most metadata. The unit's <a href="Luxendo-MuVi-SPIM-Light-Sheet/">h5 to TIFF converter</a> and <a href="https://github.com/CSI-Microscopy/Stellaris-STED-Confocal/tree/main/tools" target="_blank" rel="noopener">LIF scripts</a> (scripts; documentation to follow) do this.</li>
                         <li><strong>Never analyse a JPEG.</strong> JPEG throws away the brightness range (16-bit to 8-bit), compresses by discarding fine detail, and drops the pixel size. It is fine for a slide show, nothing else. PNG keeps the pixels but still loses the metadata.</li>
                         <li>Open everything in Fiji with <em>Plugins → Bio-Formats</em> (or just drag the file in). It reads all of these formats and shows the metadata under <em>Image → Show Info</em>.</li>
                     </ul>

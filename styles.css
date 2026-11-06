@@ -700,6 +700,7 @@ main > footer { background: transparent; margin-top: 1rem; }
 .instruments .i-links { margin-top: 8px; font-size: 0.88rem; }
 .instruments .i-links a + a::before { content: "·"; color: var(--muted); margin: 0 0.5rem; }
 .instruments .i-links a { white-space: nowrap; }
+.instruments .i-links .i-note { color: var(--muted); margin-left: 0.35rem; }
 
 /* Long-form page layout (basics.html) */
 .hero-article { align-items: start; }
