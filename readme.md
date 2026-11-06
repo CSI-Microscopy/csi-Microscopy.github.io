@@ -54,6 +54,18 @@ Each instrument repository (SkyScan, EVOS, Stellaris, Luxendo, image-analysis-se
 
 Without it the name comes from the old shim's title and the menu lists the guide plus every other page. Without `description` the home page uses its first paragraph. Menu links may be relative paths, `/` paths or `http(s)` URLs; other entries are dropped with a warning. `exclude` leaves files out of the site (they then stop being served). Symbolic links in a repo are never followed or published.
 
+**Roll-out status** (built = Pages source is "GitHub Actions" and the repo is in `BUILT_REPOS`)
+
+| Repo | Published branch | Built |
+|---|---|---|
+| Skyscan-1272-MicroCT | main | yes |
+| EVOS-M7000-widefiled | master | no (`pages.yml` ready, awaiting merge and Pages source switch) |
+| Stellaris-STED-Confocal | main | no (`pages.yml` ready, awaiting merge and Pages source switch) |
+| Luxendo-MuVi-SPIM-Light-Sheet | master | no (`pages.yml` ready, awaiting merge and Pages source switch) |
+| image-analysis-server | main | no (`pages.yml` ready, awaiting merge and Pages source switch) |
+
+Each repo owner must switch Settings → Pages → Source to "GitHub Actions" after merging its `pages.yml`; update this table and `BUILT_REPOS` when a repo goes live.
+
 **Adding an instrument repo (merge order)**
 
 1. Home repo: merge the pull request that changes the build (this repo's `main`).
