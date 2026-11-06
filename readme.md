@@ -15,13 +15,64 @@ The site is designed to present CSI Microscopy information in a clean, responsiv
 - `assets/examples/` – example images from the unit's own data (fly microCT slice from the SkyScan 1272 repo)
 - `assets/modalities/` – example images for `modalities.html`, re-encoded from Wikimedia Commons; each is credited on the page (author, source page, licence) and listed in its Image credits section
 - `site.js` – theme toggle (persisted, respects system preference), mobile menu, section highlighting
-- `guides/render.js`, `guides/guide.css` – shared Markdown guide renderer and styles, loaded by every instrument repo's `index.html` (`window.GUIDE = { repo, branch, title, path }`; `?path=` and `?title=` in the address override path and title). It accepts only plain repo names, named branches (no pull-request refs or commit SHAs) and paths inside the repo, shows raw HTML as text on unpublished branches, scrolls to `#hash` after rendering, and links PDFs and other files to the instrument's own Pages URL. Title: `?title=`, else the page's own title for its default document, else the first `# H1` of a `?path=` document
-- `guides/viewer.html` – preview page for the five instrument repos (`?repo=&branch=&path=`), e.g. a branch before merging; not indexed
-- `guides/pdf-viewer.html` – PDF viewer kept for older links; accepts only CSI-Microscopy files and shows the same-site copy
+- `guides/md-core.js` – the Markdown rendering rules shared by the browser renderer and the static build (repo list, path/branch validation, old-organisation rewrite, callouts, link/image/PDF rules, title rule, and `BUILT_REPOS`, the repos already on the static build)
+- `guides/render.js`, `guides/guide.css` – shared Markdown guide renderer and styles, loaded by every instrument repo's `index.html`. `render.js` is **generated** from `guides/md-core.js` + `guides/render.src.js` by `node tools/build-docs/bundle-render.js`: edit those two files, never `render.js` (CI fails if it is stale). Configuration: `window.GUIDE = { repo, branch, title, path }`; `?path=` and `?title=` in the address override path and title). It accepts only plain repo names, named branches (no pull-request refs or commit SHAs) and paths inside the repo, shows raw HTML as text on unpublished branches, scrolls to `#hash` after rendering, and links PDFs and other files to the instrument's own Pages URL. Title: `?title=`, else the page's own title for its default document, else the first `# H1` of a `?path=` document
+- `guides/viewer.html` – preview page for the five instrument repos (`?repo=&branch=&path=`), e.g. a branch before merging; not indexed. For a repo in `BUILT_REPOS` on its published branch it redirects to the built page instead
+- `guides/pdf-viewer.html` – PDF viewer kept for older links; accepts only CSI-Microscopy files and shows the same-site copy (for a repo in `BUILT_REPOS` it redirects to the PDF itself)
+- `tools/build-docs/` – the static build for the instrument sites (see below); `.github/workflows/build-instrument-site.yml` is the shared workflow that runs it, `.github/workflows/check-render-bundle.yml` the CI for this repo
 - `404.html` – branded not-found page; before showing it, redirects wrong-case instrument names, `/EVOS-M7000-widefield/`, `/Stellaris-STED/`, the short aliases `/microct/`, `/evos/`, `/stellaris/`, `/lightsheet/`, `/data/`, `/manuals/`, and `README.md`/`readme.md` paths. GitHub Pages serves it only for paths outside the instrument repos' own sites; each instrument repo needs its own `404.html` for wrong paths inside it
 - `sitemap.xml`, `robots.txt` – home pages and the five instrument entry pages, for search engines
 - `assets/favicon.svg` – site icon
 - `readme.md` – project documentation
+
+## Instrument sites: static build (GitHub Actions)
+
+Each instrument repository (SkyScan, EVOS, Stellaris, Luxendo, image-analysis-server) can publish its Markdown as ready-made HTML pages instead of the `index.html` shim that renders the README in the browser. The team keeps editing Markdown on GitHub; about a minute after a push the site is rebuilt.
+
+**How it works**
+
+- The instrument repo has `.github/workflows/pages.yml`, which calls the shared workflow `CSI-Microscopy/csi-Microscopy.github.io/.github/workflows/build-instrument-site.yml@v1` on every push to its published branch, on demand (Actions → Pages → Run workflow), and once a week. It passes `repo:` and `branch:` (the published branch, `main` or `master`); the deploy job runs only for that branch, so a manual run on another branch builds without deploying. Also restrict each instrument repo's `github-pages` environment to that branch (Settings → Environments → github-pages → Deployment branches and tags → Selected branches).
+- **Versions:** callers use the tag `v1`, and the shared workflow checks out this repo's build tool, `md-core.js` and CSS at the same ref (input `tool-ref`, default `v1`). Pushing to `main` therefore changes no instrument site. A release is a deliberate move of the tag to a tested commit of `main` (`git tag -f v1 <commit> && git push -f origin v1`); the next push or weekly run of each instrument repo then picks it up. An incompatible change gets a new tag (`v2`) and callers move one by one.
+- The shared workflow checks out the instrument repo and this repo (both without persisted credentials), installs `tools/build-docs` (Node 20, `marked` 4.3.0 pinned in `package-lock.json`), runs `build.js`, and deploys the result with `actions/deploy-pages`. The build report is shown in the run's summary.
+- `build.js` renders every `README.md` / `readme.md` to its folder's `index.html` and every other `.md` to `<name>.html` with `guides/md-core.js` (the same code as the browser renderer, so pages look the same), adds the site header, a breadcrumb, the instrument menu, canonical URL, description, "Source on GitHub" and "Edit this page" links, copies hand-written HTML, PDFs, images and other files as they are, and copies `styles.css`, `guides/guide.css`, `site.js` and the favicon into the site's `assets/`. Raw `.md` files are not published. The old shim `index.html` and any `404.html` are replaced by generated ones.
+- Links: `x.md` → `x.html`, `dir/readme.md` → `dir/`, PDFs → the same-site PDF in a new tab, other links into the repo stay relative, old-organisation URLs are rewritten (with a warning). Heading ids match GitHub's.
+- Old addresses keep working: every built page carries a small script that sends `?path=X/readme.md` to `X/`, `?path=X.md` to `X.html` and the two old `?title=` links to their documents, and removes any other query from the address bar. The generated `404.html` redirects `readme.md`/`README.md` to the folder, `.md` to `.html`, and any wrong-case or extensionless address of a published file to the right one, always within the repo.
+- The build report lists the pages, the copied files and warnings: old-organisation URLs, and links, images or `#anchors` that point at nothing (an internal link check over the output). Warnings do not stop the deployment.
+
+**Optional `site.json`** at the instrument repo's root:
+
+```json
+{
+  "name": "SkyScan 1272 Micro-CT",
+  "short": "SkyScan 1272",
+  "description": "Meta description of the guide's home page",
+  "menu": [{ "label": "Guide", "href": "./" }, { "label": "Manuals", "href": "manuals/" }, { "label": "Phase retrieval", "href": "phase-retrieval.html" }],
+  "exclude": ["h5-converter-old/**"],
+  "titles": { "Old ?title= value": "page.html#anchor" }
+}
+```
+
+Without it the name comes from the old shim's title and the menu lists the guide plus every other page. Without `description` the home page uses its first paragraph. Menu links may be relative paths, `/` paths or `http(s)` URLs; other entries are dropped with a warning. `exclude` leaves files out of the site (they then stop being served). Symbolic links in a repo are never followed or published.
+
+**Adding an instrument repo (merge order)**
+
+1. Home repo: merge the pull request that changes the build (this repo's `main`).
+2. Tag it: move `v1` to that commit of `main` (first time: create it). Instrument repos only see changes once the tag points at them.
+3. Instrument repo: merge the pull request that adds `.github/workflows/pages.yml` (copied from `Skyscan-1272-MicroCT`, with `repo:` and `branch:` changed; EVOS and Luxendo publish from `master`) and, optionally, `site.json`. Restrict its `github-pages` environment to that branch.
+4. Check the build: Actions → the "Pages" run → build job summary (the build report). The deploy job fails until step 5; the current branch-served site is unaffected.
+5. **One manual step (repo admin): Settings → Pages → Build and deployment → Source: "GitHub Actions".**
+6. Re-run the workflow (Actions → Pages → Run workflow on the published branch). From then on the built site replaces the branch-served one; a failed build leaves the last deployment live. Check the live site (pages, old `?path=` links, PDFs, a `README.md` address).
+7. Add the repo to `BUILT_REPOS` in `guides/md-core.js`, run `node tools/build-docs/bundle-render.js`, commit and merge (no tag needed: `viewer.html` and `pdf-viewer.html` are served from `main`): they and links from other guides then use the clean URLs.
+
+To undo, set the Pages source back to "Deploy from a branch" (the shim `index.html` is still in the repo) and remove the repo from `BUILT_REPOS`.
+
+**Local build and tests**
+
+```bash
+cd tools/build-docs && npm ci
+node build.js --repo Skyscan-1272-MicroCT --src ../../../Skyscan-1272-MicroCT --out /tmp/site/Skyscan-1272-MicroCT
+node bundle-render.js --check && node test.js
+```
 
 ## Design
 

@@ -1,0 +1,123 @@
+# Reusable workflow: builds an instrument repo's Markdown into a static
+# GitHub Pages site and deploys it (routing phase 1, tools/build-docs).
+#
+# Called from each instrument repo's .github/workflows/pages.yml:
+#
+#   jobs:
+#     site:
+#       uses: CSI-Microscopy/csi-Microscopy.github.io/.github/workflows/build-instrument-site.yml@v1
+#       with:
+#         repo: Skyscan-1272-MicroCT
+#         branch: main
+#
+# Versioning: callers pin the tag v1, and the build tool (tools/build-docs,
+# guides/md-core.js, the CSS) is checked out at the same ref (input tool-ref,
+# default v1). A release = moving the v1 tag deliberately to a tested commit
+# of main; pushing to main alone changes no instrument site.
+#
+# The caller must grant  permissions: { contents: read, pages: write, id-token: write }
+# and its repo must have Settings → Pages → Source set to "GitHub Actions";
+# until then the deploy job fails and the branch-served site stays as it is.
+# Deployment happens only for runs on the published branch (input branch);
+# also restrict the repo's github-pages environment to that branch
+# (Settings → Environments → github-pages → Deployment branches).
+name: Build instrument site
+
+on:
+  workflow_call:
+    inputs:
+      repo:
+        description: Name of the instrument repository, as in its Pages URL (e.g. Skyscan-1272-MicroCT)
+        required: true
+        type: string
+      branch:
+        description: The branch the site is published from (main or master); other branches build but do not deploy
+        required: true
+        type: string
+      site:
+        description: Path of site.json in the instrument repository (default site.json at its root, if present)
+        required: false
+        type: string
+        default: ''
+      tool-ref:
+        description: Ref of csi-Microscopy.github.io whose build tool, md-core.js and CSS are used (keep equal to the ref in "uses:")
+        required: false
+        type: string
+        default: v1
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out the instrument repository
+        uses: actions/checkout@v4
+        with:
+          path: src
+          persist-credentials: false
+
+      - name: Check out the home site (build tool, md-core.js, CSS)
+        uses: actions/checkout@v4
+        with:
+          repository: CSI-Microscopy/csi-Microscopy.github.io
+          ref: ${{ inputs.tool-ref }}
+          path: _home
+          persist-credentials: false
+
+      - name: Set up Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: _home/tools/build-docs/package-lock.json
+
+      - name: Install the build tool (marked 4.3.0)
+        working-directory: _home/tools/build-docs
+        run: npm ci --no-audit --no-fund
+
+      - name: Build
+        env:
+          REPO: ${{ inputs.repo }}
+          SITE_JSON: ${{ inputs.site }}
+          BRANCH: ${{ inputs.branch }}
+        run: |
+          set -o pipefail
+          site_arg=()
+          if [ -n "$SITE_JSON" ]; then site_arg=(--site "src/$SITE_JSON"); fi
+          node _home/tools/build-docs/build.js --repo "$REPO" --src src --out _site --branch "$BRANCH" "${site_arg[@]}" | tee build-report.txt
+          {
+            echo '### Build report'
+            echo '```'
+            cat build-report.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload the site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    # Only runs on the published branch deploy (push, schedule and manual runs
+    # there); a manual run on another branch stops after the build.
+    if: github.ref == format('refs/heads/{0}', inputs.branch)
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    # One deployment at a time; a newer run waits instead of cancelling one in progress
+    concurrency:
+      group: pages-deploy
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

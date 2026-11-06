@@ -39,7 +39,10 @@
         <p>&copy; 2025 Daniel Waiger · Faculty of Agriculture CSI Microscopy</p>
     </footer>
 
-    <!-- Shared renderer: reads ?repo=&branch=&path=&title= from the URL -->
+    <!-- Shared renderer: reads ?repo=&branch=&path=&title= from the URL.
+         For a repo listed in CSIMd.BUILT_REPOS (guides/md-core.js) on its
+         published branch it redirects to the built page (/<Repo>/<path>);
+         other branches are rendered here as a preview. -->
     <script src="render.js"></script>
 </body>
 </html>

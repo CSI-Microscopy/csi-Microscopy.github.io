@@ -111,27 +111,19 @@
     </main>
 
     <script src="../site.js"></script>
+    <!-- Repo list, BUILT_REPOS and validators shared with render.js and the static build -->
+    <script src="md-core.js"></script>
     <script>
         // Old links to this page keep working; new guide pages link PDFs
         // directly from the instrument's own Pages site instead.
-        const SITE = 'https://csi-microscopy.github.io/';
-        // Instrument repos and the branch each Pages site is published from
-        const KNOWN_REPOS = {
-            'Skyscan-1272-MicroCT': 'main', 'EVOS-M7000-widefiled': 'master',
-            'Stellaris-STED-Confocal': 'main', 'Luxendo-MuVi-SPIM-Light-Sheet': 'master',
-            'image-analysis-server': 'main',
-        };
+        // SITE, KNOWN_REPOS (repo → published branch), BUILT_REPOS (repos on
+        // the static build) and the name/branch rules come from md-core.js.
+        const { SITE, KNOWN_REPOS, BUILT_REPOS, validBranch } = window.CSIMd;
         const params   = new URLSearchParams(window.location.search);
         const pdfUrl   = (params.get('url') || '').trim();
         const rawTitle = params.get('title');
 
         // ── Accept only the facility's own PDFs (D2) ────────────────────────────
-        // Same name and branch rules as guides/render.js.
-        const NAME_RE   = /^[A-Za-z0-9._-]+$/;
-        const validName = s => typeof s === 'string' && s.length <= 100 && NAME_RE.test(s) && s !== '.' && !s.includes('..');
-        const validBranch = s => typeof s === 'string' && s.length <= 200
-            && !/^(refs|pull)(\/|$)/i.test(s) && !/^[0-9a-f]{4,40}(\/|$)/i.test(s)
-            && s.split('/').every(validName);
         const knownRepo = s => Object.keys(KNOWN_REPOS).find(r => r.toLowerCase() === String(s).toLowerCase()) || null;
 
         // Parses an allowed PDF URL into validated parts, or returns null:
@@ -197,6 +189,17 @@
                 try { s = decodeURIComponent(s); } catch (_) { break; }
             }
             return s.slice(0, 120);
+        }
+
+        // ── Built repos: go straight to the same-site PDF (step 1.6) ────────────
+        // A PDF on the published branch of a repo that is on the static build
+        // is served by that repo's own site; the built pages link it directly.
+        // Other branches (previews) and other repos keep the viewer below.
+        {
+            const p = parsePdf(pdfUrl);
+            if (p && BUILT_REPOS.indexOf(p.repo) >= 0 && (!p.branch || p.branch === KNOWN_REPOS[p.repo])) {
+                window.location.replace(`${SITE}${p.repo}/${p.path}${p.frag}`);
+            }
         }
 
         // ── Back button (D10) ───────────────────────────────────────────────────

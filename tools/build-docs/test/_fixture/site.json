@@ -1,0 +1,11 @@
+{
+  "name": "Test Instrument",
+  "short": "Test",
+  "menu": [
+    { "label": "Guide", "href": "./" },
+    { "label": "Manuals", "href": "manuals/" },
+    { "label": "Explainer", "href": "page.html" }
+  ],
+  "exclude": ["old/**"],
+  "titles": { "Test Setup": ["docs/guide.html#setup"] }
+}

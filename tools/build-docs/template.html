@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{pageTitle}}</title>
+    <meta name="description" content="{{description}}">
+{{headMeta}}
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#0A716E">
+    <meta name="generator" content="CSI Microscopy build-docs (csi-Microscopy.github.io/tools/build-docs)">
+    <!-- Before first paint: old ?path= / ?title= links (or the not-found
+         redirect table), then the saved theme -->
+    <script>{{earlyScript}}</script>
+    <script>
+        try { var t = localStorage.getItem('csi-theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}
+    </script>
+    <link rel="icon" href="{{root}}assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="{{root}}assets/styles.css">
+    <link rel="stylesheet" href="{{root}}assets/guide.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+{{jsonLd}}
+</head>
+<body>
+    <!-- navbar:start (replaced at build time by the .navbar of the home site's index.html) -->
+    <nav class="navbar nav-long" aria-label="Main navigation">
+        <a class="brand" href="https://csi-microscopy.github.io/">
+            <span class="brand-mark" aria-hidden="true">CSI</span>
+            <span class="brand-text">CSI Microscopy <small>Faculty of Agriculture · HUJI</small></span>
+        </a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i></button>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+        <div class="nav-links" id="nav-links">
+            <a title="Start here" href="https://csi-microscopy.github.io/#start-here"><i class="fa-solid fa-flag-checkered" aria-hidden="true"></i> <span class="text">Start here</span></a>
+            <a title="Basics" href="https://csi-microscopy.github.io/basics.html"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> <span class="text">Basics</span></a>
+            <a title="Choosing" href="https://csi-microscopy.github.io/modalities.html"><i class="fa-solid fa-signs-post" aria-hidden="true"></i> <span class="text">Choosing</span></a>
+            <a title="Learning" href="https://csi-microscopy.github.io/#learning"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> <span class="text">Learning</span></a>
+            <a title="Software" href="https://csi-microscopy.github.io/#software"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i> <span class="text">Software</span></a>
+            <a title="Guides" href="https://csi-microscopy.github.io/#startup-shutdown-guides"><i class="fa-solid fa-book" aria-hidden="true"></i> <span class="text">Guides</span></a>
+            <a title="Data Tools" href="https://csi-microscopy.github.io/#data-handling-tools"><i class="fa-solid fa-database" aria-hidden="true"></i> <span class="text">Data Tools</span></a>
+            <a title="Contributing" href="https://csi-microscopy.github.io/#contributing"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> <span class="text">Contributing</span></a>
+            <a title="Contact" href="https://csi-microscopy.github.io/#contact"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span class="text">Contact</span></a>
+        </div>
+    </nav>
+    <!-- navbar:end -->
+
+    <main>
+        <div class="guide-nav">
+            <nav class="crumbs" aria-label="Breadcrumb">
+                <ol>
+{{breadcrumb}}
+                </ol>
+            </nav>
+{{subnav}}
+        </div>
+
+        <section id="guide-content">
+{{content}}
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <p>&copy; 2025 Daniel Waiger · Faculty of Agriculture CSI Microscopy</p>
+            <nav aria-label="Footer">
+{{footerLinks}}
+            </nav>
+        </div>
+    </footer>
+
+    <script src="{{root}}assets/site.js"></script>
+{{bodyEnd}}
+</body>
+</html>
