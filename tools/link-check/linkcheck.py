@@ -92,7 +92,7 @@ class Fetcher:
             try:
                 with self._open(url, method) as r:
                     ctype = r.headers.get('Content-Type', '')
-                    body = r.read() if method == 'GET' and 'html' in ctype else None
+                    body = r.read(5_000_000) if method == 'GET' and 'html' in ctype else None   # cap: 5 MB
                     res = (r.status, r.geturl(), ctype, body.decode('utf-8', 'replace') if body is not None else None)
             except urllib.error.HTTPError as e:
                 res = (e.code, e.geturl() or url, e.headers.get('Content-Type', '') if e.headers else '', None)
@@ -133,7 +133,7 @@ def main():
         try:
             req = urllib.request.Request(base + 'sitemap.xml', headers={'User-Agent': UA})
             with urllib.request.urlopen(req, timeout=25) as r:
-                xml = r.read().decode('utf-8', 'replace')
+                xml = r.read(5_000_000).decode('utf-8', 'replace')
             import xml.etree.ElementTree as ET
             ns = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
             for loc in ET.fromstring(xml).findall('s:url/s:loc', ns):
@@ -220,7 +220,10 @@ def main():
             st, final, ctype, body = f.get(url)
             p = Page()
             if st == 200 and body:
-                p.feed(body)
+                try:
+                    p.feed(body)
+                except Exception:
+                    pass
             e = pages[url] = {'status': st, 'site': site_of(url), 'depth': None, 'ids': p.ids, 'links': len(p.links), 'final': final}
         return e['ids']
 
@@ -270,11 +273,14 @@ def main():
            + (' (not requested)' if args.no_external else ''), '', fmt(head)] + [fmt(r) for r in rows] + ['']
     out.append(f'FAILURES ({len(failures)})' if failures else 'No broken internal links or missing anchors.')
     out += ['  ' + x for x in failures]
-    fixed = sorted(k for k in known if status.get(k, (None,))[0] == 200)
-    if known_seen or fixed:
+    referenced = {urllib.parse.urldefrag(a)[0] for _, _, _, a in refs}
+    stale = sorted(k for k in known if k not in referenced)        # would mask a breakage that comes back
+    fixed = sorted(k for k in known if k in referenced and status.get(k, (None,))[0] == 200)
+    if known_seen or fixed or stale:
         out.append(f'Known broken, listed in {os.path.basename(args.known)} ({len(known_seen)}), not failing the check')
         out += ['  ' + x for x in known_seen]
         out += [f'  now fixed, remove from {os.path.basename(args.known)}: {k}' for k in fixed]
+        out += [f'  no longer referenced, remove from {os.path.basename(args.known)}: {k}' for k in stale]
     out.append(f'Warnings: external links ({len(warnings)}), not failing the check' if warnings else 'External links: no problems' + (' (not checked)' if args.no_external else ''))
     out += ['  ' + x for x in warnings]
     print('\n'.join(out))
@@ -284,18 +290,21 @@ def main():
         md = ['## Link check', '', f'{"**FAILED:** " + str(len(failures)) + " problem(s)" if failures else "**OK:** no broken internal links or missing anchors"}', '',
               '| ' + ' | '.join(head) + ' |', '|' + '---|' * len(head)]
         md += ['| ' + ' | '.join(str(v) for v in r) + ' |' for r in rows]
+        code = lambda x: '`' + x.replace('`', "'") + '`'    # URLs and messages as inline code
         if failures:
-            md += ['', '### Failures', ''] + [f'- `{x}`' for x in failures]
-        if known_seen or fixed:
-            md += ['', f'### Known broken ({os.path.basename(args.known)}, not failing)', ''] + [f'- `{x}`' for x in known_seen] \
-                + [f'- now fixed, remove from the list: `{k}`' for k in fixed]
+            md += ['', '### Failures', ''] + [f'- {code(x)}' for x in failures]
+        if known_seen or fixed or stale:
+            md += ['', f'### Known broken ({os.path.basename(args.known)}, not failing)', ''] + [f'- {code(x)}' for x in known_seen] \
+                + [f'- now fixed, remove from the list: {code(k)}' for k in fixed] \
+                + [f'- no longer referenced, remove from the list: {code(k)}' for k in stale]
         if warnings:
-            md += ['', '### External links (warnings only)', ''] + [f'- `{x}`' for x in warnings]
+            md += ['', '### External links (warnings only)', ''] + [f'- {code(x)}' for x in warnings]
         with open(summary, 'a', encoding='utf-8') as fh:
             fh.write('\n'.join(md) + '\n')
     if args.json:
         with open(args.json, 'w', encoding='utf-8') as fh:
             json.dump({'start': start, 'rows': rows, 'failures': failures, 'warnings': warnings, 'known': known_seen,
+                       'known_fixed': fixed, 'known_stale': stale,
                        'pages': sorted(u for u, e in pages.items() if e['depth'] is not None)}, fh, indent=1)
     sys.exit(1 if failures else 0)
 

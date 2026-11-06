@@ -98,6 +98,8 @@ node bundle-render.js --check && node test.js
 | Old shims removed from the five instrument repos | done |
 | Stellaris `tools/README.md` (draft from the code, to be checked by the unit's staff); menu and home links point to `Stellaris-STED-Confocal/tools/` | done |
 
+**Hand-copied header:** `Skyscan-1272-MicroCT/phase-retrieval.html` carries its own copy of the site header CSS (navbar, breadcrumb and menu rules from `styles.css` and `guides/guide.css`, scoped to `.csi-site`, including the `.nav-long` breakpoints at 1409 px and 1239 px). When the header in `styles.css` (or the `.navbar` markup in `index.html`) changes, update that copy by hand.
+
 ## Design
 
 Typography is IBM Plex (Sans, Sans Condensed for headings, Mono for labels), matching the SkyScan phase-retrieval page. Colours are defined once as CSS custom properties in `styles.css`; dark mode follows the system preference and can be overridden with the header toggle, which is remembered in `localStorage` under `csi-theme`.
