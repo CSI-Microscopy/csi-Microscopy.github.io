@@ -59,6 +59,7 @@ jobs:
         with:
           path: src
           persist-credentials: false
+          fetch-depth: 0        # full history: sitemap.xml lastmod = last commit date of each page's source
 
       - name: Check out the home site (build tool, md-core.js, CSS)
         uses: actions/checkout@v4

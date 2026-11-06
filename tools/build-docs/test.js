@@ -135,6 +135,17 @@ ok(kinds.some(k => /^missing-image docs\/guide\.html: img\/none\.png/.test(k)), 
 eq(rep.warnings.filter(w => /^missing-/.test(w.kind)).length, 2, 'no other missing targets (anchors #setup, #pdfs, #part, #sub-folder resolve)');
 eq(spawnSync(process.execPath, [BUILD, '--repo', 'Test-Repo', '--src', FIX, '--out', path.join(tmp, 'strict'), '--strict']).status, 1, '--strict fails on missing targets');
 
+// ── sitemap.xml + robots.txt ────────────────────────────────────────────────
+{
+    const sm = read('sitemap.xml');
+    ok(/^<\?xml version="1\.0" encoding="UTF-8"\?>\n/.test(sm) && /<urlset xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9">/.test(sm) && /<\/urlset>\n$/.test(sm), 'sitemap.xml: XML declaration and urlset');
+    const locs = [...sm.matchAll(/<url><loc>([^<]+)<\/loc>(?:<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>)?<\/url>/g)].map(m => m[1]);
+    eq(locs.join(' '), ['', 'docs/guide.html', 'docs/sub/', 'manuals/', 'page.html'].map(x => S + 'Test-Repo/' + x).join(' '), 'sitemap.xml lists every page by canonical URL (no 404, no assets)');
+    eq((sm.match(/<url>/g) || []).length, locs.length, 'every <url> has a valid <loc> and optional date-only <lastmod>');
+    eq(rep.sitemap.length, 5, 'report lists the sitemap URLs');
+    eq(read('robots.txt'), 'User-agent: *\nAllow: /\n\nSitemap: https://csi-microscopy.github.io/Test-Repo/sitemap.xml\n', 'robots.txt points at the sitemap');
+}
+
 // ── Inline compatibility script (old ?path= / ?title= links) ───────────────
 console.log('== inline ?path= / ?title= script');
 function runEarly(html, pathname, search, hash) {
