@@ -914,6 +914,8 @@ main > footer { background: transparent; margin-top: 1rem; }
 }
 .mod-tag-confirm { background: var(--warn-soft); color: var(--warn-strong); }
 .mod-tag-mfr     { background: var(--accent-soft); color: var(--accent-strong); }
+/* Planned equipment or services: neutral, with a dashed outline like the planned marks in the charts */
+.mod-tag-plan    { background: var(--surface-2); color: var(--ink); border: 1px dashed var(--line-strong); padding: 0 6px; }
 h3 .mod-tag { margin-left: 0.4rem; }
 
 .mod-note {
@@ -965,7 +967,7 @@ h3 .mod-tag { margin-left: 0.4rem; }
     border-radius: var(--radius);
     background: var(--surface);
 }
-.mod-compare { width: 100%; min-width: 1040px; border-collapse: collapse; font-size: 0.84rem; line-height: 1.45; }
+.mod-compare { width: 100%; min-width: 1160px; border-collapse: collapse; font-size: 0.84rem; line-height: 1.45; }
 .mod-compare th, .mod-compare td { padding: 9px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
 .mod-compare thead th {
     font: 500 0.7rem/1.3 var(--f-mono);
