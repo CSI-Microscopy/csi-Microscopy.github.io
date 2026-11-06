@@ -194,6 +194,7 @@ console.log('== symlinks, menu hrefs, descriptions');
     fs.symlinkSync('/etc', path.join(SRC2, 'linkdir'));
     fs.writeFileSync(path.join(SRC2, 'README.md'), '# Test Instrument\n\n## Only headings\n');
     const site2 = JSON.parse(fs.readFileSync(path.join(FIX, 'site.json'), 'utf8'));
+    site2.menu = site2.menu.map(m => m.label === 'Manuals' ? { label: 'Manuals', href: 'manuals/#pdfs' } : m.label === 'Explainer' ? { label: 'Explainer', href: 'page.html?x=1#part' } : m);
     site2.menu = site2.menu.concat([{ label: 'Bad', href: 'javascript:alert(1)' }, { label: 'Data', href: 'data:text/html,x' },
         { label: 'Other host', href: '//evil.example/' }, { label: 'Ctl', href: 'a\u0001b' }, { label: 'Home', href: '/' }, { label: 'Ext', href: 'https://example.org/' }]);
     fs.writeFileSync(path.join(SRC2, 'site.json'), JSON.stringify(site2));
@@ -207,6 +208,10 @@ console.log('== symlinks, menu hrefs, descriptions');
     const idx2 = fs.readFileSync(path.join(OUT2, 'index.html'), 'utf8');
     ok(idx2.includes('<meta name="description" content="Test Instrument guide from the Faculty of Agriculture CSI Microscopy unit.">'), 'no first paragraph: generic description without repeating the name');
     ok(!/href="javascript|href="data:|evil\.example/.test(idx2) && /href="\/">Home</.test(idx2), 'sub-menu HTML has no dropped hrefs');
+    const gd2 = fs.readFileSync(path.join(OUT2, 'docs/guide.html'), 'utf8');
+    ok(/href="\.\.\/manuals\/#pdfs">Manuals</.test(gd2) && /href="\.\.\/page\.html\?x=1#part">Explainer</.test(gd2), 'menu hrefs keep their #anchor and ?query', gd2.match(/class="subnav"[\s\S]*?<\/nav>/)[0]);
+    ok(!r2.warnings.some(w => w.kind === 'menu' && /Manuals|Explainer/.test(w.msg)), 'menu entries with #anchor or ?query are not flagged as missing');
+    ok(/href="https:\/\/example\.org\/" target="_blank" rel="noopener">Ext</.test(idx2), 'external menu link opens in a new tab');
     site2.description = 'Custom description from site.json.';
     fs.writeFileSync(path.join(SRC2, 'site.json'), JSON.stringify(site2));
     execFileSync(process.execPath, [BUILD, '--repo', 'Test-Repo', '--src', SRC2, '--out', OUT2, '--branch', 'main'], { encoding: 'utf8' });
