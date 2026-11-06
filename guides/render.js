@@ -17,11 +17,14 @@
  * Query parameters: ?path= (any page), ?title= (any page), ?repo= and ?branch=
  * (viewer.html only; a per-repo page's own repo/branch always win).
  *
- * Version 2.0.0 (2026-11-06), routing phase 0:
+ * Version 2.1.0 (2026-11-06), routing phase 0 plus review fixes:
  *   - repo/branch/path are validated; viewer.html only shows the five
- *     instrument repos; a rejected value shows an error instead of fetching
+ *     instrument repos and named branches (no PR refs or SHAs); a rejected
+ *     value shows an error instead of fetching; raw HTML is shown as text
+ *     on unpublished branches
  *   - #hash in the address is scrolled to after rendering
- *   - without ?title= the document's first H1 becomes the page title
+ *   - title: ?title=, else the page's title for its default document, else
+ *     the document's first H1 (not repeated in the body)
  *   - links: extension checked without #/?; fragments kept; relative links go
  *     to the instrument's Pages URL; PDFs open the same-site PDF in a new tab;
  *     new tabs only for other sites
@@ -140,10 +143,15 @@
 
     // ── Validation (D1) ─────────────────────────────────────────────────────
     const NAME_RE   = /^[A-Za-z0-9._-]+$/;
-    const validName = s => typeof s === 'string' && s.length <= 100 && NAME_RE.test(s) && !s.includes('..');
+    const validName = s => typeof s === 'string' && s.length <= 100 && NAME_RE.test(s) && s !== '.' && !s.includes('..');
     // Branch: one or more valid names separated by "/" (PR branches such as
-    // "feature/x" stay previewable); no "..", no empty segments.
-    const validBranch = s => typeof s === 'string' && s.length <= 200 && s.split('/').every(validName);
+    // "feature/x" stay previewable); no "." or "..", no empty segments.
+    // raw.githubusercontent.com also serves pull-request refs and commits by
+    // SHA, including commits from forks, which anyone can create: refuse
+    // those, so only named branches (created by org members) are shown.
+    const validBranch = s => typeof s === 'string' && s.length <= 200
+        && !/^(refs|pull)(\/|$)/i.test(s) && !/^[0-9a-f]{7,40}$/i.test(s)
+        && s.split('/').every(validName);
     // Case-insensitive match of a known repo name → canonical spelling, else null
     const canonicalRepo = s => {
         if (typeof s !== 'string') return null;
@@ -200,7 +208,7 @@
         return {
             repo, branch, mdPath, onRepoPage,
             defaultPath: cleanPath(g.path || 'README.md'),
-            titleParam: params.get('title') || '',
+            titleParam: (params.get('title') || '').slice(0, 120),
             fallbackTitle: g.title || repo,
         };
     }
@@ -255,9 +263,10 @@
 
         // A PDF in a CSI-Microscopy repo: the same-site Pages URL (served as
         // application/pdf) when that branch is the published one; otherwise
-        // (branch previews) the PDF viewer with the raw URL.
+        // (branch previews) the PDF viewer with the raw URL; null if neither applies.
         function pdfHref(r, b, encFilePath, frag, label) {
             if (onPages(r, b)) return pagesRootOf(r) + encFilePath + frag;
+            if (!KNOWN_REPOS[r] || !validBranch(b)) return null;   // pdf-viewer would refuse it
             const raw = `https://raw.githubusercontent.com/${ORG}/${r}/${b}/${encFilePath}${frag}`;
             return `${PDF_VIEWER}?url=${encodeURIComponent(raw)}&title=${encodeURIComponent(label)}`;
         }
@@ -284,7 +293,9 @@
 
         // Returns { href, newTab }
         function rewriteLink(href, text) {
-            href = fixOldOrg(String(href || '').trim());
+            // Browsers ignore control characters and spaces in a URL scheme
+            // ("java\tscript:"), so drop them before looking at the scheme.
+            href = fixOldOrg(String(href || '').replace(/[\u0000- \u007f]/g, ''));
             if (!href || href.startsWith('#')) return { href, newTab: false };
             if (href.startsWith('//')) href = 'https:' + href;
             const scheme = (href.match(/^([a-z][a-z0-9+.-]*):/i) || [])[1];
@@ -301,7 +312,8 @@
                 if (m && m[1].toLowerCase() === ORG.toLowerCase()) {
                     const r = canonicalRepo(m[2]) || m[2];
                     const ext = extOf(m[4]);
-                    if (ext === 'pdf') return { href: pdfHref(r, m[3], m[4], u.hash, labelFrom(text, m[4])), newTab: true };
+                    const pdf = ext === 'pdf' && pdfHref(r, m[3], m[4], u.hash, labelFrom(text, m[4]));
+                    if (pdf) return { href: pdf, newTab: true };
                     if (ext === 'md') {
                         const p = cleanPath(safeDecode(m[4]));
                         const h = p && mdHref(r, m[3], p, u.hash);
@@ -317,12 +329,15 @@
             try { u = new URL(href, BASE + encDir); } catch (_) { return { href, newTab: false }; }
             if (u.origin !== 'https://repo.invalid' || !u.pathname.startsWith('/r/')) {
                 // Climbs out of the repo (e.g. ../Other-Repo/): resolve against the site
-                const abs = new URL(href, pagesRoot + encDir).href;
-                return { href: abs, newTab: !isSameSite(abs) };
+                let abs;
+                try { abs = new URL(href, pagesRoot + encDir); } catch (_) { return { href: '#', newTab: false }; }
+                if (!/^https?:$/.test(abs.protocol)) return { href: '#', newTab: false };
+                return { href: abs.href, newTab: !isSameSite(abs.href) };
             }
             const encFilePath = u.pathname.slice(3);         // repo-relative, URL-encoded
             const ext = extOf(encFilePath);
-            if (ext === 'pdf') return { href: pdfHref(repo, branch, encFilePath, u.hash, labelFrom(text, encFilePath)), newTab: true };
+            const pdf = ext === 'pdf' && pdfHref(repo, branch, encFilePath, u.hash, labelFrom(text, encFilePath));
+            if (pdf) return { href: pdf, newTab: true };
             if (ext === 'md') {
                 const p = cleanPath(safeDecode(encFilePath));
                 const h = p && mdHref(repo, branch, p, u.hash);
@@ -339,7 +354,7 @@
         }
 
         function resolveAsset(src) {
-            src = String(src || '').trim();
+            src = String(src || '').replace(/[\u0000- \u007f]/g, '');
             if (!src || /^([a-z][a-z0-9+.-]*:|\/\/|#)/i.test(src)) return src;
             try { return new URL(src, assetBase).href; } catch (_) { return src; }
         }
@@ -368,10 +383,22 @@
                 return `<img src="${escHtml(resolveAsset(href))}" alt="${escHtml(alt || '')}"${titleAttr} loading="lazy">`;
             };
 
-            // Raw HTML in the Markdown: resolve relative <img src> like Markdown images
-            renderer.html = html => String(html).replace(
-                /(<img\b[^>]*?\bsrc\s*=\s*)(["'])([^"']*)\2/gi,
-                (_, pre, q, src) => pre + q + resolveAsset(src) + q);
+            // Raw HTML in the Markdown. On a published branch (the repo's own
+            // content): passed through, with relative <img src> resolved like
+            // Markdown images. On any other branch (viewer.html previews):
+            // shown as text, except the callout wrappers made below, so a
+            // preview can never run script on this origin.
+            const trustedHtml = onPages(repo, branch);
+            const CALLOUT_RE = /^<div class="callout callout-(note|tip|important|caution)"><strong>(Note|Tip|Important|Warning|Caution):<\/strong> ([\s\S]*)<\/div>\s*$/;
+            renderer.html = html => {
+                html = String(html);
+                if (trustedHtml) return html.replace(
+                    /(<img\b[^>]*?\bsrc\s*=\s*)(["'])([^"']*)\2/gi,
+                    (_, pre, q, src) => pre + q + resolveAsset(src) + q);
+                const c = html.match(CALLOUT_RE);
+                if (c) return `<div class="callout callout-${c[1]}"><strong>${c[2]}:</strong> ${escHtml(c[3])}</div>\n`;
+                return escHtml(html);
+            };
 
             renderer.code = (code, infostring) => {
                 const lang = (infostring || '').trim().toLowerCase();
@@ -406,11 +433,13 @@
                 }
             );
 
-            // ── Title (D8): ?title=, else the first H1, else the page's title.
-            // When the H1 becomes the page title and opens the document, it is
-            // not repeated in the body.
+            // ── Title (D8): ?title=; else the page's own title when showing
+            // its default document; else (a ?path= document) the first H1,
+            // which is then not repeated at the top of the body.
             const tokens = marked.lexer(processed);
-            let title = titleParam;
+            const rootReadme = /^readme\.md$/i;
+            const isDefaultDoc = mdPath === defaultPath || (rootReadme.test(mdPath) && rootReadme.test(defaultPath));
+            let title = titleParam || (isDefaultDoc ? fallbackTitle : '');
             const h1 = tokens.findIndex(t => t.type === 'heading' && t.depth === 1);
             if (!title && h1 >= 0) {
                 let h1Text = '';
