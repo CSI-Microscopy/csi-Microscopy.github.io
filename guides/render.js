@@ -492,7 +492,8 @@
  * CI (.github/workflows/check-render-bundle.yml) fails if render.js is stale.
  *
  * Version 2.2.0 (2026-11-06), routing phase 1: rendering logic moved to
- * md-core.js (output unchanged).
+ * md-core.js (output unchanged); viewer.html redirects to the clean built
+ * page for repos in CSIMd.BUILT_REPOS (none yet).
  * Version 2.1.1 (2026-11-06), routing phase 0 plus review fixes:
  *   - repo/branch/path are validated; viewer.html only shows the five
  *     instrument repos and named branches (no PR refs or SHAs); a rejected
@@ -616,6 +617,12 @@
         const rawPath = params.get('path') || g.path || 'README.md';
         const mdPath  = cleanPath(rawPath);
         if (!mdPath) return { error: 'path', value: rawPath, repo };
+        // viewer.html: a built repo's published branch has a clean static
+        // page (or same-site file); go there instead of rendering here.
+        if (!onRepoPage) {
+            const built = M.builtUrl(repo, branch, mdPath);
+            if (built) return { redirect: built };
+        }
         return {
             repo, branch, mdPath, onRepoPage,
             defaultPath: cleanPath(g.path || 'README.md'),
@@ -627,6 +634,7 @@
     // ── Render ──────────────────────────────────────────────────────────────
     (async () => {
         const cfg = resolveConfig();
+        if (cfg.redirect) { window.location.replace(cfg.redirect + window.location.hash); return; }
 
         const statusEl = document.getElementById('status-message');
         const titleEl  = document.getElementById('guide-title');
