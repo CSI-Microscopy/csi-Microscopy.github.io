@@ -32,6 +32,7 @@
     --warn-soft:     rgba(180, 86, 7, 0.10);
     --warn-strong:   #8A4205;
     --accent-strong: #075C59;
+    --image-bg:      #0B0F13;   /* behind photographs; dark in both themes */
     --shadow:        0 1px 2px rgba(21, 33, 44, 0.06), 0 8px 24px -12px rgba(21, 33, 44, 0.18);
     --shadow-hover:  0 2px 4px rgba(21, 33, 44, 0.08), 0 16px 32px -12px rgba(21, 33, 44, 0.28);
 
@@ -985,6 +986,7 @@ h2 .mod-tag { vertical-align: 0.3em; letter-spacing: 0.02em; }
 .figure.mod-photo { margin-top: 2rem; }
 .mod-photo-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; align-items: flex-start; }
 .mod-photo-item { flex: 1 1 240px; margin: 0; }
+.mod-w-xs { max-width: 271px; }
 .mod-w-s  { max-width: 320px; }
 .mod-w-m  { max-width: 480px; }
 .mod-w-l  { max-width: 720px; }
@@ -1004,7 +1006,7 @@ h2 .mod-tag { vertical-align: 0.3em; letter-spacing: 0.02em; }
     height: auto;
     border-radius: 50%;
     object-fit: cover;
-    background: #0B0F13;
+    background: var(--image-bg);
 }
 .mod-zoom-1 { left: 4.375%; top: 19.55%; width: 41.25%; }
 .mod-zoom-2 { left: 53.75%; top: 12.03%; width: 30%; }
