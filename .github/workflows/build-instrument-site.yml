@@ -5,13 +5,22 @@
 #
 #   jobs:
 #     site:
-#       uses: CSI-Microscopy/csi-Microscopy.github.io/.github/workflows/build-instrument-site.yml@main
+#       uses: CSI-Microscopy/csi-Microscopy.github.io/.github/workflows/build-instrument-site.yml@v1
 #       with:
 #         repo: Skyscan-1272-MicroCT
+#         branch: main
+#
+# Versioning: callers pin the tag v1, and the build tool (tools/build-docs,
+# guides/md-core.js, the CSS) is checked out at the same ref (input tool-ref,
+# default v1). A release = moving the v1 tag deliberately to a tested commit
+# of main; pushing to main alone changes no instrument site.
 #
 # The caller must grant  permissions: { contents: read, pages: write, id-token: write }
 # and its repo must have Settings → Pages → Source set to "GitHub Actions";
 # until then the deploy job fails and the branch-served site stays as it is.
+# Deployment happens only for runs on the published branch (input branch);
+# also restrict the repo's github-pages environment to that branch
+# (Settings → Environments → github-pages → Deployment branches).
 name: Build instrument site
 
 on:
@@ -21,11 +30,20 @@ on:
         description: Name of the instrument repository, as in its Pages URL (e.g. Skyscan-1272-MicroCT)
         required: true
         type: string
+      branch:
+        description: The branch the site is published from (main or master); other branches build but do not deploy
+        required: true
+        type: string
       site:
         description: Path of site.json in the instrument repository (default site.json at its root, if present)
         required: false
         type: string
         default: ''
+      tool-ref:
+        description: Ref of csi-Microscopy.github.io whose build tool, md-core.js and CSS are used (keep equal to the ref in "uses:")
+        required: false
+        type: string
+        default: v1
 
 permissions:
   contents: read
@@ -40,13 +58,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: src
+          persist-credentials: false
 
       - name: Check out the home site (build tool, md-core.js, CSS)
         uses: actions/checkout@v4
         with:
           repository: CSI-Microscopy/csi-Microscopy.github.io
-          ref: main
+          ref: ${{ inputs.tool-ref }}
           path: _home
+          persist-credentials: false
 
       - name: Set up Node 20
         uses: actions/setup-node@v4
@@ -63,7 +83,7 @@ jobs:
         env:
           REPO: ${{ inputs.repo }}
           SITE_JSON: ${{ inputs.site }}
-          BRANCH: ${{ github.ref_name }}
+          BRANCH: ${{ inputs.branch }}
         run: |
           set -o pipefail
           site_arg=()
@@ -83,6 +103,9 @@ jobs:
 
   deploy:
     needs: build
+    # Only runs on the published branch deploy (push, schedule and manual runs
+    # there); a manual run on another branch stops after the build.
+    if: github.ref == format('refs/heads/{0}', inputs.branch)
     runs-on: ubuntu-latest
     permissions:
       pages: write

@@ -74,7 +74,8 @@ const warn = (kind, msg) => warnings.push({ kind, msg });
 const toPosix = p => p.split(path.sep).join('/');
 
 // ── site.json ───────────────────────────────────────────────────────────────
-// { "name": "...", "short": "...", "menu": [{ "label", "href" }], "exclude": [globs],
+// { "name": "...", "short": "...", "description": "<meta description of the root page>",
+//   "menu": [{ "label", "href" }], "exclude": [globs],
 //   "titles": { "<old ?title= value>": "<page path relative to the repo root>[#anchor]" } }
 let siteFile = args.site ? path.resolve(args.site) : path.join(SRC, 'site.json');
 let site = {};
@@ -122,8 +123,11 @@ const skipped = [];
         if (abs === OUT) continue;
         if (rel === 'site.json' || (siteFile && abs === siteFile)) continue;
         if (isExcluded(rel)) { skipped.push(rel + (ent.isDirectory() ? '/' : '') + ' (site.json exclude)'); continue; }
+        // Symbolic links are never followed: they could pull in files from
+        // outside the repository (e.g. the runner's home directory)
+        if (ent.isSymbolicLink()) { skipped.push(rel + ' (symbolic link, not followed)'); warn('symlink', `${rel}: symbolic link not published`); continue; }
         if (ent.isDirectory()) walk(abs);
-        else if (ent.isFile() || (ent.isSymbolicLink() && fs.statSync(abs).isFile())) files.push(rel);
+        else if (ent.isFile()) files.push(rel);
     }
 })(SRC);
 
@@ -245,7 +249,19 @@ function defaultMenu() {
     }
     return items;
 }
-const MENU = Array.isArray(site.menu) && site.menu.length ? site.menu : defaultMenu();
+// Menu hrefs: relative paths, site paths ("/...") and http(s) URLs only;
+// anything else (javascript:, data:, //host, control characters) is dropped.
+function menuHrefOk(h) {
+    if (typeof h !== 'string' || !h.trim() || /[\u0000-\u001f\u007f]/.test(h)) return false;
+    if (/^\s*\/\//.test(h) || /^\s*\\/.test(h)) return false;
+    const scheme = (h.trim().match(/^([a-z][a-z0-9+.-]*):/i) || [])[1];
+    return !scheme || /^https?$/i.test(scheme);
+}
+const MENU = (Array.isArray(site.menu) && site.menu.length ? site.menu : defaultMenu()).filter(it => {
+    if (it && menuHrefOk(it.href)) return true;
+    warn('menu', `site.json menu entry ${JSON.stringify(it)} dropped: href must be a relative path, a /path or an http(s) URL`);
+    return false;
+}).map(it => ({ label: String(it.label || ''), href: it.href.trim() }));
 // Repo-relative target of a menu href ("./" → "", "manuals/" → "manuals/"), or null if external
 function menuTarget(href) {
     if (/^[a-z][a-z0-9+.-]*:|^\/\//i.test(href)) {
@@ -392,7 +408,9 @@ function pageHtml(p) {
     const docTitle = p.urlPath === '' ? null : p.title;
     const bc = breadcrumb(p.out, docTitle, null);
     const canonical = canonicalOf(p.urlPath);
-    let description = p.description || `${p.title} — ${NAME} guide from the Faculty of Agriculture CSI Microscopy unit.`;
+    const generic = `${NAME} guide from the Faculty of Agriculture CSI Microscopy unit.`;
+    let description = (p.urlPath === '' && typeof site.description === 'string' && site.description.trim())
+        || p.description || (p.title === NAME ? generic : `${p.title} — ${generic}`);
     if (description.length > 200) description = description.slice(0, 199).replace(/\s+\S*$/, '') + '…';
     const headMeta = [
         `    <link rel="canonical" href="${escHtml(canonical)}">`,
@@ -491,7 +509,7 @@ function notFoundHtml() {
         subnav: subnavHtml('404.html', ROOT),
         content,
         footerLinks: footerLinks(null),
-        bodyEnd: `    <script>document.getElementById('nf-path').textContent = decodeURI(location.pathname);</script>`,
+        bodyEnd: `    <script>var p = location.pathname; try { p = decodeURI(p); } catch (e) { /* malformed %-escape: show it as is */ } document.getElementById('nf-path').textContent = p;</script>`,
     }));
 }
 

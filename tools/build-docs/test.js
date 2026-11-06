@@ -183,6 +183,46 @@ for (const [from, want] of nfCases) {
 }
 ok(nf.includes('<meta name="robots" content="noindex">') && nf.includes('href="/Test-Repo/assets/styles.css"'), '404: noindex, root-relative assets');
 
+// ── Review fixes: symlinks, menu hrefs, descriptions, 404 path display ─────
+console.log('== symlinks, menu hrefs, descriptions');
+{
+    const SRC2 = path.join(tmp, 'src2');
+    fs.cpSync(FIX, SRC2, { recursive: true });
+    fs.symlinkSync('/etc/hostname', path.join(SRC2, 'link.txt'));
+    fs.symlinkSync('/etc', path.join(SRC2, 'linkdir'));
+    fs.writeFileSync(path.join(SRC2, 'README.md'), '# Test Instrument\n\n## Only headings\n');
+    const site2 = JSON.parse(fs.readFileSync(path.join(FIX, 'site.json'), 'utf8'));
+    site2.menu = site2.menu.concat([{ label: 'Bad', href: 'javascript:alert(1)' }, { label: 'Data', href: 'data:text/html,x' },
+        { label: 'Other host', href: '//evil.example/' }, { label: 'Ctl', href: 'a\u0001b' }, { label: 'Home', href: '/' }, { label: 'Ext', href: 'https://example.org/' }]);
+    fs.writeFileSync(path.join(SRC2, 'site.json'), JSON.stringify(site2));
+    const OUT2 = path.join(tmp, 'out2', 'Test-Repo'), J2 = path.join(tmp, 'r2.json');
+    execFileSync(process.execPath, [BUILD, '--repo', 'Test-Repo', '--src', SRC2, '--out', OUT2, '--branch', 'main', '--json', J2], { encoding: 'utf8' });
+    const r2 = JSON.parse(fs.readFileSync(J2, 'utf8'));
+    ok(!fs.existsSync(path.join(OUT2, 'link.txt')) && !fs.existsSync(path.join(OUT2, 'linkdir')), 'symbolic links (file and folder) not followed or published');
+    ok(r2.warnings.filter(w => w.kind === 'symlink').length === 2, 'symbolic links warned', r2.warnings);
+    eq(r2.menu.map(m => m.label).join(','), 'Guide,Manuals,Explainer,Home,Ext', 'menu: javascript:, data:, //host and control characters dropped; /, https kept');
+    eq(r2.warnings.filter(w => w.kind === 'menu').length, 4, 'dropped menu entries warned');
+    const idx2 = fs.readFileSync(path.join(OUT2, 'index.html'), 'utf8');
+    ok(idx2.includes('<meta name="description" content="Test Instrument guide from the Faculty of Agriculture CSI Microscopy unit.">'), 'no first paragraph: generic description without repeating the name');
+    ok(!/href="javascript|href="data:|evil\.example/.test(idx2) && /href="\/">Home</.test(idx2), 'sub-menu HTML has no dropped hrefs');
+    site2.description = 'Custom description from site.json.';
+    fs.writeFileSync(path.join(SRC2, 'site.json'), JSON.stringify(site2));
+    execFileSync(process.execPath, [BUILD, '--repo', 'Test-Repo', '--src', SRC2, '--out', OUT2, '--branch', 'main'], { encoding: 'utf8' });
+    const idx3 = fs.readFileSync(path.join(OUT2, 'index.html'), 'utf8');
+    ok(idx3.includes('<meta name="description" content="Custom description from site.json.">') && idx3.includes('<meta property="og:description" content="Custom description from site.json.">'), 'site.json description used for the root page');
+    ok(fs.readFileSync(path.join(OUT2, 'docs/guide.html'), 'utf8').includes('content="The guide paragraph is long enough'), 'other pages keep their first paragraph');
+}
+{
+    const src = nf.match(/<script>(var p = location\.pathname;[\s\S]*?)<\/script>/)[1];
+    for (const pn of ['/Test-Repo/%E0%A4%A', '/Test-Repo/caf%C3%A9']) {
+        const el = { textContent: null };
+        const ctx = { location: { pathname: pn }, document: { getElementById: () => el } };
+        let threw = false;
+        try { vm.createContext(ctx); vm.runInContext(src, ctx); } catch (_) { threw = true; }
+        ok(!threw && el.textContent === (pn.endsWith('A') ? pn : '/Test-Repo/café'), `404 path display for ${pn} does not throw`, el.textContent);
+    }
+}
+
 // ── Bundle ──────────────────────────────────────────────────────────────────
 console.log('== guides/render.js bundle');
 eq(spawnSync(process.execPath, [path.join(__dirname, 'bundle-render.js'), '--check']).status, 0, 'guides/render.js is up to date');

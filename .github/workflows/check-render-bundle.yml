@@ -34,6 +34,8 @@ jobs:
         working-directory: tools/build-docs
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - uses: actions/setup-node@v4
         with:
