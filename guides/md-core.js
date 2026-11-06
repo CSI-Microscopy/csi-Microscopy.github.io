@@ -40,7 +40,9 @@
     // /<Repo>/manuals/. Add a repo here only AFTER its Pages source has been
     // switched to "GitHub Actions" and the first build is live: viewer.html,
     // pdf-viewer.html and cross-repo links then use the clean URLs.
-    const BUILT_REPOS = [];
+    const BUILT_REPOS = [
+        'Skyscan-1272-MicroCT',          // live on the static build since 2026-11 (routing phase 1 pilot)
+    ];
 
     // ── Small helpers ────────────────────────────────────────────────────
     const escHtml = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));

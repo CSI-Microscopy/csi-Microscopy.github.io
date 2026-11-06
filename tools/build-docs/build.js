@@ -262,13 +262,16 @@ const MENU = (Array.isArray(site.menu) && site.menu.length ? site.menu : default
     warn('menu', `site.json menu entry ${JSON.stringify(it)} dropped: href must be a relative path, a /path or an http(s) URL`);
     return false;
 }).map(it => ({ label: String(it.label || ''), href: it.href.trim() }));
-// Repo-relative target of a menu href ("./" → "", "manuals/" → "manuals/"), or null if external
+// Repo-relative target path of a menu href ("./" → "", "manuals/" → "manuals/",
+// "./#sec" → ""), or null if external; menuSuffix keeps its ?query#hash
+const menuSuffix = href => (String(href).match(/[?#][\s\S]*$/) || [''])[0];
 function menuTarget(href) {
+    const bare = href.replace(/[?#][\s\S]*$/, '');
     if (/^[a-z][a-z0-9+.-]*:|^\/\//i.test(href)) {
         const pre = SITE + REPO + '/';
-        return href.startsWith(pre) ? href.slice(pre.length) : null;
+        return bare.startsWith(pre) ? bare.slice(pre.length) : null;
     }
-    if (href.startsWith('/')) return href.startsWith('/' + REPO + '/') ? href.slice(REPO.length + 2) : null;
+    if (href.startsWith('/')) return bare.startsWith('/' + REPO + '/') ? bare.slice(REPO.length + 2) : null;
     const u = new URL(href, 'https://repo.invalid/r/');
     return u.origin === 'https://repo.invalid' && u.pathname.startsWith('/r/') ? u.pathname.slice(3) : null;
 }
@@ -287,10 +290,12 @@ function subnavHtml(out, rootHref) {
         let href = String(it.href || '');
         let current = false;
         if (t !== null) {
-            href = rootHref === null ? core.relFrom(dirOf(out), t) : rootHref + t;
+            href = (rootHref === null ? core.relFrom(dirOf(out), t) : rootHref + t) + menuSuffix(it.href);
             current = safeDecode(t) === here;
         }
-        const ext = t === null && /^https?:/i.test(href) && !href.startsWith(SITE) ? ' target="_blank" rel="noopener"' : '';
+        // other sites and PDFs open in a new tab, like links in the pages
+        const ext = (t === null && /^https?:/i.test(href) && !href.startsWith(SITE)) || (t !== null && /\.pdf$/i.test(t))
+            ? ' target="_blank" rel="noopener"' : '';
         return `<a href="${escHtml(href)}"${current ? ' class="active" aria-current="page"' : ''}${ext}>${escHtml(it.label || '')}</a>`;
     });
     return `            <nav class="subnav" aria-label="${escHtml(SHORT)}">\n                <span class="subnav-name">${escHtml(SHORT)}</span>\n                `

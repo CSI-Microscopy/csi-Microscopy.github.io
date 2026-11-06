@@ -39,9 +39,10 @@ eq(core.relFrom('manuals/', ''), '../', 'relFrom manuals→root');
 eq(core.relFrom('manuals/', 'manuals/x.pdf'), 'x.pdf', 'relFrom same dir');
 eq(core.relFrom('a/b/', 'a/c/d.png'), '../c/d.png', 'relFrom sibling dir');
 eq(core.relFrom('', 'docs/sub/'), 'docs/sub/', 'relFrom folder');
-eq(core.BUILT_REPOS.length, 0, 'BUILT_REPOS is empty until a repo is switched to the build');
-eq(core.builtUrl('Skyscan-1272-MicroCT', 'main', 'manuals/readme.md'), null, 'builtUrl: not built yet');
-core.BUILT_REPOS.push('Skyscan-1272-MicroCT');
+eq(JSON.stringify(core.BUILT_REPOS), JSON.stringify(['Skyscan-1272-MicroCT']), 'BUILT_REPOS: Skyscan only (roll-out status)');
+for (const r of ['EVOS-M7000-widefiled', 'Stellaris-STED-Confocal', 'Luxendo-MuVi-SPIM-Light-Sheet', 'image-analysis-server']) {
+    eq(core.builtUrl(r, core.KNOWN_REPOS[r], 'README.md'), null, `builtUrl: ${r} not built yet`);
+}
 eq(core.builtUrl('skyscan-1272-microct', 'main', 'manuals/readme.md'), S + 'Skyscan-1272-MicroCT/manuals/', 'builtUrl: built repo, published branch');
 eq(core.builtUrl('Skyscan-1272-MicroCT', 'main', 'docs/a b.md'), S + 'Skyscan-1272-MicroCT/docs/a%20b.html', 'builtUrl: .md → .html, encoded');
 eq(core.builtUrl('Skyscan-1272-MicroCT', 'feature-x', 'README.md'), null, 'builtUrl: other branch → preview');
@@ -50,12 +51,13 @@ eq(core.builtUrl('Skyscan-1272-MicroCT', 'main', '../x.md'), null, 'builtUrl: ..
     const l = core.makeLinker({ repo: 'Stellaris-STED-Confocal', branch: 'main', mdPath: 'README.md', defaultPath: 'README.md', onRepoPage: true });
     eq(l.rewriteLink('https://github.com/CSI-Microscopy/Skyscan-1272-MicroCT/blob/main/manuals/readme.md', 'x').href, S + 'Skyscan-1272-MicroCT/manuals/', 'browser link to a built repo → clean URL');
 }
-core.BUILT_REPOS.pop();
 eq(core.findOldOrg('see ![x](https://github.com/Faculty-of-Agriculture-CSI-Microscopy/R/assets/1/a) and https://github.com/CSI-Microscopy/Stellaris-STED/x').length, 2, 'findOldOrg finds both forms');
 {
     // browser mode (render.js): the Phase 0 rules
     const l = core.makeLinker({ repo: 'Skyscan-1272-MicroCT', branch: 'main', mdPath: 'docs/test.md', defaultPath: 'README.md', onRepoPage: true });
-    eq(l.rewriteLink('b.md#sec', 'b').href, S + 'Skyscan-1272-MicroCT/?path=docs/b.md#sec', 'browser: md → ?path=');
+    eq(l.rewriteLink('b.md#sec', 'b').href, S + 'Skyscan-1272-MicroCT/docs/b.html#sec', 'browser: md in a built repo → clean URL');
+    const ls = core.makeLinker({ repo: 'Stellaris-STED-Confocal', branch: 'main', mdPath: 'docs/test.md', defaultPath: 'README.md', onRepoPage: true });
+    eq(ls.rewriteLink('b.md#sec', 'b').href, S + 'Stellaris-STED-Confocal/?path=docs/b.md#sec', 'browser: md in a repo not yet built → ?path=');
     eq(l.rewriteLink('sub/x%20y.pdf#page=3', 'x').href, S + 'Skyscan-1272-MicroCT/docs/sub/x%20y.pdf#page=3', 'browser: pdf → Pages URL');
     eq(l.resolveAsset('img/d.png'), 'https://raw.githubusercontent.com/CSI-Microscopy/Skyscan-1272-MicroCT/main/docs/img/d.png', 'browser: image → raw');
     eq(l.rewriteLink('java\tscript:alert(1)', 'x').href, '#', 'browser: javascript: → #');
@@ -94,7 +96,7 @@ const want = [
     ['a', 'manuals/a%20b.pdf', true], ['a', 'manuals/a%20b.pdf#page=2', true],
     ['a', 'page.html#part', false], ['a', 'docs/guide.html', false],
     ['a', 'docs/sub/', false], ['a', 'https://github.com/CSI-Microscopy/Test-Repo/tree/main/assets/', true],
-    ['a', S + 'Stellaris-STED-Confocal/', false], ['a', S + 'Skyscan-1272-MicroCT/?path=manuals/readme.md', false],
+    ['a', S + 'Stellaris-STED-Confocal/', false], ['a', S + 'Skyscan-1272-MicroCT/manuals/', false],
     ['a', 'https://example.org', true], ['a', 'mailto:a@b.c', false], ['a', '#', false],
     ['img', 'assets/logo.png', false], ['img', 'https://github.com/CSI-Microscopy/Test-Repo/assets/1/abc', false],
 ];
@@ -192,6 +194,7 @@ console.log('== symlinks, menu hrefs, descriptions');
     fs.symlinkSync('/etc', path.join(SRC2, 'linkdir'));
     fs.writeFileSync(path.join(SRC2, 'README.md'), '# Test Instrument\n\n## Only headings\n');
     const site2 = JSON.parse(fs.readFileSync(path.join(FIX, 'site.json'), 'utf8'));
+    site2.menu = site2.menu.map(m => m.label === 'Manuals' ? { label: 'Manuals', href: 'manuals/#pdfs' } : m.label === 'Explainer' ? { label: 'Explainer', href: 'page.html?x=1#part' } : m);
     site2.menu = site2.menu.concat([{ label: 'Bad', href: 'javascript:alert(1)' }, { label: 'Data', href: 'data:text/html,x' },
         { label: 'Other host', href: '//evil.example/' }, { label: 'Ctl', href: 'a\u0001b' }, { label: 'Home', href: '/' }, { label: 'Ext', href: 'https://example.org/' }]);
     fs.writeFileSync(path.join(SRC2, 'site.json'), JSON.stringify(site2));
@@ -205,6 +208,10 @@ console.log('== symlinks, menu hrefs, descriptions');
     const idx2 = fs.readFileSync(path.join(OUT2, 'index.html'), 'utf8');
     ok(idx2.includes('<meta name="description" content="Test Instrument guide from the Faculty of Agriculture CSI Microscopy unit.">'), 'no first paragraph: generic description without repeating the name');
     ok(!/href="javascript|href="data:|evil\.example/.test(idx2) && /href="\/">Home</.test(idx2), 'sub-menu HTML has no dropped hrefs');
+    const gd2 = fs.readFileSync(path.join(OUT2, 'docs/guide.html'), 'utf8');
+    ok(/href="\.\.\/manuals\/#pdfs">Manuals</.test(gd2) && /href="\.\.\/page\.html\?x=1#part">Explainer</.test(gd2), 'menu hrefs keep their #anchor and ?query', gd2.match(/class="subnav"[\s\S]*?<\/nav>/)[0]);
+    ok(!r2.warnings.some(w => w.kind === 'menu' && /Manuals|Explainer/.test(w.msg)), 'menu entries with #anchor or ?query are not flagged as missing');
+    ok(/href="https:\/\/example\.org\/" target="_blank" rel="noopener">Ext</.test(idx2), 'external menu link opens in a new tab');
     site2.description = 'Custom description from site.json.';
     fs.writeFileSync(path.join(SRC2, 'site.json'), JSON.stringify(site2));
     execFileSync(process.execPath, [BUILD, '--repo', 'Test-Repo', '--src', SRC2, '--out', OUT2, '--branch', 'main'], { encoding: 'utf8' });
