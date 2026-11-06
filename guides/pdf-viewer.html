@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#0A716E">
+    <meta name="robots" content="noindex">
     <title>CSI Microscopy — PDF Viewer</title>
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     <script>
@@ -111,41 +112,123 @@
 
     <script src="../site.js"></script>
     <script>
-        // ── Back button: go to previous viewer page if possible ─────────────────
+        // Old links to this page keep working; new guide pages link PDFs
+        // directly from the instrument's own Pages site instead.
+        const SITE = 'https://csi-microscopy.github.io/';
+        // Instrument repos and the branch each Pages site is published from
+        const KNOWN_REPOS = {
+            'Skyscan-1272-MicroCT': 'main', 'EVOS-M7000-widefiled': 'master',
+            'Stellaris-STED-Confocal': 'main', 'Luxendo-MuVi-SPIM-Light-Sheet': 'master',
+            'image-analysis-server': 'main',
+        };
+        const params   = new URLSearchParams(window.location.search);
+        const pdfUrl   = (params.get('url') || '').trim();
+        const rawTitle = params.get('title');
+
+        // ── Accept only the facility's own PDFs (D2) ────────────────────────────
+        // Same name and branch rules as guides/render.js.
+        const NAME_RE   = /^[A-Za-z0-9._-]+$/;
+        const validName = s => typeof s === 'string' && s.length <= 100 && NAME_RE.test(s) && s !== '.' && !s.includes('..');
+        const validBranch = s => typeof s === 'string' && s.length <= 200
+            && !/^(refs|pull)(\/|$)/i.test(s) && !/^[0-9a-f]{4,40}(\/|$)/i.test(s)
+            && s.split('/').every(validName);
+        const knownRepo = s => Object.keys(KNOWN_REPOS).find(r => r.toLowerCase() === String(s).toLowerCase()) || null;
+
+        // Parses an allowed PDF URL into validated parts, or returns null:
+        //   https://raw.githubusercontent.com/CSI-Microscopy/<known repo>/<branch>/<path>.pdf
+        //   https://csi-microscopy.github.io/<known repo>/<path>.pdf
+        // The URL is parsed first and the normalised pathname is checked; any
+        // "."/".." segment (also as %2e) is refused, except the legacy "/./"
+        // that old links contain. All URLs below are built from these parts.
+        function parsePdf(u) {
+            if (typeof u !== 'string' || !u || u.length > 2000) return null;
+            const s = u.replace(/\/\.(?=\/)/g, '');                         // legacy "/./"
+            if (/(^|\/)(\.|%2e){1,2}(\/|$)/i.test(s.split(/[?#]/)[0])) return null;
+            let x;
+            try { x = new URL(s); } catch (_) { return null; }
+            if (x.protocol !== 'https:' || x.username || x.password || x.port) return null;
+            const segs = x.pathname.split('/').slice(1);
+            let repo, branch = null, pathSegs;
+            if (x.hostname === 'raw.githubusercontent.com') {
+                if (segs.length < 4 || segs[0].toLowerCase() !== 'csi-microscopy') return null;
+                repo = knownRepo(segs[1]); branch = segs[2]; pathSegs = segs.slice(3);
+                if (!validBranch(branch)) return null;
+            } else if (x.hostname === 'csi-microscopy.github.io') {
+                if (segs.length < 2) return null;
+                repo = knownRepo(segs[0]); pathSegs = segs.slice(1);
+            } else return null;
+            if (!repo) return null;
+            for (const seg of pathSegs) {
+                let d; try { d = decodeURIComponent(seg); } catch (_) { return null; }
+                if (!seg || d === '.' || d === '..' || /[\/\\\u0000-\u001f]/.test(d)) return null;
+            }
+            const path = pathSegs.join('/');
+            if (!/\.pdf$/i.test(path)) return null;
+            // keep only a plain viewer fragment such as #page=3
+            const frag = /^#[A-Za-z0-9=&._-]{1,60}$/.test(x.hash) ? x.hash : '';
+            return { host: x.hostname, repo, branch, path, frag };
+        }
+        const isAllowed = u => !!parsePdf(u);
+        const allowed = !!parsePdf(pdfUrl);
+        const rawParts = u => { const p = parsePdf(u); return p && p.branch ? p : null; };
+
+        // Viewable URL: the same-site Pages copy for a known repo's published
+        // branch (served as application/pdf); jsDelivr for other branches
+        // (raw.githubusercontent serves octet-stream, which downloads).
+        function toInlinePdfUrl(u) {
+            const p = parsePdf(u);
+            if (!p) return null;
+            if (!p.branch || KNOWN_REPOS[p.repo] === p.branch) return `${SITE}${p.repo}/${p.path}${p.frag}`;
+            return `https://cdn.jsdelivr.net/gh/CSI-Microscopy/${p.repo}@${p.branch}/${p.path}${p.frag}`;
+        }
+        // Download: the raw file (served as octet-stream) or the Pages copy
+        function toDownloadUrl(u) {
+            const p = parsePdf(u);
+            if (!p) return null;
+            return p.branch ? `https://raw.githubusercontent.com/CSI-Microscopy/${p.repo}/${p.branch}/${p.path}`
+                            : `${SITE}${p.repo}/${p.path}`;
+        }
+
+        // Title: accept a correctly encoded title and the old double-encoded
+        // form ("%2520"); never throw on a stray "%" (D14).
+        function decodeTitle(t) {
+            let s = t;
+            for (let i = 0; i < 2 && /%[0-9a-f]{2}/i.test(s); i++) {
+                try { s = decodeURIComponent(s); } catch (_) { break; }
+            }
+            return s.slice(0, 120);
+        }
+
+        // ── Back button (D10) ───────────────────────────────────────────────────
+        // Came from this site: go back in history. Otherwise: the instrument
+        // page the PDF belongs to, else home.
         const backBtn = document.getElementById('back-btn');
-        if (document.referrer && document.referrer.includes('viewer.html')) {
-            backBtn.href = document.referrer;
-        } else {
-            backBtn.href = '../index.html';
+        let fromSite = false;
+        try {
+            const ref = document.referrer ? new URL(document.referrer) : null;
+            fromSite = !!ref && (ref.origin === new URL(SITE).origin || ref.origin === window.location.origin);
+        } catch (_) { /* ignore */ }
+        let instrumentRoot = null;
+        if (allowed) instrumentRoot = `${SITE}${parsePdf(pdfUrl).repo}/`;
+        backBtn.href = fromSite ? document.referrer : (instrumentRoot || '../index.html');
+        if (fromSite && window.history.length > 1) {
+            backBtn.addEventListener('click', e => { e.preventDefault(); window.history.back(); });
         }
 
         // ── PDF loading ─────────────────────────────────────────────────────────
-        const params  = new URLSearchParams(window.location.search);
-        const pdfUrl  = params.get('url');
-        const rawTitle = params.get('title');
-
-        // raw.githubusercontent.com serves PDFs as "application/octet-stream" with
-        // X-Content-Type-Options: nosniff, which forces a DOWNLOAD instead of an
-        // inline preview. jsDelivr serves the same file as "application/pdf", so the
-        // browser renders it inline. Convert raw GitHub URLs → jsDelivr for viewing.
-        function toInlinePdfUrl(u) {
-            const m = u.match(/^https?:\/\/raw\.githubusercontent\.com\/([^/]+)\/([^/]+)\/([^/]+)\/(.+)$/);
-            if (!m) return u; // already absolute / other host — embed as-is
-            const [, owner, repo, branch, path] = m;
-            const cleanPath = path.replace(/\/\.\//g, '/').replace(/^\.\//, '');
-            return `https://cdn.jsdelivr.net/gh/${owner}/${repo}@${branch}/${cleanPath}`;
-        }
-
-        if (pdfUrl) {
+        if (allowed) {
             const inlineUrl = toInlinePdfUrl(pdfUrl);
-            // Derive a human-readable title from filename if none supplied
-            const filename    = decodeURIComponent(pdfUrl.split('/').pop().replace(/\.pdf$/i, '')).replace(/[-_]/g, ' ');
-            const displayTitle = rawTitle ? decodeURIComponent(rawTitle) : filename;
+            const lastSeg   = parsePdf(pdfUrl).path.split('/').pop();
+            const filename  = decodeTitle(lastSeg).replace(/\.pdf$/i, '').replace(/[-_]/g, ' ');
+            const displayTitle = rawTitle ? decodeTitle(rawTitle) : filename;
 
             document.title                               = `CSI Microscopy — ${displayTitle}`;
             document.getElementById('pdf-title').textContent  = displayTitle;
-            document.getElementById('download-link').href     = pdfUrl;     // raw URL → downloads the file
-            document.getElementById('raw-link').href          = inlineUrl;  // jsDelivr → opens a viewable PDF
+            // raw URL downloads the file; a Pages URL gets the download attribute
+            const dl = document.getElementById('download-link');
+            dl.href = toDownloadUrl(pdfUrl);
+            if (!parsePdf(pdfUrl).branch) dl.setAttribute('download', '');
+            document.getElementById('raw-link').href          = inlineUrl;
             document.getElementById('fallback-link').href     = inlineUrl;
 
             const frame = document.getElementById('pdf-frame');
@@ -157,11 +240,18 @@
                 document.getElementById('fallback').style.display = 'block';
             });
         } else {
-            document.getElementById('pdf-toolbar').style.display = 'none';
-            document.getElementById('pdf-frame').style.display   = 'none';
+            document.getElementById('pdf-toolbar').remove();   // no download link
+            const frame = document.getElementById('pdf-frame');
+            frame.style.display = 'none';
+            frame.remove();
             const fb = document.getElementById('fallback');
             fb.style.display = 'block';
-            fb.querySelector('p').textContent = 'No PDF URL specified.';
+            fb.querySelector('p').textContent = pdfUrl
+                ? 'This link does not point to a CSI Microscopy document, so it is not shown here.'
+                : 'No PDF URL specified.';
+            const link = document.getElementById('fallback-link');
+            link.href = '../index.html#startup-shutdown-guides';
+            link.innerHTML = '<i class="fa-solid fa-book" aria-hidden="true"></i> Instrument guides';
         }
     </script>
 </body>

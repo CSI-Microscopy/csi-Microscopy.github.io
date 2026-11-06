@@ -9,6 +9,7 @@
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#0A716E">
     <title>Faculty of Agriculture CSI Microscopy</title>
+    <link rel="canonical" href="https://csi-microscopy.github.io/">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <!-- Apply a saved theme before first paint to avoid a flash -->
     <script>
@@ -156,7 +157,7 @@
                         <h3>Stellaris STED and SP8 <small>CONFOCAL · SUPER-RESOLUTION</small></h3>
                         <p>Confocal microscopes scan the sample with a laser and reject out-of-focus light, so thick fluorescent samples become sharp optical slices that can be stacked into 3D. The Stellaris adds STED, which resolves details about three to four times finer than a normal confocal, for questions at the scale of organelles and protein clusters.</p>
                         <div class="i-good"><span>fluorescence</span><span>3D stacks</span><span>tissue sections</span><span>co-localisation</span><span>STED super-resolution</span></div>
-                        <div class="i-links"><a href="modalities.html#confocal">Confocal: when to choose it</a> <a href="modalities.html#sted">STED: when to choose it</a> <a href="Stellaris-STED-Confocal/">Stellaris guide</a> <a href="Stellaris-STED-Confocal/?title=Stellaris%20Confocal%20Data%20Tools">LIF data scripts</a></div>
+                        <div class="i-links"><a href="modalities.html#confocal">Confocal: when to choose it</a> <a href="modalities.html#sted">STED: when to choose it</a> <a href="Stellaris-STED-Confocal/">Stellaris guide</a> <a href="https://github.com/CSI-Microscopy/Stellaris-STED-Confocal/tree/main/tools" target="_blank" rel="noopener">LIF data scripts</a> <span class="i-note">(scripts; documentation to follow)</span></div>
                     </div>
                 </li>
                 <li>
@@ -165,7 +166,7 @@
                         <h3>Luxendo MuVi SPIM <small>LIGHT SHEET</small></h3>
                         <p>Illuminates one thin plane of the sample from the side and photographs it from above, so large samples are imaged quickly and gently, with little bleaching. Suited to cleared tissue, whole organs, embryos and seedlings, and to watching living samples develop over hours or days.</p>
                         <div class="i-good"><span>large cleared samples</span><span>live imaging</span><span>whole organisms</span><span>fast 3D</span></div>
-                        <div class="i-links"><a href="modalities.html#lightsheet">When to choose it</a> <a href="Luxendo-MuVi-SPIM-Light-Sheet/">Guide</a> <a href="Luxendo-MuVi-SPIM-Light-Sheet/?title=Luxendo%20h5%20to%20TIFF%20Converter">h5 to TIFF converter</a></div>
+                        <div class="i-links"><a href="modalities.html#lightsheet">When to choose it</a> <a href="Luxendo-MuVi-SPIM-Light-Sheet/#h5-to-tiff-converter">h5 to TIFF converter</a> <span class="i-note">(with image-processing notes; startup guide in preparation)</span></div>
                     </div>
                 </li>
                 <li>
@@ -386,7 +387,7 @@
                     <i class="fa-solid fa-arrow-right card-ext" aria-hidden="true"></i></a></li>
                 <li><a class="card" href="Luxendo-MuVi-SPIM-Light-Sheet/">
                     <span class="card-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
-                    <span><span class="card-title">Luxendo MuVi SPIM Light Sheet</span><span class="card-desc">Startup and shutdown procedure.</span></span>
+                    <span><span class="card-title">Luxendo MuVi SPIM Light Sheet</span><span class="card-desc">h5 to TIFF converter and image-processing notes. Startup guide in preparation.</span></span>
                     <i class="fa-solid fa-arrow-right card-ext" aria-hidden="true"></i></a></li>
                 <li><span class="card wip-item">
                     <span class="card-icon"><i class="fa-solid fa-microscope" aria-hidden="true"></i></span>
@@ -414,14 +415,14 @@
                 <p>Instruments save data in their own formats. These tools, written in the unit, convert them to TIFF stacks that Fiji and other software open directly, keeping the pixel size and other metadata.</p>
             </div>
             <ul class="cards">
-                <li><a class="card" href="Luxendo-MuVi-SPIM-Light-Sheet/?title=Luxendo%20h5%20to%20TIFF%20Converter">
+                <li><a class="card" href="Luxendo-MuVi-SPIM-Light-Sheet/#h5-to-tiff-converter">
                     <span class="card-icon"><i class="fa-solid fa-right-left" aria-hidden="true"></i></span>
                     <span><span class="card-title">Luxendo Light Sheet: h5 to TIFF Converter</span><span class="card-desc">Convert MuVi SPIM HDF5 output to TIFF stacks.</span></span>
                     <i class="fa-solid fa-arrow-right card-ext" aria-hidden="true"></i></a></li>
-                <li><a class="card" href="Stellaris-STED-Confocal/?title=Stellaris%20Confocal%20Data%20Tools">
+                <li><a class="card" href="https://github.com/CSI-Microscopy/Stellaris-STED-Confocal/tree/main/tools" target="_blank" rel="noopener">
                     <span class="card-icon"><i class="fa-solid fa-file-code" aria-hidden="true"></i></span>
-                    <span><span class="card-title">Stellaris Confocal: LIF Data Handling Scripts</span><span class="card-desc">Scripts for working with Leica LIF files.</span></span>
-                    <i class="fa-solid fa-arrow-right card-ext" aria-hidden="true"></i></a></li>
+                    <span><span class="card-title">Stellaris Confocal: LIF Data Handling Scripts</span><span class="card-desc">Scripts for working with Leica LIF files, on GitHub (scripts; documentation to follow).</span></span>
+                    <i class="fa-solid fa-arrow-up-right-from-square card-ext" aria-hidden="true"></i></a></li>
                 <li><span class="card wip-item">
                     <span class="card-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
                     <span><span class="card-title">Batch Processing with Fiji</span><span class="card-desc">In preparation.</span></span>

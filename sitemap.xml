@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Home site pages and the five instrument sites' entry pages (same host).
+     Keep in step with index.html when an instrument site is added. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://csi-microscopy.github.io/</loc></url>
+  <url><loc>https://csi-microscopy.github.io/basics.html</loc></url>
+  <url><loc>https://csi-microscopy.github.io/modalities.html</loc></url>
+  <url><loc>https://csi-microscopy.github.io/Skyscan-1272-MicroCT/</loc></url>
+  <url><loc>https://csi-microscopy.github.io/EVOS-M7000-widefiled/</loc></url>
+  <url><loc>https://csi-microscopy.github.io/Stellaris-STED-Confocal/</loc></url>
+  <url><loc>https://csi-microscopy.github.io/Luxendo-MuVi-SPIM-Light-Sheet/</loc></url>
+  <url><loc>https://csi-microscopy.github.io/image-analysis-server/</loc></url>
+</urlset>

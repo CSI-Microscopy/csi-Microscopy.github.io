@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page not found — Faculty of Agriculture CSI Microscopy.">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#0A716E">
+    <meta name="robots" content="noindex">
+    <title>Page not found — CSI Microscopy</title>
+    <!--
+        Alias table, run before first paint.
+        GitHub Pages serves this file only for paths that are NOT inside another
+        repository's Pages site. A missing page under a correctly spelled
+        instrument path such as /Skyscan-1272-MicroCT/... is answered by that
+        repository (its own 404.html, or GitHub's generic page), never by this
+        one. So this table mainly catches wrong-case repo names
+        (/skyscan-1272-microct/x), the old or corrected spellings
+        (/EVOS-M7000-widefield/, /Stellaris-STED/), short aliases (/microct/,
+        /evos/, /stellaris/, /lightsheet/, /data/), /manuals/, and README.md /
+        readme.md in any case (to the folder, or to ?path= for a sub-folder,
+        which has no page of its own yet). Redirects keep the rest of the
+        path, the query and the #hash, and never leave this site.
+    -->
+    <script id="csi-alias">
+        (function () {
+            var REPOS = ['Skyscan-1272-MicroCT', 'EVOS-M7000-widefiled', 'Stellaris-STED-Confocal',
+                         'Luxendo-MuVi-SPIM-Light-Sheet', 'image-analysis-server'];
+            var ALIASES = {
+                'evos-m7000-widefield': 'EVOS-M7000-widefiled',   // repo name keeps the typo
+                'stellaris-sted':       'Stellaris-STED-Confocal', // old repo name
+                'microct':    'Skyscan-1272-MicroCT',
+                'evos':       'EVOS-M7000-widefiled',
+                'stellaris':  'Stellaris-STED-Confocal',
+                'lightsheet': 'Luxendo-MuVi-SPIM-Light-Sheet',
+                'data':       'image-analysis-server'
+            };
+            var PAGES = ['index.html', 'basics.html', 'modalities.html'];
+            // The SkyScan manuals have no page of their own yet
+            var MANUALS = '/Skyscan-1272-MicroCT/?path=manuals/readme.md&title=Skyscan%201272%20Manuals';
+
+            function dec(s) { try { return decodeURIComponent(s); } catch (e) { return s; } }
+            // "manuals", "manuals/", "manuals/readme.md", "manuals/index.html"
+            function isManuals(segs) {
+                if (!segs.length || dec(segs[0]).toLowerCase() !== 'manuals') return false;
+                var r = segs.slice(1);
+                return r.length === 0 || (r.length === 1 && (r[0] === '' || /^(readme\.md|index\.html?)$/i.test(r[0])));
+            }
+            // Returns the path (or path+query) to redirect to, or null
+            function aliasTarget(pathname) {
+                var segs = String(pathname || '/').split('/').slice(1);   // drop the leading ""
+                var first = dec(segs[0] || '').toLowerCase();
+                if (isManuals(segs)) return MANUALS;
+                var repo = null, i;
+                for (i = 0; i < REPOS.length; i++) if (REPOS[i].toLowerCase() === first) repo = REPOS[i];
+                if (!repo && Object.prototype.hasOwnProperty.call(ALIASES, first)) repo = ALIASES[first];
+                if (repo) {
+                    var rest = segs.slice(1);
+                    if (repo === 'Skyscan-1272-MicroCT' && isManuals(rest)) return MANUALS;
+                    for (i = 0; i < rest.length; i++) {
+                        var d = dec(rest[i]);
+                        if (d === '.' || d === '..' || /[\/\\]/.test(d)) return '/' + repo + '/';
+                    }
+                    var last = rest.length ? rest[rest.length - 1] : '';
+                    if (/^readme\.md$/i.test(dec(last))) {
+                        if (rest.length === 1) return '/' + repo + '/';
+                        return '/' + repo + '/?path=' + rest.map(function (x) { return encodeURIComponent(dec(x)); }).join('/');
+                    }
+                    return '/' + repo + '/' + rest.join('/');
+                }
+                if (segs.length === 1 && /^readme\.md$/i.test(first)) return '/';
+                if (segs.length === 1) {
+                    for (i = 0; i < PAGES.length; i++) {
+                        if (PAGES[i] === first || PAGES[i] === first + '.html') return '/' + PAGES[i];
+                    }
+                }
+                return null;
+            }
+            window.csiAliasTarget = aliasTarget;
+
+            var l = window.location;
+            var t = aliasTarget(l.pathname);
+            if (t && t !== l.pathname) {
+                document.documentElement.style.visibility = 'hidden';
+                l.replace(t + (t.indexOf('?') < 0 ? l.search : '') + l.hash);
+            }
+        })();
+    </script>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <script>
+        try { var t = localStorage.getItem('csi-theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .nf-path { font-family: var(--f-mono); font-size: 0.9rem; color: var(--muted); overflow-wrap: anywhere; }
+        .nf-guides { padding-bottom: clamp(2.5rem, 7vw, 5rem); }
+    </style>
+</head>
+<body>
+    <nav class="navbar nav-long" aria-label="Main navigation">
+        <a class="brand" href="/">
+            <span class="brand-mark" aria-hidden="true">CSI</span>
+            <span class="brand-text">CSI Microscopy <small>Faculty of Agriculture · HUJI</small></span>
+        </a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i></button>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+        <div class="nav-links" id="nav-links">
+            <a title="Start here" href="/#start-here"><i class="fa-solid fa-flag-checkered" aria-hidden="true"></i> <span class="text">Start here</span></a>
+            <a title="Basics" href="/basics.html"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> <span class="text">Basics</span></a>
+            <a title="Choosing" href="/modalities.html"><i class="fa-solid fa-signs-post" aria-hidden="true"></i> <span class="text">Choosing</span></a>
+            <a title="Learning" href="/#learning"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> <span class="text">Learning</span></a>
+            <a title="Software" href="/#software"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i> <span class="text">Software</span></a>
+            <a title="Guides" href="/#startup-shutdown-guides"><i class="fa-solid fa-book" aria-hidden="true"></i> <span class="text">Guides</span></a>
+            <a title="Data Tools" href="/#data-handling-tools"><i class="fa-solid fa-database" aria-hidden="true"></i> <span class="text">Data Tools</span></a>
+            <a title="Contributing" href="/#contributing"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> <span class="text">Contributing</span></a>
+            <a title="Contact" href="/#contact"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span class="text">Contact</span></a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero hero-article" id="top">
+            <div>
+                <span class="eyebrow">Error 404</span>
+                <h1>Page not found</h1>
+                <p class="lead">There is no page at this address. It may have moved, or the link may have a typo. Addresses on this site are case-sensitive.</p>
+                <p class="nf-path" id="nf-path"></p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="/"><i class="fa-solid fa-house" aria-hidden="true"></i> Home page</a>
+                    <a class="btn" href="/#startup-shutdown-guides"><i class="fa-solid fa-book" aria-hidden="true"></i> Instrument guides</a>
+                    <a class="btn" href="/#contact"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact the unit</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="nf-guides" aria-labelledby="nf-guides-h">
+            <div class="section-head">
+                <span class="eyebrow">Guides</span>
+                <h2 id="nf-guides-h">Were you looking for one of these?</h2>
+            </div>
+            <ul class="cards">
+                <li><a class="card" href="/EVOS-M7000-widefiled/">
+                    <span class="card-icon"><i class="fa-solid fa-microscope" aria-hidden="true"></i></span>
+                    <span><span class="card-title">EVOS M7000 Widefield</span><span class="card-desc">Startup and shutdown procedure.</span></span>
+                    <i class="fa-solid fa-arrow-right card-ext" aria-hidden="true"></i></a></li>
+                <li><a class="card" href="/Stellaris-STED-Confocal/">
+                    <span class="card-icon"><i class="fa-solid fa-microscope" aria-hidden="true"></i></span>
+                    <span><span class="card-title">Stellaris STED Confocal</span><span class="card-desc">Startup and shutdown procedure.</span></span>
+                    <i class="fa-solid fa-arrow-right card-ext" aria-hidden="true"></i></a></li>
+                <li><a class="card" href="/Skyscan-1272-MicroCT/">
+                    <span class="card-icon"><i class="fa-solid fa-cube" aria-hidden="true"></i></span>
+                    <span><span class="card-title">Skyscan 1272 MicroCT</span><span class="card-desc">Startup and shutdown procedure.</span></span>
+                    <i class="fa-solid fa-arrow-right card-ext" aria-hidden="true"></i></a></li>
+                <li><a class="card" href="/Skyscan-1272-MicroCT/?path=manuals/readme.md&amp;title=Skyscan%201272%20Manuals">
+                    <span class="card-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></span>
+                    <span><span class="card-title">Skyscan 1272 MicroCT · Manuals</span><span class="card-desc">Manufacturer manuals and reference PDFs.</span></span>
+                    <i class="fa-solid fa-arrow-right card-ext" aria-hidden="true"></i></a></li>
+                <li><a class="card" href="/Luxendo-MuVi-SPIM-Light-Sheet/">
+                    <span class="card-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
+                    <span><span class="card-title">Luxendo MuVi SPIM Light Sheet</span><span class="card-desc">h5 to TIFF converter and image-processing notes.</span></span>
+                    <i class="fa-solid fa-arrow-right card-ext" aria-hidden="true"></i></a></li>
+                <li><a class="card" href="/image-analysis-server/">
+                    <span class="card-icon"><i class="fa-solid fa-server" aria-hidden="true"></i></span>
+                    <span><span class="card-title">Image Data Management</span><span class="card-desc">Analysis server storage and workflow.</span></span>
+                    <i class="fa-solid fa-arrow-right card-ext" aria-hidden="true"></i></a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <p>&copy; 2025 Daniel Waiger · Faculty of Agriculture CSI Microscopy</p>
+            <nav aria-label="Footer">
+                <a href="/">Home</a>
+                <a href="https://github.com/CSI-Microscopy" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+                <a href="/#contact">Contact</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var p = document.getElementById('nf-path');
+            var path = window.location.pathname;
+            try { path = decodeURI(path); } catch (e) { /* keep as is */ }
+            if (p && path && path !== '/404.html') p.textContent = path;
+        })();
+    </script>
+    <script src="/site.js"></script>
+</body>
+</html>
