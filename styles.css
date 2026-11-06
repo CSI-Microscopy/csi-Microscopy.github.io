@@ -980,3 +980,34 @@ h2 .mod-tag { vertical-align: 0.3em; letter-spacing: 0.02em; }
 .mod-compare tbody th { font-weight: 600; white-space: nowrap; }
 .mod-compare td { color: var(--muted); }
 .mod-compare tbody tr:last-child > * { border-bottom: 0; }
+
+/* Real example images (modalities.html) */
+.figure.mod-photo { margin-top: 2rem; }
+.mod-photo-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; align-items: flex-start; }
+.mod-photo-item { flex: 1 1 240px; margin: 0; }
+.mod-w-s  { max-width: 320px; }
+.mod-w-m  { max-width: 480px; }
+.mod-w-l  { max-width: 720px; }
+.mod-w-xl { max-width: 900px; }
+.mod-photo-item img { display: block; width: 100%; height: auto; border-radius: var(--radius-sm); }
+.mod-credit { margin: 6px 0 0; max-width: none; font-size: 0.72rem; line-height: 1.4; color: var(--muted); }
+.mod-credit a { color: inherit; text-decoration: underline; text-decoration-color: var(--line-strong); }
+.mod-credits-list { margin: 0; padding-left: 1.2rem; font-size: 0.88rem; color: var(--muted); }
+.mod-credits-list li { margin: 0.35rem 0; }
+.mod-credits-list strong { color: var(--ink); font-weight: 500; }
+
+/* Hero zoom chain: three image tiles under a small overlay of zoom lines */
+.mod-zoom { position: relative; aspect-ratio: 320 / 266; }
+.mod-zoom img {
+    position: absolute;
+    aspect-ratio: 1;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #0B0F13;
+}
+.mod-zoom-1 { left: 4.375%; top: 19.55%; width: 41.25%; }
+.mod-zoom-2 { left: 53.75%; top: 12.03%; width: 30%; }
+.mod-zoom-3 { left: 68.75%; top: 59.4%; width: 26.25%; object-position: 2% 50%; }
+.hero-figure .mod-zoom svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.hero-figure .mod-credit { margin-top: 8px; }

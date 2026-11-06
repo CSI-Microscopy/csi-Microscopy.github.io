@@ -13,6 +13,7 @@ The site is designed to present CSI Microscopy information in a clean, responsiv
 - `basics.html`, `basics.js` – plain-language microscopy guide for new users, with inline SVG figures and a resolution / pixel-size calculator
 - `modalities.html` – "Choosing a microscope": when to choose each imaging technique the unit offers (light, X-ray and electron microscopy) and what each can show, with inline SVG infographics and a comparison table
 - `assets/examples/` – example images from the unit's own data (fly microCT slice from the SkyScan 1272 repo)
+- `assets/modalities/` – example images for `modalities.html`, re-encoded from Wikimedia Commons; each is credited on the page (author, source page, licence) and listed in its Image credits section
 - `site.js` – theme toggle (persisted, respects system preference), mobile menu, section highlighting
 - `guides/viewer.html`, `guides/render.js`, `guides/guide.css` – shared Markdown guide renderer used by the instrument repos
 - `guides/pdf-viewer.html` – inline PDF viewer for manuals
