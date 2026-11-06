@@ -10,13 +10,38 @@
  * load it from https://csi-microscopy.github.io/guides/render.js, so fixes here
  * propagate to every guide page automatically.
  *
- * Requires marked.js to be loaded first, and the page markup to contain:
+ * Requires marked.js (4.3.0) to be loaded first, and the page markup to contain:
  *   #status-message  #guide-title  #guide-meta  #markdown-body
+ *
+ * Public config (unchanged): window.GUIDE = { repo, branch, title, path }.
+ * Query parameters: ?path= (any page), ?title= (any page), ?repo= and ?branch=
+ * (viewer.html only; a per-repo page's own repo/branch always win).
+ *
+ * Version 2.0.0 (2026-11-06), routing phase 0:
+ *   - repo/branch/path are validated; viewer.html only shows the five
+ *     instrument repos; a rejected value shows an error instead of fetching
+ *   - #hash in the address is scrolled to after rendering
+ *   - without ?title= the document's first H1 becomes the page title
+ *   - links: extension checked without #/?; fragments kept; relative links go
+ *     to the instrument's Pages URL; PDFs open the same-site PDF in a new tab;
+ *     new tabs only for other sites
+ *   - old organisation name rewritten in links and images
  */
 (() => {
     'use strict';
 
-    const ORG = 'CSI-Microscopy';
+    const ORG     = 'CSI-Microscopy';
+    const OLD_ORG = 'Faculty-of-Agriculture-CSI-Microscopy';
+    const SITE    = 'https://csi-microscopy.github.io/';
+    // Instrument repos with a GitHub Pages site, and the branch each site is
+    // published from. viewer.html?repo= accepts only these.
+    const KNOWN_REPOS = {
+        'Skyscan-1272-MicroCT':          'main',
+        'EVOS-M7000-widefiled':          'master',
+        'Stellaris-STED-Confocal':       'main',
+        'Luxendo-MuVi-SPIM-Light-Sheet': 'master',
+        'image-analysis-server':         'main',
+    };
 
     // ── Resolve helper-page URLs from this script's own <src> ────────────────
     // Works whether loaded by the main viewer (relative) or a per-repo page
@@ -103,54 +128,234 @@
     }
     if (themeToggle) themeToggle.addEventListener('click', () => { renderMermaid(); });
 
+    // ── Small helpers ────────────────────────────────────────────────────
+    const escHtml = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const decodeEntities = s => String(s)
+        .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(+n))
+        .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
+        .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+    const plainText = html => decodeEntities(String(html || '').replace(/<[^>]*>/g, '')).replace(/\s+/g, ' ').trim();
+    const safeDecode = s => { try { return decodeURIComponent(s); } catch (_) { return s; } };
+    const encPath = p => p.split('/').map(encodeURIComponent).join('/');
+
+    // ── Validation (D1) ─────────────────────────────────────────────────────
+    const NAME_RE   = /^[A-Za-z0-9._-]+$/;
+    const validName = s => typeof s === 'string' && s.length <= 100 && NAME_RE.test(s) && !s.includes('..');
+    // Branch: one or more valid names separated by "/" (PR branches such as
+    // "feature/x" stay previewable); no "..", no empty segments.
+    const validBranch = s => typeof s === 'string' && s.length <= 200 && s.split('/').every(validName);
+    // Case-insensitive match of a known repo name → canonical spelling, else null
+    const canonicalRepo = s => {
+        if (typeof s !== 'string') return null;
+        const lc = s.toLowerCase();
+        return Object.keys(KNOWN_REPOS).find(r => r.toLowerCase() === lc) || null;
+    };
+    // Document path inside a repo: no "..", no backslash, no leading "/", no
+    // scheme, no control characters; "./" and empty segments are dropped.
+    // Returns the normalised (decoded) path, or null if rejected.
+    function cleanPath(p) {
+        if (typeof p !== 'string' || !p || p.length > 500) return null;
+        if (p.includes('\\') || p.startsWith('/') || /^[a-z][a-z0-9+.-]*:/i.test(p) || /[\u0000-\u001f\u007f]/.test(p)) return null;
+        const segs = [];
+        for (const seg of p.split('/')) {
+            if (seg === '' || seg === '.') continue;
+            const dec = safeDecode(seg);
+            if (seg === '..' || dec === '..' || dec === '.' || dec.includes('/') || dec.includes('\\')) return null;
+            segs.push(seg);
+        }
+        return segs.length ? segs.join('/') : null;
+    }
+
+    // Old organisation name (and old Stellaris repo name) in GitHub URLs.
+    // Applied to the whole Markdown source, so links, Markdown images and raw
+    // HTML <img src> all load from the current organisation.
+    function fixOldOrg(s) {
+        return String(s)
+            .replace(new RegExp('(github\\.com|githubusercontent\\.com|cdn\\.jsdelivr\\.net/gh)/' + OLD_ORG + '/', 'gi'), '$1/' + ORG + '/')
+            .replace(new RegExp(OLD_ORG + '\\.github\\.io', 'gi'), 'csi-microscopy.github.io')
+            .replace(new RegExp('((?:github\\.com|githubusercontent\\.com)/' + ORG + '/)Stellaris-STED(?=[/?#"\'\\s)]|$)', 'g'), '$1Stellaris-STED-Confocal');
+    }
+
     // ── Resolve config: window.GUIDE (per-repo page) or URL params (viewer) ──
     function resolveConfig() {
         const params = new URLSearchParams(window.location.search);
         const g = window.GUIDE || {};
-        const repo   = g.repo   || params.get('repo');
-        const branch = g.branch || params.get('branch') || 'main';
+        const onRepoPage = !!g.repo;
+        let repo;
+        if (onRepoPage) {
+            repo = g.repo;
+            if (!validName(repo)) return { error: 'repo', value: repo };
+        } else {
+            const q = params.get('repo');
+            if (!q) return { error: 'norepo' };
+            repo = canonicalRepo(q);
+            if (!repo) return { error: 'repo', value: q };
+        }
+        const branch = g.branch || params.get('branch') || KNOWN_REPOS[repo] || 'main';
+        if (!validBranch(branch)) return { error: 'branch', value: branch, repo };
         // ?path= always wins so a per-repo page can deep-link a sub-file
-        const mdPath = params.get('path') || g.path || 'README.md';
-        const title  = params.get('title') || g.title || repo;
-        return { repo, branch, mdPath, title };
+        const rawPath = params.get('path') || g.path || 'README.md';
+        const mdPath  = cleanPath(rawPath);
+        if (!mdPath) return { error: 'path', value: rawPath, repo };
+        return {
+            repo, branch, mdPath, onRepoPage,
+            defaultPath: cleanPath(g.path || 'README.md'),
+            titleParam: params.get('title') || '',
+            fallbackTitle: g.title || repo,
+        };
     }
 
     // ── Render ──────────────────────────────────────────────────────────────
     (async () => {
-        const { repo, branch, mdPath, title } = resolveConfig();
+        const cfg = resolveConfig();
 
         const statusEl = document.getElementById('status-message');
         const titleEl  = document.getElementById('guide-title');
         const metaEl   = document.getElementById('guide-meta');
         const bodyEl   = document.getElementById('markdown-body');
+        const warn     = '<i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i> ';
 
-        if (!repo) {
-            if (statusEl) statusEl.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> '
-                + `No repository specified. <a href="${HOME_URL}">Return home.</a>`;
+        if (cfg.error) {
+            const what = { norepo: 'No repository specified', repo: 'Unknown repository', branch: 'Invalid branch name', path: 'Invalid document path' }[cfg.error];
+            const back = cfg.repo && cfg.error !== 'repo' && KNOWN_REPOS[cfg.repo] ? SITE + cfg.repo + '/' : HOME_URL;
+            document.title = 'CSI Microscopy — Guide not found';
+            if (statusEl) statusEl.innerHTML = warn + what
+                + (cfg.value ? `: <code>${escHtml(String(cfg.value).slice(0, 200))}</code>` : '') + '. '
+                + 'This page only shows documents from the CSI Microscopy instrument repositories. '
+                + `<a href="${escHtml(back)}">${back === HOME_URL ? 'Return home' : 'Open the instrument guide'}</a>.`;
             return;
         }
 
-        document.title = `CSI Microscopy — ${title}`;
+        const { repo, branch, mdPath, onRepoPage, defaultPath, titleParam, fallbackTitle } = cfg;
+        if (titleParam) document.title = `CSI Microscopy — ${titleParam}`;
 
-        const rawUrl  = `https://raw.githubusercontent.com/${ORG}/${repo}/${branch}/${mdPath}`;
-        const repoUrl = `https://github.com/${ORG}/${repo}`;
-        // baseUrl resolves relative assets (images etc.) relative to the file's own directory
-        const fileDir = mdPath.includes('/') ? mdPath.slice(0, mdPath.lastIndexOf('/') + 1) : '';
-        const baseUrl = `https://raw.githubusercontent.com/${ORG}/${repo}/${branch}/${fileDir}`;
+        // Branch each repo's Pages site is published from; for a per-repo page
+        // of a repo not in the list, the page's own branch.
+        const pagesBranchOf = r => KNOWN_REPOS[r] || (onRepoPage && r === repo ? branch : null);
+        const onPages = (r, b) => pagesBranchOf(r) === b;
+        const pagesRootOf = r => r.toLowerCase() === 'csi-microscopy.github.io' ? SITE : SITE + r + '/';
+
+        const rawBase  = `https://raw.githubusercontent.com/${ORG}/${repo}/${branch}/`;
+        const rawUrl   = rawBase + encPath(mdPath);
+        const repoUrl  = `https://github.com/${ORG}/${repo}`;
+        // Relative paths resolve against the current file's own directory
+        const fileDir  = mdPath.includes('/') ? mdPath.slice(0, mdPath.lastIndexOf('/') + 1) : '';
+        const encDir   = fileDir ? encPath(fileDir.slice(0, -1)) + '/' : '';
+        const assetBase = rawBase + encDir;            // images: raw (works on any branch)
+        const pagesRoot = pagesRootOf(repo);
+
+        const siteOrigin = new URL(SITE).origin;
+        const isSameSite = h => {
+            if (!/^[a-z][a-z0-9+.-]*:|^\/\//i.test(h)) return true; // relative
+            try {
+                const o = new URL(h).origin;
+                return o === siteOrigin || o === new URL(GUIDES_BASE).origin;
+            } catch (_) { return false; }
+        };
+
+        // A PDF in a CSI-Microscopy repo: the same-site Pages URL (served as
+        // application/pdf) when that branch is the published one; otherwise
+        // (branch previews) the PDF viewer with the raw URL.
+        function pdfHref(r, b, encFilePath, frag, label) {
+            if (onPages(r, b)) return pagesRootOf(r) + encFilePath + frag;
+            const raw = `https://raw.githubusercontent.com/${ORG}/${r}/${b}/${encFilePath}${frag}`;
+            return `${PDF_VIEWER}?url=${encodeURIComponent(raw)}&title=${encodeURIComponent(label)}`;
+        }
+        // A Markdown file in a CSI-Microscopy repo: the instrument page with
+        // ?path= on the published branch; viewer.html for other branches of a
+        // known repo; otherwise null (leave the link as it is).
+        function mdHref(r, b, filePath, frag) {
+            if (onPages(r, b)) {
+                const rootReadme = /^readme\.md$/i;
+                const isDefault = r === repo
+                    ? filePath === defaultPath || (rootReadme.test(filePath) && rootReadme.test(defaultPath))
+                    : rootReadme.test(filePath);
+                if (isDefault) return pagesRootOf(r) + frag;
+                return pagesRootOf(r) + '?path=' + encodeURIComponent(filePath).replace(/%2F/g, '/') + frag;
+            }
+            if (KNOWN_REPOS[r] && validBranch(b)) {
+                return `${GUIDE_VIEWER}?repo=${encodeURIComponent(r)}&branch=${encodeURIComponent(b)}&path=${encodeURIComponent(filePath).replace(/%2F/g, '/')}${frag}`;
+            }
+            return null;
+        }
+        const extOf = pathname => { const m = safeDecode(pathname).match(/\.([a-z0-9]+)$/i); return m ? m[1].toLowerCase() : ''; };
+        const labelFrom = (text, encFilePath) => plainText(text)
+            || safeDecode(encFilePath.split('/').pop()).replace(/\.pdf$/i, '').replace(/[-_]/g, ' ');
+
+        // Returns { href, newTab }
+        function rewriteLink(href, text) {
+            href = fixOldOrg(String(href || '').trim());
+            if (!href || href.startsWith('#')) return { href, newTab: false };
+            if (href.startsWith('//')) href = 'https:' + href;
+            const scheme = (href.match(/^([a-z][a-z0-9+.-]*):/i) || [])[1];
+            if (scheme) {
+                const s = scheme.toLowerCase();
+                if (s === 'mailto' || s === 'tel') return { href, newTab: false };
+                if (s !== 'http' && s !== 'https') return { href: '#', newTab: false }; // javascript:, data: …
+                let u;
+                try { u = new URL(href); } catch (_) { return { href, newTab: true }; }
+                // github.com/ORG/REPO/blob|raw/BRANCH/PATH  or  raw.githubusercontent.com/ORG/REPO/BRANCH/PATH
+                let m = null;
+                if (u.hostname === 'github.com') m = u.pathname.match(/^\/([^/]+)\/([^/]+)\/(?:blob|raw)\/([^/]+)\/(.+)$/);
+                else if (u.hostname === 'raw.githubusercontent.com') m = u.pathname.match(/^\/([^/]+)\/([^/]+)\/([^/]+)\/(.+)$/);
+                if (m && m[1].toLowerCase() === ORG.toLowerCase()) {
+                    const r = canonicalRepo(m[2]) || m[2];
+                    const ext = extOf(m[4]);
+                    if (ext === 'pdf') return { href: pdfHref(r, m[3], m[4], u.hash, labelFrom(text, m[4])), newTab: true };
+                    if (ext === 'md') {
+                        const p = cleanPath(safeDecode(m[4]));
+                        const h = p && mdHref(r, m[3], p, u.hash);
+                        if (h) return { href: h, newTab: !isSameSite(h) };
+                    }
+                }
+                return { href, newTab: !isSameSite(href) };
+            }
+
+            // Relative path — resolve against the current file's directory
+            const BASE = 'https://repo.invalid/r/';
+            let u;
+            try { u = new URL(href, BASE + encDir); } catch (_) { return { href, newTab: false }; }
+            if (u.origin !== 'https://repo.invalid' || !u.pathname.startsWith('/r/')) {
+                // Climbs out of the repo (e.g. ../Other-Repo/): resolve against the site
+                const abs = new URL(href, pagesRoot + encDir).href;
+                return { href: abs, newTab: !isSameSite(abs) };
+            }
+            const encFilePath = u.pathname.slice(3);         // repo-relative, URL-encoded
+            const ext = extOf(encFilePath);
+            if (ext === 'pdf') return { href: pdfHref(repo, branch, encFilePath, u.hash, labelFrom(text, encFilePath)), newTab: true };
+            if (ext === 'md') {
+                const p = cleanPath(safeDecode(encFilePath));
+                const h = p && mdHref(repo, branch, p, u.hash);
+                if (h) return { href: h, newTab: !isSameSite(h) };
+            }
+            if (onPages(repo, branch)) {
+                // Folders have no index page on Pages (except the repo root)
+                if (encFilePath === '') return { href: pagesRoot + u.search + u.hash, newTab: false };
+                if (encFilePath.endsWith('/')) return { href: `${repoUrl}/tree/${branch}/${encFilePath}`, newTab: true };
+                return { href: pagesRoot + encFilePath + u.search + u.hash, newTab: false };
+            }
+            // Branch preview: the file only exists on GitHub at that branch
+            return { href: `${repoUrl}/${encFilePath.endsWith('/') || !encFilePath ? 'tree' : 'blob'}/${branch}/${encFilePath}${u.search}${u.hash}`, newTab: true };
+        }
+
+        function resolveAsset(src) {
+            src = String(src || '').trim();
+            if (!src || /^([a-z][a-z0-9+.-]*:|\/\/|#)/i.test(src)) return src;
+            try { return new URL(src, assetBase).href; } catch (_) { return src; }
+        }
 
         try {
             let res = await fetch(rawUrl);
-            // If the exact path 404s and we're using the default, try lowercase readme.md
-            if (!res.ok && mdPath === 'README.md') {
-                res = await fetch(rawUrl.replace('README.md', 'readme.md'));
+            // README.md / readme.md: repos disagree on the case, try the other one
+            if (!res.ok && /(^|\/)readme\.md$/i.test(mdPath)) {
+                const alt = mdPath.replace(/readme\.md$/i, m => m === 'README.md' ? 'readme.md' : 'README.md');
+                res = await fetch(rawBase + encPath(alt));
             }
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
-            const text = await res.text();
+            const text = fixOldOrg(await res.text());
 
             // ── marked.js configuration ───────────────────────────────────
             marked.setOptions({ gfm: true, breaks: true });
-
-            // Custom renderer: rewrite relative image/link paths → absolute GitHub raw URLs
             const renderer = new marked.Renderer();
 
             renderer.image = (href, imgTitle, alt) => {
@@ -159,13 +364,14 @@
                     return `<span class="image-note"><i class="fa-solid fa-image"></i> `
                         + `Screenshot — <a href="${repoUrl}#readme" target="_blank" rel="noopener">view on GitHub</a></span>`;
                 }
-                // Resolve relative URLs
-                if (href && !href.startsWith('http') && !href.startsWith('//')) {
-                    href = baseUrl + href;
-                }
-                const titleAttr = imgTitle ? ` title="${imgTitle}"` : '';
-                return `<img src="${href}" alt="${alt || ''}"${titleAttr} loading="lazy">`;
+                const titleAttr = imgTitle ? ` title="${escHtml(imgTitle)}"` : '';
+                return `<img src="${escHtml(resolveAsset(href))}" alt="${escHtml(alt || '')}"${titleAttr} loading="lazy">`;
             };
+
+            // Raw HTML in the Markdown: resolve relative <img src> like Markdown images
+            renderer.html = html => String(html).replace(
+                /(<img\b[^>]*?\bsrc\s*=\s*)(["'])([^"']*)\2/gi,
+                (_, pre, q, src) => pre + q + resolveAsset(src) + q);
 
             renderer.code = (code, infostring) => {
                 const lang = (infostring || '').trim().toLowerCase();
@@ -179,52 +385,10 @@
             };
 
             renderer.link = (href, linkTitle, text) => {
-                if (href) {
-                    // Normalise old org name that may appear in repo-internal links
-                    href = href.replace('Faculty-of-Agriculture-CSI-Microscopy', ORG);
-
-                    const isPdf = /\.pdf$/i.test(href);
-                    const isMd  = /\.md$/i.test(href);
-
-                    if (!href.startsWith('http') && !href.startsWith('//') && !href.startsWith('#') && !href.startsWith('mailto:')) {
-                        // Relative path — resolve against the current file's directory
-                        const resolvedPath = fileDir + href;
-                        if (isPdf) {
-                            const rawHref = `https://raw.githubusercontent.com/${ORG}/${repo}/${branch}/${resolvedPath}`;
-                            const label   = href.split('/').pop().replace(/\.pdf$/i, '').replace(/[-_]/g, ' ');
-                            href = `${PDF_VIEWER}?url=${encodeURIComponent(rawHref)}&title=${encodeURIComponent(label)}`;
-                        } else if (isMd) {
-                            // Open other .md files in this same viewer
-                            const label = href.split('/').pop().replace(/\.md$/i, '').replace(/[-_]/g, ' ');
-                            href = `${GUIDE_VIEWER}?repo=${encodeURIComponent(repo)}&branch=${encodeURIComponent(branch)}&path=${encodeURIComponent(resolvedPath)}&title=${encodeURIComponent(label)}`;
-                        } else {
-                            href = `https://github.com/${ORG}/${repo}/blob/${branch}/${resolvedPath}`;
-                        }
-                    } else if (href.includes('github.com') && href.includes('/blob/')) {
-                        if (isPdf) {
-                            // GitHub blob PDF → pdf-viewer
-                            const rawHref = href
-                                .replace('https://github.com/', 'https://raw.githubusercontent.com/')
-                                .replace('/blob/', '/');
-                            const label = href.split('/').pop().replace(/\.pdf$/i, '').replace(/[-_]/g, ' ');
-                            href = `${PDF_VIEWER}?url=${encodeURIComponent(rawHref)}&title=${encodeURIComponent(label)}`;
-                        } else if (isMd) {
-                            // GitHub blob .md link → viewer
-                            // Extract path from URL: github.com/ORG/REPO/blob/BRANCH/PATH
-                            const m = href.match(/github\.com\/[^/]+\/([^/]+)\/blob\/([^/]+)\/(.+)/);
-                            if (m) {
-                                const linkRepo   = m[1];
-                                const linkBranch = m[2];
-                                const linkPath   = m[3];
-                                const label      = linkPath.split('/').pop().replace(/\.md$/i, '').replace(/[-_]/g, ' ');
-                                href = `${GUIDE_VIEWER}?repo=${encodeURIComponent(linkRepo)}&branch=${encodeURIComponent(linkBranch)}&path=${encodeURIComponent(linkPath)}&title=${encodeURIComponent(label)}`;
-                            }
-                        }
-                    }
-                }
-                const titleAttr = linkTitle ? ` title="${linkTitle}"` : '';
-                const external  = href && href.startsWith('http') ? ' target="_blank" rel="noopener"' : '';
-                return `<a href="${href}"${titleAttr}${external}>${text}</a>`;
+                const r = rewriteLink(href, text);
+                const titleAttr = linkTitle ? ` title="${escHtml(linkTitle)}"` : '';
+                const newTab    = r.newTab ? ' target="_blank" rel="noopener"' : '';
+                return `<a href="${escHtml(r.href)}"${titleAttr}${newTab}>${text}</a>`;
             };
 
             // Convert GitHub callout syntax (> [!NOTE] etc.) to styled divs
@@ -242,22 +406,67 @@
                 }
             );
 
-            const html = marked.parse(processed, { renderer });
+            // ── Title (D8): ?title=, else the first H1, else the page's title.
+            // When the H1 becomes the page title and opens the document, it is
+            // not repeated in the body.
+            const tokens = marked.lexer(processed);
+            let title = titleParam;
+            const h1 = tokens.findIndex(t => t.type === 'heading' && t.depth === 1);
+            if (!title && h1 >= 0) {
+                let h1Text = '';
+                try { h1Text = plainText(new marked.Parser().parseInline(tokens[h1].tokens, new marked.TextRenderer())); }
+                catch (_) { h1Text = plainText(marked.parseInline(tokens[h1].text)); }
+                if (h1Text) {
+                    title = h1Text;
+                    const before = tokens.slice(0, h1).filter(t => t.type !== 'space').length;
+                    if (before <= 1) tokens.splice(h1, 1);
+                }
+            }
+            title = title || fallbackTitle;
 
+            const html = marked.parser(tokens, Object.assign({}, marked.defaults, { renderer }));
+
+            document.title = `CSI Microscopy — ${title}`;
             if (statusEl) statusEl.style.display = 'none';
             if (titleEl)  { titleEl.textContent = title; titleEl.style.display = ''; }
             if (metaEl)   {
                 metaEl.innerHTML = `Source: <a href="${repoUrl}" target="_blank" rel="noopener">`
-                    + `github.com/${ORG}/${repo}</a> <span aria-hidden="true">·</span> branch <code>${branch}</code>`;
+                    + `github.com/${ORG}/${repo}</a> <span aria-hidden="true">·</span> branch <code>${escHtml(branch)}</code>`;
                 metaEl.style.display = '';
             }
-            if (bodyEl)   { bodyEl.innerHTML = html; renderMermaid(); }
+            if (bodyEl) {
+                bodyEl.innerHTML = html;
+                // Content arrives after load, so the browser's own jump to
+                // #hash found nothing: scroll now (D11), and again after
+                // diagrams change the layout unless the reader has scrolled.
+                const y = scrollToHash();
+                const p = renderMermaid();
+                if (y !== null && p && p.then) p.then(() => {
+                    if (Math.abs((window.scrollY || 0) - y) < 2) scrollToHash();
+                });
+            }
 
         } catch (err) {
-            if (statusEl) statusEl.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> `
+            if (statusEl) statusEl.innerHTML = warn
                 + `Could not load the guide. `
                 + `<a href="${repoUrl}" target="_blank" rel="noopener">Open directly on GitHub</a>.`
-                + `<br><small style="opacity:0.5">${err.message}</small>`;
+                + `<br><small style="opacity:0.5">${escHtml(err.message)}</small>`;
         }
     })();
+
+    // Scroll to the element named by location.hash; returns the new scrollY,
+    // or null when there is nothing to scroll to.
+    function scrollToHash() {
+        const h = window.location.hash;
+        if (!h || h.length < 2) return null;
+        const el = document.getElementById(safeDecode(h.slice(1)));
+        if (!el || typeof el.scrollIntoView !== 'function') return null;
+        // Jump, don't animate: styles.css sets scroll-behavior: smooth
+        const st = root.style;
+        const prev = st ? st.scrollBehavior : '';
+        if (st) st.scrollBehavior = 'auto';
+        el.scrollIntoView();
+        if (st) st.scrollBehavior = prev;
+        return window.scrollY || 0;
+    }
 })();
