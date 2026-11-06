@@ -40,8 +40,12 @@
     // /<Repo>/manuals/. Add a repo here only AFTER its Pages source has been
     // switched to "GitHub Actions" and the first build is live: viewer.html,
     // pdf-viewer.html and cross-repo links then use the clean URLs.
-    const BUILT_REPOS = [
-        'Skyscan-1272-MicroCT',          // live on the static build since 2026-11 (routing phase 1 pilot)
+    const BUILT_REPOS = [              // all five live on the static build since 2026-11 (routing phase 1)
+        'Skyscan-1272-MicroCT',
+        'EVOS-M7000-widefiled',
+        'Stellaris-STED-Confocal',
+        'Luxendo-MuVi-SPIM-Light-Sheet',
+        'image-analysis-server',
     ];
 
     // ── Small helpers ────────────────────────────────────────────────────
