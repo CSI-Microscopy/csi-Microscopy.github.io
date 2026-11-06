@@ -1,0 +1,13 @@
+# Known broken internal URLs: reported by linkcheck.py but not failing the check.
+# One URL per line. Remove a line when the problem is fixed.
+#
+# Luxendo Image Processor guide (vendor document, Image_Processor-v4.15.1-beta-01/readme.md):
+# the readme references a user_guide/images/ folder that is not in the repository.
+# Fix: add the images to the repo (from the vendor's package) or remove the references.
+https://csi-microscopy.github.io/Luxendo-MuVi-SPIM-Light-Sheet/Image_Processor-v4.15.1-beta-01/user_guide/images/landmark_example.png
+https://csi-microscopy.github.io/Luxendo-MuVi-SPIM-Light-Sheet/Image_Processor-v4.15.1-beta-01/user_guide/images/stitch_sum_vs_sum_blending.png
+https://csi-microscopy.github.io/Luxendo-MuVi-SPIM-Light-Sheet/Image_Processor-v4.15.1-beta-01/user_guide/images/roi_example.png
+https://csi-microscopy.github.io/Luxendo-MuVi-SPIM-Light-Sheet/Image_Processor-v4.15.1-beta-01/user_guide/images/flatfield/intensity_profile_mean_proj_2x_detection_open_lid_LCS.png
+https://csi-microscopy.github.io/Luxendo-MuVi-SPIM-Light-Sheet/Image_Processor-v4.15.1-beta-01/user_guide/images/flatfield/profile_2d_multiplication_layer.png
+https://csi-microscopy.github.io/Luxendo-MuVi-SPIM-Light-Sheet/Image_Processor-v4.15.1-beta-01/user_guide/images/flatfield/no_flat_vs_flat_maxfactor3_tiling2x2_LCS_mag2_open-lid-correction.gif
+https://csi-microscopy.github.io/Luxendo-MuVi-SPIM-Light-Sheet/Image_Processor-v4.15.1-beta-01/user_guide/images/flatfield/no_flat_task22_vs_flat_task28_mfactor3_tiling2x2_LCS_mag2.png
