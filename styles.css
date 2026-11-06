@@ -273,7 +273,8 @@ button {
 /* The old sidebar collapse control is obsolete; hide it wherever it survives. */
 #collapse-toggle { display: none !important; }
 
-.nav-toggle {
+/* ".navbar .nav-toggle" so it beats ".navbar button { display: inline-flex }" */
+.navbar .nav-toggle {
     display: none;
     width: 38px;
     justify-content: center;
@@ -587,7 +588,7 @@ footer > p { max-width: var(--content-w); margin: 0 auto; padding: 1.5rem var(--
 
 @media (max-width: 760px) {
     .navbar { flex-wrap: wrap; }
-    .nav-toggle { display: inline-flex; order: 2; }
+    .navbar .nav-toggle { display: inline-flex; order: 2; }
     .navbar .theme-toggle { order: 1; margin-left: auto; }
     .navbar .brand { margin-right: 0; order: 0; }
     .nav-links {

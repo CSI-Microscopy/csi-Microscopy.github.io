@@ -17,8 +17,10 @@
         one. So this table mainly catches wrong-case repo names
         (/skyscan-1272-microct/x), the old or corrected spellings
         (/EVOS-M7000-widefield/, /Stellaris-STED/), short aliases (/microct/,
-        /evos/, /stellaris/, /lightsheet/, /data/) and /manuals/.
-        Redirects keep the rest of the path, the query and the #hash.
+        /evos/, /stellaris/, /lightsheet/, /data/), /manuals/, and README.md /
+        readme.md in any case (to the folder, or to ?path= for a sub-folder,
+        which has no page of its own yet). Redirects keep the rest of the
+        path, the query and the #hash, and never leave this site.
     -->
     <script id="csi-alias">
         (function () {
@@ -55,8 +57,18 @@
                 if (repo) {
                     var rest = segs.slice(1);
                     if (repo === 'Skyscan-1272-MicroCT' && isManuals(rest)) return MANUALS;
+                    for (i = 0; i < rest.length; i++) {
+                        var d = dec(rest[i]);
+                        if (d === '.' || d === '..' || /[\/\\]/.test(d)) return '/' + repo + '/';
+                    }
+                    var last = rest.length ? rest[rest.length - 1] : '';
+                    if (/^readme\.md$/i.test(dec(last))) {
+                        if (rest.length === 1) return '/' + repo + '/';
+                        return '/' + repo + '/?path=' + rest.map(function (x) { return encodeURIComponent(dec(x)); }).join('/');
+                    }
                     return '/' + repo + '/' + rest.join('/');
                 }
+                if (segs.length === 1 && /^readme\.md$/i.test(first)) return '/';
                 if (segs.length === 1) {
                     for (i = 0; i < PAGES.length; i++) {
                         if (PAGES[i] === first || PAGES[i] === first + '.html') return '/' + PAGES[i];
@@ -89,7 +101,7 @@
     </style>
 </head>
 <body>
-    <nav class="navbar" aria-label="Main navigation">
+    <nav class="navbar nav-long" aria-label="Main navigation">
         <a class="brand" href="/">
             <span class="brand-mark" aria-hidden="true">CSI</span>
             <span class="brand-text">CSI Microscopy <small>Faculty of Agriculture · HUJI</small></span>
@@ -100,8 +112,11 @@
             <a title="Start here" href="/#start-here"><i class="fa-solid fa-flag-checkered" aria-hidden="true"></i> <span class="text">Start here</span></a>
             <a title="Basics" href="/basics.html"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> <span class="text">Basics</span></a>
             <a title="Choosing" href="/modalities.html"><i class="fa-solid fa-signs-post" aria-hidden="true"></i> <span class="text">Choosing</span></a>
+            <a title="Learning" href="/#learning"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> <span class="text">Learning</span></a>
+            <a title="Software" href="/#software"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i> <span class="text">Software</span></a>
             <a title="Guides" href="/#startup-shutdown-guides"><i class="fa-solid fa-book" aria-hidden="true"></i> <span class="text">Guides</span></a>
             <a title="Data Tools" href="/#data-handling-tools"><i class="fa-solid fa-database" aria-hidden="true"></i> <span class="text">Data Tools</span></a>
+            <a title="Contributing" href="/#contributing"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> <span class="text">Contributing</span></a>
             <a title="Contact" href="/#contact"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span class="text">Contact</span></a>
         </div>
     </nav>
