@@ -916,7 +916,8 @@ main > footer { background: transparent; margin-top: 1rem; }
 .mod-tag-mfr     { background: var(--accent-soft); color: var(--accent-strong); }
 /* Planned equipment or services: neutral, with a dashed outline like the planned marks in the charts */
 .mod-tag-plan    { background: var(--surface-2); color: var(--ink); border: 1px dashed var(--line-strong); padding: 0 6px; }
-h3 .mod-tag { margin-left: 0.4rem; }
+h2 .mod-tag, h3 .mod-tag { margin-left: 0.4rem; }
+h2 .mod-tag { vertical-align: 0.3em; letter-spacing: 0.02em; }
 
 .mod-note {
     margin-top: 1.25rem;
