@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Finds new publication candidates for publications.html (Python 3 standard library only).
 
-Searches Europe PMC and Crossref for papers by the unit's staff (full name and
-affiliation, no ORCID) and for papers whose author affiliations name the unit,
-then removes everything already in assets/publications/publications.json or
+Searches Europe PMC, Crossref, OpenAlex and Semantic Scholar for papers by the
+unit's staff (full name and affiliation, no ORCID) and for papers whose author
+affiliations name the unit, then removes everything already in assets/publications/publications.json or
 listed in tools/publications/ignore.json. What is left is printed as a Markdown
 report (and written to the GitHub Actions job summary) for a person to check;
 nothing is added to the site automatically.
@@ -23,6 +23,13 @@ Name matches whose affiliation is elsewhere (namesakes) are listed separately
 and are not candidates.
 
   python3 tools/publications/monitor.py [--since 2019-01-01] [--json out.json] [--md out.md]
+
+Europe PMC and Crossref are required (the run fails if they cannot be read).
+OpenAlex and Semantic Scholar are rate-limited per network address without a
+key; when one answers 429 it is skipped and the report says so. Optional
+environment variables: OPENALEX_API_KEY, S2_API_KEY (free keys), MONITOR_MAILTO
+(a contact address for the Crossref and OpenAlex "polite" pools).
+Google Scholar is not searched: it has no API and blocks automated requests.
 
 Run monthly by .github/workflows/publications-monitor.yml, which opens (or
 comments on) a GitHub issue labelled "publications" when candidates exist.
@@ -48,6 +55,8 @@ GALLERY = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'gallery.json
 UA = 'csi-microscopy-publications-monitor/1.0 (+https://github.com/CSI-Microscopy/csi-Microscopy.github.io)'
 EPMC = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search'
 CROSSREF = 'https://api.crossref.org/works'
+OPENALEX = 'https://api.openalex.org'
+S2 = 'https://api.semanticscholar.org/graph/v1'
 
 # Staff: display name, first name, accepted family names (lower case).
 STAFF = [
@@ -72,9 +81,9 @@ def log(msg):
     print(msg, file=sys.stderr)
 
 
-def get_json(url, tries=4):
+def get_json(url, tries=4, headers=None):
     """GET a JSON document; retries 429 and 5xx with backoff. Raises on final failure."""
-    req = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept': 'application/json'})
+    req = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept': 'application/json', **(headers or {})})
     delay = 2
     for attempt in range(tries):
         try:
@@ -177,7 +186,7 @@ def crossref_search(field, value, since, rows=200, pages=3):
         params = {'query.' + field: value, 'rows': rows, 'offset': p * rows,
                   'filter': f'from-pub-date:{since}',
                   'select': 'DOI,title,author,container-title,issued,type,published'}
-        mailto = os.environ.get('CROSSREF_MAILTO')
+        mailto = os.environ.get('MONITOR_MAILTO')
         if mailto:
             params['mailto'] = mailto
         d = get_json(CROSSREF + '?' + urllib.parse.urlencode(params))
@@ -206,6 +215,102 @@ def crossref_candidate(it):
          'year': year, 'type': it.get('type', ''),
          'authors': ', '.join(f'{a.get("family", "")} {(a.get("given") or "")[:1]}'.strip() for a in it.get('author', []))},
         authors, '')
+
+
+# ── OpenAlex ─────────────────────────────────────────────────────────────
+def name_is_staff(name, staff):
+    """True when a display name ("Einat Zelinger", "Zelinger, Einat", "E. Zelinger-Reichert")
+    carries one of the staff member's family names and the first name or its initial."""
+    toks = [t for t in re.split(r'[\s,]+', fold(name).replace('.', ' ')) if t]
+    if not toks:
+        return False
+    fams = {f for f in staff['family']}
+    # family name may be hyphenated ("zelinger-reichert") or split by a space
+    joined = ' '.join(toks)
+    has_family = any(f in toks or f in joined for f in fams)
+    rest = [t for t in toks if t not in fams and not any(t in f.split('-') for f in fams)]
+    return has_family and any(given_matches(t, staff['first']) for t in rest)
+
+
+def openalex_headers():
+    key = os.environ.get('OPENALEX_API_KEY')
+    return {'Authorization': 'Bearer ' + key} if key else {}
+
+
+def openalex_params(extra):
+    mailto = os.environ.get('MONITOR_MAILTO')
+    return {**extra, **({'mailto': mailto} if mailto else {})}
+
+
+def openalex_works(staff, since):
+    """Works of every OpenAlex author whose display name is the staff member's name."""
+    url = OPENALEX + '/authors?' + urllib.parse.urlencode(openalex_params(
+        {'search': staff['name'], 'per-page': 25, 'select': 'id,display_name,display_name_alternatives,works_count'}))
+    authors = [a for a in get_json(url, headers=openalex_headers()).get('results', [])
+               if name_is_staff(a.get('display_name', ''), staff)
+               or any(name_is_staff(n, staff) for n in a.get('display_name_alternatives', []))]
+    out = []
+    for a in authors:
+        aid = a['id'].rsplit('/', 1)[-1]
+        cursor = '*'
+        while cursor:
+            url = OPENALEX + '/works?' + urllib.parse.urlencode(openalex_params(
+                {'filter': f'authorships.author.id:{aid},from_publication_date:{since}', 'per-page': 200, 'cursor': cursor,
+                 'select': 'id,doi,ids,title,publication_year,type,primary_location,authorships'}))
+            d = get_json(url, headers=openalex_headers())
+            out.extend(d.get('results', []))
+            cursor = d.get('meta', {}).get('next_cursor')
+            time.sleep(0.5)
+    return out
+
+
+def openalex_candidate(w):
+    authors = []
+    for au in w.get('authorships', []):
+        name = (au.get('author') or {}).get('display_name', '')
+        parts = name.split()
+        family, given = (parts[-1], ' '.join(parts[:-1])) if len(parts) > 1 else (name, '')
+        affs = [i.get('display_name', '') for i in au.get('institutions', [])] + list(au.get('raw_affiliation_strings', []))
+        authors.append((family, given, [x for x in affs if x]))
+    pmid = (w.get('ids') or {}).get('pmid', '')
+    src = ((w.get('primary_location') or {}).get('source') or {}).get('display_name', '')
+    return classify(
+        {'source': 'OpenAlex', 'doi': norm_doi(w.get('doi')), 'pmid': pmid.rsplit('/', 1)[-1] if pmid else None,
+         'id': w.get('id'), 'title': w.get('title') or '', 'journal': src or '', 'year': w.get('publication_year', ''),
+         'type': w.get('type', ''),
+         'authors': ', '.join((au.get('author') or {}).get('display_name', '') for au in w.get('authorships', []))},
+        authors, '')
+
+
+# ── Semantic Scholar ─────────────────────────────────────────────────────
+def s2_headers():
+    key = os.environ.get('S2_API_KEY')
+    return {'x-api-key': key} if key else {}
+
+
+def s2_authors(staff):
+    """Semantic Scholar author profiles matching the staff member's name, with their papers."""
+    url = S2 + '/author/search?' + urllib.parse.urlencode(
+        {'query': staff['name'], 'limit': 10,
+         'fields': 'name,affiliations,paperCount,papers.externalIds,papers.title,papers.year,papers.venue,papers.authors'})
+    return [a for a in get_json(url, headers=s2_headers()).get('data', []) if name_is_staff(a.get('name', ''), staff)]
+
+
+def s2_candidate(author, paper, staff, since_year):
+    """A Semantic Scholar paper of a matched author profile. S2 has no per-paper affiliation;
+    the profile's affiliations are used instead and only count when they name the unit/university."""
+    year = paper.get('year')
+    if year and int(year) < since_year:
+        return None
+    ids = paper.get('externalIds') or {}
+    affs = [a for a in (author.get('affiliations') or []) if affil_ok(a)]
+    evidence = 'staff + affiliation' if affs else 'staff, no affiliation'
+    return {'source': 'Semantic Scholar', 'doi': norm_doi(ids.get('DOI')), 'pmid': ids.get('PubMed'),
+            'id': paper.get('paperId'), 'title': paper.get('title') or '', 'journal': paper.get('venue') or '',
+            'year': year or '', 'type': '',
+            'authors': ', '.join(a.get('name', '') for a in paper.get('authors') or []),
+            'evidence': evidence, 'staff': [staff['name']], 'author': author.get('name', ''),
+            'affiliation': (affs[0] + ' (profile)') if affs else ''}
 
 
 # ── Classification ───────────────────────────────────────────────────────
@@ -339,6 +444,34 @@ def main():
             add(crossref_candidate(it))
         time.sleep(1)
 
+    for s in STAFF:
+        log(f'OpenAlex: authors search={s["name"]}')
+        try:
+            works = openalex_works(s, since)
+            log(f'  {len(works)} works')
+            for w in works:
+                add(openalex_candidate(w))
+        except Exception as e:
+            log(f'  skipped: {e}')
+            notes.append(f'OpenAlex search for {s["name"]} skipped ({str(e)[:80]}); set OPENALEX_API_KEY to avoid the shared rate limit.')
+        time.sleep(1)
+    for s in STAFF:
+        log(f'Semantic Scholar: author search={s["name"]}')
+        try:
+            profiles = s2_authors(s)
+            n = 0
+            for a in profiles:
+                for paper in a.get('papers') or []:
+                    c = s2_candidate(a, paper, s, int(since[:4]))
+                    if c:
+                        n += 1
+                        add(c)
+            log(f'  {len(profiles)} profiles, {n} papers')
+        except Exception as e:
+            log(f'  skipped: {e}')
+            notes.append(f'Semantic Scholar search for {s["name"]} skipped ({str(e)[:80]}); set S2_API_KEY to avoid the shared rate limit.')
+        time.sleep(1)
+
     new, namesakes, known, ignored = [], [], [], []
     for c in found.values():
         if (c['doi'] and c['doi'] in known_dois) or (c['pmid'] and str(c['pmid']) in known_pmids):
@@ -394,7 +527,7 @@ def row(c, extra=''):
 def report(new, namesakes, known, ignored, since, notes=()):
     head = '| DOI | Year | Title | Journal | Staff | Evidence | Affiliation seen |\n|---|---|---|---|---|---|---|'
     lines = [f'## Publication candidates ({datetime.date.today().isoformat()})', '',
-             f'Searched Europe PMC and Crossref for papers from {since} by the unit\'s staff (full name and '
+             f'Searched Europe PMC, Crossref, OpenAlex and Semantic Scholar for papers from {since} by the unit\'s staff (full name and '
              f'affiliation) and for affiliations naming the unit. Already listed: {len(known)}. Ignored by '
              f'ignore.json: {len(ignored)}. Namesakes (other affiliation): {len(namesakes)}.', '']
     for n in notes:

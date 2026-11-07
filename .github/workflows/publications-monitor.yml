@@ -1,5 +1,5 @@
 # Monthly search for new papers by the unit's staff (tools/publications/monitor.py:
-# Europe PMC and Crossref, full name + affiliation). Candidates not yet in
+# Europe PMC, Crossref, OpenAlex and Semantic Scholar, full name + affiliation). Candidates not yet in
 # assets/publications/publications.json or tools/publications/ignore.json are
 # written to the job summary and to a GitHub issue labelled "publications"
 # (one open issue is reused; a new comment is added per run). Nothing is added
@@ -25,8 +25,16 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Search Europe PMC and Crossref
+      # Optional repository secrets: OPENALEX_API_KEY and S2_API_KEY (free keys) avoid the
+      # per-address rate limits of OpenAlex and Semantic Scholar, which are skipped with a
+      # note when they answer 429; MONITOR_MAILTO is a contact address for the Crossref and
+      # OpenAlex "polite" pools. Europe PMC and Crossref need nothing.
+      - name: Search Europe PMC, Crossref, OpenAlex and Semantic Scholar
         id: search
+        env:
+          OPENALEX_API_KEY: ${{ secrets.OPENALEX_API_KEY }}
+          S2_API_KEY: ${{ secrets.S2_API_KEY }}
+          MONITOR_MAILTO: ${{ secrets.MONITOR_MAILTO }}
         run: python3 tools/publications/monitor.py --md candidates.md --json candidates.json --issue issue.md
 
       - name: Keep the full findings for 90 days
