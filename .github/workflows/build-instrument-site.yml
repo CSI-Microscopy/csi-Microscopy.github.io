@@ -10,9 +10,9 @@
 #         repo: Skyscan-1272-MicroCT
 #         branch: main
 #
-# Versioning: callers pin the tag v1, and the build tool (tools/build-docs,
+# Versioning: callers pin v1 (a branch, not a tag), and the build tool (tools/build-docs,
 # guides/md-core.js, the CSS) is checked out at the same ref (input tool-ref,
-# default v1). A release = moving the v1 tag deliberately to a tested commit
+# default v1). A release = fast-forwarding the v1 branch deliberately to a tested commit
 # of main; pushing to main alone changes no instrument site.
 #
 # The caller must grant  permissions: { contents: read, pages: write, id-token: write }

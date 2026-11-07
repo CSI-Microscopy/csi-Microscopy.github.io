@@ -36,7 +36,7 @@ Each instrument repository (SkyScan, EVOS, Stellaris, Luxendo, image-analysis-se
 **How it works**
 
 - The instrument repo has `.github/workflows/pages.yml`, which calls the shared workflow `CSI-Microscopy/csi-Microscopy.github.io/.github/workflows/build-instrument-site.yml@v1` on every push to its published branch, on demand (Actions → Pages → Run workflow), and once a week. It passes `repo:` and `branch:` (the published branch, `main` or `master`); the deploy job runs only for that branch, so a manual run on another branch builds without deploying. Also restrict each instrument repo's `github-pages` environment to that branch (Settings → Environments → github-pages → Deployment branches and tags → Selected branches).
-- **Versions:** callers use the tag `v1`, and the shared workflow checks out this repo's build tool, `md-core.js` and CSS at the same ref (input `tool-ref`, default `v1`). Pushing to `main` therefore changes no instrument site. A release is a deliberate move of the tag to a tested commit of `main` (`git tag -f v1 <commit> && git push -f origin v1`); the next push or weekly run of each instrument repo then picks it up. An incompatible change gets a new tag (`v2`) and callers move one by one.
+- **Versions:** callers use `v1`, which is a **branch** (not a tag), and the shared workflow checks out this repo's build tool, `md-core.js` and CSS at the same ref (input `tool-ref`, default `v1`). Pushing to `main` therefore changes no instrument site. A release is a deliberate fast-forward of the `v1` branch to a tested commit of `main` (`git push origin <commit>:refs/heads/v1`); the next push or weekly run of each instrument repo then picks it up, or run each repo's Pages workflow by hand (Actions → Pages → Run workflow). Do not create a tag named `v1`: a tag and a branch with the same name make the ref ambiguous. An incompatible change gets a new branch (`v2`) and callers move one by one.
 - The shared workflow checks out the instrument repo and this repo (both without persisted credentials), installs `tools/build-docs` (Node 20, `marked` 4.3.0 pinned in `package-lock.json`), runs `build.js`, and deploys the result with `actions/deploy-pages`. The build report is shown in the run's summary.
 - `build.js` renders every `README.md` / `readme.md` to its folder's `index.html` and every other `.md` to `<name>.html` with `guides/md-core.js` (the same code as the browser renderer, so pages look the same), adds the site header, a breadcrumb, the instrument menu, canonical URL, description, "Source on GitHub" and "Edit this page" links, copies hand-written HTML, PDFs, images and other files as they are, and copies `styles.css`, `guides/guide.css`, `site.js` and the favicon into the site's `assets/`. Raw `.md` files are not published. It also generates `404.html` (redirects for old and mistyped addresses), `sitemap.xml` (every page, with the last commit date of its source as `lastmod`) and `robots.txt`. An old shim `index.html` (one with `window.GUIDE`) or a hand-written `404.html`, `sitemap.xml` or `robots.txt` in the repo is replaced.
 - Links: `x.md` → `x.html`, `dir/readme.md` → `dir/`, PDFs → the same-site PDF in a new tab, other links into the repo stay relative, old-organisation URLs are rewritten (with a warning). Heading ids match GitHub's.
@@ -73,7 +73,7 @@ All five instrument sites are served from the static build. The old shims (`inde
 **Adding an instrument repo (merge order)**
 
 1. Home repo: merge the pull request that changes the build (this repo's `main`).
-2. Tag it: move `v1` to that commit of `main` (first time: create it). Instrument repos only see changes once the tag points at them.
+2. Release it: fast-forward the `v1` branch to that commit of `main` (first time: create it). Instrument repos only see changes once `v1` points at them.
 3. Instrument repo: merge the pull request that adds `.github/workflows/pages.yml` (copied from `Skyscan-1272-MicroCT`, with `repo:` and `branch:` changed; EVOS and Luxendo publish from `master`) and, optionally, `site.json`. Restrict its `github-pages` environment to that branch.
 4. Check the build: Actions → the "Pages" run → build job summary (the build report). The deploy job fails until step 5; the current branch-served site is unaffected.
 5. **One manual step (repo admin): Settings → Pages → Build and deployment → Source: "GitHub Actions".**
@@ -94,7 +94,7 @@ node bundle-render.js --check && node test.js
 
 | Item | Status |
 |---|---|
-| Sitemaps: one per instrument site (generated), home `sitemap.xml`, `robots.txt` listing all six | done in the build; instrument sitemaps go live when the `v1` tag is moved to include it and each site rebuilds (weekly, or Run workflow) |
+| Sitemaps: one per instrument site (generated), home `sitemap.xml`, `robots.txt` listing all six | done in the build; instrument sitemaps go live when the `v1` branch is moved to include it and each site rebuilds (weekly, or Run workflow) |
 | Weekly link check of the live sites (`link-check.yml`) | done |
 | Home page: Luxendo Image Processor guide linked (instrument card and Guides list) | done |
 | SkyScan `phase-retrieval.html`: shared header, breadcrumb, menu; 390 px overflow fixed | done (in the SkyScan repo) |
