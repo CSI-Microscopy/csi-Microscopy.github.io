@@ -14,7 +14,7 @@ The site is designed to present CSI Microscopy information in a clean, responsiv
 - `modalities.html` – "Choosing a microscope": when to choose each imaging technique the unit offers (histology, light, X-ray and electron microscopy) and what each can show, with inline SVG infographics and a comparison table
 - `publications.html`, `publications.js` – "Publications and images": papers from 2019 onwards co-authored by the unit's staff (grouped by year, with staff, field, open-access and "imaged at the unit" filters) and a gallery of openly licensed figures imaged at the unit, with an in-page lightbox and an image-credits list. The list, gallery, credits, counts and JSON-LD are **generated** (see "Publications page" below); the home page's Publications teaser is generated too
 - `assets/publications/` – `publications.json` (the publication data: one entry per paper with authors, staff, field, licence, provenance of the imaging and figure captions; figure paths point to `assets/publications/figures/`) and `figures/` (the gallery figures, as downloaded from the PMC Open Access subset or the publisher's file)
-- `tools/publications/` – `build.js` (Node, no dependencies) writes the generated blocks into `publications.html` and `index.html`; `gallery.json` holds the editorial part: scope (`minYear`), technique groups, exclusions, credit notes and the one-sentence description of each gallery figure
+- `tools/publications/` – `build.js` (Node, no dependencies) writes the generated blocks into `publications.html` and `index.html`; `gallery.json` holds the editorial part: scope (`minYear`), technique groups, exclusions, credit notes and the one-sentence description of each gallery figure; `monitor.py` (Python standard library only) searches Europe PMC and Crossref for new papers by the staff and reports candidates (see "Publications monitor" below); `ignore.json` lists candidates that were checked and rejected, with the reason
 - `assets/examples/` – example images from the unit's own data (fly microCT slice from the SkyScan 1272 repo)
 - `assets/modalities/` – example images for `modalities.html`, re-encoded from Wikimedia Commons; each is credited on the page (author, source page, licence) and listed in its Image credits section
 - `site.js` – theme toggle (persisted, respects system preference), mobile menu, section highlighting
@@ -117,6 +117,21 @@ node tools/publications/build.js --import DIR    # take DIR/publications.json an
 - **List:** every in-scope journal article, grouped by year; errata are merged into their parent as a note (matched by "Erratum to: <title>"); conference abstracts get their own sub-list. Staff names are bold. "Open access · licence" when `open_access`; "Imaged at the unit" only when `provenance.status` is `confirmed` (the paper credits staff for the imaging, acknowledges the unit, or names a unit instrument with a staff co-author), with the instruments on hover and on click. Nothing is said for `likely` or `unknown`.
 - **Gallery rules:** a figure is shown only if its paper is in scope, `confirmed`, licensed CC BY or CC BY-NC (any version; not ND or SA), not excluded in `gallery.json`, and has a `gallery.json` entry with a group and a plain-language description (for mixed figures, the description says which panels are the unit's microscopy). Multi-panel figures are never cropped. Every image carries its credit (figure number, first author, journal, year, title linked to the DOI, licence linked; "non-commercial licence" for CC BY-NC; stacking or resizing noted; "Cropped" only for a figure with `"cropped": true` in the JSON, which none has), and the full original caption is shown verbatim in the card and the lightbox. `--import` copies only the figures that pass and removes unused files; the build lists figures that pass the rules but still need a `gallery.json` entry.
 - To add a missing paper by hand: add an entry to `assets/publications/publications.json` (same fields as the others) and re-run the build.
+
+### Publications monitor
+
+`.github/workflows/publications-monitor.yml` runs `tools/publications/monitor.py` on the 2nd of each month (and on demand: Actions → Publications monitor → Run workflow). The script searches Europe PMC and Crossref for papers from `minYear` on by the three staff members (full name, no ORCID) and for author affiliations that name the unit, drops everything already in `publications.json` or `ignore.json`, and reports the rest as candidates with the evidence it found:
+
+- **staff + affiliation** – the name matched and that author's affiliation names the unit, the faculty or the university
+- **staff, no affiliation** – the name matched but the record carries no affiliation for that author (common in Crossref)
+- **unit affiliation** – no staff author, but an affiliation names the unit (note that "Interdepartmental Equipment Unit/Facility" also covers non-microscopy services)
+
+Name matches with an affiliation elsewhere are listed as namesakes, not candidates. When there are candidates the workflow opens a GitHub issue labelled `publications` (or comments on the open one). Nothing is added to the site automatically: check each candidate (is it the staff member, was the imaging done at the unit, licence of any figure), then add an entry to `publications.json` and rebuild, or add the DOI and the reason to `ignore.json`. Locally:
+
+```bash
+python3 tools/publications/monitor.py                      # report to stdout (about a minute)
+python3 tools/publications/monitor.py --json out.json      # also the full findings, including known and ignored records
+```
 
 ## Design
 

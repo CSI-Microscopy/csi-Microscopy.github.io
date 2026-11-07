@@ -1,0 +1,99 @@
+[
+ {
+  "doi": "10.1016/j.placenta.2014.07.005",
+  "pmid": "25064069",
+  "title": "Ex vivo endothelin dependent contraction of the remodeled rat spiral artery (Placenta 2014)",
+  "reason": "Affiliation is 'The Department of Pathology, Hadassah-Hebrew University Medical Center, Jerusalem' (PubMed). Not the Faculty of Agriculture or the unit, with no unit acknowledgement or co-authorship with the other staff. Possibly the same person in an earlier post, but the rules require identity evidence, so it is excluded."
+ },
+ {
+  "doi": "10.1016/j.placenta.2014.06.068",
+  "title": "Ex vivo endothelin dependent contraction of the rat remodeled spiral artery (Placenta 2014, meeting abstract)",
+  "reason": "Meeting abstract of the same Hadassah study; no affiliation given in Crossref. Excluded for the same reason."
+ },
+ {
+  "doi": "10.1161/hyp.64.suppl_1.574",
+  "title": "Abstract 574: The 'Myotrophoblast'... (Hypertension 2014)",
+  "reason": "Crossref affiliation 'Hadassah-Hebrew Univ Med Cntr, Mount-Scopus, Jerusalem'. Possibly the same person before joining the unit, but there is no identity evidence under the rules. Excluded."
+ },
+ {
+  "doi": "10.1016/j.pmpp.2004.11.009",
+  "title": "An immunocytochemical and ultra-structural study of the extracellular matrix produced by germinating spores of Stagonospora nodorum... (Physiol Mol Plant Pathol 2004)",
+  "reason": "Co-authors are Oxford-based (Hawes, Gurr, Dewey). No HUJI or unit affiliation could be read (Crossref, Semantic Scholar and the Europe PMC AGRICOLA record have none). Probably E. Zelinger's pre-HUJI doctoral work, but unverified, so excluded."
+ },
+ {
+  "doi": "10.1016/j.pmpp.2006.11.002",
+  "title": "Attachment and adhesion of conidia of Stagonospora nodorum to natural and artificial surfaces (Physiol Mol Plant Pathol 2006)",
+  "reason": "Same as the 2004 paper: Oxford co-authors and no HUJI affiliation readable. Excluded as unverified."
+ },
+ {
+  "title": "Immunological and ultra-structural studies of the early interactions between Stagonospora nodorum... (Oxford Brookes University thesis, 2002)",
+  "reason": "A thesis, not a journal paper, from Oxford Brookes. No HUJI evidence. Excluded."
+ },
+ {
+  "doi": "10.1016/j.colsurfa.2022.129899",
+  "title": "Durable superhydrophobic coating with a self-replacing mechanism of surface roughness based on multiple Pickering emulsion templating (Colloids Surf A 2022)",
+  "reason": "Authors: Mani, Belausov, Zelinger, Mechrez (the same group as several verified papers). No affiliation is available: Crossref and Semantic Scholar have none, ScienceDirect returned 403 and no HUJI CRIS record was found. Probably the same person, but excluded as unverified."
+ },
+ {
+  "doi": "10.1016/j.colsurfa.2024.135684",
+  "title": "Nanoscale Janus particle fabrication and direct observation by super-resolution microscopy (Colloids Surf A 2025)",
+  "reason": "No affiliation available (Crossref: none; ScienceDirect 403; no CRIS record found). Excluded as unverified."
+ },
+ {
+  "doi": "10.1002/adfm.202470089",
+  "title": "DNA Delivery to Intact Plant Cells... (Adv Funct Mater 2024, issue cover/frontispiece record)",
+  "reason": "A duplicate cover record of 10.1002/adfm.202314756, which is included. Not counted separately."
+ },
+ {
+  "doi": "10.21203/rs.3.rs-7303715/v1",
+  "reason": "Preprint of a listed paper (PMID 42182043)"
+ },
+ {
+  "doi": "10.20944/preprints202409.2003.v1",
+  "reason": "Preprint of a listed paper (10.3390/microbiolres15040158)"
+ },
+ {
+  "doi": "10.1101/2022.10.01.510454",
+  "reason": "Preprint of a listed paper (PMID 36737617)"
+ },
+ {
+  "doi": "10.20944/preprints202201.0223.v2,",
+  "reason": "Preprint of a listed paper (PMID 35575031)"
+ },
+ {
+  "doi": "10.1101/2020.11.26.386573",
+  "reason": "Preprint of a listed paper (PMID 33823032)"
+ },
+ {
+  "doi": "10.1101/2023.03.27.534362",
+  "reason": "Preprint of a listed paper (PMID 39789668)"
+ },
+ {
+  "doi": "10.26434/chemrxiv-2021-9wz57",
+  "reason": "Preprint of a listed paper (10.1007/s11696-022-02276-z)"
+ },
+ {
+  "doi": "10.2139/ssrn.4334760",
+  "reason": "Preprint of a listed paper (PMID 37216726)"
+ },
+ {
+  "doi": "10.2139/ssrn.4868745",
+  "reason": "Preprint of a listed paper (PMID 39369477)"
+ },
+ {
+  "pmid": "40929279",
+  "reason": "Namesake: Zelinger N (Tel Aviv University neuroscience)"
+ },
+ {
+  "pmid": "26087757",
+  "reason": "Namesake: Zelinger L (Hadassah ophthalmology)"
+ },
+ {
+  "pmid": "35883285",
+  "reason": "Namesake: Zelinger A (Koret School of Veterinary Medicine)"
+ },
+ {
+  "doi": "10.1093/ismejo/wraf167",
+  "reason": "10.1093/ismejo/wraf167 (Correction to ISME J 2025, PMID 40906219) appeared in a full-text name search; it is a correction notice for PMID 40318223 and was not listed separately."
+ }
+]

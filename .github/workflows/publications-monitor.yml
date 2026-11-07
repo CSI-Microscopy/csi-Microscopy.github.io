@@ -1,0 +1,55 @@
+# Monthly search for new papers by the unit's staff (tools/publications/monitor.py:
+# Europe PMC and Crossref, full name + affiliation). Candidates not yet in
+# assets/publications/publications.json or tools/publications/ignore.json are
+# written to the job summary and to a GitHub issue labelled "publications"
+# (one open issue is reused; a new comment is added per run). Nothing is added
+# to the site automatically: a person checks each candidate, then adds it to
+# publications.json (see readme.md, "Publications page") or to ignore.json.
+name: Publications monitor
+
+on:
+  schedule:
+    - cron: '23 4 2 * *'   # 2nd of each month, 04:23 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Search Europe PMC and Crossref
+        id: search
+        run: python3 tools/publications/monitor.py --md candidates.md --json candidates.json
+
+      - name: Keep the full findings for 90 days
+        uses: actions/upload-artifact@v4
+        with:
+          name: publication-candidates
+          path: |
+            candidates.md
+            candidates.json
+          retention-days: 90
+
+      - name: Open or update the "publications" issue
+        if: steps.search.outputs.count != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh label create publications --description "New publication candidates for publications.html" --color 1d76db --force
+          { cat candidates.md; echo; echo "Workflow run: $RUN_URL"; } > body.md
+          existing=$(gh issue list --label publications --state open --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body-file body.md
+          else
+            gh issue create --title "Publication candidates to check" --label publications --body-file body.md
+          fi
