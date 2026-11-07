@@ -503,7 +503,7 @@ def main():
         # so the workflow can skip posting when nothing changed since the last post.
         fp = hashlib.sha1('\n'.join(sorted(link(c) for c in new)).encode()).hexdigest()[:16]
         with open(args.issue, 'w', encoding='utf-8') as f:
-            f.write(report(new, [], known, ignored, since, notes) + f'\n<!-- candidates:{fp} -->\n')
+            f.write(report(new, [], known, [], since, notes) + f'\n<!-- candidates:{fp} -->\n')
     if os.environ.get('GITHUB_STEP_SUMMARY'):
         with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as f:
             f.write(md)
