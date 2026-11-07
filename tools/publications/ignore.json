@@ -91,5 +91,24 @@
  {
   "doi": "10.1093/ismejo/wraf167",
   "reason": "10.1093/ismejo/wraf167 (Correction to ISME J 2025, PMID 40906219) appeared in a full-text name search; it is a correction notice for PMID 40318223 and was not listed separately."
+ },
+ {
+  "doi": "10.20944/preprints202201.0223.v3",
+  "reason": "Preprint of a listed paper (Fly 2022, 10.1080/19336934.2022.2058309, PMID 35575031)"
+ },
+ {
+  "doi": "10.3390/nu15112548",
+  "pmid": "37299512",
+  "reason": "The 'Interdepartmental Equipment Facility' affiliation belongs to J. Ben Ari, not microscopy staff; the full text (PMC10255315) has no microscopy (analytical chemistry of milk oligosaccharides)."
+ },
+ {
+  "doi": "10.1080/19393210.2020.1764114",
+  "pmid": "32406338",
+  "reason": "The 'Interdepartmental Equipment Facility' affiliation belongs to O. Gal, J. Ben Ari and E. Kertsnus-Banchik, not microscopy staff; residue analysis of milk, no microscopy."
+ },
+ {
+  "doi": "10.1007/s00294-019-00974-y",
+  "pmid": "31011791",
+  "reason": "The 'Interdepartmental Equipment Unit' affiliation belongs to J. Ben-Ari, not microscopy staff; yeast genetics paper, no unit microscopy."
  }
 ]
