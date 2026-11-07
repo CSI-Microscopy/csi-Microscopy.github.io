@@ -33,8 +33,9 @@ Google Scholar is not searched: it has no API and blocks automated requests.
 
 Run monthly by .github/workflows/publications-monitor.yml, which opens (or
 comments on) a GitHub issue labelled "publications" when candidates exist.
-To silence a candidate that was checked and rejected, add its DOI (or PMID)
-and the reason to ignore.json. To add one, see readme.md, "Publications page".
+To silence a candidate that was checked and rejected, add its DOI (or PMID, or
+for a record without either the source id shown in the report) and the reason
+to ignore.json. To add one, see readme.md, "Publications page".
 """
 import argparse
 import datetime
@@ -81,10 +82,9 @@ def log(msg):
     print(msg, file=sys.stderr)
 
 
-def get_json(url, tries=4, headers=None):
-    """GET a JSON document; retries 429 and 5xx with backoff. Raises on final failure."""
+def get_json(url, tries=4, headers=None, delay=2):
+    """GET a JSON document; retries 429 and 5xx with backoff (delay, 2*delay, ...). Raises on final failure."""
     req = urllib.request.Request(url, headers={'User-Agent': UA, 'Accept': 'application/json', **(headers or {})})
-    delay = 2
     for attempt in range(tries):
         try:
             with urllib.request.urlopen(req, timeout=60) as r:
@@ -293,7 +293,9 @@ def s2_authors(staff):
     url = S2 + '/author/search?' + urllib.parse.urlencode(
         {'query': staff['name'], 'limit': 10,
          'fields': 'name,affiliations,paperCount,papers.externalIds,papers.title,papers.year,papers.venue,papers.authors'})
-    return [a for a in get_json(url, headers=s2_headers()).get('data', []) if name_is_staff(a.get('name', ''), staff)]
+    # Unauthenticated Semantic Scholar requests share one small rate limit: go slowly and back off longer.
+    time.sleep(0 if os.environ.get('S2_API_KEY') else 5)
+    return [a for a in get_json(url, headers=s2_headers(), delay=10).get('data', []) if name_is_staff(a.get('name', ''), staff)]
 
 
 def s2_candidate(author, paper, staff, since_year):
@@ -305,11 +307,13 @@ def s2_candidate(author, paper, staff, since_year):
     ids = paper.get('externalIds') or {}
     affs = [a for a in (author.get('affiliations') or []) if affil_ok(a)]
     evidence = 'staff + affiliation' if affs else 'staff, no affiliation'
+    names = [a.get('name', '') for a in paper.get('authors') or []]
+    staff_here = sorted({st['name'] for st in STAFF if any(name_is_staff(n, st) for n in names)} | {staff['name']})
     return {'source': 'Semantic Scholar', 'doi': norm_doi(ids.get('DOI')), 'pmid': ids.get('PubMed'),
             'id': paper.get('paperId'), 'title': paper.get('title') or '', 'journal': paper.get('venue') or '',
             'year': year or '', 'type': '',
             'authors': ', '.join(a.get('name', '') for a in paper.get('authors') or []),
-            'evidence': evidence, 'staff': [staff['name']], 'author': author.get('name', ''),
+            'evidence': evidence, 'staff': staff_here, 'author': author.get('name', ''),
             'affiliation': (affs[0] + ' (profile)') if affs else ''}
 
 
@@ -355,7 +359,7 @@ def load_known():
         pubs = json.load(f)
     dois = {norm_doi(p.get('doi')) for p in pubs if p.get('doi')}
     pmids = {str(p['pmid']) for p in pubs if p.get('pmid')}
-    ignore = {'doi': {}, 'pmid': {}}
+    ignore = {'doi': {}, 'pmid': {}, 'id': {}}  # id: a source record id (e.g. a Semantic Scholar paper id) when there is no DOI or PMID
     if os.path.exists(IGNORE):
         with open(IGNORE, encoding='utf-8') as f:
             for e in json.load(f):
@@ -363,6 +367,8 @@ def load_known():
                     ignore['doi'][norm_doi(e['doi'])] = e.get('reason', '')
                 if e.get('pmid'):
                     ignore['pmid'][str(e['pmid'])] = e.get('reason', '')
+                if e.get('id'):
+                    ignore['id'][str(e['id'])] = e.get('reason', '')
     return dois, pmids, ignore
 
 
@@ -476,8 +482,9 @@ def main():
     for c in found.values():
         if (c['doi'] and c['doi'] in known_dois) or (c['pmid'] and str(c['pmid']) in known_pmids):
             known.append(c)
-        elif (c['doi'] and c['doi'] in ignore['doi']) or (c['pmid'] and str(c['pmid']) in ignore['pmid']):
-            c['ignore_reason'] = ignore['doi'].get(c['doi'] or '') or ignore['pmid'].get(str(c['pmid']))
+        elif (c['doi'] and c['doi'] in ignore['doi']) or (c['pmid'] and str(c['pmid']) in ignore['pmid']) \
+                or (c['id'] and str(c['id']) in ignore['id']):
+            c['ignore_reason'] = ignore['doi'].get(c['doi'] or '') or ignore['pmid'].get(str(c['pmid'])) or ignore['id'].get(str(c['id']))
             ignored.append(c)
         elif c['evidence'] == 'namesake':
             namesakes.append(c)
@@ -515,7 +522,12 @@ def link(c):
         return f'[{c["doi"]}](https://doi.org/{c["doi"]})'
     if c['pmid']:
         return f'[PMID {c["pmid"]}](https://europepmc.org/abstract/MED/{c["pmid"]})'
-    return c['id'] or ''
+    i = str(c['id'] or '')
+    if c['source'] == 'Semantic Scholar' and re.fullmatch(r'[0-9a-f]{40}', i):
+        return f'[S2 {i[:8]}](https://www.semanticscholar.org/paper/{i})'
+    if i.startswith('https://'):
+        return f'[{i.rsplit("/", 1)[-1]}]({i})'
+    return i
 
 
 def row(c, extra=''):

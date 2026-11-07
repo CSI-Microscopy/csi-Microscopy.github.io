@@ -70,3 +70,16 @@ jobs:
           else
             gh issue create --title "Publication candidates to check" --label publications --body-file body.md
           fi
+
+      # When nothing is left to check, close the open issue (with a note) so the label means "work to do".
+      - name: Close the "publications" issue when no candidates remain
+        if: steps.search.outputs.count == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          existing=$(gh issue list --label publications --state open --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue close "$existing" --comment "No publication candidates remain as of this run: $RUN_URL"
+          fi
