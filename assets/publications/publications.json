@@ -843,7 +843,7 @@
   "open_access": true,
   "provenance": {
    "status": "confirmed",
-   "evidence": "\"Finally, images [Tagged Image File Format (Tiff)] were visualized and generated using EVOS FL Auto-inverted microscope and are comprised of 12 stitched fields of ×60 magnification (µm to pixel ratio of 6.6).\" — Staff author D. Waiger affiliated with CSI; unit instrument named. | Image analysis: \"The automated image analysis workflow for Fiji (https://doi.org/10.5281/zenodo.7678528) is based on 1) PT-BIOP and Cellpose wrapper plugins [Stringer et al., 2021; ...], and 2) MorphoLibJ plugin (Legland et al., 2016).\"",
+   "evidence": "\"Finally, images [Tagged Image File Format (Tiff)] were visualized and generated using EVOS FL Auto-inverted microscope and are comprised of 12 stitched fields of ×60 magnification (µm to pixel ratio of 6.6).\" — Staff author D. Waiger affiliated with CSI; unit instrument named. | Image analysis: \"The automated image analysis workflow for Fiji (https://doi.org/10.5281/zenodo.7678528) is based on 1) PT-BIOP and Cellpose wrapper plugins [Stringer et al., 2021; ...], and 2) MorphoLibJ plugin (Legland et al., 2016).\" | Co-author Daniel Waiger (unit staff) confirmed on 2026-11-08 that the EVOS FL Auto named in the methods is the unit's instrument.",
    "instruments": [
     "EVOS FL Auto"
    ]

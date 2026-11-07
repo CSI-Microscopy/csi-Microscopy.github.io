@@ -165,7 +165,7 @@
         "analysis",
         "histology"
       ],
-      "description": "The automated workflow for measuring muscle fibres in broiler chicken breast muscle: Sirius Red/Fast Green-stained sections imaged on an EVOS FL Auto (A) are analysed with a Fiji workflow that finds each fibre with Cellpose (B), turns the fibres into measurable regions with MorphoLibJ (C) and exports their sizes (D)."
+      "description": "The automated workflow for measuring muscle fibres in broiler chicken breast muscle: Sirius Red/Fast Green-stained sections imaged on the unit's EVOS FL Auto (A) are analysed with a Fiji workflow that finds each fibre with Cellpose (B), turns the fibres into measurable regions with MorphoLibJ (C) and exports their sizes (D)."
     },
     "10-1016-j-psj-2023-102792_fig3.jpg": {
       "group": "histology",
@@ -173,7 +173,7 @@
         "histology",
         "analysis"
       ],
-      "description": "Breast muscle of 10-day-old broiler chickens from a control and an HMTBa-supplemented group: Sirius Red/Fast Green-stained sections imaged on an EVOS FL Auto (B, C), the fibres found automatically by a Fiji workflow with Cellpose and MorphoLibJ (D, E), and a plot of the fibre-diameter distribution (A)."
+      "description": "Breast muscle of 10-day-old broiler chickens from a control and an HMTBa-supplemented group: Sirius Red/Fast Green-stained sections imaged on the unit's EVOS FL Auto (B, C), the fibres found automatically by a Fiji workflow with Cellpose and MorphoLibJ (D, E), and a plot of the fibre-diameter distribution (A)."
     }
   },
   "creditNotes": {
