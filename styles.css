@@ -186,6 +186,47 @@ button {
     .navbar { background: var(--surface); }
 }
 
+/* Scroll progress: a thin accent line along the bottom edge of the bar,
+   filled by site.js through --scroll-progress (0 at the top, 1 at the end). */
+.navbar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    background: var(--accent);
+    transform-origin: 0 50%;
+    transform: scaleX(var(--scroll-progress, 0));
+    pointer-events: none;
+}
+.navbar.scrolled { box-shadow: 0 6px 16px -12px rgba(0, 0, 0, 0.35); }
+
+/* Name of the section being read, next to the logo. It only takes space the
+   links do not need: a huge shrink factor makes it give way first, down to
+   nothing, so it can never push the links or the theme toggle. */
+.nav-current {
+    display: none;
+    flex: 0 1000 auto;
+    min-width: 0;
+    max-width: 36ch;
+    margin: 0 auto 0 12px;
+    padding-left: 12px;
+    border-left: 2px solid var(--accent);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-family: var(--f-display);
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.3;
+    color: var(--ink);
+}
+.navbar.has-current .nav-current { display: block; }
+.navbar.has-current .brand { margin-right: 0; }
+.navbar.nav-current-off .nav-current { display: none; }
+.navbar.nav-current-off .brand { margin-right: auto; }
+
 .navbar .brand {
     display: inline-flex;
     align-items: center;
@@ -587,23 +628,41 @@ footer > p { max-width: var(--content-w); margin: 0 auto; padding: 1.5rem var(--
 }
 
 @media (max-width: 760px) {
-    .navbar { flex-wrap: wrap; }
+    /* A slim bar on phones: 48px, smaller logo and buttons. */
+    :root { --header-h: 48px; }
+    .navbar { flex-wrap: wrap; gap: 2px; }
     .navbar .nav-toggle { display: inline-flex; order: 2; }
     .navbar .theme-toggle { order: 1; margin-left: auto; }
-    .navbar .brand { margin-right: 0; order: 0; }
+    .navbar .theme-toggle,
+    .navbar .nav-toggle { width: 36px; min-height: 36px; }
+    .navbar .brand { margin-right: 0; order: 0; gap: 8px; font-size: 1rem; }
+    .navbar .brand-mark { width: 28px; height: 28px; border-radius: 7px; font-size: 0.68rem; }
+    .brand-text small { display: none; }
+
+    /* Once a section is on screen its name replaces "CSI Microscopy";
+       tapping it opens the menu. */
+    .nav-current { order: 0; flex: 1 1 auto; max-width: none; margin-left: 8px; padding-left: 10px; cursor: pointer; }
+    .navbar.has-current .brand-text { display: none; }
+
+    /* The open menu: two columns, scrolls inside itself if the screen is short. */
     .nav-links {
         display: none;
         order: 3;
         flex-basis: 100%;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 2px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2px 6px;
         padding: 6px 0 10px;
         border-top: 1px solid var(--line);
+        max-height: calc(100vh - var(--header-h));
+        max-height: calc(100dvh - var(--header-h));
+        overflow-y: auto;
+        overscroll-behavior: contain;
     }
-    .navbar.open .nav-links { display: flex; }
-    .nav-links a { min-height: 42px; }
-    .brand-text small { display: none; }
+    .navbar.open .nav-links { display: grid; }
+    .navbar .nav-links a { min-height: 40px; padding: 0 10px; }
+}
+@media (max-width: 340px) {
+    .nav-links { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
