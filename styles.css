@@ -702,6 +702,8 @@ main > footer { background: transparent; margin-top: 1rem; }
 .instruments .i-links a + a::before { content: "·"; color: var(--muted); margin: 0 0.5rem; }
 .instruments .i-links a { white-space: nowrap; }
 .instruments .i-links .i-note { color: var(--muted); margin-left: 0.35rem; }
+.team-general { margin-top: 10px; }
+.team .i-links a[href^="mailto:"] { font-family: var(--f-mono); font-size: 0.82rem; word-break: break-all; white-space: normal; }
 
 /* Long-form page layout (basics.html) */
 .hero-article { align-items: start; }
