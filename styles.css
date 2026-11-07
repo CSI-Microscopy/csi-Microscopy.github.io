@@ -884,23 +884,25 @@ main > footer { background: transparent; margin-top: 1rem; }
    padding, then shows icons only. Icon-only labels stay in the page for
    screen readers, and each link has a title for a tooltip. The home page and
    404.html (.nav-long, 10 links) have more links, so they switch at wider widths.
-   Breakpoints measured with Playwright (IBM Plex loaded) at 761-1500 px: the
-   8-link header needs 1041 px with labels and 1204 px in full; the 10-link
-   header 1269 px and 1448 px. Each breakpoint keeps about 10-16 px in hand.
-   Re-measure when a link is added or renamed. */
+   Breakpoints measured with Playwright (IBM Plex loaded) at 761-1500 px, as the
+   width at which brand, theme toggle (38 px) and links all keep their natural
+   size: the 8-link header needs 1065 px with labels and 1228 px in full; the
+   10-link header 1293 px and 1472 px. Each breakpoint keeps about 15 px in
+   hand. Re-measure when a link is added or renamed (an overfull header first
+   squeezes the theme toggle, so check its width, not only the last link). */
 .navbar a { white-space: nowrap; }
-@media (min-width: 761px) and (max-width: 1219px) {
+@media (min-width: 761px) and (max-width: 1243px) {
     .navbar .brand-text small { display: none; }
     .navbar .nav-links a { padding: 0 8px; }
 }
-@media (min-width: 761px) and (max-width: 1053px) {
+@media (min-width: 761px) and (max-width: 1079px) {
     .nav-links .text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 }
-@media (min-width: 761px) and (max-width: 1463px) {
+@media (min-width: 761px) and (max-width: 1487px) {
     .nav-long .brand-text small { display: none; }
     .nav-long .nav-links a { padding: 0 8px; }
 }
-@media (min-width: 761px) and (max-width: 1281px) {
+@media (min-width: 761px) and (max-width: 1307px) {
     .nav-long .nav-links .text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 }
 

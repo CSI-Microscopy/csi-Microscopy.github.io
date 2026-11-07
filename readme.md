@@ -101,7 +101,7 @@ node bundle-render.js --check && node test.js
 | Old shims removed from the five instrument repos | done |
 | Stellaris `tools/README.md` (draft from the code, to be checked by the unit's staff); menu and home links point to `Stellaris-STED-Confocal/tools/` | done |
 
-**Hand-copied header:** `Skyscan-1272-MicroCT/phase-retrieval.html` carries its own copy of the site header CSS (navbar, breadcrumb and menu rules from `styles.css` and `guides/guide.css`, scoped to `.csi-site`, including the `.nav-long` breakpoints, which were 1409 px and 1239 px for nine links). When the header in `styles.css` (or the `.navbar` markup in `index.html`) changes, update that copy by hand. **Pending:** the home nav now has ten links (Publications added) and `styles.css` moved the `.nav-long` breakpoints to 1463 px and 1281 px (and the short-nav ones to 1219 px and 1053 px); the SkyScan copy still has the old markup and values.
+**Hand-copied header:** `Skyscan-1272-MicroCT/phase-retrieval.html` carries its own copy of the site header CSS (navbar, breadcrumb and menu rules from `styles.css` and `guides/guide.css`, scoped to `.csi-site`, including the `.nav-long` breakpoints, which were 1409 px and 1239 px for nine links). When the header in `styles.css` (or the `.navbar` markup in `index.html`) changes, update that copy by hand. **Pending:** the home nav now has ten links (Publications added) and `styles.css` moved the `.nav-long` breakpoints to 1487 px and 1307 px (and the short-nav ones to 1243 px and 1079 px); the SkyScan copy is updated to match in its own repo (branch `claude/youthful-keller-nwwqcd`) and should be merged with this change.
 
 ## Publications page
 
