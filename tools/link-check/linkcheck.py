@@ -37,7 +37,7 @@ SITE = 'https://csi-microscopy.github.io/'
 REPOS = ['Skyscan-1272-MicroCT', 'EVOS-M7000-widefiled', 'Stellaris-STED-Confocal',
          'Luxendo-MuVi-SPIM-Light-Sheet', 'image-analysis-server']
 SITES = {'home': SITE, **{r: SITE + r + '/' for r in REPOS}}
-HOME_PAGES = [SITE, SITE + 'basics.html', SITE + 'modalities.html']
+HOME_PAGES = [SITE, SITE + 'basics.html', SITE + 'modalities.html', SITE + 'publications.html']
 UA = 'csi-microscopy-link-check/1.0 (+https://github.com/CSI-Microscopy/csi-Microscopy.github.io)'
 LINK_TAGS = {'a': 'href', 'img': 'src', 'script': 'src', 'source': 'src', 'iframe': 'src', 'link': 'href'}
 SKIP_LINK_RELS = {'preconnect', 'dns-prefetch'}

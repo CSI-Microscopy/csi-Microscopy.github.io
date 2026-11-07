@@ -1,0 +1,186 @@
+{
+  "_comment": [
+    "Editorial data for the gallery on publications.html, read by build.js together with assets/publications/publications.json.",
+    "A figure appears in the gallery only if (1) its paper is in scope (in_scope, or year >= minYear when the field is absent), (2) the paper's provenance.status is 'confirmed', (3) the paper's licence is CC BY or CC BY-NC (any version; not ND or SA), (4) neither the paper nor the figure is listed under 'exclude', and (5) the figure has an entry under 'figures' below with a group and a one-sentence description.",
+    "Figures that pass (1) to (4) but have no entry here are reported by build.js as 'needs a gallery entry' and left out.",
+    "group: the section the card appears in. tags: technique filters the card matches (the group is always one of them). description: one plain-language sentence written from the original caption; for mixed figures it says which panels are the unit's microscopy. teaser: shown in the Publications section of index.html (keep three)."
+  ],
+  "minYear": 2019,
+  "groups": [
+    {
+      "id": "sem",
+      "label": "Scanning electron microscopy (SEM)",
+      "chip": "SEM"
+    },
+    {
+      "id": "confocal",
+      "label": "Confocal and fluorescence",
+      "chip": "Confocal and fluorescence"
+    },
+    {
+      "id": "microct",
+      "label": "Micro-CT",
+      "chip": "Micro-CT"
+    },
+    {
+      "id": "histology",
+      "label": "Histology and brightfield",
+      "chip": "Histology"
+    },
+    {
+      "id": "analysis",
+      "label": "Image analysis",
+      "chip": "Image analysis"
+    },
+    {
+      "id": "other",
+      "label": "Other techniques",
+      "chip": "Other"
+    }
+  ],
+  "topicGroups": {
+    "_comment": "Default group for a figure whose entry gives no group, from the figure's 'topic' field in publications.json.",
+    "histology": "histology",
+    "image analysis": "analysis",
+    "image-analysis": "analysis"
+  },
+  "exclude": {
+    "papers": {},
+    "figures": {
+      "10-1039-c9ra07597f_fig2.jpg": "Mostly plots and a photograph: only panel (a) of four is microscopy; the rest are a vial photograph, a droplet-size histogram and FTIR spectra."
+    }
+  },
+  "figures": {
+    "10-1016-j-crfs-2026-101430_fig1.jpg": {
+      "group": "sem",
+      "description": "Cellulose scaffolds for cultivated meat seen by SEM from the top and the side, showing their porous, aligned structure (panel b, the unit's microscopy), with photographs of the scaffolds (a) and pore-size and compression plots (c to e)."
+    },
+    "10-1016-j-crfs-2026-101430_fig3.jpg": {
+      "group": "confocal",
+      "tags": [
+        "confocal",
+        "sem"
+      ],
+      "description": "Bovine stem cells growing on a cellulose scaffold: the unit's microscopy is the confocal view of cells lined up along the scaffold (panel c) and the SEM views of the seeded scaffold (panel f); panels a, b and e were taken on other microscopes and d is a histogram."
+    },
+    "10-1038-s42003-024-05829-y_fig1.jpg": {
+      "group": "confocal",
+      "description": "The fruit fly (Drosophila) female reproductive tract: confocal images of the sperm-storage organ filled with GFP-labelled sperm (panels b and c, the unit's microscopy), next to a schematic (a) and micro-CT renderings made at another facility (d, e)."
+    },
+    "10-1038-s42003-024-05829-y_fig6.jpg": {
+      "group": "sem",
+      "teaser": true,
+      "description": "SEM of thin frozen sections through the fruit fly's sperm-storage organ, comparing its folded inner lining in virgin and mated females, with sperm and tiny vesicles (80 to 100 nm) on the surface."
+    },
+    "10-1038-s42003-024-05829-y_fig8.jpg": {
+      "group": "sem",
+      "description": "Dark-field scanning transmission images taken in the SEM (STEM) of the lining of the fruit fly's sperm-storage organ, showing that the dense layer on its surface is thinner after mating."
+    },
+    "10-1038-s42003-024-05829-y_fig9.jpg": {
+      "group": "sem",
+      "tags": [
+        "sem",
+        "confocal"
+      ],
+      "description": "The chitin fibre mesh lining the fruit fly's sperm-storage organ, seen in STEM-in-SEM images (a to d) and in confocal images of chitin stained with calcofluor white and GFP-labelled sperm (e to i); panel j is a schematic drawing."
+    },
+    "10-1093-hr-uhad036_fig1.jpg": {
+      "group": "sem",
+      "description": "Skin cracking in chili pepper fruit followed from 10 to 60 days after flowering: photographs of the fruit (A), light micrographs taken on another microscope (B) and the unit's SEM images of the skin surface (C)."
+    },
+    "10-1038-s41598-023-35069-9_fig2.jpg": {
+      "group": "confocal",
+      "description": "Confocal images of three bacterial species grown as biofilms in the lab on nasal splints with and without a zinc chloride coating, stained with propidium iodide."
+    },
+    "10-1038-s41598-023-35069-9_fig4.jpg": {
+      "group": "confocal",
+      "description": "Confocal images of bacterial biofilm on nasal splints removed from patients after nose surgery, comparing zinc chloride-coated splints with uncoated splints from patients given antibiotics."
+    },
+    "10-1038-s41598-023-35069-9_fig5.jpg": {
+      "group": "sem",
+      "description": "SEM images of three clinical bacterial species grown for 48 hours on nasal splints with and without a zinc chloride coating, at 1,000 and 10,000 times magnification."
+    },
+    "10-1038-s41598-023-35069-9_fig6.jpg": {
+      "group": "sem",
+      "description": "SEM images of nasal splints after seven days in patients' noses, comparing zinc chloride-coated splints with uncoated splints at three magnifications."
+    },
+    "10-3390-biomedicines10102442_fig3.jpg": {
+      "group": "confocal",
+      "description": "Confocal immunofluorescence images of cultured preadipocytes (HIB-1B cells) showing where the protein ostreolysin A, or its mCherry-tagged form, sits inside the cells from 2 to 24 hours after treatment."
+    },
+    "10-3390-biomedicines10102442_fig8.jpg": {
+      "group": "confocal",
+      "description": "Preadipocytes treated with ostreolysin A and two mutant forms, with microtubules stained: the confocal images in panel A are the unit's microscopy, panels B and C are 3D Imaris analyses of the confocal stacks and panel D is box plots."
+    },
+    "10-1021-acsabm-2c00410_fig5.jpg": {
+      "group": "confocal",
+      "description": "Confocal fluorescence images of oil droplets in an emulsion stabilised by plant virus-like particles, with antibody labels showing the two viral coat proteins on the droplet surfaces; a schematic of a droplet is on the right."
+    },
+    "10-1021-acsabm-2c00410_fig6.jpg": {
+      "group": "sem",
+      "description": "Cryo-SEM images of frozen, fractured emulsion droplets stabilised by virus-like particles, showing the particles packed at the oil-water interface; a schematic of a droplet is on the right."
+    },
+    "10-1021-acsabm-2c00410_fig7.jpg": {
+      "group": "confocal",
+      "description": "Confocal fluorescence images of emulsion droplets coated with virus-like particles that carry a fluorescent SARS-CoV-2 peptide, showing the peptide (green) and the coat protein (red) in the same place; a schematic is on the right."
+    },
+    "10-3389-fchem-2021-726874_fig5.jpg": {
+      "group": "confocal",
+      "description": "Confocal images of single GFP-labelled fungal spores (Metarhizium brunneum conidia) captured in oil droplets of a titania-stabilised emulsion, at six oil-to-water ratios and particle concentrations."
+    },
+    "10-3390-microorganisms8101479_fig2.jpg": {
+      "group": "sem",
+      "teaser": true,
+      "description": "SEM images at three magnifications of two plant-pathogenic Pectobacterium strains on the leaf surfaces of calla lily and cabbage, three hours after inoculation."
+    },
+    "10-3390-polym11091480_fig8.jpg": {
+      "group": "confocal",
+      "teaser": true,
+      "description": "Brightfield and confocal images of toluene droplets in water stabilised by silica nanoparticles and carbon nanotubes, with fluorescently labelled nanotubes (green) forming a layer around the oil droplets (red)."
+    },
+    "10-3390-polym11091480_fig9.jpg": {
+      "group": "sem",
+      "description": "Cryo-SEM images of capsules made from a carbon nanotube and silica emulsion, showing silica nanoparticles at the droplet surface and a smooth polymer layer on the inside of the shell."
+    },
+    "10-3390-polym11091480_fig10.jpg": {
+      "group": "sem",
+      "description": "Cryo-SEM images of branched, ribbon-like polymer structures in a carbon nanotube and silica emulsion, with the nanotubes embedded in the polymer."
+    },
+    "10-1039-c9ra07597f_fig3.jpg": {
+      "group": "confocal",
+      "description": "Confocal images of toluene droplets in water stabilised by dye-labelled silica nanoparticles, in transmitted light, in green (the nanoparticles around each droplet) and in red (Nile red in the oil)."
+    },
+    "10-1039-c9ra07597f_fig6.jpg": {
+      "group": "confocal",
+      "description": "Confocal images of emulsion droplets while the solvent evaporates, comparing silica shells that keep their shape with droplets that shrink and collapse."
+    },
+    "10-1039-c9ra07597f_fig7.jpg": {
+      "group": "sem",
+      "description": "Cryo-SEM images of hollow colloidosomes, shells of silica nanoparticles held in a polysiloxane matrix, made using emulsion droplets as templates."
+    },
+    "10-1016-j-psj-2023-102792_fig1.jpg": {
+      "group": "analysis",
+      "tags": [
+        "analysis",
+        "histology"
+      ],
+      "description": "The automated workflow for measuring muscle fibres in broiler chicken breast muscle: Sirius Red/Fast Green-stained sections imaged on the unit's EVOS FL Auto (A) are analysed with a Fiji workflow that finds each fibre with Cellpose (B), turns the fibres into measurable regions with MorphoLibJ (C) and exports their sizes (D)."
+    },
+    "10-1016-j-psj-2023-102792_fig2.png": {
+      "group": "analysis",
+      "description": "Plots comparing muscle fibre diameters in broiler chicken breast muscle measured by hand and by the automated Fiji workflow (Cellpose, MorphoLibJ), from Sirius Red/Fast Green-stained sections imaged on the unit's EVOS FL Auto; this figure has no micrographs."
+    },
+    "10-1016-j-psj-2023-102792_fig3.jpg": {
+      "group": "histology",
+      "tags": [
+        "histology",
+        "analysis"
+      ],
+      "description": "Breast muscle of 10-day-old broiler chickens from a control and an HMTBa-supplemented group: Sirius Red/Fast Green-stained sections imaged on the unit's EVOS FL Auto (B, C), the fibres found automatically by a Fiji workflow with Cellpose and MorphoLibJ (D, E), and a plot of the fibre-diameter distribution (A)."
+    }
+  },
+  "creditNotes": {
+    "_comment": "Extra sentence added to the credit of every figure from the paper with this DOI.",
+    "10.1016/j.psj.2023.102792": "Reproduced by the authors."
+  }
+}

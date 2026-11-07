@@ -12,6 +12,9 @@ The site is designed to present CSI Microscopy information in a clean, responsiv
 - `styles.css` – site-wide design tokens, header, cards and layout (also loaded by every per-repo guide page)
 - `basics.html`, `basics.js` – plain-language microscopy guide for new users, with inline SVG figures and a resolution / pixel-size calculator
 - `modalities.html` – "Choosing a microscope": when to choose each imaging technique the unit offers (histology, light, X-ray and electron microscopy) and what each can show, with inline SVG infographics and a comparison table
+- `publications.html`, `publications.js` – "Publications and images": papers from 2019 onwards co-authored by the unit's staff (grouped by year, with staff, field, open-access and "imaged at the unit" filters) and a gallery of openly licensed figures imaged at the unit, with an in-page lightbox and an image-credits list. The list, gallery, credits, counts and JSON-LD are **generated** (see "Publications page" below); the home page's Publications teaser is generated too
+- `assets/publications/` – `publications.json` (the publication data: one entry per paper with authors, staff, field, licence, provenance of the imaging and figure captions; figure paths point to `assets/publications/figures/`) and `figures/` (the gallery figures, as downloaded from the PMC Open Access subset or the publisher's file)
+- `tools/publications/` – `build.js` (Node, no dependencies) writes the generated blocks into `publications.html` and `index.html`; `gallery.json` holds the editorial part: scope (`minYear`), technique groups, exclusions, credit notes and the one-sentence description of each gallery figure
 - `assets/examples/` – example images from the unit's own data (fly microCT slice from the SkyScan 1272 repo)
 - `assets/modalities/` – example images for `modalities.html`, re-encoded from Wikimedia Commons; each is credited on the page (author, source page, licence) and listed in its Image credits section
 - `site.js` – theme toggle (persisted, respects system preference), mobile menu, section highlighting
@@ -98,7 +101,22 @@ node bundle-render.js --check && node test.js
 | Old shims removed from the five instrument repos | done |
 | Stellaris `tools/README.md` (draft from the code, to be checked by the unit's staff); menu and home links point to `Stellaris-STED-Confocal/tools/` | done |
 
-**Hand-copied header:** `Skyscan-1272-MicroCT/phase-retrieval.html` carries its own copy of the site header CSS (navbar, breadcrumb and menu rules from `styles.css` and `guides/guide.css`, scoped to `.csi-site`, including the `.nav-long` breakpoints at 1409 px and 1239 px). When the header in `styles.css` (or the `.navbar` markup in `index.html`) changes, update that copy by hand.
+**Hand-copied header:** `Skyscan-1272-MicroCT/phase-retrieval.html` carries its own copy of the site header CSS (navbar, breadcrumb and menu rules from `styles.css` and `guides/guide.css`, scoped to `.csi-site`, including the `.nav-long` breakpoints, which were 1409 px and 1239 px for nine links). When the header in `styles.css` (or the `.navbar` markup in `index.html`) changes, update that copy by hand. **Pending:** the home nav now has ten links (Publications added) and `styles.css` moved the `.nav-long` breakpoints to 1463 px and 1281 px (and the short-nav ones to 1219 px and 1053 px); the SkyScan copy still has the old markup and values.
+
+## Publications page
+
+`publications.html` is hand-written except the blocks between `<!-- pub:NAME -->` and `<!-- /pub:NAME -->` comments (and the `pub:teaser` block in `index.html`), which `tools/publications/build.js` regenerates:
+
+```bash
+node tools/publications/build.js                 # rebuild from assets/publications/publications.json + tools/publications/gallery.json
+node tools/publications/build.js --check         # exit 1 if the pages are out of date
+node tools/publications/build.js --import DIR    # take DIR/publications.json and DIR/figs/ from a new literature search, then rebuild
+```
+
+- **Scope:** entries with `in_scope: true` (or, without that field, `year >= minYear` in `gallery.json`, 2019). Out-of-scope entries stay in the JSON but are not shown.
+- **List:** every in-scope journal article, grouped by year; errata are merged into their parent as a note (matched by "Erratum to: <title>"); conference abstracts get their own sub-list. Staff names are bold. "Open access · licence" when `open_access`; "Imaged at the unit" only when `provenance.status` is `confirmed` (the paper credits staff for the imaging, acknowledges the unit, or names a unit instrument with a staff co-author), with the instruments on hover and on click. Nothing is said for `likely` or `unknown`.
+- **Gallery rules:** a figure is shown only if its paper is in scope, `confirmed`, licensed CC BY or CC BY-NC (any version; not ND or SA), not excluded in `gallery.json`, and has a `gallery.json` entry with a group and a plain-language description (for mixed figures, the description says which panels are the unit's microscopy). Multi-panel figures are never cropped. Every image carries its credit (figure number, first author, journal, year, title linked to the DOI, licence linked; "non-commercial licence" for CC BY-NC; stacking or resizing noted), and the full original caption is shown verbatim in the card and the lightbox. `--import` copies only the figures that pass and removes unused files; the build lists figures that pass the rules but still need a `gallery.json` entry.
+- To add a missing paper by hand: add an entry to `assets/publications/publications.json` (same fields as the others) and re-run the build.
 
 ## Design
 
