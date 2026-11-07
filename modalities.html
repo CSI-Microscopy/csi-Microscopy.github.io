@@ -181,6 +181,8 @@
 <text x="354" y="58" text-anchor="middle" class="svg-label">SEM</text>
 <rect x="380.0" y="41" width="168" height="26" rx="13" fill="currentColor" fill-opacity="0.08" stroke="currentColor" stroke-opacity="0.6" stroke-dasharray="4 3"/>
 <text x="464" y="58" text-anchor="middle" class="svg-label">Cryo-SEM if wet · planned</text>
+<rect x="556.0" y="41" width="66" height="26" rx="13" fill="var(--warn)" fill-opacity="0.16" stroke="var(--warn)"/>
+<text x="589" y="58" text-anchor="middle" class="svg-label">Micro-CT</text>
 <rect x="10" y="82" width="290" height="40" rx="6" fill="var(--surface-2)"/>
 <text x="20" y="99" class="svg-label svg-strong">Tissue architecture, many samples</text>
 <text x="20" y="114" class="svg-label">organs, lesions, plant anatomy</text>
@@ -255,14 +257,14 @@
                         <li><strong>Living, or fluorescent labels:</strong> light microscopy. Widefield for quick checks on thin samples, confocal for thick samples and 3D, STED for detail below 200 nm, light sheet for whole organs, embryos and seedlings.</li>
                         <li><strong>Tissue architecture across many samples:</strong> histology on paraffin sections, a new service at the unit.</li>
                         <li><strong>Inside a dense or dry object, intact:</strong> micro-CT.</li>
-                        <li><strong>Surfaces at high magnification:</strong> SEM. Cryo-SEM, once installed, if the sample collapses when dried.</li>
+                        <li><strong>Surfaces at high magnification:</strong> SEM. Cryo-SEM, once installed, if the sample collapses when dried. Micro-CT can also show a surface, as the fly example in chapter 7 shows, when a few-micrometre voxel is enough and you want the surface in its 3D context: the whole object, both sides, no coating. SEM is for finer surface detail.</li>
                         <li><strong>Membranes and organelles:</strong> STEM in the SEM for thin sections; volume EM for a 3D block, once installed.</li>
                         <li><strong>Two questions at two scales:</strong> combine techniques; see <a href="#correlative">correlative workflows</a>.</li>
                     </ul>
                 </div>
                 <div class="prose">
                     <h3>Then tell us, before you prepare samples</h3>
-                    <p>Your answers to these four questions are what the <a href="https://forms.gle/igPJLiemJrT7ZCL56" target="_blank" rel="noopener">Project Initiation Form</a> asks for. Fill it in, then <a href="index.html#contact">talk to the staff member for the technique</a>: Daniel Waiger for light microscopy and image analysis, Tally Kossovsky for electron microscopy and micro-CT. Sample preparation differs for every technique, and a sample prepared for one is often useless for another.</p>
+                    <p>Your answers to these four questions are what the <a href="https://forms.gle/igPJLiemJrT7ZCL56" target="_blank" rel="noopener">Project Initiation Form</a> asks for. Fill it in, then <a href="index.html#contact">talk to the staff member for the technique</a>: Daniel Waiger for light microscopy and image analysis, Tally Kossovsky for micro-CT, and Einat Zelinger, Head of Unit, for the SEMs and cryo-SEM; for other techniques, ask the staff. Sample preparation differs for every technique, and a sample prepared for one is often useless for another.</p>
                     <p>Once a plan is agreed and you are trained, book time in <a href="https://bookit-prod.cc.huji.ac.il/Weekly.aspx" target="_blank" rel="noopener">Bookit</a>. The full sequence is on the <a href="index.html#start-here">Start here</a> section of the home page.</p>
                 </div>
             </div>
@@ -276,9 +278,9 @@
                 <p>Every technique has a finest detail it can resolve and a largest sample or field it can take. Find your object on this ladder and the detail you care about. The candidates are the bars that span both.</p>
             </div>
             <figure class="figure mod-fig-scroll" tabindex="0">
-                <svg viewBox="0 0 760 382" role="img" aria-labelledby="t-scale" class="fig-svg"><title id="t-scale">Scale ladder from 1 centimetre to 1 nanometre with typical objects and the range each technique covers</title>
-<text x="150" y="16" class="svg-label svg-strong">bigger</text><text x="650" y="16" text-anchor="end" class="svg-label svg-strong">smaller</text>
-<line x1="150" y1="118" x2="650" y2="118" stroke="currentColor" stroke-opacity="0.6"/>
+                <svg viewBox="0 0 830 405" role="img" aria-labelledby="t-scale" class="fig-svg"><title id="t-scale">Scale ladder from 1 centimetre to 0.1 nanometre with typical objects and the range each technique covers</title>
+<text x="150" y="16" class="svg-label svg-strong">bigger</text><text x="721.4285714285714" y="16" text-anchor="end" class="svg-label svg-strong">smaller</text>
+<line x1="150" y1="118" x2="721.4285714285714" y2="118" stroke="currentColor" stroke-opacity="0.6"/>
 <line x1="150.0" y1="114" x2="150.0" y2="122" stroke="currentColor" stroke-opacity="0.6"/>
 <text x="150.0" y="135" text-anchor="middle" class="svg-label">1 cm</text>
 <line x1="221.4" y1="114" x2="221.4" y2="122" stroke="currentColor" stroke-opacity="0.6"/>
@@ -295,6 +297,8 @@
 <text x="578.6" y="135" text-anchor="middle" class="svg-label">10 nm</text>
 <line x1="650.0" y1="114" x2="650.0" y2="122" stroke="currentColor" stroke-opacity="0.6"/>
 <text x="650.0" y="135" text-anchor="middle" class="svg-label">1 nm</text>
+<line x1="721.4" y1="114" x2="721.4" y2="122" stroke="currentColor" stroke-opacity="0.6"/>
+<text x="721.4" y="135" text-anchor="middle" class="svg-label">0.1 nm</text>
 <path d="M171.5 118 V99" stroke="var(--accent)" stroke-opacity="0.7"/>
 <text x="171.5" y="94" text-anchor="middle" class="svg-label svg-strong">seed</text>
 <path d="M208.9 118 V75" stroke="var(--accent)" stroke-opacity="0.7"/>
@@ -313,10 +317,10 @@
 <text x="557.1" y="70" text-anchor="middle" class="svg-label svg-strong">nanoparticle</text>
 <path d="M600.1 118 V99" stroke="var(--accent)" stroke-opacity="0.7"/>
 <text x="600.1" y="94" text-anchor="middle" class="svg-label svg-strong">protein</text>
-<line x1="292.9" y1="142" x2="292.9" y2="346" stroke="currentColor" stroke-opacity="0.35" stroke-dasharray="3 3"/>
-<text x="296.9" y="358" class="svg-label">naked eye ≈ 0.1 mm</text>
-<line x1="485.6" y1="142" x2="485.6" y2="346" stroke="currentColor" stroke-opacity="0.35" stroke-dasharray="3 3"/>
-<text x="489.6" y="358" class="svg-label">light limit ≈ 200 nm</text>
+<line x1="292.9" y1="142" x2="292.9" y2="369" stroke="currentColor" stroke-opacity="0.35" stroke-dasharray="3 3"/>
+<text x="296.9" y="381" class="svg-label">naked eye ≈ 0.1 mm</text>
+<line x1="485.6" y1="142" x2="485.6" y2="369" stroke="currentColor" stroke-opacity="0.35" stroke-dasharray="3 3"/>
+<text x="489.6" y="381" class="svg-label">light limit ≈ 200 nm</text>
 <text x="138" y="168" text-anchor="end" class="svg-label">Histology</text>
 <rect x="150.0" y="160" width="307.2" height="10" rx="3" fill="var(--accent)" fill-opacity="0.75"/>
 <text x="463.2" y="168" class="svg-label">≈0.5–1 µm</text>
@@ -339,13 +343,17 @@
 <text x="138" y="306" text-anchor="end" class="svg-label">SEM</text>
 <rect x="150.0" y="298" width="500.0" height="10" rx="3" fill="currentColor" fill-opacity="0.55"/>
 <text x="656.0" y="306" class="svg-label">≈1 nm*</text>
-<text x="138" y="329" text-anchor="end" class="svg-label">Volume EM (planned)</text>
-<rect x="258.8" y="321" width="298.3" height="10" rx="3" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-opacity="0.8" stroke-dasharray="4 3"/>
-<text x="563.1" y="329" class="svg-label">20 nm slices*</text>
-<text x="138" y="374" text-anchor="end" class="svg-label">* manufacturer figure</text>
-<rect x="154" y="365" width="26" height="10" rx="3" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-opacity="0.8" stroke-dasharray="4 3"/><text x="186" y="374" class="svg-label">dashed bar: planned, not yet installed</text>
+<text x="138" y="329" text-anchor="end" class="svg-label">TEM (reference)</text>
+<rect x="314.4" y="321" width="335.6" height="10" rx="3" fill="currentColor" fill-opacity="0.55"/>
+<rect x="650.0" y="321" width="21.5" height="10" rx="3" fill="currentColor" fill-opacity="0.25"/>
+<text x="677.5" y="329" class="svg-label">sub-nm (some structures)</text>
+<text x="138" y="352" text-anchor="end" class="svg-label">Volume EM (planned)</text>
+<rect x="258.8" y="344" width="298.3" height="10" rx="3" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-opacity="0.8" stroke-dasharray="4 3"/>
+<text x="563.1" y="352" class="svg-label">20 nm slices*</text>
+<text x="138" y="397" text-anchor="end" class="svg-label">* manufacturer figure</text>
+<rect x="154" y="388" width="26" height="10" rx="3" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-opacity="0.8" stroke-dasharray="4 3"/><text x="186" y="397" class="svg-label">dashed bar: planned, not yet installed</text>
 </svg>
-                <figcaption>Object sizes are typical values: a cereal grain about 5 mm, a small insect 1–2 mm, a leaf epidermal cell 50 µm, a root hair 10–15 µm wide, a chloroplast 5 µm, a bacterium 1–2 µm, a virus about 100 nm, a nanoparticle 20 nm, a protein 5 nm. Each bar runs from roughly the largest sample or field (left) to the finest detail (right end). Bar ends are approximate. The solid micro-CT bar ends at the finest detail of everyday scans, about two to three voxels; the pale part reaches the manufacturer figure. On a phone, scroll the chart sideways.</figcaption>
+                <figcaption>Object sizes are typical values: a cereal grain about 5 mm, a small insect 1–2 mm, a leaf epidermal cell 50 µm, a root hair 10–15 µm wide, a chloroplast 5 µm, a bacterium 1–2 µm, a virus about 100 nm, a nanoparticle 20 nm, a protein 5 nm. Each bar runs from roughly the largest sample or field (left) to the finest detail (right end). The TEM bar is a reference technique: its pale end marks sub-nanometre detail reached only for certain large structures, and whether the unit offers TEM, ask the staff. Bar ends are approximate. The solid micro-CT bar ends at the finest detail of everyday scans, about two to three voxels; the pale part reaches the manufacturer figure. On a phone, scroll the chart sideways.</figcaption>
             </figure>
             <div class="two-col">
                 <div class="prose">
@@ -369,6 +377,7 @@
                         <li><strong>Light sheet (MuVi SPIM):</strong> around 1 µm across the image and several micrometres in depth, over fields of millimetres.</li>
                         <li><strong>Micro-CT (SkyScan 1272):</strong> voxels of 2–20 µm in practice. The smallest details you can resolve are about two to three voxels wide. Bruker quotes details down to 0.35 µm. <span class="mod-tag mod-tag-mfr">Manufacturer figures</span></li>
                         <li><strong>SEM (JSM-IT710HR, JSM-IT800):</strong> about 1 nm on the IT710HR; sub-nanometre on the IT800 in its best configuration. <span class="mod-tag mod-tag-mfr">Manufacturer figures</span> The unit's IT800 configuration has not been confirmed for this page. <span class="mod-tag mod-tag-confirm">To confirm with staff</span> Biological samples rarely reach these values; coating, beam damage and the sample itself set the limit.</li>
+                        <li><strong>TEM (reference technique):</strong> fields of tens of micrometres; finest detail below 1 nm for certain large structures such as actin–myosin filaments, dynein, collagen, fibrin and glycogen. Whether the unit offers TEM itself, ask the staff. <span class="mod-tag mod-tag-confirm">To confirm with staff</span></li>
                         <li><strong>Volume EM (Katana in the SEM):</strong> slices as thin as 20 nm. <span class="mod-tag mod-tag-mfr">Manufacturer figures</span> <span class="mod-tag mod-tag-plan">Planned, not yet installed</span></li>
                     </ul>
                 </div>
@@ -920,6 +929,7 @@
                     <li>The sample is dense or dry: seeds, grains, wood, roots in soil, insects, bone, soil aggregates, packaging, dry foods.</li>
                     <li>You want to measure porosity, volumes, thickness or shape.</li>
                     <li>You need to find a target inside a sample before cutting it for another technique.</li>
+                    <li>You want a surface in its 3D context, as in the fly example above: the whole object, both sides, no coating, when a few-micrometre voxel is enough. For finer surface detail, use <a href="#sem">SEM</a>.</li>
                 </ul></div>
                 <div><h3>Not the right tool when</h3><ul>
                     <li>You need detail finer than a few micrometres over a large sample: use <a href="#sem">SEM</a> or <a href="#volume-em">volume EM</a> (planned) on a sub-region.</li>
@@ -948,7 +958,7 @@
                 <div class="mod-unit"><h3>At the unit</h3><ul>
                     <li><strong>Bruker SkyScan 1272</strong>: X-ray source 20–100 kV, 10 W. <span class="mod-tag mod-tag-mfr">Manufacturer figures</span></li>
                     <li><a href="Skyscan-1272-MicroCT/">Guide</a>, <a href="Skyscan-1272-MicroCT/manuals/">manuals</a>, <a href="Skyscan-1272-MicroCT/phase-retrieval.html">phase retrieval explainer</a>.</li>
-                    <li>Contact: <a href="index.html#contact">Tally Kossovsky</a>, electron microscopy and micro-CT.</li>
+                    <li>Contact: <a href="index.html#contact">Tally Kossovsky</a>, micro-CT.</li>
                 </ul></div>
             </div>
         </section>
@@ -1030,7 +1040,7 @@
                     <p>These are best-case values on test samples; biological samples give coarser detail.</p>
                     <h3>Accessories</h3>
                     <p>Both SEMs have EDS. The unit has a STEM detector (chapter 10); which SEM carries it has not been confirmed for this page. <span class="mod-tag mod-tag-confirm">To confirm with staff</span></p>
-                    <p>A cryo system (chapter 9) and a Katana microtome for volume EM (chapter 11): <span class="mod-tag mod-tag-plan">Planned, not yet installed</span> Ask Tally Kossovsky about the timing when you plan your project.</p>
+                    <p>A cryo system (chapter 9) and a Katana microtome for volume EM (chapter 11): <span class="mod-tag mod-tag-plan">Planned, not yet installed</span> Ask the staff about the timing when you plan your project.</p>
                 </div>
             </div>
             <figure class="figure mod-photo">
@@ -1073,7 +1083,7 @@
                 <div class="mod-unit"><h3>At the unit</h3><ul>
                     <li><strong>JEOL JSM-IT710HR</strong> and <strong>JEOL JSM-IT800</strong>, both with EDS.</li>
                     <li>Startup and shutdown guides in preparation.</li>
-                    <li>Contact: <a href="index.html#contact">Tally Kossovsky</a>, electron microscopy and micro-CT.</li>
+                    <li>Contact: <a href="index.html#contact">Einat Zelinger</a>, Head of Unit (<a href="mailto:einat.zelinger@mail.huji.ac.il">einat.zelinger@mail.huji.ac.il</a>).</li>
                 </ul></div>
             </div>
         </section>
@@ -1175,7 +1185,7 @@
                     </ul></div>
                     <div class="mod-unit"><h3>At the unit</h3><ul>
                         <li>Cryo preparation for SEM: <span class="mod-tag mod-tag-plan">Planned, not yet installed</span></li>
-                        <li>Contact: <a href="index.html#contact">Tally Kossovsky</a>; ask about the timing.</li>
+                        <li>Contact: <a href="index.html#contact">Einat Zelinger</a>, Head of Unit (<a href="mailto:einat.zelinger@mail.huji.ac.il">einat.zelinger@mail.huji.ac.il</a>); ask about the timing.</li>
                     </ul></div>
                 </div>
             </div>
@@ -1225,6 +1235,7 @@
                         <li><strong>It can:</strong> survey sections for cell and organelle morphology, check sections before volume EM (planned), measure size and shape of nanoparticles, bacteria and viruses on grids, and give quick answers without a separate instrument.</li>
                         <li><strong>It cannot:</strong> match a dedicated TEM's best resolution, image thick sections at full detail (low-voltage electrons do not get through), or do TEM-specific methods such as electron diffraction, high-resolution lattice imaging and cryo-TEM of frozen-hydrated particles. For those, ask the staff about access to a TEM.</li>
                     </ul>
+                    <p>Whether the unit offers TEM itself, ask the staff. <span class="mod-tag mod-tag-confirm">To confirm with staff</span></p>
                     <p>The unit has a STEM detector. Which SEM it is fitted to has not been confirmed for this page. <span class="mod-tag mod-tag-confirm">To confirm with staff</span> JEOL lists a STEM detector for 3 mm grids as an option for the JSM-IT800 (manufacturer information).</p>
                 </div>
             </div>
@@ -1434,7 +1445,7 @@
                     <h3>Fluorescence, then EM (CLEM)</h3>
                     <p>Correlative light and electron microscopy (CLEM) combines what fluorescence is good at, telling which cells or molecules carry a label, with what EM is good at, showing all the structure around them. Typically you image a section or a sample on a marked grid or dish with fluorescence, record where the labelled cells are, then prepare the same sample for EM and find them again.</p>
                     <p>The difficulties are practical. EM preparation (heavy metals, resin, dehydration) usually destroys fluorescence, so the light images are taken first. The sample shrinks or distorts during preparation, so you need landmarks visible in both: grid markings, the outline of the tissue, or added marks. And the two images must be overlaid in software afterwards.</p>
-                    <p>Correlative projects usually involve both staff members: <a href="index.html#contact">Daniel Waiger</a> for the light side and <a href="index.html#contact">Tally Kossovsky</a> for the electron and X-ray side. Mention it in the <a href="https://forms.gle/igPJLiemJrT7ZCL56" target="_blank" rel="noopener">Project Initiation Form</a>.</p>
+                    <p>Correlative projects usually involve more than one staff member: <a href="index.html#contact">Daniel Waiger</a> for the light side, <a href="index.html#contact">Tally Kossovsky</a> for micro-CT and <a href="index.html#contact">Einat Zelinger</a> for the SEM; ask the staff who covers the rest. Mention it in the <a href="https://forms.gle/igPJLiemJrT7ZCL56" target="_blank" rel="noopener">Project Initiation Form</a>.</p>
                 </div>
             </div>
             <figure class="figure mod-photo">
@@ -1464,8 +1475,8 @@
                         <tr><th scope="row"><a href="#sted">STED</a></th><td>Available</td><td>Fluorescence, with depletion beam</td><td>Mostly fixed; STED-compatible dyes; thin</td><td>≈50–80 nm in practice</td><td>2D or thin stacks near the coverslip</td><td>Tens of µm</td><td>Days (staining, mounting)</td><td>Limited</td><td>Leica Stellaris STED</td><td>Daniel Waiger</td></tr>
                         <tr><th scope="row"><a href="#lightsheet">Light sheet</a></th><td>Available</td><td>Fluorescence</td><td>Cleared, or living in gel or medium</td><td>≈1 µm</td><td>Full 3D through mm-scale samples; depth detail several µm</td><td>mm (largest sample: ask staff)</td><td>Days to weeks (clearing); short for live</td><td>Yes</td><td>Luxendo MuVi SPIM</td><td>Daniel Waiger</td></tr>
                         <tr><th scope="row"><a href="#microct">Micro-CT</a></th><td>Available</td><td>X-ray absorption; phase contrast at edges</td><td>Dry, dense, or stained; held still</td><td>Voxels 2–20 µm in practice (details ≈2–3 voxels); details down to 0.35 µm (manufacturer figure)</td><td>Full 3D, no cutting</td><td>mm to cm</td><td>None to days (staining)</td><td>Rarely</td><td>Bruker SkyScan 1272</td><td>Tally Kossovsky</td></tr>
-                        <tr><th scope="row"><a href="#sem">SEM</a></th><td>Available</td><td>SE (topography), BSE (composition), X-rays (EDS on both SEMs)</td><td>Dry; coated, or uncoated in low vacuum (to confirm)</td><td>Nanometre scale; ≈1 nm (IT710HR), sub-nm in the IT800's best configuration (manufacturer figures; configuration to confirm)</td><td>Surface only</td><td>mm down to sub-µm</td><td>Hours to days</td><td>No</td><td>JEOL JSM-IT710HR, JSM-IT800</td><td>Tally Kossovsky</td></tr>
-                        <tr><th scope="row"><a href="#cryo-sem">Cryo-SEM</a> (planned)</th><td>Planned, not yet installed</td><td>As SEM, on a frozen sample</td><td>Fresh, frozen-hydrated</td><td>Coarser than SEM on dry, coated samples</td><td>Surface or fracture face</td><td>mm down to µm</td><td>Hours; often the same day</td><td>No</td><td>Cryo system for SEM (planned)</td><td>Tally Kossovsky</td></tr>
+                        <tr><th scope="row"><a href="#sem">SEM</a></th><td>Available</td><td>SE (topography), BSE (composition), X-rays (EDS on both SEMs)</td><td>Dry; coated, or uncoated in low vacuum (to confirm)</td><td>Nanometre scale; ≈1 nm (IT710HR), sub-nm in the IT800's best configuration (manufacturer figures; configuration to confirm)</td><td>Surface only</td><td>mm down to sub-µm</td><td>Hours to days</td><td>No</td><td>JEOL JSM-IT710HR, JSM-IT800</td><td>Einat Zelinger</td></tr>
+                        <tr><th scope="row"><a href="#cryo-sem">Cryo-SEM</a> (planned)</th><td>Planned, not yet installed</td><td>As SEM, on a frozen sample</td><td>Fresh, frozen-hydrated</td><td>Coarser than SEM on dry, coated samples</td><td>Surface or fracture face</td><td>mm down to µm</td><td>Hours; often the same day</td><td>No</td><td>Cryo system for SEM (planned)</td><td>Einat Zelinger</td></tr>
                         <tr><th scope="row"><a href="#stem">STEM in SEM</a></th><td>Available (which SEM: to confirm)</td><td>Transmitted electrons (bright field and/or dark field)</td><td>Ultrathin sections or particles on 3 mm grids</td><td>Nanometre scale, coarser than a dedicated TEM's best</td><td>2D projection of a thin section</td><td>Up to the section size</td><td>1–2 weeks for sections; hours for particles on grids</td><td>No</td><td>STEM detector on an SEM (which one to confirm)</td><td>Tally Kossovsky</td></tr>
                         <tr><th scope="row"><a href="#volume-em">Volume EM</a> (planned)</th><td>Planned, not yet installed</td><td>BSE from a heavy-metal-stained block face</td><td>Resin-embedded block</td><td>nm pixels; slices from 20 nm (manufacturer figure)</td><td>Full 3D ultrastructure</td><td>Tens to hundreds of µm</td><td>Weeks</td><td>No</td><td>Katana microtome in an SEM (planned)</td><td>Tally Kossovsky</td></tr>
                     </tbody>
@@ -1506,6 +1517,7 @@
                 <div><dt>Low vacuum</dt><dd>An SEM mode with a little gas in the chamber that neutralises charge, so uncoated samples can be imaged. Wet samples still dry out.</dd></div>
                 <div><dt>Critical-point drying</dt><dd>Drying through a state with no surface tension, so soft structures do not collapse.</dd></div>
                 <div><dt>Sublimation (etching)</dt><dd>In cryo-SEM: turning a thin layer of surface ice straight to vapour to reveal structure.</dd></div>
+                <div><dt>TEM (transmission electron microscopy)</dt><dd>Electrons pass through an ultrathin section or particles on a grid; the classic ultrastructure technique.</dd></div>
                 <div><dt>STEM</dt><dd>Scanning transmission electron microscopy: recording electrons that pass through a thin sample.</dd></div>
                 <div><dt>Grid</dt><dd>A 3 mm metal mesh disc that holds thin sections or particles for transmission imaging.</dd></div>
                 <div><dt>Ultrathin section</dt><dd>A slice of resin-embedded tissue, typically 50–100 nm thick, cut with a diamond knife.</dd></div>
