@@ -31,6 +31,7 @@ and the reason to ignore.json. To add one, see readme.md, "Publications page".
 """
 import argparse
 import datetime
+import hashlib
 import json
 import os
 import re
@@ -55,9 +56,16 @@ STAFF = [
     {'name': 'Daniel Waiger', 'first': 'Daniel', 'family': ['waiger']},
 ]
 # Affiliation strings that name the unit itself (any author carrying one is a lead).
-UNIT_RE = re.compile(r'scientific imaging|interdepartmental (equipment|core)|microscopy unit', re.I)
-# Affiliation strings accepted for a name match: the unit, the faculty or the university.
-AFFIL_RE = re.compile(r'hebrew univ|rehovot|smith faculty|faculty of agriculture|' + UNIT_RE.pattern, re.I)
+UNIT_RE = re.compile(r'scientific imaging|interdepartmental (equipment|core)', re.I)
+# Affiliation strings accepted for a name match: the unit, the faculty or the university ...
+AFFIL_RE = re.compile(r'hebrew univ|rehovoth?|smith faculty|faculty of agriculture|' + UNIT_RE.pattern, re.I)
+# ... but not these, which also match the words above (Hadassah is the university's medical
+# centre in Jerusalem; the Weizmann Institute is in Rehovot).
+NOT_AFFIL_RE = re.compile(r'hadassah|weizmann', re.I)
+
+
+def affil_ok(a):
+    return bool(AFFIL_RE.search(a)) and not NOT_AFFIL_RE.search(a)
 
 
 def log(msg):
@@ -95,24 +103,28 @@ def norm_doi(doi):
 
 
 def fold(s):
-    """Lower-case, ASCII-ish form of a name for comparison (strips accents' marks loosely)."""
-    s = (s or '').replace('‐', '-').replace('‑', '-').strip().lower()
+    """Lower-case form of a name for comparison; Unicode hyphens and dashes become '-'."""
+    s = (s or '').replace('‐', '-').replace('‑', '-').replace('–', '-').strip().lower()
     return re.sub(r'\s+', ' ', s)
 
 
 def given_matches(given, first):
-    """True when a given name/initials string fits the staff first name: 'Einat', 'E', 'E.', 'E Z'."""
+    """True when a given name/initials string fits the staff first name: 'Einat', 'E', 'E.', 'E Z', 'EZ'."""
     g = fold(given).replace('.', ' ').split()
     if not g:
         return False
-    return g[0] == first.lower() or g[0] == first[0].lower()
+    if g[0] == first.lower() or g[0] == first[0].lower():
+        return True
+    return len(g[0]) <= 3 and g[0].startswith(first[0].lower())  # run-together initials, 'EZ'
 
 
 def staff_for(family, given):
-    fam = fold(family)
-    for s in STAFF:
-        if fam in s['family'] and given_matches(given, s['first']):
-            return s
+    """Staff member for an author name, trying family/given as given and then swapped
+    (some Crossref records have them the wrong way round)."""
+    for fam, giv in ((fold(family), given), (fold(given), family)):
+        for s in STAFF:
+            if fam in s['family'] and given_matches(giv, s['first']):
+                return s
     return None
 
 
@@ -157,22 +169,26 @@ def epmc_candidate(rec):
 
 
 # ── Crossref ─────────────────────────────────────────────────────────────
-def crossref_search(author, since, rows=200, pages=3):
-    out = []
+def crossref_search(field, value, since, rows=200, pages=3):
+    """Crossref works matching query.<field>=value (relevance-ranked, fuzzy), up to rows*pages
+    items. Returns (items, total): total > len(items) means the search was cut off."""
+    out, total = [], 0
     for p in range(pages):
-        params = {'query.author': author, 'rows': rows, 'offset': p * rows,
+        params = {'query.' + field: value, 'rows': rows, 'offset': p * rows,
                   'filter': f'from-pub-date:{since}',
                   'select': 'DOI,title,author,container-title,issued,type,published'}
         mailto = os.environ.get('CROSSREF_MAILTO')
         if mailto:
             params['mailto'] = mailto
         d = get_json(CROSSREF + '?' + urllib.parse.urlencode(params))
-        items = d.get('message', {}).get('items', [])
+        msg = d.get('message', {})
+        items = msg.get('items', [])
+        total = msg.get('total-results', 0)
         out.extend(items)
         if len(items) < rows:
             break
         time.sleep(1)
-    return out
+    return out, total
 
 
 def crossref_candidate(it):
@@ -202,12 +218,12 @@ def classify(cand, authors, paper_aff):
             continue
         shown = f'{family} {given}'.strip()
         if affs:
-            ok = [a for a in affs if AFFIL_RE.search(a)]
+            ok = [a for a in affs if affil_ok(a)]
             if ok:
                 hits.append((s['name'], 'staff + affiliation', shown, ok[0]))
             else:
                 elsewhere.append((s['name'], shown, affs[0]))
-        elif paper_aff and AFFIL_RE.search(paper_aff):
+        elif paper_aff and affil_ok(paper_aff):
             hits.append((s['name'], 'staff + affiliation', shown, paper_aff + ' (first author)'))
         else:
             hits.append((s['name'], 'staff, no affiliation', shown, ''))
@@ -258,6 +274,7 @@ def main():
     ap.add_argument('--since', default=None, help='earliest publication date, YYYY-MM-DD (default: gallery.json minYear)')
     ap.add_argument('--json', help='write all findings (candidates, namesakes, known) to this file')
     ap.add_argument('--md', help='write the Markdown report to this file')
+    ap.add_argument('--issue', help='write the candidates-only report (for the GitHub issue) to this file')
     args = ap.parse_args()
     since = args.since or default_since()
     if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', since):
@@ -274,10 +291,13 @@ def main():
             old = found[key]
             if old['evidence'] in ('staff, no affiliation', 'unit affiliation', 'namesake') and c['evidence'] == 'staff + affiliation':
                 c['sources'] = old['sources'] + [c['source']]
+                c['pmid'] = c['pmid'] or old['pmid']
+                c['staff'] = sorted(set(c['staff']) | set(old['staff']))
                 found[key] = c
             else:
                 old['sources'].append(c['source'])
                 old['pmid'] = old['pmid'] or c['pmid']
+                old['staff'] = sorted(set(old['staff']) | set(c['staff']))
             return
         c['sources'] = [c['source']]
         found[key] = c
@@ -300,14 +320,21 @@ def main():
         for r in recs:
             add(epmc_candidate(r))
         time.sleep(1)
-    for s in STAFF:
-        log(f'Crossref: query.author={s["name"]}')
+    notes = []
+    # No Crossref affiliation search: query.affiliation is fuzzy over every word and returned
+    # millions of matches and nothing new in testing; Europe PMC covers the unit affiliation.
+    crossref_queries = [('author', s['name']) for s in STAFF]
+    for field, value in crossref_queries:
+        log(f'Crossref: query.{field}={value}')
         try:
-            items = crossref_search(s['name'], since)
+            items, total = crossref_search(field, value, since)
         except Exception as e:
             log(f'error: Crossref query failed: {e}')
             return 2
-        log(f'  {len(items)} records')
+        log(f'  {len(items)} of {total} records')
+        if total > len(items):
+            notes.append(f'Crossref `query.{field}={value}`: {total} fuzzy matches, the {len(items)} most relevant read; '
+                         f'a paper of the staff member ranked lower than that would be missed.')
         for it in items:
             add(crossref_candidate(it))
         time.sleep(1)
@@ -326,11 +353,17 @@ def main():
     order = {'staff + affiliation': 0, 'staff, no affiliation': 1, 'unit affiliation': 2}
     new.sort(key=lambda c: (order[c['evidence']], -int(c['year'] or 0), c['title']))
 
-    md = report(new, namesakes, known, ignored, since)
+    md = report(new, namesakes, known, ignored, since, notes)
     print(md)
     if args.md:
         with open(args.md, 'w', encoding='utf-8') as f:
             f.write(md)
+    if args.issue:
+        # Candidates only (no namesake/ignored details), with a fingerprint of the candidate set
+        # so the workflow can skip posting when nothing changed since the last post.
+        fp = hashlib.sha1('\n'.join(sorted(link(c) for c in new)).encode()).hexdigest()[:16]
+        with open(args.issue, 'w', encoding='utf-8') as f:
+            f.write(report(new, [], known, ignored, since, notes) + f'\n<!-- candidates:{fp} -->\n')
     if os.environ.get('GITHUB_STEP_SUMMARY'):
         with open(os.environ['GITHUB_STEP_SUMMARY'], 'a', encoding='utf-8') as f:
             f.write(md)
@@ -358,12 +391,16 @@ def row(c, extra=''):
     return f'| {link(c)} | {c["year"]} | {title} | {c["journal"]} | {", ".join(c["staff"]) or "—"} | {c["evidence"]}{extra} | {aff} |'
 
 
-def report(new, namesakes, known, ignored, since):
+def report(new, namesakes, known, ignored, since, notes=()):
     head = '| DOI | Year | Title | Journal | Staff | Evidence | Affiliation seen |\n|---|---|---|---|---|---|---|'
     lines = [f'## Publication candidates ({datetime.date.today().isoformat()})', '',
              f'Searched Europe PMC and Crossref for papers from {since} by the unit\'s staff (full name and '
              f'affiliation) and for affiliations naming the unit. Already listed: {len(known)}. Ignored by '
              f'ignore.json: {len(ignored)}. Namesakes (other affiliation): {len(namesakes)}.', '']
+    for n in notes:
+        lines.append(f'- Note: {n}')
+    if notes:
+        lines.append('')
     if new:
         lines += [f'### {len(new)} new candidate(s) to check', '', head] + [row(c) for c in new]
         lines += ['', 'For each: confirm the author is the staff member and that the imaging was done at the unit, '

@@ -26,10 +26,6 @@
   "reason": "Same as the 2004 paper: Oxford co-authors and no HUJI affiliation readable. Excluded as unverified."
  },
  {
-  "title": "Immunological and ultra-structural studies of the early interactions between Stagonospora nodorum... (Oxford Brookes University thesis, 2002)",
-  "reason": "A thesis, not a journal paper, from Oxford Brookes. No HUJI evidence. Excluded."
- },
- {
   "doi": "10.1016/j.colsurfa.2022.129899",
   "title": "Durable superhydrophobic coating with a self-replacing mechanism of surface roughness based on multiple Pickering emulsion templating (Colloids Surf A 2022)",
   "reason": "Authors: Mani, Belausov, Zelinger, Mechrez (the same group as several verified papers). No affiliation is available: Crossref and Semantic Scholar have none, ScienceDirect returned 403 and no HUJI CRIS record was found. Probably the same person, but excluded as unverified."

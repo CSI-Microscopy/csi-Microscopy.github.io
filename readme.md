@@ -126,7 +126,9 @@ node tools/publications/build.js --import DIR    # take DIR/publications.json an
 - **staff, no affiliation** – the name matched but the record carries no affiliation for that author (common in Crossref)
 - **unit affiliation** – no staff author, but an affiliation names the unit (note that "Interdepartmental Equipment Unit/Facility" also covers non-microscopy services)
 
-Name matches with an affiliation elsewhere are listed as namesakes, not candidates. When there are candidates the workflow opens a GitHub issue labelled `publications` (or comments on the open one). Nothing is added to the site automatically: check each candidate (is it the staff member, was the imaging done at the unit, licence of any figure), then add an entry to `publications.json` and rebuild, or add the DOI and the reason to `ignore.json`. Locally:
+The Crossref author search is fuzzy and relevance-ranked; only the 600 best matches per name are read, and the report notes when more existed. Affiliations that mention Hadassah or the Weizmann Institute are not accepted as the university's.
+
+Name matches with an affiliation elsewhere are listed as namesakes, not candidates. When there are candidates the workflow opens a GitHub issue labelled `publications` (or comments on the open one, and only when the set of candidates changed since the last post). GitHub switches scheduled workflows off after 60 days without commits to the repository (this applies to the link check too); the Actions tab then shows a button to re-enable them. Nothing is added to the site automatically: check each candidate (is it the staff member, was the imaging done at the unit, licence of any figure), then add an entry to `publications.json` and rebuild, or add the DOI and the reason to `ignore.json`. Locally:
 
 ```bash
 python3 tools/publications/monitor.py                      # report to stdout (about a minute)

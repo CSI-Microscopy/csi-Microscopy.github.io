@@ -27,7 +27,7 @@ jobs:
 
       - name: Search Europe PMC and Crossref
         id: search
-        run: python3 tools/publications/monitor.py --md candidates.md --json candidates.json
+        run: python3 tools/publications/monitor.py --md candidates.md --json candidates.json --issue issue.md
 
       - name: Keep the full findings for 90 days
         uses: actions/upload-artifact@v4
@@ -38,6 +38,10 @@ jobs:
             candidates.json
           retention-days: 90
 
+      # Posts the candidates (without the namesake/ignored details, which are in the job summary)
+      # to one open issue labelled "publications", and only when the set of candidates differs
+      # from the last post: issue.md ends with a fingerprint comment that is compared with the
+      # issue's body and comments.
       - name: Open or update the "publications" issue
         if: steps.search.outputs.count != '0'
         env:
@@ -46,10 +50,15 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           gh label create publications --description "New publication candidates for publications.html" --color 1d76db --force
-          { cat candidates.md; echo; echo "Workflow run: $RUN_URL"; } > body.md
+          fp=$(grep -o '<!-- candidates:[0-9a-f]* -->' issue.md | tail -n1)
+          { cat issue.md; echo; echo "Workflow run: $RUN_URL"; } > body.md
           existing=$(gh issue list --label publications --state open --json number --jq '.[0].number // empty')
           if [ -n "$existing" ]; then
-            gh issue comment "$existing" --body-file body.md
+            if gh issue view "$existing" --json body,comments --jq '.body, .comments[].body' | grep -qF "$fp"; then
+              echo "Same candidates as already posted on issue #$existing; nothing new to post."
+            else
+              gh issue comment "$existing" --body-file body.md
+            fi
           else
             gh issue create --title "Publication candidates to check" --label publications --body-file body.md
           fi
