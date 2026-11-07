@@ -1,0 +1,3319 @@
+[
+ {
+  "title": "Growth factors-infused cellulose scaffolds support cost-efficient proliferation and differentiation of bovine stem cells for cultivated meat",
+  "journal": "Current Research in Food Science",
+  "year": 2026,
+  "volume": "12",
+  "issue": null,
+  "pages": "101430",
+  "doi": "10.1016/j.crfs.2026.101430",
+  "pmid": "42182043",
+  "pmcid": "PMC13195363",
+  "authors": [
+   "Gershkoviz A",
+   "Kippen J",
+   "Gilad Y",
+   "Ribarski-Chorev I",
+   "Lavi E",
+   "Rotem I",
+   "Zelinger E",
+   "Braslavsky I",
+   "Shoseyov O",
+   "Schlesinger S"
+  ],
+  "pub_type": "research-article, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: Microscopy unit, Center for Scientific Imaging, The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, Rehovot, 7610001, Israel.",
+  "field": "food science",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY-NC 4.0",
+   "url": "https://creativecommons.org/licenses/by-nc/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC13195363): \"https://creativecommons.org/licenses/by-nc/4.0/This is an open access article under the CC BY-NC license (http://creativecommons.org/licenses/by-nc/4.0/).\"; copyright statement: \"© 2026 The Authors\"; PMC OA dataset license_code: CC BY-NC; Crossref licence: http://creativecommons.org/licenses/by-nc/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "confirmed",
+   "evidence": "\"Scaffolds were stored at 4 °C and imaged using “Leica Stellaris 5 FLIM STED” confocal microscope.\" | \"The morphology of dry cellulose scaffolds was characterized by SEM (Jeol JSM-7800F, Japan).\" — Staff author E. Zelinger affiliated with the unit; methods name unit instruments. Some panels used a Nikon ECLIPSE Ti-DH and a Zeiss Axioskop (not unit instruments).",
+   "instruments": [
+    "Leica Stellaris 5 FLIM STED confocal",
+    "JEOL JSM-7800F SEM",
+    "EVOS FL Auto"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [
+   {
+    "file": "assets/publications/figures/10-1016-j-crfs-2026-101430_fig1.jpg",
+    "figure_number": "1",
+    "label": "Fig. 1",
+    "caption": "Cellulose scaffolds are porous and directional. Two types of cellulose and their combination were evaluated as scaffold material. a Images of 1% dry, crosslinked CNC, dMCC, and 1:1 CNC-dMCC scaffolds (diameter = 3 cm). b Scanning electron microscopy images depicting top and side views of 1% dry crosslinked CNC, dMCC, and 1:1 CNC-dMCC scaffolds (scale bar = 100 μm). c Pore diameter frequency and d pore area distribution of dry CNC and CNC-dMCC scaffolds. Points represent individual values, bar heights and error bars represent mean ± s.e.m. (n = 2). e Representative results of cyclic compression loading of crosslinked and uncrosslinked 1% CNC scaffolds (wet). Negative stress values are the result of scaffold adhesion to testing surfaces at the uncompressed end of each cycle.",
+    "technique": "SEM, JEOL JSM-7800F (panel b)",
+    "notes": "Mixed: scaffold photographs (a), SEM (b) and plots (c to e); kept whole.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13195363.1/gr1.jpg",
+    "source_px": [
+     765,
+     727
+    ],
+    "web_px": [
+     765,
+     727
+    ],
+    "attribution": "Figure 1 from Gershkoviz et al., Current Research in Food Science 2026, https://doi.org/10.1016/j.crfs.2026.101430, CC BY-NC 4.0",
+    "license": "CC BY-NC 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+   },
+   {
+    "file": "assets/publications/figures/10-1016-j-crfs-2026-101430_fig3.jpg",
+    "figure_number": "3",
+    "label": "Fig. 3",
+    "caption": "bMSCs coverage, penetration and anisotropic growth. a Representative images of top and b side view of bMSCs grown on scaffold for 7 days, taken with fluorescent microscope. Cells stained with phalloidin (red), and scaffold and nuclei with Hoechst 33342 (blue) (scale bar = 100 μm). c Representative images taken with a confocal microscope showing the directional orientation of the CNC scaffold stained with Hoechst33342 (blue) and bMSCs grown on it stained with phalloidin (red), compared to 2D grown cells (scale bar = 50 μm). d Histogram depicting cell and scaffold orientation (of image 4D) quantified using the ImageJ Directionality plug-in. e H&E staining of bMSCs grown on 1% CNC scaffolds for one week. The horizontal section taken from a depth of 1.5 mm (scaffold height ∼3 mm) imaged with a light microscope (scale bar = 320 μm, scale bar = 50 μm). Vertical section taken from a depth of 1.2 mm (scaffold diameter ∼6 mm) showing the entire height of the scaffold-top and bottom halves (scale bar = 320 μm). Yellow arrows indicate the cells' nuclei (not all indicated). f Top-view (horizontal, left) and side-view (vertical, right) SEM images of scaffold seeded with MSCs. (scale bar: 10 and 1 μm). Red pseudo-color highlights the cells in the lower images.",
+    "technique": "Confocal (Leica Stellaris 5, panel c) and SEM (JEOL JSM-7800F, panel f)",
+    "notes": "Mixed: panels a and b are from a Nikon ECLIPSE Ti-DH and panel e from an unnamed light microscope (not unit instruments); panel d is a histogram; kept whole.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC13195363.1/gr3.jpg",
+    "source_px": [
+     797,
+     833
+    ],
+    "web_px": [
+     797,
+     833
+    ],
+    "attribution": "Figure 3 from Gershkoviz et al., Current Research in Food Science 2026, https://doi.org/10.1016/j.crfs.2026.101430, CC BY-NC 4.0",
+    "license": "CC BY-NC 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+   }
+  ],
+  "key": "42182043",
+  "in_scope": true
+ },
+ {
+  "title": "Stimuli-responsive halloysite colloidosomes for active delivery of antiviral agents in plant protection",
+  "journal": "Nano Today",
+  "year": 2026,
+  "volume": "66",
+  "issue": null,
+  "pages": "102904",
+  "doi": "10.1016/j.nantod.2025.102904",
+  "pmid": null,
+  "pmcid": null,
+  "authors": [
+   "Avital Ella Ben-Haim",
+   "Reut Amar Feldbaum",
+   "Uri Perry",
+   "Antolin Jesila Jesu Amalraj",
+   "Karthik Ananth Mani",
+   "Einat Zelinger",
+   "Einat Native-Roth",
+   "Mohamed Samara",
+   "Aviv Dombrovsky",
+   "Guy Mechrez"
+  ],
+  "pub_type": "journal-article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "HUJI research portal (https://cris.huji.ac.il/en/publications/stimuli-responsive-halloysite-colloidosomes-for-active-delivery-o/): 'Einat Zelinger' -> 'Hebrew University of Jerusalem'.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: tdm: https://www.elsevier.com/tdm/userlicense/1.0/, tdm: https://www.elsevier.com/legal/tdmrep-license, stm-asf: https://doi.org/10.15223/policy-017, stm-asf: https://doi.org/10.15223/policy-037, stm-asf: https://doi.org/10.15223/policy-012, stm-asf: https://doi.org/10.15223/policy-029, stm-asf: https://doi.org/10.15223/policy-004; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "10.1016/j.nantod.2025.102904",
+  "in_scope": true
+ },
+ {
+  "title": "Beneficial and detrimental fungi within the culturable mycobiome of the Red Sea coral Stylophora pistilatta",
+  "journal": "The ISME Journal",
+  "year": 2025,
+  "volume": "19",
+  "issue": "1",
+  "pages": "wraf090",
+  "doi": "10.1093/ismejo/wraf090",
+  "pmid": "40318223",
+  "pmcid": "PMC12090049",
+  "authors": [
+   "Granit L",
+   "Levi R",
+   "Lifshitz N",
+   "Banc-Prandi G",
+   "Zelinger E",
+   "Ronen B",
+   "Kraut-Cohen J",
+   "Naqib A",
+   "Green SJ",
+   "Fine M",
+   "Yarden O"
+  ],
+  "pub_type": "brief-report, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: Centre for Scientific Imaging, The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, Rehovot 7610001, Israel.",
+  "field": "soil/environment",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC12090049): \"This is an Open Access article distributed under the terms of the Creative Commons Attribution License (https://creativecommons.org/licenses/by/4.0/), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.\"; copyright statement: \"© The Author(s) 2025. Published by Oxford University Press on behalf of the International Society for Microbial Ecology.\"; Crossref licence: https://creativecommons.org/licenses/by/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "likely",
+   "evidence": "\"SEM images were captured using a JEOL microscope (Vacc = 2.00 kV, detector = LED, WD = 10.0 mm).\" — Staff author affiliated with the unit; SEM model not stated.",
+   "instruments": [
+    "JEOL SEM (model not stated)"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [],
+  "key": "40318223",
+  "in_scope": true
+ },
+ {
+  "title": "Extracellular Vesicles, Lipid Droplets and AhR Ligands in Early Implantation: The Dynamics of Embryo-Maternal Crosstalk",
+  "journal": "Journal of Extracellular Vesicles",
+  "year": 2025,
+  "volume": "14",
+  "issue": "11",
+  "pages": "e70161",
+  "doi": "10.1002/jev2.70161",
+  "pmid": "41216890",
+  "pmcid": "PMC12603793",
+  "authors": [
+   "Komsky-Elbaz A",
+   "Shuhmaher M",
+   "Sanchez-Lopez JA",
+   "Teena O",
+   "Waiger D",
+   "Waiger D",
+   "Zelinger E",
+   "Kossovsky T",
+   "Otikovs L",
+   "Dilevsky E",
+   "Soen Y",
+   "Hefetz A",
+   "Heifetz Y"
+  ],
+  "pub_type": "research-article, Journal Article",
+  "staff": [
+   "Daniel Waiger",
+   "Einat Zelinger",
+   "Tally Kossovsky"
+  ],
+  "identity_evidence": "Waiger D: Center for Scientific Imaging, The Hebrew University, Rehovot, Israel. ; Waiger D: Center for Scientific Imaging, The Hebrew University, Rehovot, Israel. ; Zelinger E: Center for Scientific Imaging, The Hebrew University, Rehovot, Israel. ; Kossovsky T: Center for Scientific Imaging, The Hebrew University, Rehovot, Israel.",
+  "field": "other",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY-NC 4.0",
+   "url": "https://creativecommons.org/licenses/by-nc/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC12603793): \"https://creativecommons.org/licenses/by-nc/4.0/This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc/4.0/ License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited and is not used for commercial pur\"; copyright statement: \"© 2025 The Author(s). Journal of Extracellular Vesicles published by Wiley Periodicals LLC on behalf of International Society for Extracellular Vesicles.\"; Crossref licence: http://creativecommons.org/licenses/by-nc/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "confirmed",
+   "evidence": "\"Orit Gal for help in the Center for Scientific Imaging, The Hebrew University.\" | \"Daniel Waiger: visualization, methodology.\" | \"Einat Zelinger: methodology, visualization.\" | \"Tally Kossovsky: methodology, visualization.\" — Unit acknowledged and all three staff credited for visualization; instruments are not named in the main text, so no figures were taken.",
+   "instruments": [
+    "confocal (model not named in main text)",
+    "light sheet (model not named in main text)",
+    "TEM (not named)"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [],
+  "key": "41216890",
+  "in_scope": true
+ },
+ {
+  "title": "Nanocarriers for cancer-targeted delivery based on Pickering emulsions stabilized by casein nanoparticles",
+  "journal": "International Journal of Biological Macromolecules",
+  "year": 2025,
+  "volume": "298",
+  "issue": null,
+  "pages": "140822",
+  "doi": "10.1016/j.ijbiomac.2025.140822",
+  "pmid": "39929470",
+  "pmcid": null,
+  "authors": [
+   "Ben-Haim AE",
+   "Shalev N",
+   "Amalraj AJJ",
+   "Zelinger E",
+   "Mani KA",
+   "Belausov E",
+   "Shoval I",
+   "Nativ-Roth E",
+   "Maria R",
+   "Atkins A",
+   "Sadashiva R",
+   "Koltai H",
+   "Mechrez G"
+  ],
+  "pub_type": "Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, POB 12, Rehovot 7610001, Israel.",
+  "field": "food science",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: tdm: https://www.elsevier.com/tdm/userlicense/1.0/, tdm: https://www.elsevier.com/legal/tdmrep-license, stm-asf: https://doi.org/10.15223/policy-017, stm-asf: https://doi.org/10.15223/policy-037, stm-asf: https://doi.org/10.15223/policy-012, stm-asf: https://doi.org/10.15223/policy-029, stm-asf: https://doi.org/10.15223/policy-004; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "39929470",
+  "in_scope": true
+ },
+ {
+  "title": "Nitrogen Assimilation Plays a Role in Balancing the Chloroplastic Glutathione Redox Potential Under High Light Conditions",
+  "journal": "Plant, Cell & Environment",
+  "year": 2025,
+  "volume": "48",
+  "issue": "5",
+  "pages": "3559-3572",
+  "doi": "10.1111/pce.15368",
+  "pmid": "39789668",
+  "pmcid": "PMC11963491",
+  "authors": [
+   "Gilad G",
+   "Sapir O",
+   "Hipsch M",
+   "Waiger D",
+   "Ben-Ari J",
+   "Zeev BB",
+   "Zait Y",
+   "Lampl N",
+   "Rosenwasser S"
+  ],
+  "pub_type": "Research Support, Non-U.S. Gov't, research-article, Journal Article",
+  "staff": [
+   "Daniel Waiger"
+  ],
+  "identity_evidence": "Waiger D: Center for Scientific Imaging Core Facility, The Robert H. Smith Faculty of Agriculture, ‎Food & Environment, The Hebrew University of Jerusalem, Rehovot, Israel.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY-NC-ND 4.0",
+   "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC11963491): \"This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc-nd/4.0/ License, which permits use and distribution in any medium, provided the original work is properly cited, the use is non‐commercial and no modifications or adaptations are made.\"; copyright statement: \"© 2025 The Author(s). Plant, Cell & Environment published by John Wiley & Sons Ltd.\"; Crossref licence: http://creativecommons.org/licenses/by-nc-nd/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "confirmed",
+   "evidence": "\"Images were acquired with a Leica TCS SP8 confocal system (Leica Microsystems) using the LAS X Life Science Software and an HC PL APO ×40/1.10 objective.\" — Staff author D. Waiger affiliated with the unit; unit instrument named.",
+   "instruments": [
+    "Leica TCS SP8 confocal"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [],
+  "key": "39789668",
+  "in_scope": true
+ },
+ {
+  "title": "Soft surface-enhanced Raman scattering sensing platform based on an oil-in-water emulsion stabilized by silver nanoparticles",
+  "journal": "Colloids and Surfaces B: Biointerfaces",
+  "year": 2025,
+  "volume": "245",
+  "issue": null,
+  "pages": "114278",
+  "doi": "10.1016/j.colsurfb.2024.114278",
+  "pmid": "39369477",
+  "pmcid": null,
+  "authors": [
+   "Klein H",
+   "Cohen R",
+   "Mani KA",
+   "Feldbaum RA",
+   "Ben-Haim A",
+   "Zelinger E",
+   "Nirala NR",
+   "Muthukumar D",
+   "Domb AJ",
+   "Shtenberg G",
+   "Mechrez G"
+  ],
+  "pub_type": "Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, POB 12, Rehovot 7610001, Israel.",
+  "field": "methods",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: tdm: https://www.elsevier.com/tdm/userlicense/1.0/, tdm: https://www.elsevier.com/legal/tdmrep-license, stm-asf: https://doi.org/10.15223/policy-017, stm-asf: https://doi.org/10.15223/policy-037, stm-asf: https://doi.org/10.15223/policy-012, stm-asf: https://doi.org/10.15223/policy-029, stm-asf: https://doi.org/10.15223/policy-004; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "39369477",
+  "in_scope": true
+ },
+ {
+  "title": "DNA Delivery to Intact Plant Cells by Casein Nanoparticles with Confirmed Gene Expression",
+  "journal": "Advanced Functional Materials",
+  "year": 2024,
+  "volume": "34",
+  "issue": "16",
+  "pages": "2314756",
+  "doi": "10.1002/adfm.202314756",
+  "pmid": null,
+  "pmcid": null,
+  "authors": [
+   "Avital Ella Ben‐Haim",
+   "Reut Amar Feldbaum",
+   "Eduard Belausov",
+   "Einat Zelinger",
+   "Raquel Maria",
+   "Einat Nativ‐Roth",
+   "Karthik Ananth Mani",
+   "Omer Barda",
+   "Edward Sionov",
+   "Guy Mechrez"
+  ],
+  "pub_type": "journal-article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Crossref author affiliation for Einat Zelinger: 'The Robert H. Smith Faculty of Agriculture Food and Environm[ent…]'.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: vor: http://onlinelibrary.wiley.com/termsAndConditions#vor; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "10.1002/adfm.202314756",
+  "in_scope": true
+ },
+ {
+  "title": "Entrapment of antimicrobial compounds in a metal matrix for crop protection",
+  "journal": "Microbial Biotechnology",
+  "year": 2024,
+  "volume": "17",
+  "issue": "9",
+  "pages": "e70005",
+  "doi": "10.1111/1751-7915.70005",
+  "pmid": "39268832",
+  "pmcid": "PMC11393771",
+  "authors": [
+   "Brill A",
+   "Menagen B",
+   "Malach E",
+   "Zelinger E",
+   "Avnir D",
+   "Burdman S",
+   "Hayouka Z"
+  ],
+  "pub_type": "Research Support, Non-U.S. Gov't, research-article, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: Interdepartmental Core Facility, Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, Rehovot, Israel.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY-NC-ND 4.0",
+   "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC11393771): \"https://creativecommons.org/licenses/by-nc-nd/4.0/This is an open access article under the terms of the http://creativecommons.org/licenses/by-nc-nd/4.0/ License, which permits use and distribution in any medium, provided the original work is properly cited, the use is non‐commercial and no modifica\"; copyright statement: \"© 2024 The Author(s). Microbial Biotechnology published by John Wiley & Sons Ltd.\"; Crossref licence: http://creativecommons.org/licenses/by-nc-nd/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "confirmed",
+   "evidence": "\"Analysis was carried out using a low‐vacuum Jeol IT‐100 SEM instrument.\" | \"Einat Zelinger: Formal analysis; methodology.\" — Unit instrument (JSM-IT100) named; staff author from the unit's core facility.",
+   "instruments": [
+    "JEOL JSM-IT100 SEM",
+    "JEOL 7800 SEM"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [],
+  "key": "39268832",
+  "in_scope": true
+ },
+ {
+  "title": "Latex-Bridged Inverse Pickering Emulsion for Durable Superhydrophobic Coatings with Dual Antibacterial Activity",
+  "journal": "ACS Applied Materials & Interfaces",
+  "year": 2024,
+  "volume": "16",
+  "issue": "43",
+  "pages": "59156-59173",
+  "doi": "10.1021/acsami.4c09487",
+  "pmid": "39344674",
+  "pmcid": null,
+  "authors": [
+   "Cohen R",
+   "Pirmatova M",
+   "Ananth KM",
+   "Jacobi G",
+   "Zelinger E",
+   "Belausov E",
+   "Samara M",
+   "Shoshani S",
+   "Banin E",
+   "Mechrez G"
+  ],
+  "pub_type": "Research Support, Non-U.S. Gov't, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: The Interdepartmental Equipment Unit, The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, POB 12, Rehovot 7610001, Israel.",
+  "field": "other",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: stm-asf: https://doi.org/10.15223/policy-029, stm-asf: https://doi.org/10.15223/policy-037, stm-asf: https://doi.org/10.15223/policy-045; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "39344674",
+  "in_scope": true
+ },
+ {
+  "title": "MXene-CNC super performing composite films for flexible and degradable electronics",
+  "journal": "Carbon",
+  "year": 2024,
+  "volume": "229",
+  "issue": null,
+  "pages": "119499",
+  "doi": "10.1016/j.carbon.2024.119499",
+  "pmid": null,
+  "pmcid": null,
+  "authors": [
+   "Daniel Voignac",
+   "Barak Ratzker",
+   "Bar Favelukis",
+   "Amir Rudich",
+   "Einat Zelinger",
+   "Maxim Sokol",
+   "Yossi Paltiel",
+   "Oded Shoseyov"
+  ],
+  "pub_type": "journal-article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "HUJI research portal (https://cris.huji.ac.il/en/publications/mxene-cnc-super-performing-composite-films-for-flexible-and-degra/): 'Einat Zelinger' -> 'Hebrew University of Jerusalem'.",
+  "field": "other",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY-NC-ND 4.0",
+   "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+   "source": "Crossref works API licence (content-version vor/unspecified): http://creativecommons.org/licenses/by-nc-nd/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "10.1016/j.carbon.2024.119499",
+  "in_scope": true
+ },
+ {
+  "title": "Scanning Electron Microscopy Analysis of Biofilm-Encased Bacteria Exposed to Cuprous Oxide-Impregnated Wound Dressings",
+  "journal": "Microbiology Research",
+  "year": 2024,
+  "volume": "15",
+  "issue": "4",
+  "pages": "2358-2368",
+  "doi": "10.3390/microbiolres15040158",
+  "pmid": null,
+  "pmcid": null,
+  "authors": [
+   "Tohar Roth",
+   "Einat Zelinger",
+   "Tally Kossovsky",
+   "Gadi Borkow"
+  ],
+  "pub_type": "journal-article",
+  "staff": [
+   "Einat Zelinger",
+   "Tally Kossovsky"
+  ],
+  "identity_evidence": "Crossref author affiliations for Einat Zelinger and Tally Kossovsky: 'The Robert H. Smith Faculty of Agriculture, Food and Environ[ment…]'. Zelinger and Kossovsky are co-authors.",
+  "field": "other",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Crossref works API licence (content-version vor/unspecified): https://creativecommons.org/licenses/by/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "10.3390/microbiolres15040158",
+  "in_scope": true
+ },
+ {
+  "title": "Terpenes and cannabidiol against human corona and influenza viruses-Anti-inflammatory and antiviral in vitro evaluation",
+  "journal": "Biotechnology Reports",
+  "year": 2024,
+  "volume": "41",
+  "issue": null,
+  "pages": "e00829",
+  "doi": "10.1016/j.btre.2024.e00829",
+  "pmid": "38318445",
+  "pmcid": "PMC10840330",
+  "authors": [
+   "Chatow L",
+   "Nudel A",
+   "Eyal N",
+   "Lupo T",
+   "Ramirez S",
+   "Zelinger E",
+   "Nesher I",
+   "Boxer R"
+  ],
+  "pub_type": "research-article, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: CSI Center for Scientific Imaging Faculty of Agriculture, Hebrew University, Rehovot, Israel.",
+  "field": "biochemistry",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY-NC-ND 4.0",
+   "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC10840330): \"This is an open access article under the CC BY-NC-ND license (http://creativecommons.org/licenses/by-nc-nd/4.0/).\"; copyright statement: \"© 2024 The Authors\"; Crossref licence: http://creativecommons.org/licenses/by-nc-nd/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "confirmed",
+   "evidence": "\"E.Z. performed the electronic microscopy imaging.\" | \"Microphotographs were recorded using the scanning electron microscope JEOL model, 7800f.\"",
+   "instruments": [
+    "JEOL JSM-7800F SEM"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [],
+  "key": "38318445",
+  "in_scope": true
+ },
+ {
+  "title": "Three-dimensional correlative microscopy of the Drosophila female reproductive tract reveals modes of communication in seminal receptacle sperm storage",
+  "journal": "Communications Biology",
+  "year": 2024,
+  "volume": "7",
+  "issue": "1",
+  "pages": "155",
+  "doi": "10.1038/s42003-024-05829-y",
+  "pmid": "38321098",
+  "pmcid": "PMC10847118",
+  "authors": [
+   "Zelinger E",
+   "Brumfeld V",
+   "Rechav K",
+   "Waiger D",
+   "Kossovsky T",
+   "Heifetz Y"
+  ],
+  "pub_type": "Research Support, Non-U.S. Gov't, research-article, Journal Article",
+  "staff": [
+   "Daniel Waiger",
+   "Einat Zelinger",
+   "Tally Kossovsky"
+  ],
+  "identity_evidence": "Zelinger E: Department of Entomology, The Hebrew University, Rehovot, Israel. | Center for Scientific Imaging, The Hebrew University, Rehovot, Israel. ; Waiger D: Center for Scientific Imaging, The Hebrew University, Rehovot, Israel. ; Kossovsky T: Center for Scientific Imaging, The Hebrew University, Rehovot, Israel.",
+  "field": "entomology",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC10847118): \"Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C\"; copyright statement: \"© The Author(s) 2024\"; PMC OA dataset license_code: CC BY; Crossref licence: https://creativecommons.org/licenses/by/4.0"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "confirmed",
+   "evidence": "\"E.Z. performed the confocal imaging;\" | \"E.Z. and T.K. performed the SEM and STEM imaging.\" | \"Resin sections of the seminal receptacle were viewed with a Jeol JSM 7800F with a Deben Gen5 bright and dark field retractable STEM detector (Deben, UK) at 30 KV.\" | \"Reproductive tracts were viewed with a Leica SP8 laser scanning confocal microscope using Leica HC PL APO CS 20 × 0.7 N.A and HC PL APO CS2 63 × 1.2 N.A water objectives.\" | \"This research was funded by the Israel Science Foundation (ISF-2041/17) and the Center for Scientific Imaging (CSI), The Hebrew University Faculty of Agriculture, Food and Environment, Rehovot, Israel.\" — MicroCT (Zeiss Xradia microXCT-400) and FIB-SEM (Helios 600) were not unit instruments; figures from those were not taken.",
+   "instruments": [
+    "Leica SP8 confocal",
+    "JEOL JSM-7800F SEM with STEM detector"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [
+   {
+    "file": "assets/publications/figures/10-1038-s42003-024-05829-y_fig1.jpg",
+    "figure_number": "1",
+    "label": "Fig. 1",
+    "caption": "Confocal laser scanning microscopy and micro computed tomography (microCT) visualization of the distal D. melanogaster seminal receptacle and the lower reproductive tract. a Schematic image of the Drosophila female reproductive tract showing the ovaries (OV), common oviduct (CO), seminal receptacle (SR), a pair of spermathecae (Spt), female accessory glands (AG) and a uterus (UT). b Representative confocal maximum projection image of seminal receptacle of 3-day-old female mated to dj-GFP male at 24 h post-mating; note the distal (d) and proximal (p) regions of the seminal receptacle. c Confocal bright field and fluorescence image of 3-day-old female mated to pro-GFP male showing sperm heads (GFP) and tails (bright field, marked by white asterisk) inside the distal seminal receptacle lumen. MicroCT 3D images of the lower reproductive tract (d) and a correlative image (microCT and confocal) (e) of sperm in the seminal receptacle indicating the position of the distal and proximal regions in relation to the spermatheca and the uterus. Scale bar: b = 20 µm; c–e = 100 µm.",
+    "technique": "Confocal laser scanning microscopy, Leica SP8 (panels b, c; E.Z.)",
+    "notes": "Mixed: schematic (a), confocal (b, c, unit), microCT on a Zeiss Xradia (d, e, Weizmann, not unit); kept whole.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10847118.1/42003_2024_5829_Fig1_HTML.jpg",
+    "source_px": [
+     750,
+     660
+    ],
+    "web_px": [
+     750,
+     660
+    ],
+    "attribution": "Figure 1 from Zelinger et al., Communications Biology 2024, https://doi.org/10.1038/s42003-024-05829-y, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   {
+    "file": "assets/publications/figures/10-1038-s42003-024-05829-y_fig6.jpg",
+    "figure_number": "6",
+    "label": "Fig. 6",
+    "caption": "Scanning electron microscopy showing the inner lumen of virgin and mated distal seminal receptacle. 20 µm thick cryostat cross-sections of virgin (a, b) and mated (c, d) distal seminal receptacle. a The inner surface of the intima in virgin; L, lumen; corrugated intima marked by white asterisk. b Zoom into the intima surface enabled to detect vesicles at a size of 80–100 nm in diameter (see inset, white arrows) on the corrugated intima (marked by white asterisk). In addition, pits at different sizes are visible on the intima (white arrow heads); some of the pits are similar in size to the vesicles. c Distal seminal receptacle of mated female filled with sperm (S) showing the corrugated intima marked by white asterisks (internal view, one asterisk; external view, two asterisks). d A zoom-in on the intima layer that shows vesicles on the intima close to the sperm (white arrow). The sperm tails (S) that fill the lumen seem to be surrounded by diffuse extracellular material (white arrow head) (d). Scale bar = 1 µm.",
+    "technique": "SEM of cryostat sections (E.Z. and T.K. performed the SEM imaging)",
+    "notes": "Microscopy only. The SEM model for this figure is not stated separately.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10847118.1/42003_2024_5829_Fig6_HTML.jpg",
+    "source_px": [
+     750,
+     562
+    ],
+    "web_px": [
+     750,
+     562
+    ],
+    "attribution": "Figure 6 from Zelinger et al., Communications Biology 2024, https://doi.org/10.1038/s42003-024-05829-y, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   {
+    "file": "assets/publications/figures/10-1038-s42003-024-05829-y_fig8.jpg",
+    "figure_number": "8",
+    "label": "Fig. 8",
+    "caption": "Mating induces changes in the intima layer at the proximal and distal seminal receptacle. Zooming in on the intima at the distal (a–d) and proximal (e, f) regions of the seminal receptacle using scanning transmission electron microscopy (STEM in SEM). a, c View of the corrugated surface of the intima in virgin distal seminal receptacle (white arrow). A layer of electron-dense substance deposited on the intima surface (white arrow). Short brush-border microvilli (MV) are visible at the apical epithelium in both virgin and mated distal seminal receptacle (a–d); black asterisks mark the ridges/fiber of the corrugated intima in virgin (c), and mated (d) that are parallel to the microvilli layer (black arrow heads); white asterisks mark the space between the fibers. b, d In mated, the layer of electron-dense substance deposited on the intima surface is thinner than in virgin (a, c) white arrow heads. The lumen contains sperm (S) and diffuse extracellular material (white arrow heads) that surrounds the sperm (b, d). The proximal seminal receptacle epithelia in virgin (e) and mated (f); microvilli (MV); mitochondria (m); lumen (black arrow); intima (black arrow head). All STEM images are in dark field mode. Scale bar: a, b, e, f = 1 µm; c, d = 200 nm.",
+    "technique": "STEM in SEM, JEOL JSM-7800F with Deben STEM detector (E.Z. and T.K.)",
+    "notes": "Microscopy only.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10847118.1/42003_2024_5829_Fig8_HTML.jpg",
+    "source_px": [
+     750,
+     1131
+    ],
+    "web_px": [
+     750,
+     1131
+    ],
+    "attribution": "Figure 8 from Zelinger et al., Communications Biology 2024, https://doi.org/10.1038/s42003-024-05829-y, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   {
+    "file": "assets/publications/figures/10-1038-s42003-024-05829-y_fig9.jpg",
+    "figure_number": "9",
+    "label": "Fig. 9",
+    "caption": "High resolution visualization of seminal receptacle intima layer and chitin fibers. STEM images of distal and proximal seminal receptacle sections (a–d) and confocal images of distal seminal receptacle (e–i). Longitudinal (a) and transversal (b) sections of the distal seminal receptacle in mated showing the nanofiber fiber mesh organization (white asterisks) of the corrugated intima (In); double-ended arrows indicate the grooves between the ridges marked by white asterisks (a). Vesicles of various sizes are seen in the lumen of the distal seminal receptacle and in close proximity to the sperm (S) (white arrows) (b). The corrugated intima (In) of the virgin seminal receptacle, highlighting the electron-dense substance deposited on the surface and the orientation of the intima in relation to the microvilli (mv) (c); the intima is positioned perpendicular to the microvilli (white arrow heads, b, c). The proximal seminal receptacle thin layer intima (white arrow) facing the thick extracellular matrix (marked by white arrow heads) of the long microvilli (mv) in mated (d). e–i Confocal images of the distal seminal receptacle of female mated to protamine-GFP male and stained with Calcofluor white. The organization of the protamine-GFP sperm heads in the lumen of the seminal receptacle, that is lined by chitin fibrous intima (cyan) (e). The stained intima shows that it consists of chitin fibers (f). Bright field image showing sperm tails (s) inside the lumen and the epithelium (Ep) lined by the intima (g). A fluorescent image that shows the intima layer stained for chitin and marked by cyan (h). An overlay of g and h emphasizing the chitin based intima (i). j A schematic drawing showing our proposed organization of chitin fiber mesh of the corrugated intima; double- ended black arrows indicate the grooves between the ridges marked by black asterisks. Scale bar: a–d = 100 nm; e, g = 5 µm; f = 2 µm.",
+    "technique": "STEM in SEM (JEOL JSM-7800F) and confocal (Leica SP8)",
+    "notes": "Mixed: STEM and confocal panels plus schematic (j); kept whole.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10847118.1/42003_2024_5829_Fig9_HTML.jpg",
+    "source_px": [
+     730,
+     1275
+    ],
+    "web_px": [
+     730,
+     1275
+    ],
+    "attribution": "Figure 9 from Zelinger et al., Communications Biology 2024, https://doi.org/10.1038/s42003-024-05829-y, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   }
+  ],
+  "key": "38321098",
+  "in_scope": true
+ },
+ {
+  "title": "1530. Reactivation of Latent HIV in CD4 T Cells Procured from Patients on ART by Autologous CD8 T cells or Fas Ligand",
+  "journal": "Open Forum Infectious Diseases",
+  "year": 2023,
+  "volume": "10",
+  "issue": "Supplement_2",
+  "pages": "ofad500.1365",
+  "doi": "10.1093/ofid/ofad500.1365",
+  "pmid": null,
+  "pmcid": "PMC10677515",
+  "authors": [
+   "Daniel Leshin-Carmel",
+   "Ziv Sevilya",
+   "Gabriel Brik",
+   "Orit Gal-Garber",
+   "Daniel Waiger",
+   "Klaris Riesenberg",
+   "David Hassin"
+  ],
+  "pub_type": "journal-article",
+  "staff": [
+   "Daniel Waiger"
+  ],
+  "identity_evidence": "Full-text XML affiliation for Daniel Waiger: 'Robert H. Smith Faculty of Agriculture, Food and Environment, the Hebrew University, Rehovot'.",
+  "field": "other",
+  "type": "conference abstract",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC10677515): \"https://creativecommons.org/licenses/by/4.0/This is an Open Access article distributed under the terms of the Creative Commons Attribution License (https://creativecommons.org/licenses/by/4.0/), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original wor\"; copyright statement: \"© The Author(s) 2023. Published by Oxford University Press on behalf of Infectious Diseases Society of America.\"; Crossref licence: https://creativecommons.org/licenses/by/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "Full text read; no microscopy instrument, unit acknowledgement or staff imaging statement found.",
+   "instruments": []
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [],
+  "key": "10.1093/ofid/ofad500.1365",
+  "in_scope": true
+ },
+ {
+  "title": "A deep learning-based automated image analysis for histological evaluation of broiler pectoral muscle",
+  "journal": "Poultry Science",
+  "year": 2023,
+  "volume": "102",
+  "issue": "8",
+  "pages": "102792",
+  "doi": "10.1016/j.psj.2023.102792",
+  "pmid": "37276700",
+  "pmcid": "PMC10258492",
+  "authors": [
+   "Dayan J",
+   "Goldman N",
+   "Waiger D",
+   "Melkman-Zehavi T",
+   "Halevy O",
+   "Uni Z"
+  ],
+  "pub_type": "research-article, Journal Article",
+  "staff": [
+   "Daniel Waiger"
+  ],
+  "identity_evidence": "Waiger D: Center for Scientific Imaging, The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, Rehovot 7610001, Israel.",
+  "field": "veterinary/animal",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Resolved: CC BY 4.0. Article permissions block, verbatim (identical in the Europe PMC full-text XML and the PMC OA dataset XML PMC10258492.1.xml): \"© 2023 The Authors\" / \"This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).\" with ali:license_ref https://creativecommons.org/licenses/by/4.0/. The PMC article page https://pmc.ncbi.nlm.nih.gov/articles/PMC10258492/ (read with WebFetch) shows the same: \"© 2023 The Authors\" and \"This is an open access article under the CC BY license (http://creativecommons.org/licenses/by/4.0/).\" Crossref VOR licence: http://creativecommons.org/licenses/by/4.0/ (start 2023-05-15). PMC OA dataset license_code: \"CC BY\". The publisher landing page https://www.sciencedirect.com/science/article/pii/S0032579123003115 (via doi.org -> linkinghub.elsevier.com) returned HTTP 403 to WebFetch, so the Elsevier \"User license\" line could not be read. The conflicting \"Copyright © 2023 The Authors. Published by Elsevier Inc. All rights reserved.\" string appears only in the PubMed record's copyright field (get_copyright_status). It is not in the article's permissions, so it is treated as a PubMed metadata artefact.",
+   "reuse_basis": "authors' own work; reproduced by the authors",
+   "reuse_basis_note": "This basis was requested by co-author Daniel Waiger through the coordinator; it was not independently verified. For this paper it is not needed, because the article is CC BY 4.0."
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "confirmed",
+   "evidence": "\"Finally, images [Tagged Image File Format (Tiff)] were visualized and generated using EVOS FL Auto-inverted microscope and are comprised of 12 stitched fields of ×60 magnification (µm to pixel ratio of 6.6).\" — Staff author D. Waiger affiliated with CSI; unit instrument named. | Image analysis: \"The automated image analysis workflow for Fiji (https://doi.org/10.5281/zenodo.7678528) is based on 1) PT-BIOP and Cellpose wrapper plugins [Stringer et al., 2021; ...], and 2) MorphoLibJ plugin (Legland et al., 2016).\"",
+   "instruments": [
+    "EVOS FL Auto"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [
+   {
+    "file": "assets/publications/figures/10-1016-j-psj-2023-102792_fig1.jpg",
+    "figure_number": "1",
+    "label": "Figure 1",
+    "caption": "Automated image analysis workflow. (A) Raw images comprised of 12 stitched fields of ×60 magnification were generated using EVOS FL Auto-inverted microscope. Image processing included: (B) detection of the myofibers with BIOP Cellpose wrapper plugin; (C) conversion of the label masks to regions of interest (ROIs) with the MorphoLibJ plugin. The morphological analysis included the extraction of myofiber metrics. (D) The lesser diameter (μm) and cross-sectional area (μm2) were exported and saved to Excel files for further analysis and statistics.",
+    "technique": "Picrosirius Red Fast Green-stained pectoral muscle section imaged on an EVOS FL Auto (x60, 12 stitched fields); Cellpose (BIOP wrapper) segmentation and MorphoLibJ label-to-ROI conversion in Fiji",
+    "topic": "both",
+    "notes": "Panels: (A) stained raw image, (B) Cellpose fibre-detection label mask, (C) labels to ROIs, (D) measurement export. The workflow figure combines histology crops, segmentation overlays and diagram arrows.",
+    "methods_statements": [
+     "\"Cross sections of 4- to 6-µm thick were cut Leica RM2135 Microtome (Leica Biosystems, Nussloch GmbH, Germany), deparaffinized in Histochoice clearing agent (Sigma-Aldrich, St. Louis, MO), rehydrated, and stained with Picrosirius Red Fast Green (SRFG) staining to differentiate between myofibers (stained in green) and connective tissue (stained in red).\"",
+     "\"Finally, images [Tagged Image File Format (Tiff)] were visualized and generated using EVOS FL Auto-inverted microscope and are comprised of 12 stitched fields of ×60 magnification (µm to pixel ratio of 6.6).\"",
+     "\"The automated image analysis workflow for Fiji (https://doi.org/10.5281/zenodo.7678528) is based on 1) PT-BIOP and Cellpose wrapper plugins [Stringer et al., 2021; ...], and 2) MorphoLibJ plugin (Legland et al., 2016).\"",
+     "\"Image processing included the detection of the myofibers with BIOP Cellpose wrapper plugin and the conversion of the label masks to regions of interest (ROIs) with the MorphoLibJ plugin.\"",
+     "\"The manual measurements were performed using the standard ImageJ measurement tool, and the automated measurements were performed using Fiji ImageJ with Cellpose and MorphoLibJ plugins.\""
+    ],
+    "source": "https://ars.els-cdn.com/content/image/1-s2.0-S0032579123003115-gr1_lrg.jpg (Elsevier \"large\"/HiRes version; PMC OA copy https://pmc-oa-opendata.s3.amazonaws.com/PMC10258492.1/gr1.jpg is 791 px wide)",
+    "source_px": [
+     3167,
+     802
+    ],
+    "web_px": [
+     1400,
+     355
+    ],
+    "attribution": "Figure 1 from Dayan et al., Poultry Science (2023), https://doi.org/10.1016/j.psj.2023.102792. Reproduced by the authors. Licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   {
+    "file": "assets/publications/figures/10-1016-j-psj-2023-102792_fig2.png",
+    "figure_number": "2",
+    "label": "Figure 2",
+    "caption": "Myofiber diameter distribution in the pectoral muscle of 14-day-old broiler from manual and automated image analysis methods. Myofibers are clustered in bin intervals of 5 μm where (A) presents the diameter distribution of the actual number of counted myofibers and (B) presents the diameter distribution as percentage of the total myofibers. The images are comprised of 12 stitched fields of ×60 magnification and were generated using EVOS FL Auto-inverted microscope. The manual measurements were performed using the standard ImageJ measurement tool, and the automated measurements were performed using Fiji ImageJ with Cellpose and MorphoLibJ plugins.",
+    "technique": "Quantification derived from images: myofiber diameter distributions from manual (ImageJ measurement tool) vs automated (Fiji with Cellpose and MorphoLibJ) analysis of EVOS images",
+    "topic": "image-analysis",
+    "notes": "Plot-only quantification panels (no micrographs), included because the request covers quantification derived from images. Saved as PNG (line art).",
+    "methods_statements": [
+     "\"Cross sections of 4- to 6-µm thick were cut Leica RM2135 Microtome (Leica Biosystems, Nussloch GmbH, Germany), deparaffinized in Histochoice clearing agent (Sigma-Aldrich, St. Louis, MO), rehydrated, and stained with Picrosirius Red Fast Green (SRFG) staining to differentiate between myofibers (stained in green) and connective tissue (stained in red).\"",
+     "\"Finally, images [Tagged Image File Format (Tiff)] were visualized and generated using EVOS FL Auto-inverted microscope and are comprised of 12 stitched fields of ×60 magnification (µm to pixel ratio of 6.6).\"",
+     "\"The automated image analysis workflow for Fiji (https://doi.org/10.5281/zenodo.7678528) is based on 1) PT-BIOP and Cellpose wrapper plugins [Stringer et al., 2021; ...], and 2) MorphoLibJ plugin (Legland et al., 2016).\"",
+     "\"Image processing included the detection of the myofibers with BIOP Cellpose wrapper plugin and the conversion of the label masks to regions of interest (ROIs) with the MorphoLibJ plugin.\"",
+     "\"The manual measurements were performed using the standard ImageJ measurement tool, and the automated measurements were performed using Fiji ImageJ with Cellpose and MorphoLibJ plugins.\""
+    ],
+    "source": "https://ars.els-cdn.com/content/image/1-s2.0-S0032579123003115-gr2_lrg.jpg (Elsevier \"large\"/HiRes version; PMC OA copy https://pmc-oa-opendata.s3.amazonaws.com/PMC10258492.1/gr2.jpg is 791 px wide)",
+    "source_px": [
+     3167,
+     785
+    ],
+    "web_px": [
+     1400,
+     347
+    ],
+    "attribution": "Figure 2 from Dayan et al., Poultry Science (2023), https://doi.org/10.1016/j.psj.2023.102792. Reproduced by the authors. Licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   {
+    "file": "assets/publications/figures/10-1016-j-psj-2023-102792_fig3.jpg",
+    "figure_number": "3",
+    "label": "Figure 3",
+    "caption": "Myofiber diameter distribution in the pectoral muscle of 10-day-old broiler. Myofibers are clustered in bin intervals of 5 μm; (A) diameter distribution in percentage of total myofibers from 2 treatment groups, that is, control and HMTBa. (B, C) show 1 representative field of original sirius red fast green stained images from control and HMTBa treatments. Images are generated using EVOS FL Auto-inverted microscope with ×60 magnification and are comprised of 12 stitched fields; (D) and (E) myofiber identification by automated image analysis measurements performed using Fiji ImageJ with Cellpose and MorphoLibJ plugins.",
+    "technique": "Picrosirius Red Fast Green histology imaged on an EVOS FL Auto (x60, 12 stitched fields) with Cellpose/MorphoLibJ segmentation in Fiji",
+    "topic": "both",
+    "notes": "Panels: (A) diameter-distribution histogram, (B, C) representative SRFG-stained fields (control, HMTBa), (D, E) automated myofiber identification overlays.",
+    "methods_statements": [
+     "\"Cross sections of 4- to 6-µm thick were cut Leica RM2135 Microtome (Leica Biosystems, Nussloch GmbH, Germany), deparaffinized in Histochoice clearing agent (Sigma-Aldrich, St. Louis, MO), rehydrated, and stained with Picrosirius Red Fast Green (SRFG) staining to differentiate between myofibers (stained in green) and connective tissue (stained in red).\"",
+     "\"Finally, images [Tagged Image File Format (Tiff)] were visualized and generated using EVOS FL Auto-inverted microscope and are comprised of 12 stitched fields of ×60 magnification (µm to pixel ratio of 6.6).\"",
+     "\"The automated image analysis workflow for Fiji (https://doi.org/10.5281/zenodo.7678528) is based on 1) PT-BIOP and Cellpose wrapper plugins [Stringer et al., 2021; ...], and 2) MorphoLibJ plugin (Legland et al., 2016).\"",
+     "\"Image processing included the detection of the myofibers with BIOP Cellpose wrapper plugin and the conversion of the label masks to regions of interest (ROIs) with the MorphoLibJ plugin.\"",
+     "\"The manual measurements were performed using the standard ImageJ measurement tool, and the automated measurements were performed using Fiji ImageJ with Cellpose and MorphoLibJ plugins.\""
+    ],
+    "source": "https://ars.els-cdn.com/content/image/1-s2.0-S0032579123003115-gr3_lrg.jpg (Elsevier \"large\"/HiRes version; PMC OA copy https://pmc-oa-opendata.s3.amazonaws.com/PMC10258492.1/gr3.jpg is 791 px wide)",
+    "source_px": [
+     3167,
+     1030
+    ],
+    "web_px": [
+     1400,
+     455
+    ],
+    "attribution": "Figure 3 from Dayan et al., Poultry Science (2023), https://doi.org/10.1016/j.psj.2023.102792. Reproduced by the authors. Licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   }
+  ],
+  "key": "37276700",
+  "in_scope": true,
+  "waiger_uni": true
+ },
+ {
+  "title": "A green formulation for superhydrophobic coatings based on Pickering emulsion templating for anti-biofilm applications",
+  "journal": "Colloids and Surfaces B: Biointerfaces",
+  "year": 2023,
+  "volume": "227",
+  "issue": null,
+  "pages": "113355",
+  "doi": "10.1016/j.colsurfb.2023.113355",
+  "pmid": "37216726",
+  "pmcid": null,
+  "authors": [
+   "Cohen R",
+   "Mani KA",
+   "Pirmatova M",
+   "Jacobi G",
+   "Zelinger E",
+   "Belausov E",
+   "Fallik E",
+   "Banin E",
+   "Mechrez G"
+  ],
+  "pub_type": "Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: The Interdepartmental Unit, Microscopy Lab, The Robert H Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, Rehovot 7610001, Israel.",
+  "field": "other",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: tdm: https://www.elsevier.com/tdm/userlicense/1.0/, tdm: https://www.elsevier.com/legal/tdmrep-license, stm-asf: https://doi.org/10.15223/policy-017, stm-asf: https://doi.org/10.15223/policy-037, stm-asf: https://doi.org/10.15223/policy-012, stm-asf: https://doi.org/10.15223/policy-029, stm-asf: https://doi.org/10.15223/policy-004; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "37216726",
+  "in_scope": true
+ },
+ {
+  "title": "Distinctive foliar features and volatile profiles in three Ambrosia species (Asteraceae)",
+  "journal": "Planta",
+  "year": 2023,
+  "volume": "257",
+  "issue": "4",
+  "pages": "79",
+  "doi": "10.1007/s00425-023-04113-3",
+  "pmid": "36912967",
+  "pmcid": null,
+  "authors": [
+   "Matzrafi M",
+   "Wolberg S",
+   "Abu-Nassar J",
+   "Zelinger E",
+   "Bar E",
+   "Cafri D",
+   "Lewinsohn E",
+   "Shtein I"
+  ],
+  "pub_type": "Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: The Interdepartmental Equipment Unit, Faculty of Agriculture, The Robert H. Smith, Food and Environment, The Hebrew University of Jerusalem, 7610001, Rehovot, Israel.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: tdm: https://www.springernature.com/gp/researchers/text-and-data-mining, vor: https://www.springernature.com/gp/researchers/text-and-data-mining; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "36912967",
+  "in_scope": true
+ },
+ {
+  "title": "Macromolecular sheets direct the morphology and orientation of plate-like biogenic guanine crystals",
+  "journal": "Nature Communications",
+  "year": 2023,
+  "volume": "14",
+  "issue": "1",
+  "pages": "589",
+  "doi": "10.1038/s41467-023-35894-6",
+  "pmid": "36737617",
+  "pmcid": "PMC9898273",
+  "authors": [
+   "Wagner A",
+   "Upcher A",
+   "Maria R",
+   "Magnesen T",
+   "Zelinger E",
+   "Raposo G",
+   "Palmer BA"
+  ],
+  "pub_type": "Research Support, Non-U.S. Gov't, research-article, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: The CSI Center for Scientific Imaging, The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, POB 12, Rehovot, 7610001, Israel.",
+  "field": "other",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC9898273): \"Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C\"; copyright statement: \"© The Author(s) 2023\"; Crossref licence: https://creativecommons.org/licenses/by/4.0"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "not_unit",
+   "evidence": "\"Samples were imaged in an HRSEM Gemini 300 SEM (Zeiss) by secondary electron in-lens detector while maintaining an operating temperature of −120 °C.\" | \"We acknowledge Alexey Tachlytski from Zeiss for his instruction regarding STEM operation and Tally Kossovsky from the Hebrew University of Jerusalem for her guidance and training on microtome operation.\" — Imaging instruments are not unit instruments; staff contribution was investigation and microtome training.",
+   "instruments": [
+    "Zeiss Gemini 300 HRSEM",
+    "Thermo Fisher Talos F200C TEM"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [],
+  "key": "36737617",
+  "in_scope": true
+ },
+ {
+  "title": "Microscopic and metabolic investigations disclose the factors that lead to skin cracking in chili-type pepper fruit varieties",
+  "journal": "Horticulture Research",
+  "year": 2023,
+  "volume": "10",
+  "issue": "4",
+  "pages": "uhad036",
+  "doi": "10.1093/hr/uhad036",
+  "pmid": "37799628",
+  "pmcid": "PMC10548408",
+  "authors": [
+   "Marinov O",
+   "Nomberg G",
+   "Sarkar S",
+   "Arya GC",
+   "Karavani E",
+   "Zelinger E",
+   "Manasherova E",
+   "Cohen H"
+  ],
+  "pub_type": "research-article, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: Center for Scientific Imaging (CSI), The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, Rehovot 7610001, Israel.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC10548408): \"This is an Open Access article distributed under the terms of the Creative Commons Attribution License (https://creativecommons.org/licenses/by/4.0/), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.\"; copyright statement: \"© The Author(s) 2023. Published by Oxford University Press on behalf of Nanjing Agricultural University.\"; PMC OA dataset license_code: CC BY; Crossref licence: https://creativecommons.org/licenses/by/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "confirmed",
+   "evidence": "\"Prior SEM observations using a JEOL 7800 FEG SEM microscope at 5 to 10 kV, samples were coated with a 2 nm layer of Au/Pd particles using a Quorum Q150T ES turbo-molecular pumped sputter.\" — Staff author affiliated with CSI. Light microscopy used a Nikon Eclipse Ni (not a unit instrument).",
+   "instruments": [
+    "JEOL JSM-7800F SEM"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [
+   {
+    "file": "assets/publications/figures/10-1093-hr-uhad036_fig1.jpg",
+    "figure_number": "1",
+    "label": "Figure 1",
+    "caption": "The skin of Vezena Slatka fruit undergoes severe cracking during development. (A) The fruit phenotypes, (B) light microscopy images of the fruit skin surfaces, and (C) scanning electron microscopy (SEM) images of fruit skin surfaces, of smooth-skin Numex Garnet (NG) and cracked-skin Vezena Slatka (VS) pepper at 10, 20, 30, 40, 50 and 60 days after anthesis (daa). Scale bars in (A) = 2 cm, in (B) = 5 mm, and in (C) = 300 μm.",
+    "technique": "SEM, JEOL JSM-7800F (panel C)",
+    "notes": "Mixed: fruit photographs (A), light microscopy on a Nikon Eclipse Ni (B, not a unit instrument) and SEM (C, unit); kept whole.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10548408.1/uhad036f1.jpg",
+    "source_px": [
+     624,
+     781
+    ],
+    "web_px": [
+     624,
+     781
+    ],
+    "attribution": "Figure 1 from Marinov et al., Horticulture Research 2023, https://doi.org/10.1093/hr/uhad036, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   }
+  ],
+  "key": "37799628",
+  "in_scope": true
+ },
+ {
+  "title": "Zinc chloride is effective as an antibiotic in biofilm prevention following septoplasty",
+  "journal": "Scientific Reports",
+  "year": 2023,
+  "volume": "13",
+  "issue": "1",
+  "pages": "8344",
+  "doi": "10.1038/s41598-023-35069-9",
+  "pmid": "37221180",
+  "pmcid": "PMC10206080",
+  "authors": [
+   "Noach N",
+   "Lavy E",
+   "Reifen R",
+   "Friedman M",
+   "Kirmayer D",
+   "Zelinger E",
+   "Ritter A",
+   "Yaniv D",
+   "Reifen E"
+  ],
+  "pub_type": "Research Support, Non-U.S. Gov't, research-article, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: FACSI-Faculty of Agriculture Center for Scientific Imaging. The Robert H. Smith Faculty of Agriculture, Food & Environment, The Hebrew University of Jerusalem, Rehovot, Israel.",
+  "field": "other",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC10206080): \"Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the C\"; copyright statement: \"© The Author(s) 2023\"; PMC OA dataset license_code: CC BY; Crossref licence: https://creativecommons.org/licenses/by/4.0"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "confirmed",
+   "evidence": "\"N.N. wrote the main manuscript text, E.L. coordinated the project, R.R. designed and managed the project, M.F. and D.K. prepared splint samples, E.Z. performed electron and confocal microscopy, A.R. and D.Y. performed clinical follow-up and E.R. carried out surgery.\" | \"Prior to the microscopy evaluation, all of the splint pieces, regardless of the bacterial strain, were cut into four even pieces, coated with a 1 nm gold layer (Au/Pd) (QUORUM Q150T ES) and then visualized by SEM (JEOL, JSM-7800F, Tokyo, Japan Schottky Field Emission Scanning Electron Microscope).\" | \"The biofilm growth on the splint surfaces was evaluated by CLSM (LEICA SP8), and the fluorescence intensity was measured using dry 20×/0.7 NA objective lens with zoom factor of 1.28, excitation of 561 nm and emission of 600–650 nm, with PMT gain of 850 [V].\"",
+   "instruments": [
+    "JEOL JSM-7800F SEM",
+    "Leica SP8 confocal"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [
+   {
+    "file": "assets/publications/figures/10-1038-s41598-023-35069-9_fig2.jpg",
+    "figure_number": "2",
+    "label": "Figure 2",
+    "caption": "Confocal production of bacterial biofilm in vitro, as evaluated by CLSM. Enterobacter aerogenes (a,d), Pseudomonas aeruginosa (b,e) and Staphylococcus aureus (c,f) biofilms were grown on ZnCl2-coated splints and on non-ZnCl2-coated splints as positive growth controls. Pieces of these splints were stained with propidium iodide (PI) and evaluated by CLSM.",
+    "technique": "Confocal laser scanning microscopy (CLSM), Leica SP8",
+    "notes": "Microscopy only.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10206080.1/41598_2023_35069_Fig2_HTML.jpg",
+    "source_px": [
+     797,
+     553
+    ],
+    "web_px": [
+     797,
+     553
+    ],
+    "attribution": "Figure 2 from Noach et al., Scientific Reports 2023, https://doi.org/10.1038/s41598-023-35069-9, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   {
+    "file": "assets/publications/figures/10-1038-s41598-023-35069-9_fig4.jpg",
+    "figure_number": "4",
+    "label": "Figure 4",
+    "caption": "Confocal productions of bacterial biofilm, in vivo, on splints, post insertion, as evaluated by CLSM. Pieces of ZnCl2-coated splints from three patients’ noses (the treatment patients) (a–c) and non-ZnCl2-coated splints from the noses of two patients who were given prophylactic antibiotics (the negative growth control) (d,e) were stained with PI and evaluated by CLSM.",
+    "technique": "Confocal laser scanning microscopy (CLSM), Leica SP8",
+    "notes": "Microscopy only.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10206080.1/41598_2023_35069_Fig4_HTML.jpg",
+    "source_px": [
+     797,
+     563
+    ],
+    "web_px": [
+     797,
+     563
+    ],
+    "attribution": "Figure 4 from Noach et al., Scientific Reports 2023, https://doi.org/10.1038/s41598-023-35069-9, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   {
+    "file": "assets/publications/figures/10-1038-s41598-023-35069-9_fig5.jpg",
+    "figure_number": "5",
+    "label": "Figure 5",
+    "caption": "Biofilm growth of clinical bacteria on ZnCl2-coated splints and on non-ZnCl2-coated splints, captured by SEM. Staphylococcus aureus (a–d), Enterobacter aerogenes (e–h) and Pseudomonas aeruginosa (i–l) were grown for 48 h on ZnCl2-coated splints (b,d,f,h,j,l) and on positive growth control non-ZnCl2-coated splints (a,c,e,g,i,k). Images were taken with an accelerating voltage of 2 kV at magnifications of 1000 (a,b,e,f,i,j) and 10,000 (c,d,g,h,k,l).",
+    "technique": "SEM, JEOL JSM-7800F",
+    "notes": "Microscopy only.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10206080.1/41598_2023_35069_Fig5_HTML.jpg",
+    "source_px": [
+     793,
+     468
+    ],
+    "web_px": [
+     793,
+     468
+    ],
+    "attribution": "Figure 5 from Noach et al., Scientific Reports 2023, https://doi.org/10.1038/s41598-023-35069-9, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   {
+    "file": "assets/publications/figures/10-1038-s41598-023-35069-9_fig6.jpg",
+    "figure_number": "6",
+    "label": "Figure 6",
+    "caption": "Splints taken from the clinical patients after a 7-day period in the patients’ nasal cavities, captured by SEM. ZnCl2-coated splints (a–i) were inserted into the nasal cavities of three patients for a 7-day period following septoplasty. Regular non-ZnCl2-coated splints (j–o) were inserted for a period of 7 days into the nasal cavities of two patients under prophylactic antibiotic treatment and were used as negative growth controls. Splints were removed from the patients’ nasal cavities and captured by SEM; treatment patient 1 (a–c), treatment patient 2 (d–f), treatment patient 3 (g–i), control patient 1 (j–l) and control patient 2 (m–o). Images were taken with an accelerating voltage of 2 kV at magnifications of 1000 (left column), 10,000 (middle column), and 20,000 (right column).",
+    "technique": "SEM, JEOL JSM-7800F",
+    "notes": "Microscopy only.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC10206080.1/41598_2023_35069_Fig6_HTML.jpg",
+    "source_px": [
+     793,
+     956
+    ],
+    "web_px": [
+     793,
+     956
+    ],
+    "attribution": "Figure 6 from Noach et al., Scientific Reports 2023, https://doi.org/10.1038/s41598-023-35069-9, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   }
+  ],
+  "key": "37221180",
+  "in_scope": true
+ },
+ {
+  "title": "A standardized nomenclature and atlas of the female terminalia of <i>Drosophila melanogaster</i>",
+  "journal": "Fly",
+  "year": 2022,
+  "volume": "16",
+  "issue": "1",
+  "pages": "128-151",
+  "doi": "10.1080/19336934.2022.2058309",
+  "pmid": "35575031",
+  "pmcid": "PMC9116418",
+  "authors": [
+   "McQueen EW",
+   "Afkhami M",
+   "Atallah J",
+   "Belote JM",
+   "Gompel N",
+   "Heifetz Y",
+   "Kamimura Y",
+   "Kornhauser SC",
+   "Masly JP",
+   "O'Grady P",
+   "Peláez J",
+   "Rebeiz M",
+   "Rice G",
+   "Sánchez-Herrero E",
+   "Santos Nunes MD",
+   "Santos Rampasso A",
+   "Schnakenberg SL",
+   "Siegal ML",
+   "Takahashi A",
+   "Tanaka KM",
+   "Turetzek N",
+   "Zelinger E",
+   "Courtier-Orgogozo V",
+   "Toda MJ",
+   "Wolfner MF",
+   "Yassin A"
+  ],
+  "pub_type": "Research Support, Non-U.S. Gov't, research-article, Review, Journal Article, Research Support, N.I.H., Extramural",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: Department of Entomology, The Hebrew University of Jerusalem, Rehovot, Israel. | Center for Scientific Imaging, The Hebrew University of Jerusalem, Rehovot, Israel.",
+  "field": "entomology",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC9116418): \"This is an Open Access article distributed under the terms of the Creative Commons Attribution License (http://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited.\"; copyright statement: \"© 2022 The Author(s). Published by Informa UK Limited, trading as Taylor & Francis Group.\"; PMC OA dataset license_code: CC BY; Crossref licence: http://creativecommons.org/licenses/by/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "confirmed",
+   "evidence": "\"Reproductive tracts were imaged in a Leica TCS SP8 multiphoton (MP) laser scanning confocal microscope operated by the LAS X software.\" — Staff author affiliated with CSI. SEM (Hitachi) and micro-CT (Zeiss Xradia) were not unit instruments. The only SP8 figure (Fig. 4) is mostly schematic, so no figures were taken.",
+   "instruments": [
+    "Leica TCS SP8 MP confocal"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [],
+  "key": "35575031",
+  "in_scope": true
+ },
+ {
+  "title": "Critical Sites on Ostreolysin Are Responsible for Interaction with Cytoskeletal Proteins",
+  "journal": "Biomedicines",
+  "year": 2022,
+  "volume": "10",
+  "issue": "10",
+  "pages": "2442",
+  "doi": "10.3390/biomedicines10102442",
+  "pmid": "36289704",
+  "pmcid": "PMC9598724",
+  "authors": [
+   "Berke NA",
+   "Di Pizio A",
+   "Vaden TD",
+   "Shoval I",
+   "Gover O",
+   "Waiger D",
+   "Solomon G",
+   "Sepčić K",
+   "Schwartz B"
+  ],
+  "pub_type": "research-article, Journal Article",
+  "staff": [
+   "Daniel Waiger"
+  ],
+  "identity_evidence": "Waiger D: The Robert H. Smith Faculty of Agriculture, Institute of Biochemistry, Food Science and Nutrition, Food and Environment, School of Nutritional Sciences, The Hebrew University of Jerusalem, Rehovot 7610001, Israel.",
+  "field": "biochemistry",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC9598724): \"https://creativecommons.org/licenses/by/4.0/Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (https://creativecommons.org/licenses/by/4.0/).\"; copyright statement: \"© 2022 by the authors.\"; PMC OA dataset license_code: CC BY; Crossref licence: https://creativecommons.org/licenses/by/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "confirmed",
+   "evidence": "\"Cells were stained with DAPI, mounted in Fluoro-Gel (EMS, Cat#17985-10) and visualized by fluorescence laser scanning confocal microscopy with a Leica SP8 according to the following parameters: magnification—60X water; tubulin—Alexa Fluor 488, excitation 490 nm, emission 525 nm; caveolin-1—Alexa Fluor 488, excitation 490 nm, emission 525 nm; rOlyA—Alexa Fluor 594, excitation 590 nm, emission 617 nm;\" | \"We are also grateful to Oded Livnah and Einat Zelinger for helpful discussions.\" — Staff co-author D. Waiger; unit instrument named. STORM imaging (ONI) is not a unit instrument.",
+   "instruments": [
+    "Leica SP8 confocal",
+    "ONI STORM (not unit)"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [
+   {
+    "file": "assets/publications/figures/10-3390-biomedicines10102442_fig3.jpg",
+    "figure_number": "3",
+    "label": "Figure 3",
+    "caption": "Intracellular distribution of rOlyA and OlyA6-mCherry at different time points: 2 h (A,B), 5 h (C,D), 7 h (E,F) and 24 h (G,H) in fixed HIB-1B preadipocytes. Representative images of immunofluorescence using antibodies against rOlyA (10 µg mL−1) immunostained with Alexa Fluor 594 or OlyA6-mCherry (30 µg mL−1) mCherry (610 nm). Fixed HIB-1B cells were incubated with rOlyA or OlyA6-mCherry, followed by treatment with anti-rOlyA antibodies and the secondary antibodies conjugated with Alexa Fluor 594. Scale bar = 20 µm.",
+    "technique": "Immunofluorescence confocal, Leica SP8 (per Methods)",
+    "notes": "Microscopy only. Caption does not name the microscope; Methods state the immunofluorescence was imaged on a Leica SP8.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9598724.1/biomedicines-10-02442-g003.jpg",
+    "source_px": [
+     723,
+     294
+    ],
+    "web_px": [
+     723,
+     294
+    ],
+    "attribution": "Figure 3 from Berke et al., Biomedicines 2022, https://doi.org/10.3390/biomedicines10102442, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   {
+    "file": "assets/publications/figures/10-3390-biomedicines10102442_fig8.jpg",
+    "figure_number": "8",
+    "label": "Figure 8",
+    "caption": "Colocalization of rOlyA and α-tubulin in HIB-1B cells at 150 min post-treatment. HIB-1B cells were treated with rOly, W28A, W96A 10 μg mL−1 and OlyA6-mCherry 30 μg mL−1. Confocal microscopy imaging (A) and spatial distribution of the visualization by Imaris analysis (B–D). (A) Represented distribution in treated preadipocytes and α-tubulin interaction from confocal microscopy. Fixed cells were stained with anti-rOlyA antibodies (red, top panel), anti-α-tubulin antibodies (green) and DAPI (bottom panel—merged images). Intracellular microtubules (MTs) were determined by z-stack acquisition in a confocal microscope. Scale bars = 20 μm. (B) Imaris analysis represents protein interaction with α-tubulin filaments in treated cells. rOlyA and OlyA6-mCherry colocalize with α-tubulin filaments, whereas mutants W28A and W96A do not. (C) Imaris analysis of protein interaction with β-tubulin filament in treated cells. Representative cells were selected from a random field of view on the coverslip. The resulting images were analyzed with Imaris software. Finely spaced confocal stacks were acquired to reconstruct a 3D cell volume. Deconvolved stacks were analyzed via Imaris software to generate spots corresponding to the individual rOlyA or OlyA6-mCherry spots and to analyze the colocalization with α/β-tubulin filaments. (D) Efficiency of interaction with α-tubulin (left panel) and β-tubulin (right panel), graphic representation. Analysis performed with Imaris software to generate spots corresponding to α-tubulin- and rOly-containing protein from confocal images. Quantification of the cytoplasmic foci that contain both α-tubulin and rOlyA (close—colocalized, distant—not colocalized). The proportions of the total spots in each cell that were colocalized, and those that were not colocalized, are presented in a box-and-whisker plot. * p-value < 0.0001.",
+    "technique": "Confocal (Leica SP8) with Imaris analysis",
+    "notes": "Mixed: confocal images (A), Imaris renderings (B, C) and box plots (D). The publisher split the figure into two image files (g008a, g008b), which were stacked vertically into one image without cropping.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9598724.1/biomedicines-10-02442-g008a.jpg + biomedicines-10-02442-g008b.jpg",
+    "source_px": [
+     728,
+     1002
+    ],
+    "web_px": [
+     728,
+     1002
+    ],
+    "attribution": "Figure 8 from Berke et al., Biomedicines 2022, https://doi.org/10.3390/biomedicines10102442, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   }
+  ],
+  "key": "36289704",
+  "in_scope": true
+ },
+ {
+  "title": "Cucumber fruit skin reticulation affects post-harvest traits",
+  "journal": "Postharvest Biology and Technology",
+  "year": 2022,
+  "volume": "194",
+  "issue": null,
+  "pages": "112071",
+  "doi": "10.1016/j.postharvbio.2022.112071",
+  "pmid": null,
+  "pmcid": null,
+  "authors": [
+   "Gal Nomberg",
+   "Ofir Marinov",
+   "Eldad Karavani",
+   "Ekaterina Manasherova",
+   "Einat Zelinger",
+   "Oded Yarden",
+   "Hagai Cohen"
+  ],
+  "pub_type": "journal-article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "HUJI research portal (https://cris.huji.ac.il/en/publications/cucumber-fruit-skin-reticulation-affects-post-harvest-traits/): 'Einat Zelinger' -> 'Hebrew University of Jerusalem'.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: tdm: https://www.elsevier.com/tdm/userlicense/1.0/, tdm: https://www.elsevier.com/legal/tdmrep-license, stm-asf: https://doi.org/10.15223/policy-017, stm-asf: https://doi.org/10.15223/policy-037, stm-asf: https://doi.org/10.15223/policy-012, stm-asf: https://doi.org/10.15223/policy-029, stm-asf: https://doi.org/10.15223/policy-004; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "10.1016/j.postharvbio.2022.112071",
+  "in_scope": true
+ },
+ {
+  "title": "Encapsulation of Bacillus thuringiensis in an inverse Pickering emulsion for pest control applications",
+  "journal": "Colloids and Surfaces B: Biointerfaces",
+  "year": 2022,
+  "volume": "213",
+  "issue": null,
+  "pages": "112427",
+  "doi": "10.1016/j.colsurfb.2022.112427",
+  "pmid": "35219966",
+  "pmcid": null,
+  "authors": [
+   "Yaakov N",
+   "Kottakota C",
+   "Mani KA",
+   "Naftali SM",
+   "Zelinger E",
+   "Davidovitz M",
+   "Ment D",
+   "Mechrez G"
+  ],
+  "pub_type": "Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: The Interdepartmental Equipment Unit, The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, POB 12, Rehovot 7610001, Israel.",
+  "field": "entomology",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: tdm: https://www.elsevier.com/tdm/userlicense/1.0/, tdm: https://www.elsevier.com/legal/tdmrep-license, stm-asf: https://doi.org/10.15223/policy-017, stm-asf: https://doi.org/10.15223/policy-037, stm-asf: https://doi.org/10.15223/policy-012, stm-asf: https://doi.org/10.15223/policy-029, stm-asf: https://doi.org/10.15223/policy-004; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "35219966",
+  "in_scope": true
+ },
+ {
+  "title": "Encapsulation of anti‐viral active material for plant protection based on inverse Pickering emulsions",
+  "journal": "Polymers for Advanced Technologies",
+  "year": 2022,
+  "volume": "33",
+  "issue": "11",
+  "pages": "3887-3896",
+  "doi": "10.1002/pat.5842",
+  "pmid": null,
+  "pmcid": null,
+  "authors": [
+   "Karthik Ananth Mani",
+   "Meche Berenice",
+   "Noga Yaakov",
+   "Reut Amar Feldbaum",
+   "Liliya Kotliarevsk",
+   "Shoham Matsrafi Naftali",
+   "Eduard Belausov",
+   "Einat Zelinger",
+   "Elazar Fallik",
+   "Aviv Dombrovsky",
+   "Guy Mechrez"
+  ],
+  "pub_type": "journal-article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Crossref author affiliation for Einat Zelinger: 'Institute of Biochemistry, Food Science and Nutrition, The R[obert H. Smith Faculty of Agriculture…]'.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: vor: http://onlinelibrary.wiley.com/termsAndConditions#vor; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "10.1002/pat.5842",
+  "in_scope": true
+ },
+ {
+  "title": "Individual Coating of Entomopathogenic Nematodes with Titania (TiO2) Nanoparticles Based on Oil-in-Water Pickering Emulsion: A New Formulation for Biopesticides",
+  "journal": "Journal of Agricultural and Food Chemistry",
+  "year": 2022,
+  "volume": "70",
+  "issue": "42",
+  "pages": "13518-13527",
+  "doi": "10.1021/acs.jafc.2c04424",
+  "pmid": "36226658",
+  "pmcid": null,
+  "authors": [
+   "Kotliarevski L",
+   "Cohen R",
+   "Ramakrishnan J",
+   "Wu S",
+   "Mani KA",
+   "Amar-Feldbaum R",
+   "Yaakov N",
+   "Zelinger E",
+   "Belausov E",
+   "Shapiro-Ilan D",
+   "Glazer I",
+   "Ment D",
+   "Mechrez G"
+  ],
+  "pub_type": "Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: The Interdepartmental Equipment Unit, The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, POB 12, Rehovot7610001, Israel.",
+  "field": "entomology",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: stm-asf: https://doi.org/10.15223/policy-029, stm-asf: https://doi.org/10.15223/policy-037, stm-asf: https://doi.org/10.15223/policy-045; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "36226658",
+  "in_scope": true
+ },
+ {
+  "title": "Platform for Active Vaccine Formulation Using a Two-Mode Enhancement Mechanism of Epitope Presentation by Pickering Emulsion",
+  "journal": "ACS Applied Bio Materials",
+  "year": 2022,
+  "volume": "5",
+  "issue": "8",
+  "pages": "3859-3869",
+  "doi": "10.1021/acsabm.2c00410",
+  "pmid": "35913405",
+  "pmcid": "PMC9382630",
+  "authors": [
+   "Mechrez G",
+   "Mani KA",
+   "Saha A",
+   "Lachman O",
+   "Luria N",
+   "Molad O",
+   "Kotliarevski L",
+   "Zelinger E",
+   "Smith E",
+   "Yaakov N",
+   "Stone DS",
+   "Reches M",
+   "Dombrovsky A"
+  ],
+  "pub_type": "research-article, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: The Interdepartmental Equipment Unit, The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, Rehovot 7610001, Israel.",
+  "field": "biochemistry",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC9382630): \"https://creativecommons.org/licenses/by/4.0/Permits the broadest form of re-use including for commercial purposes, provided that author attribution and integrity are maintained (https://creativecommons.org/licenses/by/4.0/).\"; copyright statement: \"© 2022 American Chemical Society\"; PMC OA dataset license_code: CC BY; Crossref licence: https://creativecommons.org/licenses/by/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "confirmed",
+   "evidence": "\"Confocal images were collected on a Leica SP8 confocal microscope (Leica Microsystems CMS GmbH, Wetzlar, Germany) equipped with an inverted microscope fitted with a 40× HC PL APO CS2 (1.10 NA) water immersion objective.\" | \"Cryogenic-field emission scanning electron microscopy (cryo-FESEM) analysis was performed on a JSM-7800F Schottky Field Emission Scanning Electron Microscope (Jeol, Ltd., Tokyo, Japan).\" — TEM instrument not stated; TEM figures not taken.",
+   "instruments": [
+    "Leica SP8 confocal",
+    "JEOL JSM-7800F cryo-SEM"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [
+   {
+    "file": "assets/publications/figures/10-1021-acsabm-2c00410_fig5.jpg",
+    "figure_number": "5",
+    "label": "Figure 5",
+    "caption": "Characteristic confocal fluorescence microscopy images of 20:80 o/w Pickering emulsions stabilized by 1.3 wt % VLPs: (a) ToBRFV CP detection in Pickering emulsions subjected to specific fluorescent antibodies (Alexa Fluor 488) against ToBRFV using the green channel; (b) PepMV CP detection in Pickering emulsions subjected to specific fluorescent antibodies (Alexa Fluor 594) against PepMV using the red channel; and (c,d) low and high magnifications of the fluorescence signals in Pickering emulsions using combined green and red channels. A schematic illustration of the oil droplets in the VLP-stabilized Pickering emulsions is depicted on the right of the fluorescent images; the scale bar is identical for a and b and for c and d and represents 10 μm.",
+    "technique": "Confocal, Leica SP8",
+    "notes": "Microscopy only.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9382630.1/mt2c00410_0005.jpg",
+    "source_px": [
+     697,
+     462
+    ],
+    "web_px": [
+     697,
+     462
+    ],
+    "attribution": "Figure 5 from Mechrez et al., ACS Applied Bio Materials 2022, https://doi.org/10.1021/acsabm.2c00410, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   {
+    "file": "assets/publications/figures/10-1021-acsabm-2c00410_fig6.jpg",
+    "figure_number": "6",
+    "label": "Figure 6",
+    "caption": "Characteristic cryogenic HRSEM micrographs of 20:80 o/w Pickering emulsions stabilized by 1.3 wt % VLPs. Pickering emulsions vitrified, fractured, and subsequently subjected to controlled sublimation for interface exposure were analyzed: (a,b) the characteristic basic structure of a Pickering emulsion and (c,d) higher magnification micrographs (10×) showing the presence of the VLPs at the o/w interface of the oil droplets. A schematic illustration of the oil droplets in the VLP-stabilized Pickering emulsions is depicted on the right of the micrographs.",
+    "technique": "Cryo-FESEM (cryogenic HRSEM), JEOL JSM-7800F",
+    "notes": "Microscopy only.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9382630.1/mt2c00410_0006.jpg",
+    "source_px": [
+     783,
+     440
+    ],
+    "web_px": [
+     783,
+     440
+    ],
+    "attribution": "Figure 6 from Mechrez et al., ACS Applied Bio Materials 2022, https://doi.org/10.1021/acsabm.2c00410, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   {
+    "file": "assets/publications/figures/10-1021-acsabm-2c00410_fig7.jpg",
+    "figure_number": "7",
+    "label": "Figure 7",
+    "caption": "Characteristic confocal fluorescence microscopy images of 20:80 o/w Pickering emulsions stabilized by 1.3 wt % VLP/fluorescent epitope conjugates: (a) a [5(6)-FAM] labeled SARS-CoV-2 S1 epitope visualized on oil droplets with the green channel; (b) PepMV-CP detection using Alexa Fluor 594-specific fluorescent antibodies, visualized with the red channel; (c) colocalization of the green and red fluorescent signals (denoted in orange) visualized with both the green and red channels. A schematic illustration of the oil droplets in the Pickering emulsions stabilized by VLP/epitope conjugates is depicted on the right of the fluorescent images; the scale bar is for all images and represents 5 μm.",
+    "technique": "Confocal, Leica SP8",
+    "notes": "Microscopy only.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9382630.1/mt2c00410_0007.jpg",
+    "source_px": [
+     697,
+     222
+    ],
+    "web_px": [
+     697,
+     222
+    ],
+    "attribution": "Figure 7 from Mechrez et al., ACS Applied Bio Materials 2022, https://doi.org/10.1021/acsabm.2c00410, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   }
+  ],
+  "key": "35913405",
+  "in_scope": true
+ },
+ {
+  "title": "The magnetic stir bar as a source of impurities in laboratory blank solutions of the environmental samples subjected to microwave-assisted acid digestion",
+  "journal": "Chemical Papers",
+  "year": 2022,
+  "volume": "76",
+  "issue": "9",
+  "pages": "5985-5990",
+  "doi": "10.1007/s11696-022-02276-z",
+  "pmid": null,
+  "pmcid": null,
+  "authors": [
+   "Vasiliy V. Rosen",
+   "Yuliana Andrushchenko",
+   "Einat Zelinger",
+   "Orit Gal Garber"
+  ],
+  "pub_type": "journal-article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "No affiliation in the Crossref record for the journal version (the publisher page could not be fetched). The ChemRxiv preprint of the same work (10.26434/chemrxiv-2021-9wz57; same authors Rosen, Andrushchenko, Zelinger, Gal Garber) has Crossref affiliation 'The Hebrew University of Jerusalem' for Einat Zelinger. Co-author Orit Gal Garber is the person acknowledged for the Interdepartmental Equipment Unit/CSI in PMIDs 30564259 and 41216890.",
+  "field": "soil/environment",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: tdm: https://www.springer.com/tdm, vor: https://www.springer.com/tdm; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "10.1007/s11696-022-02276-z",
+  "in_scope": true
+ },
+ {
+  "title": "Corrigendum to: Resolving diurnal dynamics of the chloroplastic glutathione redox state in Arabidopsis reveals its photosynthetically derived oxidation",
+  "journal": "The Plant Cell",
+  "year": 2021,
+  "volume": "33",
+  "issue": "11",
+  "pages": "3596",
+  "doi": "10.1093/plcell/koab177",
+  "pmid": "34293176",
+  "pmcid": null,
+  "authors": [
+   "Haber Z",
+   "Lampl N",
+   "Meyer AJ",
+   "Zelinger E",
+   "Hipsch M",
+   "Rosenwasser S"
+  ],
+  "pub_type": "Published Erratum",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Published erratum to PMID 33624811 (same author list); identity established on the parent article (E. Zelinger, The Interdepartmental Equipment Unit, Faculty of Agriculture, Rehovot).",
+  "field": "plant science",
+  "type": "erratum",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: vor: https://academic.oup.com/journals/pages/open_access/funder_policies/chorus/standard_publication_model; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "34293176",
+  "in_scope": true
+ },
+ {
+  "title": "Eimeria bovis infections induce G1 cell cycle arrest and a senescence-like phenotype in endothelial host cells",
+  "journal": "Parasitology",
+  "year": 2021,
+  "volume": "148",
+  "issue": "3",
+  "pages": "341-353",
+  "doi": "10.1017/s0031182020002097",
+  "pmid": "33100232",
+  "pmcid": "PMC7890351",
+  "authors": [
+   "Velásquez ZD",
+   "López-Osorio S",
+   "Waiger D",
+   "Manosalva C",
+   "Pervizaj-Oruqaj L",
+   "Herold S",
+   "Hermosilla C",
+   "Taubert A"
+  ],
+  "pub_type": "research-article, Journal Article",
+  "staff": [
+   "Daniel Waiger"
+  ],
+  "identity_evidence": "Waiger D: Center for Scientific Imaging, The Robert H. Smith Faculty of Agriculture, Food and Environment, Rehovot, Hebrew University of Jerusalem Israel, Rehovot, Israel.",
+  "field": "veterinary/animal",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC7890351): \"https://creativecommons.org/licenses/by/4.0/This is an Open Access article, distributed under the terms of the Creative Commons Attribution licence (http://creativecommons.org/licenses/by/4.0/), which permits unrestricted re-use, distribution, and reproduction in any medium, provided the original wo\"; copyright statement: \"© The Author(s) 2020\"; Crossref licence: http://creativecommons.org/licenses/by/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "not_unit",
+   "evidence": "\"Images were collected with a Zeiss Confocal LSM 710 equipped with a motorized XY stage and an oil 40× Plan-Apochromat objective (numerical aperture of 1.3 Oil DIC MC27).\" — Confocal imaging was done at Giessen (acknowledgement thanks the Giessen anatomy institute for access to the LSM 710).",
+   "instruments": [
+    "Zeiss LSM 710 (Justus Liebig University Giessen)"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [],
+  "key": "33100232",
+  "in_scope": true
+ },
+ {
+  "title": "Erratum to: Resolving diurnal dynamics of the chloroplastic glutathione redox state in Arabidopsis reveals its photosynthetically derived oxidation",
+  "journal": "The Plant Cell",
+  "year": 2021,
+  "volume": "33",
+  "issue": "11",
+  "pages": "3592-3593",
+  "doi": "10.1093/plcell/koab159",
+  "pmid": "34297824",
+  "pmcid": null,
+  "authors": [
+   "Haber Z",
+   "Lampl N",
+   "Meyer AJ",
+   "Zelinger E",
+   "Hipsch M",
+   "Rosenwasser S"
+  ],
+  "pub_type": "Published Erratum",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Published erratum to PMID 33624811 (same author list); identity established on the parent article (E. Zelinger, The Interdepartmental Equipment Unit, Faculty of Agriculture, Rehovot).",
+  "field": "plant science",
+  "type": "erratum",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: vor: https://academic.oup.com/journals/pages/open_access/funder_policies/chorus/standard_publication_model; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "34297824",
+  "in_scope": true
+ },
+ {
+  "title": "Fluorine-Free Superhydrophobic Coating with Antibiofilm Properties Based on Pickering Emulsion Templating",
+  "journal": "ACS Applied Materials & Interfaces",
+  "year": 2021,
+  "volume": "13",
+  "issue": "31",
+  "pages": "37693-37703",
+  "doi": "10.1021/acsami.1c10125",
+  "pmid": "34337945",
+  "pmcid": null,
+  "authors": [
+   "Maayan M",
+   "Mani KA",
+   "Yaakov N",
+   "Natan M",
+   "Jacobi G",
+   "Atkins A",
+   "Zelinger E",
+   "Fallik E",
+   "Banin E",
+   "Mechrez G"
+  ],
+  "pub_type": "Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: Institute of Biochemistry, Food Science and Nutrition, The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, POB 12, Rehovot 7610001, Israel.",
+  "field": "other",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: stm-asf: https://doi.org/10.15223/policy-029, stm-asf: https://doi.org/10.15223/policy-037, stm-asf: https://doi.org/10.15223/policy-045; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "34337945",
+  "in_scope": true
+ },
+ {
+  "title": "Resolving diurnal dynamics of the chloroplastic glutathione redox state in Arabidopsis reveals its photosynthetically derived oxidation",
+  "journal": "The Plant Cell",
+  "year": 2021,
+  "volume": "33",
+  "issue": "5",
+  "pages": "1828-1844",
+  "doi": "10.1093/plcell/koab068",
+  "pmid": "33624811",
+  "pmcid": null,
+  "authors": [
+   "Haber Z",
+   "Lampl N",
+   "Meyer AJ",
+   "Zelinger E",
+   "Hipsch M",
+   "Rosenwasser S"
+  ],
+  "pub_type": "Research Support, Non-U.S. Gov't, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: The Interdepartmental Equipment Unit, The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, Rehovot 7610001, Israel.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: vor: https://academic.oup.com/journals/pages/open_access/funder_policies/chorus/standard_publication_model; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "33624811",
+  "in_scope": true
+ },
+ {
+  "title": "Sensing stress responses in potato with whole-plant redox imaging",
+  "journal": "Plant Physiology",
+  "year": 2021,
+  "volume": "187",
+  "issue": "2",
+  "pages": "618-631",
+  "doi": "10.1093/plphys/kiab159",
+  "pmid": "33823032",
+  "pmcid": null,
+  "authors": [
+   "Hipsch M",
+   "Lampl N",
+   "Zelinger E",
+   "Barda O",
+   "Waiger D",
+   "Rosenwasser S"
+  ],
+  "pub_type": "Research Support, Non-U.S. Gov't, Journal Article",
+  "staff": [
+   "Daniel Waiger",
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: Center for Scientific Imaging Core Facility, The Robert H. Smith Faculty of Agriculture, Food & Environment, The Hebrew University of Jerusalem, Rehovot 7610001, Israel. ; Waiger D: Center for Scientific Imaging Core Facility, The Robert H. Smith Faculty of Agriculture, Food & Environment, The Hebrew University of Jerusalem, Rehovot 7610001, Israel.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: vor: https://academic.oup.com/journals/pages/open_access/funder_policies/chorus/standard_publication_model; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "33823032",
+  "in_scope": true
+ },
+ {
+  "title": "Single cell encapsulation in a Pickering emulsion stabilized by TiO2 nanoparticles provides protection against UV radiation for a biopesticide",
+  "journal": "Colloids and Surfaces B: Biointerfaces",
+  "year": 2021,
+  "volume": "206",
+  "issue": null,
+  "pages": "111958",
+  "doi": "10.1016/j.colsurfb.2021.111958",
+  "pmid": "34237526",
+  "pmcid": null,
+  "authors": [
+   "Amar Feldbaum R",
+   "Yaakov N",
+   "Ananth Mani K",
+   "Yossef E",
+   "Metbeev S",
+   "Zelinger E",
+   "Belausov E",
+   "Koltai H",
+   "Ment D",
+   "Mechrez G"
+  ],
+  "pub_type": "Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: The Interdepartmental Equipment Unit, The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, POB 12, Rehovot, 7610001, Israel.",
+  "field": "entomology",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: tdm: https://www.elsevier.com/tdm/userlicense/1.0/, tdm: https://www.elsevier.com/legal/tdmrep-license, am: http://www.elsevier.com/open-access/userlicense/1.0/, stm-asf: https://doi.org/10.15223/policy-017, stm-asf: https://doi.org/10.15223/policy-037, stm-asf: https://doi.org/10.15223/policy-012, stm-asf: https://doi.org/10.15223/policy-029, stm-asf: https://doi.org/10.15223/policy-004; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "34237526",
+  "in_scope": true
+ },
+ {
+  "title": "Single-Conidium Encapsulation in Oil-in-Water Pickering Emulsions at High Encapsulation Yield",
+  "journal": "Frontiers in Chemistry",
+  "year": 2021,
+  "volume": "9",
+  "issue": null,
+  "pages": "726874",
+  "doi": "10.3389/fchem.2021.726874",
+  "pmid": "34912776",
+  "pmcid": "PMC8666500",
+  "authors": [
+   "Kotliarevski L",
+   "Mani KA",
+   "Feldbaum RA",
+   "Yaakov N",
+   "Belausov E",
+   "Zelinger E",
+   "Ment D",
+   "Mechrez G"
+  ],
+  "pub_type": "research-article, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: Institute of Biochemistry, Food Science and Nutrition, The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, Rehovot, Israel.",
+  "field": "entomology",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC8666500): \"This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journa\"; copyright statement: \"Copyright © 2021 Kotliarevski, Mani, Feldbaum, Yaakov, Belausov, Zelinger, Ment and Mechrez.\"; PMC OA dataset license_code: CC BY; Crossref licence: https://creativecommons.org/licenses/by/4.0/ [XML text names CC BY without a version; version taken from Crossref]"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "confirmed",
+   "evidence": "\"A Leica SP8 laser scanning microscope (Leica, Wetzlar, Germany) equipped with a solid state laser with 488 nm light, HC PL APO CS 20×/0.75 objective (Leica, Wetzlar, Germany) and Leica Application Suite X software (LAS X, Leica, Wetzlar, Germany) were used for 3D image acquision.\" — Staff co-author (E. Zelinger); unit instrument named.",
+   "instruments": [
+    "Leica SP8 confocal"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [
+   {
+    "file": "assets/publications/figures/10-3389-fchem-2021-726874_fig5.jpg",
+    "figure_number": "5",
+    "label": "FIGURE 5",
+    "caption": "Confocal microscopy images of single-cell encapsulation of 0.02% Triton X-100 Metarhizium brunneum Mb7-GFP conidia suspension in titania-NH2 Pickering emulsion oil/water ratio. (A) 40:60, 0.4wt%. (B) 50:50, 0.4wt%. (C) 40:60, 1wt%. (D) 50:50, 1wt%. (E) 40:60, 2wt%. (F) 50:50, 2wt%. Scale bar is 30 μm.",
+    "technique": "Confocal, Leica SP8",
+    "notes": "Microscopy only.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC8666500.1/fchem-09-726874-g005.jpg",
+    "source_px": [
+     740,
+     495
+    ],
+    "web_px": [
+     740,
+     495
+    ],
+    "attribution": "Figure 5 from Kotliarevski et al., Frontiers in Chemistry 2021, https://doi.org/10.3389/fchem.2021.726874, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   }
+  ],
+  "key": "34912776",
+  "in_scope": true
+ },
+ {
+  "title": "Conserved role of matrix metalloproteases 2 and 9 in promoting the migration of neural crest cells in avian and mammalian embryos",
+  "journal": "The FASEB Journal",
+  "year": 2020,
+  "volume": "34",
+  "issue": "4",
+  "pages": "5240-5261",
+  "doi": "10.1096/fj.201901217rr",
+  "pmid": "32067275",
+  "pmcid": null,
+  "authors": [
+   "Kalev-Altman R",
+   "Hanael E",
+   "Zelinger E",
+   "Blum M",
+   "Monsonego-Ornan E",
+   "Sela-Donenfeld D"
+  ],
+  "pub_type": "Research Support, Non-U.S. Gov't, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: Core Facility Unit, Faculty of Agriculture, Food and Environmental Sciences, The Hebrew University, Rehovot, Israel.",
+  "field": "veterinary/animal",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: vor: http://onlinelibrary.wiley.com/termsAndConditions#vor; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "32067275",
+  "in_scope": true
+ },
+ {
+  "title": "Host Specificity and Differential Pathogenicity of Pectobacterium Strains from Dicot and Monocot Hosts",
+  "journal": "Microorganisms",
+  "year": 2020,
+  "volume": "8",
+  "issue": "10",
+  "pages": "E1479",
+  "doi": "10.3390/microorganisms8101479",
+  "pmid": "32993160",
+  "pmcid": "PMC7599833",
+  "authors": [
+   "Khadka N",
+   "Joshi JR",
+   "Reznik N",
+   "Chriker N",
+   "Nudel A",
+   "Zelinger E",
+   "Kerem Z",
+   "Yedidia I"
+  ],
+  "pub_type": "research-article, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: Department of Biochemistry, Food Science and Nutrition, The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, POB 12, 7610001 Rehovot, Israel.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC7599833): \"Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (http://creativecommons.org/licenses/by/4.0/).\"; copyright statement: \"© 2020 by the authors.\"; PMC OA dataset license_code: CC BY; Crossref licence: https://creativecommons.org/licenses/by/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "confirmed",
+   "evidence": "\"N.K., N.C. and E.Z. performed SEM;\" | \"Finally, samples were observed under SEM, JSM-7800F (JEOL Inc., Peabody, MA, USA).\"",
+   "instruments": [
+    "JEOL JSM-7800F SEM"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [
+   {
+    "file": "assets/publications/figures/10-3390-microorganisms8101479_fig2.jpg",
+    "figure_number": "2",
+    "label": "Figure 2",
+    "caption": "SEM micrographs of (A) P. aroidearum PC16 and (B) P. carotovorum WPP14 on the leaf surfaces of calla lily and of cabbage. The micrographs were obtained 3 h after inoculation (10 µL, 108 cfu/mL) onto the host leaf surfaces. The colonization patterns were examined on 10 leaves for each plant. SEM images are presented (left to right) magnification 400×, bar =50 µm; 2000×, bar = 10 µm; magnification 7000×, bar = 1 µm.",
+    "technique": "SEM, JEOL JSM-7800F (E.Z. performed SEM)",
+    "notes": "Microscopy only.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC7599833.1/microorganisms-08-01479-g002.jpg",
+    "source_px": [
+     793,
+     864
+    ],
+    "web_px": [
+     793,
+     864
+    ],
+    "attribution": "Figure 2 from Khadka et al., Microorganisms 2020, https://doi.org/10.3390/microorganisms8101479, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   }
+  ],
+  "key": "32993160",
+  "in_scope": true
+ },
+ {
+  "title": "How Does Fusarium oxysporum Sense and Respond to Nicotinaldehyde, an Inhibitor of the NAD+ Salvage Biosynthesis Pathway?",
+  "journal": "Frontiers in Microbiology",
+  "year": 2019,
+  "volume": "10",
+  "issue": null,
+  "pages": "329",
+  "doi": "10.3389/fmicb.2019.00329",
+  "pmid": "30873138",
+  "pmcid": "PMC6400851",
+  "authors": [
+   "Anand G",
+   "Waiger D",
+   "Vital N",
+   "Maman J",
+   "Ma LJ",
+   "Covo S"
+  ],
+  "pub_type": "research-article, Journal Article",
+  "staff": [
+   "Daniel Waiger"
+  ],
+  "identity_evidence": "Waiger D: Department of Plant Pathology and Microbiology, Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, Rehovot, Israel.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC6400851): \"https://creativecommons.org/licenses/by/4.0/This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and \"; copyright statement: \"Copyright © 2019 Anand, Waiger, Vital, Maman, Ma and Covo.\"; Crossref licence: https://creativecommons.org/licenses/by/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "\"GA, DW, and NV did the experiments and analyzed the data.\" — Full text has no microscopy instrument or unit statement; D. Waiger was then in the Department of Plant Pathology.",
+   "instruments": []
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [],
+  "key": "30873138",
+  "in_scope": true
+ },
+ {
+  "title": "In situ Fabrication of Multi-Walled Carbon Nanotubes/Silica Hybrid Colloidosomes by Pickering Emulsion Templating Using Trialkoxysilanes of Opposite Polarity",
+  "journal": "Polymers",
+  "year": 2019,
+  "volume": "11",
+  "issue": "9",
+  "pages": "E1480",
+  "doi": "10.3390/polym11091480",
+  "pmid": "31510082",
+  "pmcid": "PMC6780190",
+  "authors": [
+   "Grzegorzewski F",
+   "Benhaim A",
+   "Alkotzer YI",
+   "Zelinger E",
+   "Yaakov N",
+   "Mechrez G"
+  ],
+  "pub_type": "research-article, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: The Interdepartmental Equipment Unit, The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, POB 12, Rehovot 7610001, Israel.",
+  "field": "other",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC6780190): \"https://creativecommons.org/licenses/by/4.0/Licensee MDPI, Basel, Switzerland. This article is an open access article distributed under the terms and conditions of the Creative Commons Attribution (CC BY) license (http://creativecommons.org/licenses/by/4.0/).\"; copyright statement: \"© 2019 by the authors.\"; PMC OA dataset license_code: CC BY; Crossref licence: https://creativecommons.org/licenses/by/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "confirmed",
+   "evidence": "\"Confocal images were collected on a Leica SP8 confocal microscope (Leica Microsystems CMS GmbH, Wetzlar/Germany) equipped with an inverted microscope fitted with a 40× HC PL APO CS2 (1.10 NA) water immersion objective.\" | \"Cryogenic-field emission scanning electron microscopy (cryo-FESEM) analysis was performed on a JSM-7800F Schottky Field Emission Scanning Electron Microscope (Jeol Ltd., Tokyo/Japan).\" | \"Images of the emulsion droplets were recorded using an EVOS® FL Auto microscope equipped with a high-sensitivity interline CCD camera and assisted with EVOS® FL Auto software (life technologies, Carlsbad, CA/USA).\" — HR-SEM of dried films used a Tescan MIRA3 (not a unit instrument); Fig. 11 was not taken.",
+   "instruments": [
+    "Leica SP8 confocal",
+    "JEOL JSM-7800F cryo-SEM",
+    "EVOS FL Auto"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [
+   {
+    "file": "assets/publications/figures/10-3390-polym11091480_fig8.jpg",
+    "figure_number": "8",
+    "label": "Figure 8",
+    "caption": "Visualization of the complex colloidal layer at the emulsion interface. (a) If MWNTs are fluorescently labelled with 6-AF, the oil droplets are surrounded by an intense green fluorescent layer indicating the presence of MWNTs at the o/w interface. The oil phase is easily identified by its intense red fluorescence, stemming from Nile Red. Sample composition: 20 vol% toluene-in-water with 2.0 wt% SiO2, 12 mg 6-AF conjugated MWNTs, and 0.2 M APTES and DTES. Scale bar is 20 μm. (b) In case of pristine MWNTs, the 6-AF cannot chemically conjugated to the nanotubes but is physisorbed to the MWNTs. Again, a green fluorescent layer is surrounding the droplet. This control experiment shows that also pristine MWNTs assemble at the o/w interface. Agglomerates of MWNTs are visible inside the oil droplets. Some of the MWNTs. However, were also transferred into the water phase, where an intensive aggregation was observed due to their inherent hydrophobicity. Sample composition: 50 vol% toluene-in-water with 2.0 wt% SiO2, 1 mg MWNTs, and 0.2 M APTES and DTES. Scale bar is 10 μm. (c) In the absence of MWNTs in the silica emulsions, no green fluorescent layer at the droplet periphery can be seen. 6-AF remains solved in the water phase without any adsorption to the silica particles. Control system made of 50 vol% toluene-in-water with 2.0 wt% SiO2, and 0.2 M APTES and DTES. Scale bar is 50 μm. From left to right: Bright field image, confocal images (green and red channels), and overlaid channels.",
+    "technique": "Brightfield and confocal (Leica SP8)",
+    "notes": "Microscopy only.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC6780190.1/polymers-11-01480-g008.jpg",
+    "source_px": [
+     772,
+     574
+    ],
+    "web_px": [
+     772,
+     574
+    ],
+    "attribution": "Figure 8 from Grzegorzewski et al., Polymers 2019, https://doi.org/10.3390/polym11091480, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   {
+    "file": "assets/publications/figures/10-3390-polym11091480_fig9.jpg",
+    "figure_number": "9",
+    "label": "Figure 9",
+    "caption": "Cryo-SEM micrographs of the MWNT/silica emulsions. (a–d) Silica NPs are located at the interface and in the aqueous continuous phase. A polymeric smooth layer is formed at the inner side of the capsules with MWNTs embedded in between outer and inner shell layers. Sample composition: 10 vol% toluene-in-water with 2 wt% SiO2, 1 mg MWNTs, and 0.2 M APTES and DTES. Scale bar is 1 μm.",
+    "technique": "Cryo-FESEM, JEOL JSM-7800F with Quorum PP3010",
+    "notes": "Microscopy only.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC6780190.1/polymers-11-01480-g009.jpg",
+    "source_px": [
+     775,
+     198
+    ],
+    "web_px": [
+     775,
+     198
+    ],
+    "attribution": "Figure 9 from Grzegorzewski et al., Polymers 2019, https://doi.org/10.3390/polym11091480, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   {
+    "file": "assets/publications/figures/10-3390-polym11091480_fig10.jpg",
+    "figure_number": "10",
+    "label": "Figure 10",
+    "caption": "Cryo-SEM micrographs of ribbon-like polymeric structures. (a) The structures are randomly branched and of varying width and length. They probably form upon copolymerization of hydrolysed silane monomers that remained unreacted. Sample composition: 10 vol% toluene-in-water with 2 wt% SiO2, 2 mg MWNTs and 0.2 M APTES and DTES; (b) MWNTs, here indicated exemplarily by arrows, are embedded within the polymer matrix. Sample composition: 20 vol% toluene-in-water with 2 wt% SiO2, 2 mg MWNTs, and 0.2 M APTES and DTES. Scale bar in both images is 1 μm.",
+    "technique": "Cryo-FESEM, JEOL JSM-7800F with Quorum PP3010",
+    "notes": "Microscopy only.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC6780190.1/polymers-11-01480-g010.jpg",
+    "source_px": [
+     760,
+     380
+    ],
+    "web_px": [
+     760,
+     380
+    ],
+    "attribution": "Figure 10 from Grzegorzewski et al., Polymers 2019, https://doi.org/10.3390/polym11091480, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   }
+  ],
+  "key": "31510082",
+  "in_scope": true
+ },
+ {
+  "title": "In situ interfacial surface modification of hydrophilic silica nanoparticles by two organosilanes leading to stable Pickering emulsions",
+  "journal": "RSC Advances",
+  "year": 2019,
+  "volume": "9",
+  "issue": "68",
+  "pages": "39611-39621",
+  "doi": "10.1039/c9ra07597f",
+  "pmid": "35541385",
+  "pmcid": "PMC9076063",
+  "authors": [
+   "Itzhaik Alkotzer Y",
+   "Grzegorzewski F",
+   "Belausov E",
+   "Zelinger E",
+   "Mechrez G"
+  ],
+  "pub_type": "research-article, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: The Interdepartmental Equipment Unit, The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem POB 12 Rehovot 7610001 Israel.",
+  "field": "other",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY-NC 3.0",
+   "url": "https://creativecommons.org/licenses/by-nc/3.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC9076063): \"https://creativecommons.org/licenses/by-nc/3.0/\"; copyright statement: \"This journal is © The Royal Society of Chemistry\"; PMC OA dataset license_code: CC BY-NC; Crossref licence: http://creativecommons.org/licenses/by-nc/3.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "confirmed",
+   "evidence": "\"Image acquisition was done using a Leica SP8 laser scanning microscope (Leica, Wetzlar, Germany), equipped with a solid state laser with 488 nm light, HC PL APO CS 63x/0.75 objective (Leica, Wetzlar, Germany) and Leica Application Suite X software (LAS X, Leica, Wetzlar, Germany).\" | \"Cryogenic-scanning electron microscopy analysis was performed on a JSM-7800F Schottky field-emission scanning electron microscope (Jeol Ltd., Tokyo/Japan), equipped with a cryogenic system (Quorum PP3010, Quorum Technologies Ltd., Laughton/United Kingdom).\"",
+   "instruments": [
+    "Leica SP8 confocal",
+    "JEOL JSM-7800F cryo-SEM"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [
+   {
+    "file": "assets/publications/figures/10-1039-c9ra07597f_fig2.jpg",
+    "figure_number": "2",
+    "label": "Fig. 2",
+    "caption": "(a) Confocal microscopy image of a 1 : 1 v/v toluene-in-water (o/w) emulsion, stabilized by 1% w/v Aerosil® 300 silica nanoparticles that were functionalized in situ with DTES and APTES (scale bar 20 μm). (b) The silanization reaction leads to the formation of a stable emulsion with a homogeneous, densely packed, appearance. (c) Droplet size distribution graph of the emulsion droplets, showing the majority of the droplet size in the range of 2–20 μm diameter, with an average droplet size diameter of 11.4 ± 6.4 μm (d) FTIR spectra confirming the functionalization of the silica nanoparticles (pristine, before reaction, blue curve), showing the vibrational modes of the CH2, CH3 bonds after DTES reaction (step 1 in emulsification process, green curve), and of the NH2, Si–C, and CH2, CH3 bonds forming after APTES reaction (step 2 in emulsification process, red curve).",
+    "technique": "Confocal, Leica SP8",
+    "notes": "Mixed: confocal (a), vial photograph (b), droplet-size histogram (c) and FTIR spectra (d); kept whole.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9076063.1/c9ra07597f-f2.jpg",
+    "source_px": [
+     767,
+     680
+    ],
+    "web_px": [
+     767,
+     680
+    ],
+    "attribution": "Figure 2 from Itzhaik et al., RSC Advances 2019, https://doi.org/10.1039/c9ra07597f, CC BY-NC 3.0",
+    "license": "CC BY-NC 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc/3.0/"
+   },
+   {
+    "file": "assets/publications/figures/10-1039-c9ra07597f_fig3.jpg",
+    "figure_number": "3",
+    "label": "Fig. 3",
+    "caption": "Confocal microscopy images of 1 : 1 v/v Pickering toluene-in-water emulsion stabilized by 1% w/v 6-aminofluorescein labelled-silica nanoparticles (SiO2-dye) functionalized by DTES and APTES, and stained with Nile Red (scale bar 20 μm): (a) transmission image of emulsion droplets; (b) green channel of (a), with SiO2-dye particles concentrated around the oil droplets, proving Pickering emulsion formation; (c) red channel of (a) showing the Nile Red signal coming from the toluene droplets, thus proving oil-in-water emulsion formation.",
+    "technique": "Confocal, Leica SP8",
+    "notes": "Microscopy only.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9076063.1/c9ra07597f-f3.jpg",
+    "source_px": [
+     787,
+     262
+    ],
+    "web_px": [
+     787,
+     262
+    ],
+    "attribution": "Figure 3 from Itzhaik et al., RSC Advances 2019, https://doi.org/10.1039/c9ra07597f, CC BY-NC 3.0",
+    "license": "CC BY-NC 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc/3.0/"
+   },
+   {
+    "file": "assets/publications/figures/10-1039-c9ra07597f_fig6.jpg",
+    "figure_number": "6",
+    "label": "Fig. 6",
+    "caption": "Confocal microscopy images of Pickering emulsion droplets recorded during solvent evaporation under ambient conditions (scale bar 20 μm in all images): (a) and (b) SiO2 colloidal shell structures obtained from in situ DTES-and-APTES-functionalized SiO2-stabilized o/w emulsion. (c) In case of prior modification of silica, in SiO2–APTES-stabilized o/w emulsion, shrinkage of emulsion droplets occurs as the silica nanoparticles start to aggregate and eventually collapse on one side of the droplets.",
+    "technique": "Confocal, Leica SP8",
+    "notes": "Microscopy only.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9076063.1/c9ra07597f-f6.jpg",
+    "source_px": [
+     787,
+     284
+    ],
+    "web_px": [
+     787,
+     284
+    ],
+    "attribution": "Figure 6 from Itzhaik et al., RSC Advances 2019, https://doi.org/10.1039/c9ra07597f, CC BY-NC 3.0",
+    "license": "CC BY-NC 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc/3.0/"
+   },
+   {
+    "file": "assets/publications/figures/10-1039-c9ra07597f_fig7.jpg",
+    "figure_number": "7",
+    "label": "Fig. 7",
+    "caption": "Cryo-SEM images of characteristic colloidosome structures templated from in situ DTES-and-APTES-functionalized SiO2-stabilized o/w emulsion droplets (scale bar 5 μm in all images): (a) and (b) The silica nanoparticles are fixed in place by the polysiloxane matrix, resulting in a shell structure called colloidosomes. (c) A closer look at the colloidal shell reveals that the silica nanoparticles are embedded in the polysiloxane matrix, which is formed during silanization reaction of APTES and DTES with silica. (d) A hollow shell templated from an emulsion droplet (inset), comprised of a thick, continuous, silica-polysiloxane matrix of ca. 700 nm thickness.",
+    "technique": "Cryo-SEM, JEOL JSM-7800F with Quorum PP3010",
+    "notes": "Microscopy only.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9076063.1/c9ra07597f-f7.jpg",
+    "source_px": [
+     734,
+     548
+    ],
+    "web_px": [
+     734,
+     548
+    ],
+    "attribution": "Figure 7 from Itzhaik et al., RSC Advances 2019, https://doi.org/10.1039/c9ra07597f, CC BY-NC 3.0",
+    "license": "CC BY-NC 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc/3.0/"
+   }
+  ],
+  "key": "35541385",
+  "in_scope": true
+ },
+ {
+  "title": "Inactivation of Listeria monocytogenes on paperboard, a food packaging material, using 410 nm light emitting diodes",
+  "journal": "Food Control",
+  "year": 2019,
+  "volume": "96",
+  "issue": null,
+  "pages": "281-290",
+  "doi": "10.1016/j.foodcont.2018.09.026",
+  "pmid": null,
+  "pmcid": null,
+  "authors": [
+   "Vinayak Ghate",
+   "Einat Zelinger",
+   "Hagit Shoyhet",
+   "Zvi Hayouka"
+  ],
+  "pub_type": "journal-article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "HUJI research portal (https://cris.huji.ac.il/en/publications/inactivation-of-listeria-monocytogenes-on-paperboard-a-food-packa/): citation_author 'Einat Zelinger' -> institution 'Hebrew University of Jerusalem'. Co-author Z. Hayouka (Faculty of Agriculture).",
+  "field": "food science",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: tdm: https://www.elsevier.com/tdm/userlicense/1.0/, tdm: https://www.elsevier.com/legal/tdmrep-license; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "10.1016/j.foodcont.2018.09.026",
+  "in_scope": true
+ },
+ {
+  "title": "'Candidatus Liberibacter solanacearum' Is Tightly Associated with Carrot Yellows Symptoms in Israel and Transmitted by the Prevalent Psyllid Vector Bactericera trigonica",
+  "journal": "Phytopathology®",
+  "year": 2018,
+  "volume": "108",
+  "issue": "9",
+  "pages": "1056-1066",
+  "doi": "10.1094/phyto-10-17-0348-r",
+  "pmid": "29663849",
+  "pmcid": null,
+  "authors": [
+   "Mawassi M",
+   "Dror O",
+   "Bar-Joseph M",
+   "Piasezky A",
+   "Sjölund JM",
+   "Levitzky N",
+   "Shoshana N",
+   "Meslenin L",
+   "Haviv S",
+   "Porat C",
+   "Katsir L",
+   "Kontsedalov S",
+   "Ghanim M",
+   "Zelinger-Reichert E",
+   "Arnsdorf YM",
+   "Gera A",
+   "Bahar O"
+  ],
+  "pub_type": "Research Support, Non-U.S. Gov't, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger-Reichert E: First, second, third, fourth, sixth, seventh, eighth, ninth, tenth, eleventh, and seventeenth authors: Department of Plant Pathology and Weed Research, Agricultural Research Organization, Volcani Center, Rishon LeZion, Israel; fourth and tenth authors: The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, Rehovot, Israel; fifth and fifteenth: Science and Advice for Scottish Agriculture (SASA), Roddinglaw Road, Edinburgh EH12 9FJ, UK; sixth and seventh authors: Bar Ilan University, 52900 Ramat Gan, Israel; twelfth and thirteenth authors: Department of Entomology, Agricultural Research Organization, Volcani Center, Rishon LeZion, Israel; fourteenth author: CSI Microscopy Unity, The Hebrew University of Jerusalem, Faculty of Agriculture, Food and Environment; and sixteenth author: Plant Protection and Inspection Services, Ministry of Agriculture and Rural Development, Rishon LeZion, Israel.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: none listed; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "29663849",
+  "in_scope": false
+ },
+ {
+  "title": "635. In HIV-Infected Patients Killing of Latently HIV-Infected CD4 T Cells by Autologous CD8 T Cells Is Modulated by Nef",
+  "journal": "Open Forum Infectious Diseases",
+  "year": 2018,
+  "volume": "5",
+  "issue": "suppl_1",
+  "pages": "S231-S231",
+  "doi": "10.1093/ofid/ofy210.642",
+  "pmid": null,
+  "pmcid": "PMC6253152",
+  "authors": [
+   "Ziv Sevilya",
+   "Udi Chorin",
+   "Orit Gal-Garber",
+   "Einat Zelinger",
+   "Dan Turner",
+   "Boaz Avidor",
+   "Gideon Berke",
+   "David Hassin"
+  ],
+  "pub_type": "journal-article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Full-text XML affiliation for Einat Zelinger: 'Interdepartmental Equipment Facility, Robert H. Smith Faculty of Agriculture, Food and Environment, the Hebrew University, Rehovot'. Same study as PMID 30254642.",
+  "field": "other",
+  "type": "conference abstract",
+  "license": {
+   "name": "CC BY-NC-ND 4.0",
+   "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC6253152): \"https://creativecommons.org/licenses/by-nc-nd/4.0/This is an Open Access article distributed under the terms of the Creative Commons Attribution-NonCommercial-NoDerivs licence (http://creativecommons.org/licenses/by-nc-nd/4.0/), which permits non-commercial reproduction and distribution of the work,\"; copyright statement: \"© The Author(s) 2018. Published by Oxford University Press on behalf of Infectious Diseases Society of America.\"; Crossref licence: http://creativecommons.org/licenses/by-nc-nd/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "Full text read; no microscopy instrument, unit acknowledgement or staff imaging statement found.",
+   "instruments": []
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [],
+  "key": "10.1093/ofid/ofy210.642",
+  "in_scope": false
+ },
+ {
+  "title": "Altering Neurospora crassa MOB2A exposes its functions in development and affects its interaction with the NDR kinase COT1",
+  "journal": "Molecular Microbiology",
+  "year": 2018,
+  "volume": "108",
+  "issue": "6",
+  "pages": "641-660",
+  "doi": "10.1111/mmi.13954",
+  "pmid": "29600559",
+  "pmcid": null,
+  "authors": [
+   "Aharoni-Kats L",
+   "Zelinger E",
+   "Chen S",
+   "Yarden O"
+  ],
+  "pub_type": "Research Support, Non-U.S. Gov't, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: Centre for Scientific Imaging, The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, Rehovot 7610000, Israel.",
+  "field": "biochemistry",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: vor: http://onlinelibrary.wiley.com/termsAndConditions#vor; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "29600559",
+  "in_scope": false
+ },
+ {
+  "title": "Interstitial lung diseases associated with metal content in silicone breast implants: a case series",
+  "journal": "Sarcoidosis, vasculitis, and diffuse lung diseases : official journal of WASOG",
+  "year": 2018,
+  "volume": "35",
+  "issue": "4",
+  "pages": "381-389",
+  "doi": "10.36141/svdld.v35i4.7029",
+  "pmid": "32476927",
+  "pmcid": "PMC7170128",
+  "authors": [
+   "Fireman E",
+   "Rosengarten D",
+   "Zelinger E",
+   "Kramer MR"
+  ],
+  "pub_type": "Journal Article, Case Reports, case-report",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: The Interdepartmental Equipment Facility the HebrewUniversity Jerusalem, Israel.",
+  "field": "other",
+  "type": "journal article",
+  "license": {
+   "name": "CONFLICTING: CC BY-NC-SA 4.0 (licence URL) vs. \"Creative Commons Attribution 4.0\" (licence text)",
+   "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC7170128): \"https://creativecommons.org/licenses/by-nc-sa/4.0/This work is licensed under a Creative Commons Attribution 4.0 International License\"; copyright statement: \"Copyright: © 2018\""
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "likely",
+   "evidence": "\"We used two devices: scanning electron microscope (SEM) X-ray analysis using a JEOL 840 SEM equipped with a Link 10,000 energy-dispersive system and X-ray fluorescence spectrometer (XRF) by a Niton XL3 XRF analyzer (Thermo Fischer Scientific, Munich, Germany) as previously described elsewhere(17,18),\" — Staff author from the unit; the JEOL 840 is not on the unit's current instrument list.",
+   "instruments": [
+    "JEOL 840 SEM with EDS"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [],
+  "key": "32476927",
+  "in_scope": false
+ },
+ {
+  "title": "Killing of Latently HIV-Infected CD4 T Cells by Autologous CD8 T Cells Is Modulated by Nef",
+  "journal": "Frontiers in Immunology",
+  "year": 2018,
+  "volume": "9",
+  "issue": null,
+  "pages": "2068",
+  "doi": "10.3389/fimmu.2018.02068",
+  "pmid": "30254642",
+  "pmcid": "PMC6141733",
+  "authors": [
+   "Sevilya Z",
+   "Chorin E",
+   "Gal-Garber O",
+   "Zelinger E",
+   "Turner D",
+   "Avidor B",
+   "Berke G",
+   "Hassin D"
+  ],
+  "pub_type": "research-article, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: Interdepartmental Equipment Facility, Robert H. Smith Faculty of Agriculture, Food and Environment, the Hebrew University, Rehovot, Israel.",
+  "field": "other",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC6141733): \"This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and that the original publication in this journa\"; copyright statement: \"Copyright © 2018 Sevilya, Chorin, Gal-Garber, Zelinger, Turner, Avidor, Berke and Hassin.\"; Crossref licence: https://creativecommons.org/licenses/by/4.0/ [XML text names CC BY without a version; version taken from Crossref]"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "likely",
+   "evidence": "\"The slides were observed on a confocal microscope, and 1,000 cells were screened for cells harboring HIV DNA and CD4-CD8 T cell conjugates in each slide.\" — Staff author affiliated with the unit; instrument not named.",
+   "instruments": [
+    "confocal (model not stated)"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [],
+  "key": "30254642",
+  "in_scope": false
+ },
+ {
+  "title": "Repetitive DNA in the Architecture, Repatterning, and Diversification of the Genome of Aegilops speltoides Tausch (Poaceae, Triticeae)",
+  "journal": "Frontiers in Plant Science",
+  "year": 2018,
+  "volume": "9",
+  "issue": null,
+  "pages": "1779",
+  "doi": "10.3389/fpls.2018.01779",
+  "pmid": "30564259",
+  "pmcid": "PMC6288716",
+  "authors": [
+   "Pollak Y",
+   "Zelinger E",
+   "Raskina O"
+  ],
+  "pub_type": "research-article, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: The CSI Center for Scientific Imaging, The Robert H. Smith Faculty of Agriculture, Food and Environment, Hebrew University of Jerusalem, Rehovot, Israel.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC6288716): \"https://creativecommons.org/licenses/by/4.0/This is an open-access article distributed under the terms of the Creative Commons Attribution License (CC BY). The use, distribution or reproduction in other forums is permitted, provided the original author(s) and the copyright owner(s) are credited and \"; copyright statement: \"Copyright © 2018 Pollak, Zelinger and Raskina.\"; PMC OA dataset license_code: CC BY; Crossref licence: https://creativecommons.org/licenses/by/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "confirmed",
+   "evidence": "\"Orit Gal Gerber for the opportunity to conduct this research in The Interdepartmental Equipment Unit, Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem.\" | \"Confocal imaging was done using a LEICA SP8 (CTR6000) microscope with a Leica HC PL APO CS2 × 63 N.A 1.4 oil objective.\" | \"EZ, YP, and OR conducted confocal and electron microscope imaging and analyzed the data.\" — Epifluorescence FISH images were taken on a Leica DMR (not stated as a unit instrument); only Fig. 2 (confocal and SEM panels) was taken.",
+   "instruments": [
+    "Leica SP8 confocal",
+    "JEOL JSM-7800F SEM",
+    "Zeiss Sigma-HD SEM"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [
+   {
+    "file": "assets/publications/figures/10-3389-fpls-2018-01779_fig2.jpg",
+    "figure_number": "2",
+    "label": "FIGURE 2",
+    "caption": "Patterning of Spelt1 and Spelt52 tandem repeats on meiotic chromosomes and in interphase nuclei from the anther’ somatic tissues in individual genotypes of Ae. speltoides from the Ramat haNadiv population. DNA probes for FISH: Spelt1 (in green) and Spelt52 (in red); counterstaining with DAPI (in blue). (A) Interphase nuclei at different interphase stages belonging to different anther somatic tissues from the same cytological slide. (A–A8) (Supplementary Figures S1,S2 and Supplementary Movies S1,S2) In nuclei of different sizes and shapes, various numbers of Spelt1 and Spelt52 clusters are observed. The nuclei differ in number and sizes of associated clusters of the same types and Spelt1–Spelt52 colocalized clusters. Condensed and undercondensed single and associated Spelt1 and Spelt52 tandem repeat clusters are revealed in different nuclei. A polyploid nucleus is shown in A3. (A6) Amitotically dividing nuclei. (A7,A8) Nuclei at the late interphase–early prophase stages. Spelt1 and Spelt52 clusters are partially decondensed and interconnected with extended fibers; due to associations, the cluster number is less than on meiotic chromosomes (J,K). (B–D) Nuclei from the same cytological slide. (B) Number of condensed Spelt1 and Spelt52 clusters of different sizes and fluorescent intensities are 11 and 17, respectively. Most Spelt1 and Spelt52 clusters associate in common clusters. (C) Large Spelt1 and Spelt52 clusters aggregate in complex blocks. (D) In the image of the interphase nucleus obtained using scanning electron microscopy, two interconnected Y-shaped chromatin structures are revealed. Chromatids of two different chromosomes form a double-strand chain (red dashed line and arrow in the scheme on the right). (E–H) Nuclei of the other genotype from the same cytological slide. (E) (Supplementary Figures S3,S4 and Supplementary Movies S3,S4) Large Spelt1 and Spelt52 partially decondensed clusters aggregate in complex blocks. (F) Highly condensed clusters of Spelt1 and Spelt52 form common blocks. (G,H) Large nuclei at the late interphase–early prophase stages; condensed chromatid fibers are revealed. Spelt1 and Spelt52 clusters interconnected with extended fibers. (I) Meiotic prophase I, pachytene stage: homologous synapsis is completed. Associated Spelt1 and Spelt52 clusters form common blocks, and extended fibers between clusters are observed; improper condensation and damaged chromatin fibers are indicated with dashed lines and arrows on the image obtained via scanning electron microscopy (right). (J,K) Meiotic chromosomes and nuclei of different genotypes. Numbers of Spelt52 vary from 11 to 12 clusters and Spelt1 from 13 to 14 clusters per seven bivalents. (J) Three bivalents are involved in nonhomologous recombination. Extended Spelt1 fibers connect two homologs of one bivalent with single chromosomes of two other bivalents. In two small boxes, enlargement of this region obtained with confocal fluorescent (left) and scanning electron microscopy (right), respectively, is shown. (K) Four meiotic chromosomal plates at the diakinesis–metaphase I stages and dividing polyploid cell of tapetum at the anaphase stage with chromosomal bridges (red arrow). Images were taken consistently using fluorescent and scanning electron microscopes. Nonhomologous chromosome associations are indicated with arrows; the extended thin Spelt1 fiber between two bivalents is indicated with a pink dashed line. Scale bar = 10 μm.",
+    "technique": "Confocal (Leica SP8) and SEM (JEOL JSM-7800F or Zeiss Sigma-HD)",
+    "notes": "Microscopy panels plus a small scheme; the paper does not say which of its two SEMs produced which SEM panel.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC6288716.1/fpls-09-01779-g002.jpg",
+    "source_px": [
+     715,
+     912
+    ],
+    "web_px": [
+     715,
+     912
+    ],
+    "attribution": "Figure 2 from Pollak et al., Frontiers in Plant Science 2018, https://doi.org/10.3389/fpls.2018.01779, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   }
+  ],
+  "key": "30564259",
+  "in_scope": false
+ },
+ {
+  "title": "Silver Nanoparticles Complexed with Bovine Submaxillary Mucin Possess Strong Antibacterial Activity and Protect against Seedling Infection",
+  "journal": "Applied and Environmental Microbiology",
+  "year": 2018,
+  "volume": "84",
+  "issue": "4",
+  "pages": "e02212-17",
+  "doi": "10.1128/aem.02212-17",
+  "pmid": "29180363",
+  "pmcid": "PMC5795074",
+  "authors": [
+   "Makarovsky D",
+   "Fadeev L",
+   "Salam BB",
+   "Zelinger E",
+   "Matan O",
+   "Inbar J",
+   "Jurkevitch E",
+   "Gozin M",
+   "Burdman S"
+  ],
+  "pub_type": "Research Support, Non-U.S. Gov't, research-article, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: Interdepartmental Core Facility, The Robert H. Smith Faculty of Agriculture, Food, and Environment, The Hebrew University of Jerusalem, Rehovot, Israel.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright (not CC): 'Copyright © 2018 American Society for Microbiology.' All Rights Reserved",
+   "url": null,
+   "source": "PMC article page (read via WebFetch); Crossref TDM licence https://journals.asm.org/non-commercial-tdm-license"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "not_unit",
+   "evidence": "Read via PMC HTML (WebFetch): 'TEM observations were conducted at the Bio-Imaging Unit'; 'SEM observations were conducted at the Irving and Cherna Moskowitz Center for Nano and Bio-Nano Imaging'.",
+   "instruments": [
+    "Zeiss Ultra 55 FEG-SEM (Weizmann)",
+    "FEI T12 TEM (Bio-Imaging Unit)"
+   ]
+  },
+  "full_text": "PMC article page (WebFetch)",
+  "figures": [],
+  "key": "29180363",
+  "in_scope": false
+ },
+ {
+  "title": "Irradiation by blue light in the presence of a photoacid confers changes to colony morphology of the plant pathogen Colletotrichum gloeosporioides",
+  "journal": "Journal of Photochemistry and Photobiology B: Biology",
+  "year": 2017,
+  "volume": "174",
+  "issue": null,
+  "pages": "1-9",
+  "doi": "10.1016/j.jphotobiol.2017.06.041",
+  "pmid": "28738309",
+  "pmcid": null,
+  "authors": [
+   "Simkovitch R",
+   "Gajst O",
+   "Zelinger E",
+   "Yarden O",
+   "Huppert D"
+  ],
+  "pub_type": "Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: The Department of Plant Pathology and Microbiology, The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, Rehovot, 76100, Israel.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: tdm: https://www.elsevier.com/tdm/userlicense/1.0/, tdm: https://www.elsevier.com/legal/tdmrep-license; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "28738309",
+  "in_scope": false
+ },
+ {
+  "title": "Scanning Electron Microscope (SEM) Imaging to Determine Inflorescence Initiation and Development in Olive",
+  "journal": "BIO-PROTOCOL",
+  "year": 2017,
+  "volume": "7",
+  "issue": "19",
+  "pages": "e2575",
+  "doi": "10.21769/bioprotoc.2575",
+  "pmid": "34595255",
+  "pmcid": "PMC8438394",
+  "authors": [
+   "Haberman A",
+   "Zelinger E",
+   "Samach A"
+  ],
+  "pub_type": "methods-article, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: CSI Center for Scientific Imaging, The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, Rehovot, Israel.",
+  "field": "methods",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright (not CC): 'Copyright © 2017 The Authors; exclusive licensee Bio-protocol LLC.'",
+   "url": null,
+   "source": "PMC article page (read via WebFetch)"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "likely",
+   "evidence": "Read via PMC HTML (WebFetch): Equipment lists 'Scanning electron microscope (JEOL, model: JSM-5410 LV)'; author E. Zelinger at CSI; location not stated.",
+   "instruments": [
+    "JEOL JSM-5410LV SEM"
+   ]
+  },
+  "full_text": "PMC article page (WebFetch)",
+  "figures": [],
+  "key": "34595255",
+  "in_scope": false
+ },
+ {
+  "title": "Stomatal cell wall composition: distinctive structural patterns associated with different phylogenetic groups",
+  "journal": "Annals of Botany",
+  "year": 2017,
+  "volume": "119",
+  "issue": "6",
+  "pages": "1021-1033",
+  "doi": "10.1093/aob/mcw275",
+  "pmid": "28158449",
+  "pmcid": "PMC5604698",
+  "authors": [
+   "Shtein I",
+   "Shelef Y",
+   "Marom Z",
+   "Zelinger E",
+   "Schwartz A",
+   "Popper ZA",
+   "Bar-On B",
+   "Harpaz-Saad S"
+  ],
+  "pub_type": "Research Support, Non-U.S. Gov't, research-article, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: The Interdepartmental Equipment Unit, The Robert H. Smith Faculty of Agriculture, Food & Environment, The Hebrew University of Jerusalem, Rehovot 7610001, Israel.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC5604698): \"This is an Open Access article distributed under the terms of the Creative Commons Attribution License (http://creativecommons.org/licenses/by/4.0/), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.\"; copyright statement: \"© The Author 2017. Published by Oxford University Press on behalf of the Annals of Botany Company.\"; PMC OA dataset license_code: CC BY"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "confirmed",
+   "evidence": "\"Confocal laser scanning microscopy was performed on an inverted Leica sp8 confocal microscope with argon-ion and two He-Ne lasers.\" | \"The samples were viewed and micrographed on an EVOS™ XL Core inverted microscope imaging system.\" | \"JSM 5410 LV, Jeol Ltd, USA).\" — Staff author affiliated with the unit. PolScope used a Nikon Eclipse 80i.",
+   "instruments": [
+    "Leica SP8 confocal",
+    "EVOS XL Core",
+    "JEOL JSM-5410LV SEM"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [
+   {
+    "file": "assets/publications/figures/10-1093-aob-mcw275_fig7.jpg",
+    "figure_number": "7",
+    "label": "Fig. 7.",
+    "caption": "Lignins and phenolic compounds in stomatal guard cells. Lignin (blue) and phenolic compounds (red) autofluorescence was observed in leaf fragments using confocal microscopy (A, C, E, G, I, K) and by phloroglucinol stain in epidermal peels (B, D, F, H, J, L). (A, B) Asplenium – note the phenolic compound autofluorescence in the nuclei and red autofluorescence of the ventral wall; (C, D) Platycerium – note the red autofluorescence of the ventral wall (white arrow); (E, F) Arabidopsis; (G, H) Commelina; (I, J) Sorghum; (K, L) Triticum. N, nucleus; PW, polar end-wall; VW, ventral wall; DW, dorsal wall. Scale bars = 20 µm.",
+    "technique": "Confocal autofluorescence (Leica SP8) and brightfield of phloroglucinol stain (EVOS XL Core)",
+    "notes": "Microscopy only.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC5604698.1/mcw275f7.jpg",
+    "source_px": [
+     705,
+     474
+    ],
+    "web_px": [
+     705,
+     474
+    ],
+    "attribution": "Figure 7 from Shtein et al., Annals of Botany 2017, https://doi.org/10.1093/aob/mcw275, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   },
+   {
+    "file": "assets/publications/figures/10-1093-aob-mcw275_fig8.jpg",
+    "figure_number": "8",
+    "label": "Fig. 8.",
+    "caption": "Epidermal peels stained with ruthenium red for pectins. (A) Asplenium, (B) Platycerium, (C) Arabidopsis, (D) Commelina, (E) Sorghum, (F) Triticum. Scale bars = 20 µm. Arrows indicate stomata.",
+    "technique": "Brightfield of ruthenium red stain, EVOS XL Core",
+    "notes": "Microscopy only.",
+    "source": "https://pmc-oa-opendata.s3.amazonaws.com/PMC5604698.1/mcw275f8.jpg",
+    "source_px": [
+     703,
+     963
+    ],
+    "web_px": [
+     703,
+     963
+    ],
+    "attribution": "Figure 8 from Shtein et al., Annals of Botany 2017, https://doi.org/10.1093/aob/mcw275, CC BY 4.0",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/"
+   }
+  ],
+  "key": "28158449",
+  "in_scope": false
+ },
+ {
+  "title": "Differential regulation of meristem size, morphology and organization by the ERECTA, CLAVATA and class III HD-ZIP pathways",
+  "journal": "Development",
+  "year": 2016,
+  "volume": "143",
+  "issue": "9",
+  "pages": "1612-1622",
+  "doi": "10.1242/dev.129973",
+  "pmid": "26989178",
+  "pmcid": "PMC4986164",
+  "authors": [
+   "Mandel T",
+   "Candela H",
+   "Landau U",
+   "Asis L",
+   "Zelinger E",
+   "Carles CC",
+   "Williams LE"
+  ],
+  "pub_type": "research-article, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, POB 12, Rehovot 76100, Israel.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 3.0",
+   "url": "https://creativecommons.org/licenses/by/3.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC4986164): \"https://creativecommons.org/licenses/by/3.0/This is an Open Access article distributed under the terms of the Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0), which permits unrestricted use, distribution and reproduction in any medium provided that the original work\"; copyright statement: \"© 2016. Published by The Company of Biologists Ltd\""
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "likely",
+   "evidence": "\"SEM was performed by fixing tissue in methanol as described previously (Talbot and White, 2013) for examination in a JEOL 5410 LV scanning electron microscope.\" | \"AcknowledgementsWe thank Vlad Brumfeld (Weizmann Institute of Science) for analyzing the micro-CT samples, and Marilou Legeay and Hugo Basquin (Université Grenoble Alpes) for technical assistance.\" — Micro-CT was done at the Weizmann Institute. The JSM-5410LV is not on the unit's current list, but the unit's 2017 SEM protocol (Bio-protocol, PMID 34595255) uses the same model.",
+   "instruments": [
+    "JEOL JSM-5410LV SEM"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [],
+  "key": "26989178",
+  "in_scope": false
+ },
+ {
+  "title": "Random peptide mixtures inhibit and eradicate methicillin-resistant Staphylococcus aureus biofilms",
+  "journal": "Chemical Communications",
+  "year": 2016,
+  "volume": "52",
+  "issue": "44",
+  "pages": "7102-7105",
+  "doi": "10.1039/c6cc01438k",
+  "pmid": "27161246",
+  "pmcid": null,
+  "authors": [
+   "Stern T",
+   "Zelinger E",
+   "Hayouka Z"
+  ],
+  "pub_type": "Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Crossref author affiliation for Einat Zelinger: 'Interdepartmental Core Facility; Robert H. Smith Faculty of Agriculture, Food and Environment; The Hebrew University of Jerusalem; Rehovot 76100; Israel'.",
+  "field": "biochemistry",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: none listed; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "27161246",
+  "in_scope": false
+ },
+ {
+  "title": "Architecture of GnRH-Gonadotrope-Vasculature Reveals a Dual Mode of Gonadotropin Regulation in Fish",
+  "journal": "Endocrinology",
+  "year": 2015,
+  "volume": "156",
+  "issue": "11",
+  "pages": "4163-4173",
+  "doi": "10.1210/en.2015-1150",
+  "pmid": "26261873",
+  "pmcid": null,
+  "authors": [
+   "Golan M",
+   "Zelinger E",
+   "Zohar Y",
+   "Levavi-Sivan B"
+  ],
+  "pub_type": "Research Support, Non-U.S. Gov't, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: Department of Animal Sciences (M.G., B.L.-S.) and The Interdepartmental Equipment Unit (E.Z.), The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, Rehovot 76100, Israel; and Department of Marine Biotechnology (Y.Z.), University of Maryland Baltimore County and Institute of Marine and Environmental Technology, Baltimore, Maryland 21202.",
+  "field": "veterinary/animal",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: none listed; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "26261873",
+  "in_scope": false
+ },
+ {
+  "title": "Surface-motility induction, attraction and hitchhiking between bacterial species promote dispersal on solid surfaces",
+  "journal": "The ISME Journal",
+  "year": 2014,
+  "volume": "8",
+  "issue": "5",
+  "pages": "1147-1151",
+  "doi": "10.1038/ismej.2013.218",
+  "pmid": "24304675",
+  "pmcid": "PMC3996695",
+  "authors": [
+   "Hagai E",
+   "Dvora R",
+   "Havkin-Blank T",
+   "Zelinger E",
+   "Porat Z",
+   "Schulz S",
+   "Helman Y"
+  ],
+  "pub_type": "Research Support, Non-U.S. Gov't, letter, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Zelinger E: Microscopy Lab, The Interdepartmental Unit, The Robert H Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, Rehovot, Israel.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright (not CC): 'Copyright © 2014 International Society for Microbial Ecology.'",
+   "url": null,
+   "source": "PMC article page (read via WebFetch); Crossref licence https://academic.oup.com/pages/standard-publication-reuse-rights"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "likely",
+   "evidence": "Read via PMC HTML (WebFetch): SEM images in Results/Fig. 2; staff author affiliation 'Microscopy Lab, The Interdepartmental Unit'; no instrument named.",
+   "instruments": [
+    "SEM (model not stated)"
+   ]
+  },
+  "full_text": "PMC article page (WebFetch)",
+  "figures": [],
+  "key": "24304675",
+  "in_scope": false
+ },
+ {
+  "title": "Phenotypic variation in the plant pathogenic bacterium Acidovorax citrulli",
+  "journal": "PLoS ONE",
+  "year": 2013,
+  "volume": "8",
+  "issue": "9",
+  "pages": "e73189",
+  "doi": "10.1371/journal.pone.0073189",
+  "pmid": "24023830",
+  "pmcid": "PMC3759439",
+  "authors": [
+   "Shrestha RK",
+   "Rosenberg T",
+   "Makarovsky D",
+   "Eckshtain-Levi N",
+   "Zelinger E",
+   "Kopelowitz J",
+   "Sikorski J",
+   "Burdman S"
+  ],
+  "pub_type": "Research Support, Non-U.S. Gov't, research-article, Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Full-text XML affiliation for Einat Zelinger: 'The Interdepartmental Equipment Facility, The Robert H. Smith Faculty of Agriculture, Food and Environment, The Hebrew University of Jerusalem, Rehovot, Israel'.",
+  "field": "plant science",
+  "type": "journal article",
+  "license": {
+   "name": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/",
+   "source": "Europe PMC full-text XML <license> element (PMC3759439): \"https://creativecommons.org/licenses/by/4.0/This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are properly credited.\"; copyright statement: \"© 2013 Shrestha et al\"; Crossref licence: http://creativecommons.org/licenses/by/4.0/"
+  },
+  "open_access": true,
+  "provenance": {
+   "status": "likely",
+   "evidence": "\"The dried blocks were mounted on the brass blocks, coated with gold (Polaron Spatter Coater) and visualized with a JSM-5410LV scanning electron microscope (Jeol Ltd., Tokyo, Japan) under vacuum.\" | \"We thank Yael Friedmann and Minna Angenitzki from the Bio-Imaging Unit at the Alexander Silberman Institute of Life Science of the Hebrew University of Jerusalem, for their help with TEM.\" — TEM was done elsewhere (Silberman Institute Bio-Imaging Unit); SEM probably at the unit (staff author from the Interdepartmental Equipment Facility).",
+   "instruments": [
+    "JEOL JSM-5410LV SEM"
+   ]
+  },
+  "full_text": "Europe PMC OA XML",
+  "figures": [],
+  "key": "24023830",
+  "in_scope": false
+ },
+ {
+  "title": "Mating induces an immune response and developmental switch in the Drosophila oviduct",
+  "journal": "Proceedings of the National Academy of Sciences",
+  "year": 2008,
+  "volume": "105",
+  "issue": "37",
+  "pages": "13912-13917",
+  "doi": "10.1073/pnas.0710997105",
+  "pmid": "18725632",
+  "pmcid": "PMC2544553",
+  "authors": [
+   "Kapelnikov A",
+   "Zelinger E",
+   "Gottlieb Y",
+   "Rhrissorrakrai K",
+   "Gunsalus KC",
+   "Heifetz Y"
+  ],
+  "pub_type": "Research Support, Non-U.S. Gov't, research-article, Research Support, U.S. Gov't, Non-P.H.S., Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "Crossref/PMC author affiliation for Einat Zelinger: 'Department of Entomology, Hebrew University, Rehovot 76100, Israel' (Faculty of Agriculture campus; co-author Y. Heifetz, with whom E. Zelinger later co-authored PMIDs 35575031 and 38321098 under the CSI affiliation).",
+  "field": "entomology",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright (not CC): '© 2008 by The National Academy of Sciences of the USA'",
+   "url": null,
+   "source": "PMC article page (read via WebFetch)"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "Read via PMC HTML (WebFetch): no Methods or legend sentence mentions microscopy or an imaging facility.",
+   "instruments": []
+  },
+  "full_text": "PMC article page (WebFetch)",
+  "figures": [],
+  "key": "18725632",
+  "in_scope": false
+ },
+ {
+  "title": "Homologous desensitization and visualization of the tilapia GnRH type 3 receptor",
+  "journal": "General and Comparative Endocrinology",
+  "year": 2007,
+  "volume": "153",
+  "issue": "1-3",
+  "pages": "182-188",
+  "doi": "10.1016/j.ygcen.2007.04.003",
+  "pmid": "17507014",
+  "pmcid": null,
+  "authors": [
+   "Avitan A",
+   "Zelinger E",
+   "Levavi-Sivan B"
+  ],
+  "pub_type": "Journal Article",
+  "staff": [
+   "Einat Zelinger"
+  ],
+  "identity_evidence": "PubMed lists an affiliation for the first author only (Department of Animal Sciences, Faculty of Agriculture, HUJI, Rehovot). The HUJI research portal (cris.huji.ac.il, Pure/Scopus metadata) gives citation_author 'Einat Zelinger' -> citation_author_institution 'Hebrew University of Jerusalem'.",
+  "field": "veterinary/animal",
+  "type": "journal article",
+  "license": {
+   "name": "Publisher copyright; no open licence found",
+   "url": null,
+   "source": "Crossref works API licence field: tdm: https://www.elsevier.com/tdm/userlicense/1.0/; PMC/Europe PMC: no open-access full text"
+  },
+  "open_access": false,
+  "provenance": {
+   "status": "unknown",
+   "evidence": "No full text available to this search (not in PMC open access; publisher page not accessible through the proxy).",
+   "instruments": []
+  },
+  "full_text": null,
+  "figures": [],
+  "key": "17507014",
+  "in_scope": false
+ }
+]
