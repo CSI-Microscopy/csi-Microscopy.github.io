@@ -71,12 +71,25 @@ const ext = (href, text, cls) => `<a${cls ? ` class="${cls}"` : ''} href="${esc(
 
 const inScope = (e, minYear) => (typeof e.in_scope === 'boolean' ? e.in_scope : Number(e.year) >= minYear);
 const firstSurname = e => {
-    const a = (e.authors || [])[0] || '';
+    const a = displayAuthor((e.authors || [])[0] || '');
     // PubMed style "Itzhaik Alkotzer Y": drop the trailing initials. Full names "Einat Zelinger": last word.
     const parts = a.trim().split(/\s+/);
     if (parts.length > 1 && /^[A-Z][A-Z-]{0,3}$/.test(parts[parts.length - 1])) return parts.slice(0, -1).join(' ');
     return parts[parts.length - 1];
 };
+// Authors are shown PubMed style, "Surname Initials". Crossref-only entries carry full names
+// ("Einat Zelinger", "Vasiliy V. Rosen"); for every such entry in the data the Crossref family
+// name is the last word, so the last word is taken as the surname and the rest become initials.
+const PUBMED_STYLE = /^\S.* [A-Z][A-Z-]{0,3}$/;
+function displayAuthor(a) {
+    const name = String(a).replace(/[\u2010\u2011]/g, '-').trim();
+    if (PUBMED_STYLE.test(name)) return name;
+    const parts = name.split(/\s+/);
+    if (parts.length < 2) return name;
+    const surname = parts.pop();
+    const initials = parts.map(p => p.split('-').map(x => x.replace(/[^\p{L}]/gu, '').charAt(0).toUpperCase()).join('')).join('');
+    return `${surname} ${initials}`;
+}
 const isCcByOrByNc = lic => {
     const name = (lic && lic.name) || '';
     const url = (lic && lic.url) || '';
@@ -87,7 +100,7 @@ const dedupeAdjacent = list => list.filter((a, i) => i === 0 || a !== list[i - 1
 
 function authorsHtml(e) {
     const staff = STAFF.filter(s => (e.staff || []).includes(s.name));
-    const raw = e.authors || [];
+    const raw = (e.authors || []).map(displayAuthor);
     const list = dedupeAdjacent(raw);
     if (list.length !== raw.length) warn(`${e.doi}: repeated author name removed from display (${raw.join(', ')})`);
     const found = new Set();
@@ -217,8 +230,10 @@ const figLabel = f => `Figure ${esc(f.figure_number)}`;
 function changeNote(f) {
     const n = f.notes || '';
     const out = [];
-    if (/stack/i.test(n)) out.push('The publisher split this figure into two image files; they are stacked here, one above the other, without cropping.');
-    if (/\bcrop/i.test(n) && !/without cropping/i.test(n)) out.push('Cropped.');
+    // Only explicit statements count: "stacked" in the notes, and cropped: true on the figure
+    // (notes such as "histology crops" describe panels, not a crop of the figure).
+    if (/\bstacked\b/i.test(n)) out.push('The publisher split this figure into two image files; they are stacked here, one above the other, without cropping.');
+    if (f.cropped === true) out.push('Cropped.');
     if (f.web_px && f.source_px && (f.web_px[0] !== f.source_px[0] || f.web_px[1] !== f.source_px[1])) out.push('Resized for the web.');
     return out.join(' ');
 }

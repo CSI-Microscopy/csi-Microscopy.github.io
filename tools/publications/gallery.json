@@ -47,7 +47,8 @@
   "exclude": {
     "papers": {},
     "figures": {
-      "10-1039-c9ra07597f_fig2.jpg": "Mostly plots and a photograph: only panel (a) of four is microscopy; the rest are a vial photograph, a droplet-size histogram and FTIR spectra."
+      "10-1039-c9ra07597f_fig2.jpg": "Mostly plots and a photograph: only panel (a) of four is microscopy; the rest are a vial photograph, a droplet-size histogram and FTIR spectra.",
+      "10-1016-j-psj-2023-102792_fig2.png": "Plots only (fibre-diameter distributions from manual and automated measurements); no micrographs."
     }
   },
   "figures": {
@@ -70,7 +71,7 @@
     "10-1038-s42003-024-05829-y_fig6.jpg": {
       "group": "sem",
       "teaser": true,
-      "description": "SEM of thin frozen sections through the fruit fly's sperm-storage organ, comparing its folded inner lining in virgin and mated females, with sperm and tiny vesicles (80 to 100 nm) on the surface."
+      "description": "SEM of 20 µm cryostat sections through the fruit fly's sperm-storage organ, comparing its folded inner lining in virgin and mated females, with sperm and tiny vesicles (80 to 100 nm) on the surface."
     },
     "10-1038-s42003-024-05829-y_fig8.jpg": {
       "group": "sem",
@@ -126,7 +127,7 @@
     },
     "10-3389-fchem-2021-726874_fig5.jpg": {
       "group": "confocal",
-      "description": "Confocal images of single GFP-labelled fungal spores (Metarhizium brunneum conidia) captured in oil droplets of a titania-stabilised emulsion, at six oil-to-water ratios and particle concentrations."
+      "description": "Confocal images of single GFP-labelled fungal spores (Metarhizium brunneum conidia) captured in oil droplets of a titania-stabilised emulsion, at two oil-to-water ratios (40:60, 50:50) and three titania concentrations (0.4, 1 and 2 wt%)."
     },
     "10-3390-microorganisms8101479_fig2.jpg": {
       "group": "sem",
@@ -164,11 +165,7 @@
         "analysis",
         "histology"
       ],
-      "description": "The automated workflow for measuring muscle fibres in broiler chicken breast muscle: Sirius Red/Fast Green-stained sections imaged on the unit's EVOS FL Auto (A) are analysed with a Fiji workflow that finds each fibre with Cellpose (B), turns the fibres into measurable regions with MorphoLibJ (C) and exports their sizes (D)."
-    },
-    "10-1016-j-psj-2023-102792_fig2.png": {
-      "group": "analysis",
-      "description": "Plots comparing muscle fibre diameters in broiler chicken breast muscle measured by hand and by the automated Fiji workflow (Cellpose, MorphoLibJ), from Sirius Red/Fast Green-stained sections imaged on the unit's EVOS FL Auto; this figure has no micrographs."
+      "description": "The automated workflow for measuring muscle fibres in broiler chicken breast muscle: Sirius Red/Fast Green-stained sections imaged on an EVOS FL Auto (A) are analysed with a Fiji workflow that finds each fibre with Cellpose (B), turns the fibres into measurable regions with MorphoLibJ (C) and exports their sizes (D)."
     },
     "10-1016-j-psj-2023-102792_fig3.jpg": {
       "group": "histology",
@@ -176,7 +173,7 @@
         "histology",
         "analysis"
       ],
-      "description": "Breast muscle of 10-day-old broiler chickens from a control and an HMTBa-supplemented group: Sirius Red/Fast Green-stained sections imaged on the unit's EVOS FL Auto (B, C), the fibres found automatically by a Fiji workflow with Cellpose and MorphoLibJ (D, E), and a plot of the fibre-diameter distribution (A)."
+      "description": "Breast muscle of 10-day-old broiler chickens from a control and an HMTBa-supplemented group: Sirius Red/Fast Green-stained sections imaged on an EVOS FL Auto (B, C), the fibres found automatically by a Fiji workflow with Cellpose and MorphoLibJ (D, E), and a plot of the fibre-diameter distribution (A)."
     }
   },
   "creditNotes": {
