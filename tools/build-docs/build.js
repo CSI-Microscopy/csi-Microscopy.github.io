@@ -184,6 +184,8 @@ const GENERATED_ASSETS = {
     'assets/guide.css': path.join(HOME, 'guides/guide.css'),
     'assets/site.js': path.join(HOME, 'site.js'),
     'assets/favicon.svg': path.join(HOME, 'assets/favicon.svg'),
+    'assets/favicon-32.png': path.join(HOME, 'assets/favicon-32.png'),
+    'assets/apple-touch-icon.png': path.join(HOME, 'assets/apple-touch-icon.png'),
 };
 for (const [out, from] of Object.entries(GENERATED_ASSETS)) {
     if (outSet.has(out)) { console.error(`build-docs: ${out} exists in the repo; it would be overwritten by the site's ${path.basename(from)}. Rename it.`); process.exit(1); }
@@ -235,9 +237,9 @@ function navbarFromHome() {
     if (!m) return null;
     return m[0]
         .replace(/\shref="#home"/, ` href="${SITE}"`)
-        .replace(/\shref="([^"]*)"/g, (all, h) => {
+        .replace(/\s(href|src)="([^"]*)"/g, (all, attr, h) => {
             if (/^[a-z][a-z0-9+.-]*:/i.test(h)) return all;
-            try { return ` href="${new URL(h, SITE).href}"`; } catch (_) { return all; }
+            try { return ` ${attr}="${new URL(h, SITE).href}"`; } catch (_) { return all; }
         })
         .replace(/\s(?:class="active"|aria-current="page")/g, '');
 }
