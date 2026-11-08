@@ -813,14 +813,31 @@
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i></button>
         <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
         <div class="nav-links" id="nav-links">
-            <a title="Start here" href="index.html#start-here"><i class="fa-solid fa-flag-checkered" aria-hidden="true"></i> <span class="text">Start here</span></a>
-            <a title="Basics" href="basics.html"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> <span class="text">Basics</span></a>
-            <a title="Choosing" href="modalities.html"><i class="fa-solid fa-signs-post" aria-hidden="true"></i> <span class="text">Choosing</span></a>
-            <a title="Publications" href="publications.html" class="active" aria-current="page"><i class="fa-solid fa-newspaper" aria-hidden="true"></i> <span class="text">Publications</span></a>
-            <a title="Learning" href="index.html#learning"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> <span class="text">Learning</span></a>
-            <a title="Software" href="index.html#software"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i> <span class="text">Software</span></a>
-            <a title="Guides" href="index.html#startup-shutdown-guides"><i class="fa-solid fa-book" aria-hidden="true"></i> <span class="text">Guides</span></a>
-            <a title="Contact" href="index.html#contact"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span class="text">Contact</span></a>
+            <div class="nav-group">
+                <button class="nav-group-btn" type="button" aria-expanded="false" aria-controls="nav-g-start"><i class="fa-solid fa-flag-checkered" aria-hidden="true"></i> <span class="text">Get started</span> <i class="fa-solid fa-chevron-down nav-caret" aria-hidden="true"></i></button>
+                <div class="nav-sub" id="nav-g-start">
+                    <a href="index.html#start-here"><i class="fa-solid fa-flag-checkered" aria-hidden="true"></i> <span class="text">Start here</span></a>
+                    <a href="modalities.html"><i class="fa-solid fa-signs-post" aria-hidden="true"></i> <span class="text">Choosing a microscope</span></a>
+                    <a href="basics.html"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> <span class="text">Microscopy basics</span></a>
+                </div>
+            </div>
+            <div class="nav-group">
+                <button class="nav-group-btn" type="button" aria-expanded="false" aria-controls="nav-g-resources"><i class="fa-solid fa-toolbox" aria-hidden="true"></i> <span class="text">Resources</span> <i class="fa-solid fa-chevron-down nav-caret" aria-hidden="true"></i></button>
+                <div class="nav-sub" id="nav-g-resources">
+                    <a href="index.html#startup-shutdown-guides"><i class="fa-solid fa-book" aria-hidden="true"></i> <span class="text">Instrument guides</span></a>
+                    <a href="index.html#software"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i> <span class="text">Software</span></a>
+                    <a href="index.html#data-handling-tools"><i class="fa-solid fa-database" aria-hidden="true"></i> <span class="text">Data tools</span></a>
+                    <a href="index.html#learning"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i> <span class="text">Learning</span></a>
+                </div>
+            </div>
+            <div class="nav-group">
+                <button class="nav-group-btn" type="button" aria-expanded="false" aria-controls="nav-g-unit"><i class="fa-solid fa-users" aria-hidden="true"></i> <span class="text">The unit</span> <i class="fa-solid fa-chevron-down nav-caret" aria-hidden="true"></i></button>
+                <div class="nav-sub" id="nav-g-unit">
+                    <a href="index.html#contact"><i class="fa-solid fa-envelope" aria-hidden="true"></i> <span class="text">Meet the team</span></a>
+                    <a href="publications.html" class="active" aria-current="page"><i class="fa-solid fa-newspaper" aria-hidden="true"></i> <span class="text">Publications</span></a>
+                    <a href="index.html#contributing"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> <span class="text">Contributing</span></a>
+                </div>
+            </div>
         </div>
     </nav>
 

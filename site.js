@@ -35,24 +35,56 @@
         });
     }
 
-    // ── Mobile nav ───────────────────────────────────────────────────────
+    // ── Nav groups (sub-menus) ───────────────────────────────────────────
+    // Each .nav-group is a button plus its links. One group is open at a
+    // time: a drop-down on desktop, an accordion inside the phone menu.
     const navbar    = document.querySelector('.navbar');
     const navToggle = document.getElementById('nav-toggle');
+    const groups = navbar ? [...navbar.querySelectorAll('.nav-group')] : [];
+    const setGroup = (g, open) => {
+        g.classList.toggle('open', open);
+        const b = g.querySelector('.nav-group-btn');
+        if (b) b.setAttribute('aria-expanded', String(open));
+    };
+    const closeGroups = except => groups.forEach(g => { if (g !== except) setGroup(g, false); });
+    // Marks the group that holds the active link (current page or section).
+    const markGroups = () => groups.forEach(g => g.classList.toggle('has-active', !!g.querySelector('.nav-sub a.active')));
+    groups.forEach(g => {
+        const b = g.querySelector('.nav-group-btn');
+        if (!b) return;
+        b.addEventListener('click', () => { const open = !g.classList.contains('open'); closeGroups(g); setGroup(g, open); });
+    });
+    markGroups();
+
+    // ── Mobile nav ───────────────────────────────────────────────────────
     const setOpen = open => {
         if (!navbar || !navToggle) return;
         navbar.classList.toggle('open', open);
         navToggle.setAttribute('aria-expanded', String(open));
+        // Opening the phone menu shows the group that holds the current page
+        // or section; closing the menu closes every group.
+        const here = open && groups.find(g => g.classList.contains('has-active'));
+        closeGroups(here || null);
+        if (here) setGroup(here, true);
         navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
         const icon = navToggle.querySelector('i');
         if (icon) { icon.classList.toggle('fa-bars', !open); icon.classList.toggle('fa-xmark', open); }
     };
     if (navbar && navToggle) {
         navToggle.addEventListener('click', () => setOpen(!navbar.classList.contains('open')));
-        navbar.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => setOpen(false)));
-        document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
-        // A tap anywhere outside the bar closes the open menu.
+    }
+    if (navbar) {
+        navbar.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => { setOpen(false); closeGroups(null); }));
+        document.addEventListener('keydown', e => {
+            if (e.key !== 'Escape') return;
+            const g = groups.find(x => x.classList.contains('open'));
+            setOpen(false); closeGroups(null);
+            if (g && !navbar.classList.contains('open')) { const b = g.querySelector('.nav-group-btn'); if (b) b.focus(); }
+        });
+        // A tap or click outside the bar closes the open menu and any open group.
         document.addEventListener('click', e => {
-            if (navbar.classList.contains('open') && !navbar.contains(e.target)) setOpen(false);
+            if (navbar.contains(e.target)) return;
+            setOpen(false); closeGroups(null);
         });
     }
 
@@ -141,6 +173,7 @@
         links.forEach(a => { a.classList.remove('active'); a.removeAttribute('aria-current'); });
         const link = pick && linkById.get(pick.id);
         if (link) { link.classList.add('active'); link.setAttribute('aria-current', 'location'); }
+        markGroups();
     };
     let queued = false;
     const onScroll = () => { if (!queued) { queued = true; requestAnimationFrame(() => { queued = false; update(); }); } };
