@@ -644,13 +644,16 @@ footer > p { max-width: var(--content-w); margin: 0 auto; padding: 1.5rem var(--
     .nav-current { order: 0; flex: 1 1 auto; max-width: none; margin-left: 8px; padding-left: 10px; cursor: pointer; }
     .navbar.has-current .brand-text { display: none; }
 
-    /* The open menu: two columns, scrolls inside itself if the screen is short. */
+    /* The open menu: the three groups as an accordion. Only the group names
+       show at first; the group holding the current page or section opens
+       when the menu opens. Scrolls inside itself if the screen is short. */
     .nav-links {
         display: none;
         order: 3;
         flex-basis: 100%;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 2px 6px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
         padding: 6px 0 10px;
         border-top: 1px solid var(--line);
         max-height: calc(100vh - var(--header-h));
@@ -658,11 +661,23 @@ footer > p { max-width: var(--content-w); margin: 0 auto; padding: 1.5rem var(--
         overflow-y: auto;
         overscroll-behavior: contain;
     }
-    .navbar.open .nav-links { display: grid; }
-    .navbar .nav-links a { min-height: 40px; padding: 0 10px; }
-}
-@media (max-width: 340px) {
-    .nav-links { grid-template-columns: 1fr; }
+    .navbar.open .nav-links { display: flex; }
+    .navbar .nav-group-btn { width: 100%; min-height: 42px; padding: 0 10px; font-weight: 600; color: var(--ink); }
+    .navbar .nav-group-btn .nav-caret { margin-left: auto; }
+    /* ".navbar .nav-sub" so these beat the desktop drop-down rules in section 9. */
+    .navbar .nav-sub,
+    .navbar .nav-group:last-child .nav-sub {
+        position: static;
+        left: auto;
+        right: auto;
+        min-width: 0;
+        padding: 0 0 4px 22px;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background: none;
+    }
+    .navbar .nav-sub a { min-height: 40px; padding: 0 10px; }
 }
 
 @media (max-width: 480px) {
@@ -939,33 +954,45 @@ main > footer { background: transparent; margin-top: 1rem; }
     .hero-figure { max-width: 280px; justify-self: start; }
 }
 
-/* ── 9. Navigation width at mid sizes ─────────────────────────────────── */
-/* Between the mobile breakpoint (760px) and the width where every label fits
-   on one line, the nav first drops the brand subtitle and tightens the link
-   padding, then shows icons only. Icon-only labels stay in the page for
-   screen readers, and each link has a title for a tooltip. The home page and
-   404.html (.nav-long, 10 links) have more links, so they switch at wider widths.
-   Breakpoints measured with Playwright (IBM Plex loaded) at 761-1500 px, as the
-   width at which brand, theme toggle (38 px) and links all keep their natural
-   size: the 8-link header needs 1065 px with labels and 1228 px in full; the
-   10-link header 1293 px and 1472 px. Each breakpoint keeps about 15 px in
-   hand. Re-measure when a link is added or renamed (an overfull header first
-   squeezes the theme toggle, so check its width, not only the last link). */
+/* ── 9. Grouped navigation (sub-menus) ───────────────────────────────── */
+/* The nav is three groups (Get started, Resources, The unit), each a button
+   that opens its links. Desktop: a drop-down panel under the button, one
+   group open at a time, opened by click or keyboard (site.js). Phones (760px
+   block below): an accordion inside the open menu. Three buttons fit the bar
+   at every desktop width, so no icon-only fallback is needed any more. */
 .navbar a { white-space: nowrap; }
-@media (min-width: 761px) and (max-width: 1243px) {
+/* Between the phone layout and 1100px the brand subtitle gives its room to the section name. */
+@media (min-width: 761px) and (max-width: 1100px) {
     .navbar .brand-text small { display: none; }
-    .navbar .nav-links a { padding: 0 8px; }
 }
-@media (min-width: 761px) and (max-width: 1079px) {
-    .nav-links .text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.nav-group { position: relative; }
+.navbar .nav-group-btn { gap: 0.45em; }
+.navbar .nav-group-btn .nav-caret { font-size: 0.7em; opacity: 0.7; transition: transform 0.15s; }
+.nav-group.open > .nav-group-btn .nav-caret { transform: rotate(180deg); }
+.navbar .nav-group.open > .nav-group-btn { background: var(--surface-2); color: var(--ink); }
+/* The group that holds the current page or section is marked like an active link. */
+.navbar .nav-group.has-active > .nav-group-btn { color: var(--accent); }
+
+.nav-sub {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    z-index: 110;
+    min-width: 220px;
+    padding: 6px;
+    flex-direction: column;
+    gap: 2px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-hover);
 }
-@media (min-width: 761px) and (max-width: 1487px) {
-    .nav-long .brand-text small { display: none; }
-    .nav-long .nav-links a { padding: 0 8px; }
-}
-@media (min-width: 761px) and (max-width: 1307px) {
-    .nav-long .nav-links .text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-}
+.nav-group:last-child .nav-sub { left: auto; right: 0; }
+.nav-group.open > .nav-sub { display: flex; }
+.navbar .nav-sub a { width: 100%; color: var(--ink); }
+.navbar .nav-sub a i { width: 1.1em; text-align: center; color: var(--muted); }
+.navbar .nav-sub a.active i { color: var(--accent); }
 
 /* ── 10. Modality guide (modalities.html) ─────────────────────────────── */
 /* All classes are prefixed mod- so they cannot clash with per-repo guide pages. */
