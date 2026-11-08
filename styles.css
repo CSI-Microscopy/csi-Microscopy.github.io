@@ -241,18 +241,12 @@ button {
 }
 .navbar .brand:hover { text-decoration: none; }
 
-.brand-mark {
-    display: inline-grid;
-    place-items: center;
-    width: 34px;
+/* The CSI logo mark (letters and leaf, without the subtitle). Its outlines
+   are black, so on the dark theme it sits on a small white tile. */
+.brand-logo {
+    display: block;
     height: 34px;
-    border-radius: 8px;
-    background: var(--accent);
-    color: var(--accent-ink);
-    font-family: var(--f-mono);
-    font-weight: 500;
-    font-size: 0.78rem;
-    letter-spacing: 0.04em;
+    width: auto;
     flex-shrink: 0;
 }
 
@@ -375,6 +369,30 @@ section:first-of-type { border-top: 0; }
     align-items: center;
     padding: clamp(2.5rem, 7vw, 5.5rem) 0;
 }
+/* Full CSI logo at the top of the home page hero. */
+.hero-logo {
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    height: auto;
+    margin: 0 0 1.25rem;
+}
+@media (max-width: 480px) { .hero-logo { max-width: 200px; } }
+
+/* Dark theme: the logo's black outlines need a white backing. */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .brand-logo { background: #fff; border-radius: 7px; padding: 3px 5px; box-sizing: content-box; height: 28px; }
+    :root:not([data-theme="light"]) .hero-logo { background: #fff; border-radius: 12px; padding: 14px 18px; }
+}
+:root[data-theme="dark"] .brand-logo { background: #fff; border-radius: 7px; padding: 3px 5px; box-sizing: content-box; height: 28px; }
+:root[data-theme="dark"] .hero-logo { background: #fff; border-radius: 12px; padding: 14px 18px; }
+@media (max-width: 760px) {
+    :root[data-theme="dark"] .navbar .brand-logo { height: 22px; }
+}
+@media (max-width: 760px) and (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .navbar .brand-logo { height: 22px; }
+}
+
 .hero p.lead {
     font-size: 1.1rem;
     color: var(--muted);
@@ -636,7 +654,7 @@ footer > p { max-width: var(--content-w); margin: 0 auto; padding: 1.5rem var(--
     .navbar .theme-toggle,
     .navbar .nav-toggle { width: 36px; min-height: 36px; }
     .navbar .brand { margin-right: 0; order: 0; gap: 8px; font-size: 1rem; }
-    .navbar .brand-mark { width: 28px; height: 28px; border-radius: 7px; font-size: 0.68rem; }
+    .navbar .brand-logo { height: 28px; }
     .brand-text small { display: none; }
 
     /* Once a section is on screen its name replaces "CSI Microscopy";

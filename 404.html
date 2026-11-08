@@ -87,6 +87,8 @@
         })();
     </script>
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
     <script>
         try { var t = localStorage.getItem('csi-theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}
     </script>
@@ -103,7 +105,7 @@
 <body>
     <nav class="navbar nav-long" aria-label="Main navigation">
         <a class="brand" href="/">
-            <span class="brand-mark" aria-hidden="true">CSI</span>
+            <img class="brand-logo" src="/assets/brand/csi-mark.png" alt="" width="177" height="120">
             <span class="brand-text">CSI Microscopy <small>Faculty of Agriculture · HUJI</small></span>
         </a>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i></button>

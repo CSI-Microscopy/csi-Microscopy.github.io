@@ -16,6 +16,11 @@
         try { var t = localStorage.getItem('csi-theme'); if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t; } catch (e) {}
     </script>
     <link rel="icon" href="{{root}}assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="{{root}}assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="{{root}}assets/apple-touch-icon.png">
+    <meta property="og:image" content="https://csi-microscopy.github.io/assets/brand/csi-og.png">
+    <meta property="og:image:alt" content="CSI, Center for Scientific Imaging, logo">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
@@ -28,7 +33,7 @@
     <!-- navbar:start (replaced at build time by the .navbar of the home site's index.html) -->
     <nav class="navbar nav-long" aria-label="Main navigation">
         <a class="brand" href="https://csi-microscopy.github.io/">
-            <span class="brand-mark" aria-hidden="true">CSI</span>
+            <img class="brand-logo" src="https://csi-microscopy.github.io/assets/brand/csi-mark.png" alt="" width="177" height="120">
             <span class="brand-text">CSI Microscopy <small>Faculty of Agriculture · HUJI</small></span>
         </a>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i></button>
