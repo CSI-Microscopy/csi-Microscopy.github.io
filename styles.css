@@ -377,11 +377,10 @@ section:first-of-type { border-top: 0; }
     height: auto;
     min-width: 0;
 }
-@media (max-width: 480px) { .hero-logo { max-width: 200px; } }
 
 /* The CSI logo with the Faculty and HUJI logos beside it, after a divider.
    They are about half the CSI logo's height, so the unit's logo leads.
-   Phones show the CSI logo alone; the parent logos are in the footer. */
+   On phones the group shrinks; below 360px the parent logos wrap under it. */
 .hero-brand {
     display: flex;
     align-items: center;
@@ -403,7 +402,21 @@ section:first-of-type { border-top: 0; }
     .hero-logo { max-width: 210px; }
     .hero-parents img { height: 70px; }
 }
-@media (max-width: 760px) { .hero-parents { display: none; } }
+@media (max-width: 760px) {
+    :root[data-theme="dark"] .hero .hero-brand { padding: 10px 12px; }
+    .hero-brand { gap: 14px; flex-wrap: wrap; }
+    .hero-logo { max-width: 180px; }
+    .hero-parents { gap: 12px; padding-left: 14px; }
+    .hero-parents img { height: 56px; }
+}
+@media (max-width: 760px) and (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .hero .hero-brand { padding: 10px 12px; }
+}
+@media (max-width: 359px) {
+    .hero-logo { max-width: 160px; }
+    .hero-parents { border-left: 0; padding-left: 0; }
+    .hero-parents img { height: 48px; }
+}
 
 /* Dark theme: the logo's black outlines need a white backing. */
 @media (prefers-color-scheme: dark) {
@@ -833,6 +846,14 @@ main > footer { background: transparent; margin-top: 1rem; }
 .instruments .i-links a + a::before { content: "·"; color: var(--muted); margin: 0 0.5rem; }
 .instruments .i-links a { white-space: nowrap; }
 .instruments .i-links .i-note { color: var(--muted); margin-left: 0.35rem; }
+.instruments li > div { min-width: 0; }
+/* Very small phones (under 360px): a narrower icon column and padding, and
+   links that may wrap, so the cards fit without sideways scrolling. */
+@media (max-width: 359px) {
+    .instruments li { grid-template-columns: 36px 1fr; gap: 12px; padding: 14px 12px; }
+    .instruments .i-icon { width: 36px; height: 36px; font-size: 1rem; }
+    .instruments .i-links a { white-space: normal; }
+}
 .team-general { margin-top: 10px; }
 .team .i-links a[href^="mailto:"] { font-family: var(--f-mono); font-size: 0.82rem; word-break: break-all; white-space: normal; }
 
