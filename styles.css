@@ -375,17 +375,47 @@ section:first-of-type { border-top: 0; }
     width: 100%;
     max-width: 260px;
     height: auto;
-    margin: 0 0 1.25rem;
+    min-width: 0;
 }
 @media (max-width: 480px) { .hero-logo { max-width: 200px; } }
+
+/* The CSI logo with the Faculty and HUJI logos beside it, after a divider.
+   They are about half the CSI logo's height, so the unit's logo leads.
+   Phones show the CSI logo alone; the parent logos are in the footer. */
+.hero-brand {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 0 1.25rem;
+}
+.hero-parents {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-left: 22px;
+    border-left: 1px solid var(--line);
+    flex-shrink: 0;
+}
+.hero-parents img { display: block; height: 84px; width: auto; }
+@media (min-width: 901px) and (max-width: 1150px) {
+    .hero-logo { max-width: 210px; }
+    .hero-parents img { height: 70px; }
+}
+@media (max-width: 760px) { .hero-parents { display: none; } }
 
 /* Dark theme: the logo's black outlines need a white backing. */
 @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) .brand-logo { background: #fff; border-radius: 7px; padding: 3px 5px; box-sizing: content-box; height: 28px; }
-    :root:not([data-theme="light"]) .hero-logo { background: #fff; border-radius: 12px; padding: 14px 18px; }
+    :root:not([data-theme="light"]) .hero-brand,
+    :root:not([data-theme="light"]) .footer-logos { background: #fff; border-radius: 12px; padding: 14px 18px; }
+    :root:not([data-theme="light"]) .hero-parents { border-left-color: #D5DBE1; }
 }
 :root[data-theme="dark"] .brand-logo { background: #fff; border-radius: 7px; padding: 3px 5px; box-sizing: content-box; height: 28px; }
-:root[data-theme="dark"] .hero-logo { background: #fff; border-radius: 12px; padding: 14px 18px; }
+:root[data-theme="dark"] .hero-brand,
+:root[data-theme="dark"] .footer-logos { background: #fff; border-radius: 12px; padding: 14px 18px; }
+:root[data-theme="dark"] .hero-parents { border-left-color: #D5DBE1; }
 @media (max-width: 760px) {
     :root[data-theme="dark"] .navbar .brand-logo { height: 22px; }
 }
@@ -625,6 +655,15 @@ footer .footer-inner {
     justify-content: space-between;
 }
 footer p { margin: 0; max-width: none; }
+/* Logo row: the CSI mark, then the Faculty and HUJI logos at the same height
+   or lower, so the unit's logo is never outweighed. */
+footer .footer-brand { flex-basis: 100%; }
+.footer-logos { display: inline-flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.footer-logos img { display: block; width: auto; height: 40px; }
+.footer-logos .fl-unit { height: 40px; }
+.footer-logos .fl-sep { width: 1px; height: 32px; background: var(--line); }
+:root[data-theme="dark"] .footer-logos .fl-sep { background: #D5DBE1; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .footer-logos .fl-sep { background: #D5DBE1; } }
 footer nav { display: flex; gap: 1.25rem; }
 footer nav a { color: var(--muted); }
 footer nav a:hover { color: var(--accent); }
